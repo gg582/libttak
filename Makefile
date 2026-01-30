@@ -1,4 +1,4 @@
-CC = gcc
+GCC = gcc
 CFLAGS = -Wall -Wextra -Werror -g -pthread -MMD -MP -Iinclude
 LDFLAGS = -pthread
 
@@ -26,6 +26,36 @@ $(LIB): $(OBJS)
 obj/%.o: src/%.c
 	@mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) -c $< -o $@
+
+# --- Installation Paths ---
+PREFIX ?= /usr/local
+LIBDIR = $(PREFIX)/lib
+INCDIR = $(PREFIX)/include
+
+# --- Installation Targets ---
+.PHONY: install
+install: $(LIB)
+	@echo "Installing libttak to $(PREFIX)..."
+	@# Create necessary directories
+	install -d $(INCDIR)/ttak
+	install -d $(LIBDIR)
+
+	@# Copy headers maintaining the directory structure
+	@# This allows #include <ttak/...> style usage
+	cp -r include/* $(INCDIR)/
+
+	@# Install the static library with secure 644 permissions
+	install -m 644 $(LIB) $(LIBDIR)/
+
+	@echo "Installation Complete!"
+
+.PHONY: uninstall
+uninstall:
+	@echo "Removing libttak from $(PREFIX)..."
+	@# Remove headers and the static library
+	rm -rf $(INCDIR)/ttak
+	rm -f $(LIBDIR)/libttak.a
+	@echo "Uninstallation complete."
 
 test: all $(TEST_BINS)
 	@for bin in $(TEST_BINS); do \

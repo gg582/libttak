@@ -19,7 +19,13 @@ void generate_computer_id(char *buf, size_t len) {
         snprintf(buf, len, "proj-ttak-yjlee-unknown");
         return;
     }
-    read(fd, machine_id, 8);
+    int res = read(fd, machine_id, 8);
+    if(res <= 0) {
+        fprintf(stderr, "[ERROR] no machine name");
+        snprintf(buf, len, "yunjin");
+        close(fd);
+        return;
+    }
     close(fd);
     machine_id[8] = '\0';
     snprintf(buf, len, "proj-ttak-yjlee-%s", machine_id);
