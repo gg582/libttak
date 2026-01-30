@@ -168,17 +168,17 @@ void ttak_mem_free(void *ptr) {
     }
     header->freed = true;
     size_t total_size = sizeof(ttak_mem_header_t) + header->size;
-    
+
     // Check pin count for delayed free
     if (__atomic_load_n(&header->pin_count, __ATOMIC_SEQ_CST) > 0) {
         // In a real implementation, we would mark it for deferred cleanup.
         // For now, we'll proceed but this is where the Pinning mechanism would act.
     }
     pthread_mutex_unlock(&header->lock);
-    
+
     __atomic_sub_fetch(&global_mem_usage, total_size, __ATOMIC_SEQ_CST);
     pthread_mutex_destroy(&header->lock);
-    
+
     if (header->is_huge) {
         munmap(header, total_size);
     } else {
@@ -190,7 +190,7 @@ void *ttak_mem_access(void *ptr, uint64_t now) {
     if (!ptr) return SAFE_NULL;
     V_HEADER(ptr);
     ttak_mem_header_t *header = GET_HEADER(ptr);
-    
+
     pthread_mutex_lock(&header->lock);
     if (header->freed || (header->expires_tick != (uint64_t)-1 && now > header->expires_tick)) {
         pthread_mutex_unlock(&header->lock);
@@ -200,13 +200,13 @@ void *ttak_mem_access(void *ptr, uint64_t now) {
         pthread_mutex_unlock(&header->lock);
         return SAFE_NULL;
     }
-    
+
     // Safe access auditing and pinning inside the lock
     ttak_atomic_inc64(&header->access_count);
     ttak_atomic_inc64(&header->pin_count);
-    
+
     pthread_mutex_unlock(&header->lock);
-    
+
     return ptr;
 }
 
@@ -223,7 +223,7 @@ void tt_autoclean_dirty_pointers(uint64_t now) {
 void **tt_inspect_dirty_pointers(uint64_t now, size_t *count_out) {
     if (!count_out || !global_ptr_map) return NULL;
     *count_out = 0;
-    
+
     pthread_mutex_lock(&global_map_lock);
     size_t cap = global_ptr_map->cap;
     void **dirty = malloc(sizeof(void *) * global_ptr_map->size);
@@ -236,7 +236,7 @@ void **tt_inspect_dirty_pointers(uint64_t now, size_t *count_out) {
         if (global_ptr_map->tbl[i].ctrl == OCCUPIED) {
             void *user_ptr = (void *)global_ptr_map->tbl[i].key;
             ttak_mem_header_t *h = (ttak_mem_header_t *)global_ptr_map->tbl[i].value;
-            if ((h->expires_tick != (uint64_t)-1 && now > h->expires_tick) || 
+            if ((h->expires_tick != (uint64_t)-1 && now > h->expires_tick) ||
                 ttak_atomic_read64(&h->access_count) > 1000000) {
                 dirty[found++] = user_ptr;
             }

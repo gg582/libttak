@@ -12,6 +12,68 @@ static limb_t *get_limbs(ttak_bigint_t *bi) {
 }
 
 /**
+ * @brief Const helper for limb access.
+ */
+static const limb_t *get_const_limbs(const ttak_bigint_t *bi) {
+    return bi->is_dynamic ? bi->data.dyn_ptr : bi->data.sso_buf;
+}
+
+/**
+ * @brief Ensures the bigint has at least the requested capacity.
+ */
+static _Bool ensure_capacity(ttak_bigint_t *bi, size_t required, uint64_t now) {
+    if (required <= bi->capacity) return true;
+    if (required > TTAK_MAX_LIMB_LIMIT) return false;
+
+    size_t old_capacity = bi->capacity;
+    size_t new_capacity = old_capacity ? old_capacity : TTAK_BIGINT_SSO_LIMIT;
+    while (new_capacity < required && new_capacity < TTAK_MAX_LIMB_LIMIT) {
+        size_t next = new_capacity * 2;
+        if (next <= new_capacity) break; // overflow guard
+        new_capacity = next;
+    }
+    if (new_capacity < required) {
+        new_capacity = required;
+    }
+    if (new_capacity > TTAK_MAX_LIMB_LIMIT) {
+        return false;
+    }
+
+    size_t new_size = new_capacity * sizeof(limb_t);
+    limb_t *new_buf = NULL;
+
+    if (bi->is_dynamic) {
+        new_buf = ttak_mem_realloc(bi->data.dyn_ptr, new_size, __TTAK_UNSAFE_MEM_FOREVER__, now);
+        if (new_buf && new_capacity > old_capacity) {
+            memset(new_buf + old_capacity, 0, (new_capacity - old_capacity) * sizeof(limb_t));
+        }
+    } else {
+        new_buf = ttak_mem_alloc(new_size, __TTAK_UNSAFE_MEM_FOREVER__, now);
+        if (new_buf) {
+            memset(new_buf, 0, new_size);
+            memcpy(new_buf, bi->data.sso_buf, bi->used * sizeof(limb_t));
+        }
+    }
+
+    if (!new_buf) return false;
+
+    bi->data.dyn_ptr = new_buf;
+    bi->is_dynamic = true;
+    bi->capacity = new_capacity;
+    return true;
+}
+
+/**
+ * @brief Trims unused high limbs.
+ */
+static void trim_unused(ttak_bigint_t *bi) {
+    limb_t *limbs = get_limbs(bi);
+    while (bi->used > 0 && limbs[bi->used - 1] == 0) {
+        bi->used--;
+    }
+}
+
+/**
  * @brief Initializes a bigint.
  */
 void ttak_bigint_init(ttak_bigint_t *bi, uint64_t now) {
@@ -88,4 +150,65 @@ void ttak_bigint_mersenne_mod(ttak_bigint_t *bi, int p, uint64_t now) {
 
         ttak_bigint_free(&high, now);
     }
+}
+
+_Bool ttak_bigint_set_u64(ttak_bigint_t *bi, uint64_t value, uint64_t now) {
+    size_t needed_limbs = value ? ((64 + 31) / 32) : 1;
+    if (!ensure_capacity(bi, needed_limbs, now)) {
+        return false;
+    }
+
+    limb_t *limbs = get_limbs(bi);
+    memset(limbs, 0, bi->capacity * sizeof(limb_t));
+
+    size_t idx = 0;
+    while (value) {
+        limbs[idx++] = (limb_t)(value & 0xFFFFFFFFu);
+        value >>= 32;
+    }
+
+    bi->used = idx;
+    bi->is_negative = false;
+    if (bi->used == 0) {
+        /* Normalize zero representation */
+        bi->used = 0;
+    }
+    return true;
+}
+
+_Bool ttak_bigint_add(ttak_bigint_t *dst, const ttak_bigint_t *lhs, const ttak_bigint_t *rhs, uint64_t now) {
+    size_t max_used = lhs->used > rhs->used ? lhs->used : rhs->used;
+    size_t needed = max_used + 1;
+    if (!ensure_capacity(dst, needed ? needed : 1, now)) {
+        return false;
+    }
+
+    limb_t *dst_limbs = get_limbs(dst);
+    const limb_t *lhs_limbs = get_const_limbs(lhs);
+    const limb_t *rhs_limbs = get_const_limbs(rhs);
+
+    uint64_t carry = 0;
+    size_t i = 0;
+    for (; i < needed; ++i) {
+        uint64_t accum = carry;
+        if (i < lhs->used) accum += lhs_limbs[i];
+        if (i < rhs->used) accum += rhs_limbs[i];
+        dst_limbs[i] = (limb_t)(accum & 0xFFFFFFFFu);
+        carry = accum >> 32u;
+    }
+
+    if (carry) {
+        if (!ensure_capacity(dst, needed + 1, now)) {
+            return false;
+        }
+        dst_limbs = get_limbs(dst);
+        dst_limbs[needed] = (limb_t)carry;
+        dst->used = needed + 1;
+    } else {
+        dst->used = needed;
+    }
+
+    trim_unused(dst);
+    dst->is_negative = false;
+    return true;
 }

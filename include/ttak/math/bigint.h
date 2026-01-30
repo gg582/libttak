@@ -45,4 +45,20 @@ void ttak_bigint_mersenne_mod(ttak_bigint_t *bi, int p, uint64_t now);
  */
 void ttak_bigint_free(ttak_bigint_t *bi, uint64_t now);
 
+/**
+ * @brief Assigns an unsigned 64-bit value to the bigint.
+ *
+ * @return true on success, false on allocation failure.
+ */
+_Bool ttak_bigint_set_u64(ttak_bigint_t *bi, uint64_t value, uint64_t now);
+
+/**
+ * @brief Adds two non-negative bigints: dst = lhs + rhs.
+ *
+ * The destination must be initialized. Sign handling is limited to positive inputs.
+ *
+ * @return true on success, false on allocation failure.
+ */
+_Bool ttak_bigint_add(ttak_bigint_t *dst, const ttak_bigint_t *lhs, const ttak_bigint_t *rhs, uint64_t now);
+
 #endif // TTAK_MATH_BIGINT_H

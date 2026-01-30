@@ -16,8 +16,9 @@
 #include <unistd.h>
 #include <ctype.h>
 
-#define STATE_FILE "found_mersenne.json"
-#define STATE_FILE_TMP "found_mersenne.json.tmp"
+#define STATE_DIR "/home/yjlee/Documents"
+#define STATE_FILE STATE_DIR "/found_mersenne.json"
+#define STATE_FILE_TMP STATE_DIR "/found_mersenne.json.tmp"
 
 #define MAX_ID_LEN 64
 #define TASK_QUEUE_CAPACITY 128
@@ -27,6 +28,16 @@
 #define PERSIST_BATCH 4
 #define PERSIST_INTERVAL_NS 500000000ULL
 #define CANCEL_CHECK_MASK 0xFFu
+
+static void ensure_state_dir(void) {
+    struct stat st;
+    if (stat(STATE_DIR, &st) == 0) {
+        if (S_ISDIR(st.st_mode)) return;
+    }
+    if (mkdir(STATE_DIR, 0755) != 0 && errno != EEXIST) {
+        fprintf(stderr, "Failed to ensure %s exists: %s\n", STATE_DIR, strerror(errno));
+    }
+}
 
 typedef enum {
     TASK_STATE_CREATED = 0,
@@ -682,6 +693,7 @@ static bool json_read_string(const char *json, const char *key, char *out, size_
 }
 
 static bool persistence_load(persistence_ctx_t *ctx, const char *path) {
+    ensure_state_dir();
     FILE *f = fopen(path, "rb");
     if (!f) return false;
     if (fseek(f, 0, SEEK_END) != 0) {
@@ -758,6 +770,7 @@ static bool persistence_load(persistence_ctx_t *ctx, const char *path) {
 }
 
 static bool persistence_flush(persistence_ctx_t *ctx, const char *path, uint32_t started_value) {
+    ensure_state_dir();
     FILE *tmp = fopen(STATE_FILE_TMP, "w");
     if (!tmp) {
         fprintf(stderr, "Failed to open temp state file: %s\n", strerror(errno));
