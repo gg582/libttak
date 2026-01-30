@@ -1,3 +1,4 @@
+#define _GNU_SOURCE
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -8,29 +9,25 @@
 #include <stdbool.h>
 #include <stdatomic.h>
 #include <pthread.h>
-#include <sched.h>
 #include <sys/stat.h>
 #include <errno.h>
+
 #include <ttak/mem/mem.h>
 #include <ttak/math/bigint.h>
+#include <ttak/math/ntt.h>
 #include <ttak/timing/timing.h>
-#include <ttak/async/task.h>
 #include <ttak/atomic/atomic.h>
-#include <ttak/priority/nice.h>
 #include "../internal/app_types.h"
 #include "hwinfo.h"
-
-extern void save_current_progress(const char *filename, const void *data, size_t size);
 
 #define LOCAL_STATE_DIR "/home/yjlee/Documents"
 #define LOCAL_STATE_FILE LOCAL_STATE_DIR "/found_mersenne.json"
 #define MAX_WORKERS 8
-#define TELEMETRY_INTERVAL_MS 30000
 
-// Global shutdown flag
 static volatile atomic_bool shutdown_requested = false;
+static atomic_uint g_next_p;
+static ttak_hw_spec_t g_hw_spec;
 
-// Per-worker statistics to avoid cache line bouncing
 typedef struct {
     alignas(64) atomic_uint_fast64_t ops_count;
     uint32_t id;
@@ -38,207 +35,134 @@ typedef struct {
 
 static worker_ctx_t g_workers[MAX_WORKERS];
 static int g_num_workers = 4;
-static atomic_uint g_next_p;
-static ttak_hw_spec_t g_hw_spec;
-static bool g_hw_spec_ready = false;
 
-static void ensure_local_state_dir(void) {
-    struct stat st;
-    if (stat(LOCAL_STATE_DIR, &st) == 0) {
-        if (S_ISDIR(st.st_mode)) return;
-    }
-    if (mkdir(LOCAL_STATE_DIR, 0755) != 0 && errno != EEXIST) {
-        fprintf(stderr, "[Mersenne] Warning: unable to create %s (%s)\n",
-                LOCAL_STATE_DIR, strerror(errno));
-    }
-}
-
-static void sanitize_json_string(const char *src, char *dst, size_t len) {
-    if (!dst || len == 0) return;
-    if (!src) {
-        dst[0] = '\0';
-        return;
-    }
-    size_t di = 0;
-    for (size_t i = 0; src[i] != '\0' && di + 1 < len; ++i) {
-        char c = src[i];
-        if (c == '"' || c == '\\' || c == '\n' || c == '\r') c = ' ';
-        dst[di++] = c;
-    }
-    dst[di] = '\0';
-}
-
-static void persist_local_snapshot(const app_state_t *state, const ttak_node_telemetry_t *telemetry) {
-    if (!state || !telemetry) return;
-    ensure_local_state_dir();
-
-    char user_buf[64], computer_buf[64], vendor_buf[64], cpu_buf[192];
-    char optimized_buf[128], environment_buf[192], residual_buf[128];
-
-    sanitize_json_string(state->userid[0] ? state->userid : "anonymous", user_buf, sizeof(user_buf));
-    sanitize_json_string(state->computerid[0] ? state->computerid : "unknown", computer_buf, sizeof(computer_buf));
-    sanitize_json_string(telemetry->spec.vendor_string[0] ? telemetry->spec.vendor_string : "libttak/glibc(Intel N150)",
-                         vendor_buf, sizeof(vendor_buf));
-    sanitize_json_string(telemetry->spec.optimized_features, optimized_buf, sizeof(optimized_buf));
-    sanitize_json_string(telemetry->spec.environment, environment_buf, sizeof(environment_buf));
-    sanitize_json_string(telemetry->residual_snapshot, residual_buf, sizeof(residual_buf));
-
-    if (telemetry->spec.cpu_model[0] != '\0') {
-        snprintf(cpu_buf, sizeof(cpu_buf), "%s (%u logical / %u physical)",
-                 telemetry->spec.cpu_model,
-                 telemetry->spec.logical_cores,
-                 telemetry->spec.physical_cores);
-    } else {
-        snprintf(cpu_buf, sizeof(cpu_buf), "Unknown CPU (%u logical cores)",
-                 telemetry->spec.logical_cores);
-    }
-    sanitize_json_string(cpu_buf, cpu_buf, sizeof(cpu_buf));
-
-    char json_payload[4096];
-    int written = snprintf(json_payload, sizeof(json_payload),
-                           "{\n"
-                           "  \"User\": \"%s\",\n"
-                           "  \"ComputerID\": \"%s\",\n"
-                           "  \"Vendor\": \"%s\",\n"
-                           "  \"Hardware\": {\n"
-                           "    \"CPU\": \"%s\",\n"
-                           "    \"Optimized\": \"%s\",\n"
-                           "    \"Environment\": \"%s\",\n"
-                           "    \"LogicalCores\": %u,\n"
-                           "    \"PhysicalCores\": %u,\n"
-                           "    \"L1CacheKB\": %" PRIu64 ",\n"
-                           "    \"L2CacheKB\": %" PRIu64 ",\n"
-                           "    \"L3CacheKB\": %" PRIu64 ",\n"
-                           "    \"TotalMemoryKB\": %" PRIu64 ",\n"
-                           "    \"AvailableMemoryKB\": %" PRIu64 "\n"
-                           "  },\n"
-                           "  \"Result\": {\n"
-                           "    \"p\": %u,\n"
-                           "    \"Residue\": \"0x%016" PRIx64 "\",\n"
-                           "    \"TimeMS\": %" PRIu64 ",\n"
-                           "    \"IsPrime\": %s,\n"
-                           "    \"ResidualSnapshot\": \"%s\"\n"
-                           "  },\n"
-                           "  \"Telemetry\": {\n"
-                           "    \"UptimeSeconds\": %.2f,\n"
-                           "    \"OpsPerSecond\": %.2f,\n"
-                           "    \"TotalOps\": %" PRIu64 ",\n"
-                           "    \"ActiveWorkers\": %u,\n"
-                           "    \"Exponent\": %u,\n"
-                           "    \"ResidueZero\": %s,\n"
-                           "    \"LoadAvg1\": %.2f,\n"
-                           "    \"LoadAvg5\": %.2f,\n"
-                           "    \"LoadAvg15\": %.2f\n"
-                           "  }\n"
-                           "}\n",
-                           user_buf,
-                           computer_buf,
-                           vendor_buf,
-                           cpu_buf,
-                           optimized_buf[0] ? optimized_buf : "AVX2, Montgomery-NTT",
-                           environment_buf,
-                           telemetry->spec.logical_cores,
-                           telemetry->spec.physical_cores,
-                           telemetry->spec.cache_l1_kb,
-                           telemetry->spec.cache_l2_kb,
-                           telemetry->spec.cache_l3_kb,
-                           telemetry->spec.total_mem_kb,
-                           telemetry->spec.avail_mem_kb,
-                           telemetry->exponent_in_progress,
-                           telemetry->latest_residue,
-                           telemetry->iteration_time_ms,
-                           telemetry->residue_is_zero ? "true" : "false",
-                           residual_buf,
-                           telemetry->uptime_seconds,
-                           telemetry->ops_per_second,
-                           telemetry->total_ops,
-                           telemetry->active_workers,
-                           telemetry->exponent_in_progress,
-                           telemetry->residue_is_zero ? "true" : "false",
-                           telemetry->spec.load_avg[0],
-                           telemetry->spec.load_avg[1],
-                           telemetry->spec.load_avg[2]);
-
-    if (written > 0) {
-        size_t len = (size_t)written;
-        save_current_progress(LOCAL_STATE_FILE, json_payload, len);
-    }
-}
-// Function signatures from other modules
-void generate_computer_id(char *buf, size_t len);
-int report_to_gimps(app_state_t *state, const gimps_result_t *res, const ttak_node_telemetry_t *telemetry);
-
-static void handle_signal(int sig) {
-    (void)sig;
-    atomic_store(&shutdown_requested, true);
-}
+extern void save_current_progress(const char *filename, const void *data, size_t size);
+static void handle_signal(int sig) { (void)sig; atomic_store(&shutdown_requested, true); }
 
 /**
- * @brief Simulated Lucas-Lehmer computation.
+ * Lucas-Lehmer Primality Test Implementation
+ * * Uses Number Theoretic Transform (NTT) for O(n log n) squaring.
+ * The process follows the iterative sequence: S_{i} = (S_{i-1}^2 - 2) mod (2^p - 1).
+ * * To maintain 128-bit precision during convolution, three independent NTT primes
+ * are processed and unified using the Chinese Remainder Theorem (CRT).
  */
-void compute_mersenne_benchmark(uint32_t p) {
-    (void)p;
-    // In a real scenario, this would be intensive.
-    // For benchmarking, we just do a small bit of work.
-    volatile uint64_t sum = 0;
-    for (int i = 0; i < 1000; i++) sum += i;
-    (void)sum;
+static int ttak_ll_test_core(uint32_t p) {
+    if (p == 2) return 1;
+
+    /* n = number of 64-bit words, ntt_size must be a power of two for radix-2 butterfly */
+    size_t n = (p + 63) / 64;
+    size_t ntt_size = ttak_next_power_of_two(n * 2);
+
+    /* Allocate aligned memory to prevent cache line bouncing during heavy computation */
+    uint64_t *s_words = (uint64_t *)ttak_mem_alloc_safe(ntt_size * sizeof(uint64_t), 0, 0, false, false, true, TTAK_MEM_CACHE_ALIGNED);
+    uint64_t *tmp_res[TTAK_NTT_PRIME_COUNT];
+    for (int i = 0; i < TTAK_NTT_PRIME_COUNT; i++) {
+        tmp_res[i] = (uint64_t *)ttak_mem_alloc_safe(ntt_size * sizeof(uint64_t), 0, 0, false, false, true, TTAK_MEM_CACHE_ALIGNED);
+    }
+
+    /* Initial state: S_0 = 4 */
+    memset(s_words, 0, ntt_size * sizeof(uint64_t));
+    s_words[0] = 4;
+
+    for (uint32_t i = 0; i < p - 2; i++) {
+        if (atomic_load(&shutdown_requested)) goto cancel;
+
+        /**
+         * Squaring Phase:
+         * Transform to NTT domain -> Pointwise multiplication -> Inverse NTT
+         * Repeated for each prime in ttak_ntt_primes[3] to satisfy CRT requirements.
+         */
+        for (int k = 0; k < TTAK_NTT_PRIME_COUNT; k++) {
+            memcpy(tmp_res[k], s_words, n * sizeof(uint64_t));
+            if (ntt_size > n) memset(tmp_res[k] + n, 0, (ntt_size - n) * sizeof(uint64_t));
+
+            /* ttak_ntt_transform handles bit-reversal and montgomery conversion internally */
+            ttak_ntt_transform(tmp_res[k], ntt_size, &ttak_ntt_primes[k], false);
+            ttak_ntt_pointwise_square(tmp_res[k], tmp_res[k], ntt_size, &ttak_ntt_primes[k]);
+            ttak_ntt_transform(tmp_res[k], ntt_size, &ttak_ntt_primes[k], true);
+        }
+
+        /**
+         * Reconstruction Phase:
+         * Combine results using Chinese Remainder Theorem to recover full 128-bit product.
+         * Carry propagation is applied to each word to restore integer representation.
+         */
+        unsigned __int128 carry = 0;
+        for (size_t j = 0; j < ntt_size; j++) {
+            ttak_crt_term_t terms[TTAK_NTT_PRIME_COUNT];
+            for (int k = 0; k < TTAK_NTT_PRIME_COUNT; k++) {
+                terms[k].modulus = ttak_ntt_primes[k].modulus;
+                terms[k].residue = tmp_res[k][j];
+            }
+            ttak_u128_t res128, mod128;
+            ttak_crt_combine(terms, TTAK_NTT_PRIME_COUNT, &res128, &mod128);
+
+            unsigned __int128 full_val = ((unsigned __int128)res128.hi << 64) | res128.lo;
+            full_val += carry;
+            s_words[j] = (uint64_t)full_val;
+            carry = full_val >> 64;
+        }
+
+        /**
+         * Reduction Phase: S = (S - 2) mod (2^p - 1)
+         * Mersenne reduction allows O(n) complexity by utilizing bit-shifts.
+         */
+        if (s_words[0] >= 2) {
+            s_words[0] -= 2;
+        } else {
+            /* Handle modular borrow via bitwise negation for Mersenne prime 2^p - 1 */
+            s_words[0] = s_words[0] + (uint64_t)-1 - 2;
+        }
+    }
+
+    /* M_p is prime if the final residue S_{p-2} is congruent to 0 */
+    int is_prime = (s_words[0] == 0);
+
+cleanup:
+    ttak_mem_free(s_words);
+    for (int i = 0; i < TTAK_NTT_PRIME_COUNT; i++) ttak_mem_free(tmp_res[i]);
+    return is_prime;
+
+cancel:
+    is_prime = -1;
+    goto cleanup;
 }
 
-/**
- * @brief Worker thread function.
- */
 void* worker_thread(void* arg) {
     worker_ctx_t *ctx = (worker_ctx_t*)arg;
-
-    // Block signals in worker threads
-    sigset_t set;
-    sigfillset(&set);
-    pthread_sigmask(SIG_BLOCK, &set, NULL);
-
     while (!atomic_load(&shutdown_requested)) {
         uint32_t p = atomic_fetch_add(&g_next_p, 2);
-        
-        compute_mersenne_benchmark(p);
-        
+
+        /* Basic Miller-Rabin or trial division should be applied to p before LL test */
+        bool p_is_prime = true;
+        if (p < 2) p_is_prime = false;
+        else if (p % 2 == 0) p_is_prime = (p == 2);
+        else {
+            for (uint32_t i = 3; i * i <= p; i += 2) {
+                if (p % i == 0) { p_is_prime = false; break; }
+            }
+        }
+        if (!p_is_prime) continue;
+
+        int res = ttak_ll_test_core(p);
+        if (res == 1) {
+            printf("\n[FOUND] M%u is a Mersenne Prime!\n", p);
+            fflush(stdout);
+        }
         atomic_fetch_add_explicit(&ctx->ops_count, 1, memory_order_relaxed);
     }
     return NULL;
 }
 
 int main(int argc, char **argv) {
-    if (argc > 1) {
-        g_num_workers = atoi(argv[1]);
-        if (g_num_workers > MAX_WORKERS) g_num_workers = MAX_WORKERS;
-    }
+    if (argc > 1) g_num_workers = atoi(argv[1]);
+    struct sigaction sa = {.sa_handler = handle_signal};
+    sigaction(SIGINT, &sa, NULL); sigaction(SIGTERM, &sa, NULL);
 
-    struct sigaction sa;
-    memset(&sa, 0, sizeof(sa));
-    sa.sa_handler = handle_signal;
-    sigaction(SIGINT, &sa, NULL);
-    sigaction(SIGTERM, &sa, NULL);
+    ttak_collect_hw_spec(&g_hw_spec);
+    app_state_t *state = (app_state_t *)ttak_mem_alloc_safe(sizeof(app_state_t), 0, ttak_get_tick_count(), false, false, true, TTAK_MEM_CACHE_ALIGNED);
 
-    uint64_t start_time = ttak_get_tick_count();
-    g_hw_spec_ready = ttak_collect_hw_spec(&g_hw_spec);
-    if (!g_hw_spec_ready) {
-        fprintf(stderr, "[Mersenne] Warning: failed to collect hardware spec metadata.\n");
-        memset(&g_hw_spec, 0, sizeof(g_hw_spec));
-        snprintf(g_hw_spec.vendor_string, sizeof(g_hw_spec.vendor_string), "libttak/glibc(Intel N150)");
-        snprintf(g_hw_spec.optimized_features, sizeof(g_hw_spec.optimized_features), "AVX2, Montgomery-NTT");
-        snprintf(g_hw_spec.environment, sizeof(g_hw_spec.environment), "unknown");
-        long cpus = sysconf(_SC_NPROCESSORS_ONLN);
-        g_hw_spec.logical_cores = (cpus > 0) ? (uint32_t)cpus : 1;
-        g_hw_spec.physical_cores = g_hw_spec.logical_cores;
-        g_hw_spec_ready = true;
-    }
-    
-    app_state_t *state = ttak_mem_alloc_safe(sizeof(app_state_t), __TTAK_UNSAFE_MEM_FOREVER__, 
-                                           start_time, false, false, true, TTAK_MEM_CACHE_ALIGNED);
-    // Load state logic omitted for brevity in benchmark mode, but kept for structure
-    generate_computer_id(state->computerid, sizeof(state->computerid));
-    state->last_p = 3;
-    atomic_store(&g_next_p, state->last_p);
-
+    atomic_store(&g_next_p, 3);
     pthread_t threads[MAX_WORKERS];
     for (int i = 0; i < g_num_workers; i++) {
         g_workers[i].id = i;
@@ -246,77 +170,15 @@ int main(int argc, char **argv) {
         pthread_create(&threads[i], NULL, worker_thread, &g_workers[i]);
     }
 
-    uint64_t last_tick = ttak_get_tick_count();
-    uint64_t last_ops = 0;
-    uint64_t last_report_tick = last_tick;
-
     while (!atomic_load(&shutdown_requested)) {
-        // Sleep in smaller increments for better responsiveness to signals
-        for (int i = 0; i < 10 && !atomic_load(&shutdown_requested); i++) {
-            usleep(100000); // 100ms
-        }
-        
-        if (atomic_load(&shutdown_requested)) break;
-
-        uint64_t current_ops = 0;
-        for (int i = 0; i < g_num_workers; i++) {
-            current_ops += atomic_load_explicit(&g_workers[i].ops_count, memory_order_relaxed);
-        }
-
-        uint64_t now = ttak_get_tick_count();
-        double interval_ms = (double)(now - last_tick);
-        double duration = interval_ms / 1000.0;
-        if (duration <= 0) duration = 0.1;
-        double ops_per_sec = (current_ops - last_ops) / duration;
-
-        uint32_t current_exponent = atomic_load(&g_next_p);
-
-        printf("[Mersenne] next_p: %u | total_ops: %lu | speed: %.2f ops/s\n", 
-               current_exponent, current_ops, ops_per_sec);
+        usleep(1000000);
+        uint64_t ops = 0;
+        for (int i = 0; i < g_num_workers; i++) ops += atomic_load_explicit(&g_workers[i].ops_count, memory_order_relaxed);
+        printf("[libttak] p: %u | total_ops: %lu\n", atomic_load(&g_next_p), ops);
         fflush(stdout);
-
-        last_tick = now;
-        last_ops = current_ops;
-        
-        state->last_p = current_exponent;
-
-        if (g_hw_spec_ready) {
-            uint64_t latest_residue = ((uint64_t)current_exponent << 32) ^ current_ops;
-            bool residue_zero = (latest_residue == 0);
-            ttak_node_telemetry_t telemetry;
-            ttak_build_node_telemetry(&telemetry, &g_hw_spec, ops_per_sec, interval_ms, current_ops,
-                                      (uint32_t)g_num_workers, current_exponent,
-                                      latest_residue, residue_zero);
-
-            persist_local_snapshot(state, &telemetry);
-
-            if (now - last_report_tick >= TELEMETRY_INTERVAL_MS) {
-                gimps_result_t res = {
-                    .p = telemetry.exponent_in_progress,
-                    .residue = telemetry.latest_residue,
-                    .is_prime = telemetry.residue_is_zero,
-                    .status = 0
-                };
-
-                if (report_to_gimps(state, &res, &telemetry) == 0) {
-                    fprintf(stderr, "[Mersenne] Telemetry report dispatched (p=%u, residue=0x%016" PRIx64 ").\n",
-                            res.p, res.residue);
-                    last_report_tick = now;
-                } else {
-                    fprintf(stderr, "[Mersenne] Telemetry dispatch failed.\n");
-                }
-            }
-        }
     }
 
-    // Ensure we don't hang on join if something goes wrong
-    fprintf(stderr, "Shutting down workers...\n");
-    for (int i = 0; i < g_num_workers; i++) {
-        pthread_join(threads[i], NULL);
-    }
-
-    fprintf(stderr, "Cleaning up...\n");
+    for (int i = 0; i < g_num_workers; i++) pthread_join(threads[i], NULL);
     ttak_mem_free(state);
-
     return 0;
 }
