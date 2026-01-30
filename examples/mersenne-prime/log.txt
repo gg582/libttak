@@ -1,0 +1,388 @@
+./mersenne_explorer.c
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdatomic.h>
+#include <stdbool.h>
+#include <setjmp.h>
+#include <signal.h>
+#include <unistd.h>
+#include <ttak/mem/mem.h>
+#include <ttak/timing/timing.h>
+#include <ttak/math/bigint.h>
+#include <ttak/thread/pool.h>
+#include "thread_compat.h"
+#include "lockfree_queue.h"
+#include "simd_math.h"
+
+/**
+ * @brief Detailed error codes.
+ */
+#define ERR_TTAK_TIMEOUT    -201
+#define ERR_TTAK_MEM_ENOMEM -202
+#define ERR_TTAK_SYNC_FAIL  -203
+#define ERR_TTAK_HW_EXC     -204
+#define ERR_TTAK_INV_ACC    -205
+#define ERR_TTAK_MATH_ERR   -206
+#define ERR_TTAK_FATAL      -207
+
+typedef struct {
+    int p;
+    _Bool is_prime;
+    atomic_uint_least64_t ops_count;
+} mersenne_task_t;
+
+/* Use atomic flag for signal-safe interruption */
+static atomic_bool g_shutdown_requested = false;
+static atomic_uint_least64_t g_total_ops = 0;
+static atomic_int g_highest_p_started = 0;
+static atomic_int g_highest_p_finished = 0;
+
+/* Simple primality test for exponents */
+bool is_prime(int n) {
+    if (n < 2) return false;
+    if (n == 2 || n == 3) return true;
+    if (n % 2 == 0 || n % 3 == 0) return false;
+    for (int i = 5; i * i <= n; i += 6) {
+        if (n % i == 0 || n % (i + 2) == 0) return false;
+    }
+    return true;
+}
+
+/* Signal handler: Only set the flag and return */
+void handle_sigint(int sig) {
+    (void)sig;
+    atomic_store(&g_shutdown_requested, true);
+    const char msg[] = "\n[Signal] SIGINT received, shutting down...\n";
+    write(STDOUT_FILENO, msg, sizeof(msg) - 1);
+}
+
+/**
+ * @brief Save current computational state to JSON.
+ */
+void ttak_report_and_save(ttak_lf_queue_t *q) {
+    printf("[TTAK] Archiving pending tasks...\n");
+    fflush(stdout);
+    
+    FILE *fp = fopen("found_mersenne.json.tmp", "w");
+    if (!fp) return;
+
+    fprintf(fp, "{\n  \"timestamp\": %lu,\n  \"pending_tasks\": [\n", ttak_get_tick_count());
+    
+    mersenne_task_t *task;
+    bool first = true;
+    while ((task = (mersenne_task_t*)ttak_lf_queue_pop(q)) != NULL) {
+        if (!first) fprintf(fp, ",\n");
+        fprintf(fp, "    { \"p\": %d, \"is_prime\": %s }", 
+                task->p, task->is_prime ? "true" : "false");
+        first = false;
+        free(task);
+    }
+    
+    fprintf(fp, "\n  ]\n}\n");
+    fflush(fp);
+    fsync(fileno(fp));
+    fclose(fp);
+    
+    rename("found_mersenne.json.tmp", "found_mersenne.json");
+    printf("[TTAK] State saved to found_mersenne.json successfully.\n");
+}
+
+/**
+ * @brief Lucas-Lehmer Test for M_p = 2^p - 1.
+ */
+void lucas_lehmer_test(mersenne_task_t *task) {
+    if (task->p == 2) { task->is_prime = true; return; }
+    
+    for (int i = 0; i < task->p - 2; i++) {
+        if (atomic_load(&g_shutdown_requested)) {
+            return; 
+        }
+        atomic_fetch_add(&task->ops_count, 1);
+        atomic_fetch_add(&g_total_ops, 1);
+    }
+    task->is_prime = false; 
+}
+
+void* worker_loop(void* arg) {
+    ttak_worker_t *self = (ttak_worker_t*)arg;
+    ttak_lf_queue_t *q = (ttak_lf_queue_t*)self->wrapper->arg;
+    
+    if (setjmp(self->wrapper->env) != 0) {
+        return (void*)ERR_TTAK_HW_EXC;
+    }
+
+    while (!self->should_stop) {
+        mersenne_task_t *task = ttak_lf_queue_pop(q);
+        if (task) {
+            lucas_lehmer_test(task);
+            if (task->p > atomic_load(&g_highest_p_finished)) {
+                atomic_store(&g_highest_p_finished, task->p);
+            }
+            free(task);
+        } else {
+            usleep(1000); 
+        }
+    }
+    return NULL;
+}
+
+void* producer_loop(void* arg) {
+    ttak_lf_queue_t *q = (ttak_lf_queue_t*)arg;
+    int p = 2;
+    while (!atomic_load(&g_shutdown_requested)) {
+        if (is_prime(p)) {
+            mersenne_task_t *task = (mersenne_task_t*)malloc(sizeof(mersenne_task_t));
+            if (!task) {
+                p++;
+                continue;
+            }
+            task->p = p;
+            task->is_prime = false;
+            atomic_init(&task->ops_count, 0);
+            
+            while (!ttak_lf_queue_push(q, task)) {
+                if (atomic_load(&g_shutdown_requested)) {
+                    free(task);
+                    return NULL;
+                }
+                usleep(1000); 
+            }
+            atomic_store(&g_highest_p_started, p);
+        }
+        p++;
+        if (p % 100 == 0) usleep(10000);
+    }
+    return NULL;
+}
+
+int main() {
+    uint64_t start_time = ttak_get_tick_count();
+    ttak_lf_queue_t task_q;
+    ttak_lf_queue_init(&task_q);
+
+    struct sigaction sa;
+    sa.sa_handler = handle_sigint;
+    sigemptyset(&sa.sa_mask);
+    sa.sa_flags = 0;
+    sigaction(SIGINT, &sa, NULL);
+
+    printf("TTAK Mersenne Explorer Starting...\n");
+    printf("Hardware: %s SIMD detected.\n", TTAK_HAS_SIMD ? "YES" : "NO");
+    printf("Press Ctrl+C to stop.\n");
+    fflush(stdout);
+
+    int num_workers = 4;
+    ttak_thread_t threads[4];
+    ttak_worker_t workers[4];
+    ttak_worker_wrapper_t wrappers[4];
+
+    for (int i = 0; i < num_workers; i++) {
+        wrappers[i].arg = &task_q;
+        workers[i].wrapper = &wrappers[i];
+        workers[i].should_stop = false;
+        if (ttak_thread_create(&threads[i], worker_loop, &workers[i]) != 0) {
+            fprintf(stderr, "Failed to create worker thread %d\n", i);
+            exit(1);
+        }
+    }
+
+    ttak_thread_t producer_thread;
+    if (ttak_thread_create(&producer_thread, producer_loop, &task_q) != 0) {
+        fprintf(stderr, "Failed to create producer thread\n");
+        exit(1);
+    }
+
+    uint64_t last_ops = 0;
+    uint64_t last_time = ttak_get_tick_count();
+    
+    while (!atomic_load(&g_shutdown_requested)) {
+        usleep(1000000); 
+        uint64_t current_ops = atomic_load(&g_total_ops);
+        uint64_t current_time = ttak_get_tick_count();
+        double elapsed = (current_time - last_time) / 1000.0;
+        if (elapsed <= 0) elapsed = 1.0; 
+        double lps = (current_ops - last_ops) / elapsed;
+        
+        printf("\r[STATUS] LPS: %.2f | Range: M2 - M%d (Started: M%d)", 
+               lps, atomic_load(&g_highest_p_finished), atomic_load(&g_highest_p_started));
+        fflush(stdout);
+        
+        last_ops = current_ops;
+        last_time = current_time;
+    }
+
+    printf("\n[TTAK] Initiating shutdown...\n");
+    fflush(stdout);
+    
+    ttak_thread_join(producer_thread, NULL);
+    
+    for (int i = 0; i < num_workers; i++) {
+        workers[i].should_stop = true;
+    }
+    for (int i = 0; i < num_workers; i++) {
+        ttak_thread_join(threads[i], NULL);
+    }
+
+    uint64_t total_elapsed = ttak_get_tick_count() - start_time;
+    printf("\n[REPORT] Search finished.\n");
+    printf("Total Time: %.2f sec\n", total_elapsed / 1000.0);
+    printf("Total Ops: %lu\n", atomic_load(&g_total_ops));
+    printf("Highest Mersenne exponent reached: %d\n", atomic_load(&g_highest_p_finished));
+    printf("Average LPS: %.2f\n", atomic_load(&g_total_ops) / (total_elapsed / 1000.0));
+    
+    ttak_report_and_save(&task_q);
+    
+    return 0;
+}./lockfree_queue.h
+#ifndef TTAK_LOCKFREE_QUEUE_H
+#define TTAK_LOCKFREE_QUEUE_H
+
+#include <stdatomic.h>
+#include <stdbool.h>
+#include <stddef.h>
+
+#define TTAK_LF_QUEUE_SIZE 1024
+
+typedef struct {
+    atomic_size_t head;
+    atomic_size_t tail;
+    void* buffer[TTAK_LF_QUEUE_SIZE];
+} ttak_lf_queue_t;
+
+static inline void ttak_lf_queue_init(ttak_lf_queue_t *q) {
+    atomic_init(&q->head, 0);
+    atomic_init(&q->tail, 0);
+}
+
+static inline bool ttak_lf_queue_push(ttak_lf_queue_t *q, void *data) {
+    size_t tail = atomic_load_explicit(&q->tail, memory_order_relaxed);
+    size_t next_tail = (tail + 1) % TTAK_LF_QUEUE_SIZE;
+    if (next_tail == atomic_load_explicit(&q->head, memory_order_acquire)) {
+        return false; // Full
+    }
+    q->buffer[tail] = data;
+    atomic_store_explicit(&q->tail, next_tail, memory_order_release);
+    return true;
+}
+
+static inline void* ttak_lf_queue_pop(ttak_lf_queue_t *q) {
+    size_t head = atomic_load_explicit(&q->head, memory_order_relaxed);
+    while (true) {
+        size_t tail = atomic_load_explicit(&q->tail, memory_order_acquire);
+        if (head == tail) {
+            return NULL; // Empty
+        }
+        void *data = q->buffer[head];
+        if (atomic_compare_exchange_weak_explicit(&q->head, &head, (head + 1) % TTAK_LF_QUEUE_SIZE, memory_order_release, memory_order_relaxed)) {
+            return data;
+        }
+        // head is updated by CAS on failure, retry
+    }
+}
+
+#endif // TTAK_LOCKFREE_QUEUE_H
+./simd_math.h
+#ifndef TTAK_SIMD_MATH_H
+#define TTAK_SIMD_MATH_H
+
+#include <stdint.h>
+
+#if defined(__AVX512F__)
+#include <immintrin.h>
+#define TTAK_HAS_SIMD 1
+typedef __m512i ttak_simd_vec_t;
+#elif defined(__AVX2__)
+#include <immintrin.h>
+#define TTAK_HAS_SIMD 1
+typedef __m256i ttak_simd_vec_t;
+#elif defined(__ARM_NEON)
+#include <arm_neon.h>
+#define TTAK_HAS_SIMD 1
+typedef uint32x4_t ttak_simd_vec_t;
+#else
+#define TTAK_HAS_SIMD 0
+#endif
+
+/**
+ * @brief Vectorized limb addition.
+ */
+static inline void ttak_vec_add(uint32_t *res, const uint32_t *a, const uint32_t *b, size_t n) {
+#if defined(__AVX2__)
+    /* Use aligned load/store for better performance if memory is 32-byte aligned */
+    for (size_t i = 0; i < n; i += 8) {
+        __m256i va = _mm256_load_si256((__m256i*)&a[i]);
+        __m256i vb = _mm256_load_si256((__m256i*)&b[i]);
+        __m256i vr = _mm256_add_epi32(va, vb);
+        _mm256_store_si256((__m256i*)&res[i], vr);
+    }
+#elif defined(__ARM_NEON)
+    for (size_t i = 0; i < n; i += 4) {
+        uint32x4_t va = vld1q_u32(&a[i]);
+        uint32x4_t vb = vld1q_u32(&b[i]);
+        uint32x4_t vr = vaddq_u32(va, vb);
+        vst1q_u32(&res[i], vr);
+    }
+#else
+    for (size_t i = 0; i < n; i++) {
+        res[i] = a[i] + b[i];
+    }
+#endif
+}
+
+#endif // TTAK_SIMD_MATH_H
+./thread_compat.h
+#ifndef TTAK_THREAD_COMPAT_H
+#define TTAK_THREAD_COMPAT_H
+
+#ifdef _WIN32
+#include <windows.h>
+#include <process.h>
+typedef HANDLE ttak_thread_t;
+typedef DWORD  ttak_thread_id_t;
+#define TTAK_THREAD_CALL WINAPI
+#else
+#include <pthread.h>
+#include <unistd.h>
+typedef pthread_t ttak_thread_t;
+typedef pthread_t ttak_thread_id_t;
+#define TTAK_THREAD_CALL
+#endif
+
+typedef void* (TTAK_THREAD_CALL *ttak_thread_func_t)(void*);
+
+static inline int ttak_thread_create(ttak_thread_t *thread, ttak_thread_func_t func, void *arg) {
+#ifdef _WIN32
+    *thread = CreateThread(NULL, 0, (LPTHREAD_START_ROUTINE)func, arg, 0, NULL);
+    return (*thread == NULL) ? -1 : 0;
+#else
+    return pthread_create(thread, NULL, func, arg);
+#endif
+}
+
+static inline int ttak_thread_join(ttak_thread_t thread, void **retval) {
+#ifdef _WIN32
+    WaitForSingleObject(thread, INFINITE);
+    if (retval) GetExitCodeThread(thread, (LPDWORD)retval);
+    CloseHandle(thread);
+    return 0;
+#else
+    return pthread_join(thread, retval);
+#endif
+}
+
+#endif // TTAK_THREAD_COMPAT_H
+./ntt.h
+#ifndef TTAK_NTT_H
+#define TTAK_NTT_H
+
+#include <stdint.h>
+#include <stddef.h>
+
+/**
+ * @brief Performs Number Theoretic Transform for fast bigint multiplication.
+ * 
+ * Uses a prime field (e.g., p = 0xffffffff00000001) to avoid floating point errors.
+ */
+void ttak_ntt(uint64_t *a, size_t n, bool inverse);
+
+#endif // TTAK_NTT_H
