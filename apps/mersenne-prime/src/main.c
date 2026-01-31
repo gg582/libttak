@@ -8,9 +8,11 @@
 #include <inttypes.h>
 #include <stdbool.h>
 #include <stdatomic.h>
+#include <stdarg.h>
 #include <pthread.h>
 #include <sys/stat.h>
 #include <curl/curl.h>
+#include <ctype.h>
 
 /* Internal TTAK Headers */
 #include <ttak/mem/mem.h>
@@ -41,6 +43,23 @@ typedef struct {
 static worker_ctx_t g_workers[MAX_WORKERS];
 static int g_num_workers = 4;
 
+typedef struct {
+    uint32_t p;
+    uint64_t residue;
+    bool is_prime;
+} verification_record_t;
+
+static verification_record_t *g_verification_log = NULL;
+static size_t g_verification_log_count = 0;
+static size_t g_verification_log_capacity = 0;
+static pthread_mutex_t g_verification_log_lock = PTHREAD_MUTEX_INITIALIZER;
+
+static bool load_uint_from_file(const char *filename, const char *key, uint32_t *out);
+static uint32_t load_checkpoint_value(const char *filename, const char *primary_key,
+                                      const char *fallback_key, uint32_t default_value);
+static void responsive_sleep(uint32_t milliseconds);
+static uint64_t collect_total_ops(void);
+
 /* External functions for file I/O and reporting */
 extern void save_current_progress(const char *filename, const void *data, size_t size);
 extern int report_to_gimps(app_state_t *state, const gimps_result_t *res, const ttak_node_telemetry_t *telemetry);
@@ -49,6 +68,140 @@ extern void generate_computer_id(char *buf, size_t len);
 static void handle_signal(int sig) {
     (void)sig;
     atomic_store(&shutdown_requested, true);
+}
+
+static bool load_uint_from_file(const char *filename, const char *key, uint32_t *out) {
+    if (!filename || !key || !out) return false;
+    FILE *f = fopen(filename, "r");
+    if (!f) return false;
+    char line[256];
+    size_t key_len = strlen(key);
+    while (fgets(line, sizeof(line), f)) {
+        char *needle = strstr(line, key);
+        if (!needle) continue;
+        needle += key_len;
+        char *colon = strchr(needle, ':');
+        if (!colon) continue;
+        colon++;
+        while (*colon && !isdigit((unsigned char)*colon) && *colon != '-') colon++;
+        if (!*colon) continue;
+        *out = (uint32_t)strtoul(colon, NULL, 10);
+        fclose(f);
+        return true;
+    }
+    fclose(f);
+    return false;
+}
+
+static uint32_t load_checkpoint_value(const char *filename, const char *primary_key,
+                                      const char *fallback_key, uint32_t default_value) {
+    uint32_t value = 0;
+    if (primary_key && load_uint_from_file(filename, primary_key, &value)) return value;
+    if (fallback_key && load_uint_from_file(filename, fallback_key, &value)) return value;
+    return default_value;
+}
+
+static void responsive_sleep(uint32_t milliseconds) {
+    const uint32_t step_ms = 250;
+    uint32_t waited = 0;
+    while (waited < milliseconds && !atomic_load_explicit(&shutdown_requested, memory_order_relaxed)) {
+        uint32_t chunk = milliseconds - waited;
+        if (chunk > step_ms) chunk = step_ms;
+        usleep(chunk * 1000);
+        waited += chunk;
+    }
+}
+
+static uint64_t collect_total_ops(void) {
+    uint64_t total = 0;
+    for (int i = 0; i < g_num_workers; i++) {
+        total += atomic_load_explicit(&g_workers[i].ops_count, memory_order_relaxed);
+    }
+    return total;
+}
+
+static void append_verification_record(uint32_t p, uint64_t residue, bool is_prime) {
+    pthread_mutex_lock(&g_verification_log_lock);
+    if (g_verification_log_count == g_verification_log_capacity) {
+        size_t new_cap = g_verification_log_capacity ? g_verification_log_capacity * 2 : 32;
+        verification_record_t *new_entries = g_verification_log
+            ? (verification_record_t *)ttak_mem_realloc(g_verification_log, new_cap * sizeof(*new_entries), __TTAK_UNSAFE_MEM_FOREVER__, 0)
+            : (verification_record_t *)ttak_mem_alloc(new_cap * sizeof(*new_entries), __TTAK_UNSAFE_MEM_FOREVER__, 0);
+        if (!new_entries) {
+            pthread_mutex_unlock(&g_verification_log_lock);
+            return;
+        }
+        g_verification_log = new_entries;
+        g_verification_log_capacity = new_cap;
+    }
+    g_verification_log[g_verification_log_count++] = (verification_record_t){
+        .p = p,
+        .residue = residue,
+        .is_prime = is_prime
+    };
+    pthread_mutex_unlock(&g_verification_log_lock);
+}
+
+static int append_json_segment(char **buf, size_t *cap, size_t *len, const char *fmt, ...) {
+    if (!buf || !cap || !len) return -1;
+    if (!*buf) {
+        *cap = 256;
+        *len = 0;
+        *buf = (char *)ttak_mem_alloc(*cap, __TTAK_UNSAFE_MEM_FOREVER__, 0);
+        if (!*buf) return -1;
+        (*buf)[0] = '\0';
+    }
+    while (1) {
+        if (*cap - *len <= 1) {
+            size_t new_cap = (*cap == 0) ? 256 : (*cap * 2);
+            char *tmp = (char *)ttak_mem_realloc(*buf, new_cap, __TTAK_UNSAFE_MEM_FOREVER__, 0);
+            if (!tmp) return -1;
+            *buf = tmp;
+            *cap = new_cap;
+        }
+        va_list args;
+        va_start(args, fmt);
+        int written = vsnprintf(*buf + *len, *cap - *len, fmt, args);
+        va_end(args);
+        if (written < 0) return -1;
+        if ((size_t)written < (*cap - *len)) {
+            *len += (size_t)written;
+            return 0;
+        }
+        size_t required = *len + (size_t)written + 1;
+        size_t new_cap = (*cap == 0) ? required : (*cap * 2);
+        if (new_cap < required) new_cap = required;
+        char *tmp = (char *)ttak_mem_realloc(*buf, new_cap, __TTAK_UNSAFE_MEM_FOREVER__, 0);
+        if (!tmp) return -1;
+        *buf = tmp;
+        *cap = new_cap;
+    }
+}
+
+static char *build_last_results_json(uint32_t max_finished_p, uint64_t total_ops, size_t *out_size) {
+    pthread_mutex_lock(&g_verification_log_lock);
+    char *buf = NULL;
+    size_t cap = 0, len = 0;
+    if (append_json_segment(&buf, &cap, &len,
+            "{\n    \"max_finished_p\": %u,\n    \"total_ops\": %" PRIu64 ",\n    \"results\": [\n",
+            max_finished_p, (uint64_t)total_ops) != 0) goto fail;
+    for (size_t i = 0; i < g_verification_log_count; i++) {
+        verification_record_t rec = g_verification_log[i];
+        const char *sep = (i + 1 == g_verification_log_count) ? "" : ",";
+        if (append_json_segment(&buf, &cap, &len,
+                "        {\"p\": %u, \"residue\": \"0x%016" PRIx64 "\", \"is_prime\": %s}%s\n",
+                rec.p, rec.residue, rec.is_prime ? "true" : "false", sep) != 0) {
+            goto fail;
+        }
+    }
+    if (append_json_segment(&buf, &cap, &len, "    ]\n}\n") != 0) goto fail;
+    pthread_mutex_unlock(&g_verification_log_lock);
+    if (out_size) *out_size = len;
+    return buf;
+fail:
+    if (buf) ttak_mem_free(buf);
+    pthread_mutex_unlock(&g_verification_log_lock);
+    return NULL;
 }
 
 /**
@@ -148,6 +301,8 @@ void* worker_thread(void* arg) {
             while (p > cur_max) {
                 if (atomic_compare_exchange_weak(&g_max_finished_p, &cur_max, p)) break;
             }
+
+            append_verification_record(p, res_v, is_p == 1);
         }
         atomic_fetch_add_explicit(&ctx->ops_count, 1, memory_order_relaxed);
     }
@@ -170,24 +325,18 @@ int main(int argc, char **argv) {
     generate_computer_id(g_app_state->computerid, sizeof(g_app_state->computerid));
     strncpy(g_app_state->userid, "anonymous", sizeof(g_app_state->userid) - 1);
 
-    /* Load checkpoint from last successful VERIFICATION */
-    uint32_t resume_p = 3;
-    FILE *f = fopen(CHECKPOINT_FILE, "r");
-    if (f) {
-        char ln[256];
-        while (fgets(ln, sizeof(ln), f)) {
-            char *ptr = strstr(ln, "\"last_p\"");
-            if (ptr && (ptr = strchr(ptr, ':'))) {
-                resume_p = (uint32_t)atoi(ptr + 1);
-            }
-        }
-        fclose(f);
-    }
-
+    /* Restore dispatcher and finished checkpoints */
+    uint32_t resume_p = load_checkpoint_value(CHECKPOINT_FILE, "\"last_p\"", NULL, 3);
     uint32_t start_p = (resume_p % 2 == 0) ? resume_p + 1 : resume_p;
+    uint32_t persisted_max = load_checkpoint_value(LAST_FINISHED_FILE, "\"max_finished_p\"", "\"last_p\"", start_p);
+    if (persisted_max > start_p) persisted_max = start_p;
+    if (start_p <= persisted_max) {
+        start_p = (persisted_max % 2 == 0) ? persisted_max + 1 : persisted_max + 2;
+    }
     atomic_store(&g_next_p, start_p);
-    atomic_store(&g_max_finished_p, resume_p);
-    printf("[SYSTEM] Initializing Engine. Resume from last finished p: %u\n", resume_p);
+    atomic_store(&g_max_finished_p, persisted_max);
+    printf("[SYSTEM] Initializing Engine. Next dispatch p: %u | Last verified p: %u\n",
+           start_p, persisted_max);
 
     pthread_t th[MAX_WORKERS];
     for (int i = 0; i < g_num_workers; i++) {
@@ -196,27 +345,52 @@ int main(int argc, char **argv) {
         pthread_create(&th[i], NULL, worker_thread, &g_workers[i]);
     }
 
-    while (!atomic_load(&shutdown_requested)) {
-        /* Set to 60s for N150 to preserve disk life over a 1-2 year span */
-        usleep(60000000);
-        uint64_t total_ops = 0;
-        for (int i = 0; i < g_num_workers; i++) {
-            total_ops += atomic_load_explicit(&g_workers[i].ops_count, memory_order_relaxed);
-        }
+    while (!atomic_load_explicit(&shutdown_requested, memory_order_relaxed)) {
+        responsive_sleep(60000);
+        if (atomic_load_explicit(&shutdown_requested, memory_order_relaxed)) break;
 
-        uint32_t finished_p = atomic_load(&g_max_finished_p);
-        printf("[SYSTEM] Max Verified: %u | Total Ops: %lu\n", finished_p, total_ops);
+        uint64_t total_ops = collect_total_ops();
+        uint32_t dispatch_p = atomic_load_explicit(&g_next_p, memory_order_relaxed);
+        uint32_t finished_p = atomic_load_explicit(&g_max_finished_p, memory_order_relaxed);
+        printf("[SYSTEM] Dispatching: %u | Max Verified: %u | Total Ops: %" PRIu64 "\n",
+               dispatch_p, finished_p, total_ops);
         fflush(stdout);
 
-        /* Save progress based on what has actually been FOUND/VERIFIED */
-        char json[256];
-        snprintf(json, sizeof(json), "{\n    \"last_p\": %u,\n    \"total_ops\": %lu\n}\n", finished_p, total_ops);
-        save_current_progress(CHECKPOINT_FILE, json, strlen(json));
-        save_current_progress(LAST_FINISHED_FILE, json, strlen(json));
+        /* Save next dispatch point for checkpoint resume */
+        char checkpoint_json[256];
+        snprintf(checkpoint_json, sizeof(checkpoint_json),
+                 "{\n    \"last_p\": %u,\n    \"total_ops\": %" PRIu64 "\n}\n",
+                 dispatch_p, total_ops);
+        save_current_progress(CHECKPOINT_FILE, checkpoint_json, strlen(checkpoint_json));
+
+        /* Save full verification log with persisted max info */
+        size_t last_json_size = 0;
+        char *last_json = build_last_results_json(finished_p, total_ops, &last_json_size);
+        if (last_json) {
+            save_current_progress(LAST_FINISHED_FILE, last_json, last_json_size);
+            ttak_mem_free(last_json);
+        }
     }
 
     for (int i = 0; i < g_num_workers; i++) pthread_join(th[i], NULL);
+    uint32_t final_dispatch = atomic_load_explicit(&g_next_p, memory_order_relaxed);
+    uint64_t final_ops = collect_total_ops();
+    uint32_t final_finished = atomic_load_explicit(&g_max_finished_p, memory_order_relaxed);
+
+    char final_checkpoint[256];
+    snprintf(final_checkpoint, sizeof(final_checkpoint),
+             "{\n    \"last_p\": %u,\n    \"total_ops\": %" PRIu64 "\n}\n",
+             final_dispatch, final_ops);
+    save_current_progress(CHECKPOINT_FILE, final_checkpoint, strlen(final_checkpoint));
+
+    size_t final_json_size = 0;
+    char *final_last_json = build_last_results_json(final_finished, final_ops, &final_json_size);
+    if (final_last_json) {
+        save_current_progress(LAST_FINISHED_FILE, final_last_json, final_json_size);
+        ttak_mem_free(final_last_json);
+    }
     ttak_mem_free(g_app_state);
+    if (g_verification_log) ttak_mem_free(g_verification_log);
     curl_global_cleanup();
     return 0;
 }

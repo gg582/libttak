@@ -1,0 +1,24 @@
+# Aliquot Tracker
+
+`aliquot_tracker` mirrors the style of the mersenne-prime helper but targets open aliquot sequences. It keeps two on-disk ledgers:
+
+1. `aliquot_found.jsonl` – every time a seed terminates, loops or hits a new record height the summary is persisted.
+2. `aliquot_jump.jsonl` – when a seed shows early signs of becoming a very long sequence it is queued for long-term study and the jump is noted.
+
+The tracker boots with two sources of work:
+- a baked-in catalog of famous "unresolved / ongoing" seeds (carried over OEIS/Berstein lists),
+- a scout that keeps drawing random seeds, simulates a short prefix, and only hands off the ones that look explosive.
+
+Signals (SIGINT/SIGTERM) trigger a graceful checkpoint flush to both ledgers. The binary lives in `apps/aliquot-tracker/bin/aliquot_tracker` and links against libttak for the shared timing/util layers.
+
+To build:
+```
+cd apps/aliquot-tracker
+make
+```
+
+## Deployment & ledger storage
+
+Run `./install.sh` inside `apps/aliquot-tracker` to build, stage, and copy the binary into `/opt/aliquot-tracker`. The script also initialises that directory as a git repository (if needed) and touches the JSON ledgers so you can `git diff`/`git pull` to discuss state changes across machines.
+
+By default the tracker writes checkpoints to `/opt/aliquot-tracker`. If you would like to try things locally without touching `/opt`, set `ALIQUOT_STATE_DIR=/path/to/tmp` before launching the binary. All JSON ledgers plus the queue snapshot will live at that path.
