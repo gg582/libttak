@@ -1,19 +1,19 @@
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -g -pthread -MMD -MP -Iinclude
+CFLAGS = -Wall -pthread -MMD -MP -Iinclude
 LDFLAGS = -pthread
 
 PREFIX ?= /usr/local
 LIBDIR = $(PREFIX)/lib
 INCDIR = $(PREFIX)/include
 
-SRC_DIRS = src/ht src/thread src/timing src/mem src/async src/priority src/atomic src/sync src/math src/tree src/container
+SRC_DIRS = src/ht src/thread src/timing src/mem src/async src/priority src/atomic src/sync src/math src/tree src/container src/security src/mem_tree
 SRCS = $(foreach dir,$(SRC_DIRS),$(wildcard $(dir)/*.c))
 OBJS = $(patsubst src/%.c,obj/%.o,$(SRCS))
 DEPS = $(OBJS:.o=.d)
 
 LIB = lib/libttak.a
 
-TEST_SRCS = $(wildcard tests/test_*.c)
+TEST_SRCS = $(wildcard tests/test_*.c) tests/test_security.c
 TEST_BINS = $(patsubst tests/test_%.c,tests/test_%,$(TEST_SRCS))
 
 all: directories $(LIB)

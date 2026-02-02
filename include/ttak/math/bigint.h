@@ -34,6 +34,9 @@ typedef ttak_bigint_t __tt_big_i_t;
  * @brief Initializes a bigint.
  */
 void ttak_bigint_init(ttak_bigint_t *bi, uint64_t now);
+void ttak_bigint_init_u64(ttak_bigint_t *bi, uint64_t value, uint64_t now);
+void ttak_bigint_init_copy(ttak_bigint_t *dst, const ttak_bigint_t *src, uint64_t now);
+
 
 /**
  * @brief Performs modulo operation optimized for Mersenne primes (2^p - 1).
@@ -51,6 +54,12 @@ void ttak_bigint_free(ttak_bigint_t *bi, uint64_t now);
  * @return true on success, false on allocation failure.
  */
 _Bool ttak_bigint_set_u64(ttak_bigint_t *bi, uint64_t value, uint64_t now);
+_Bool ttak_bigint_copy(ttak_bigint_t *dst, const ttak_bigint_t *src, uint64_t now);
+
+int ttak_bigint_cmp(const ttak_bigint_t *lhs, const ttak_bigint_t *rhs);
+int ttak_bigint_cmp_u64(const ttak_bigint_t *lhs, uint64_t rhs);
+bool ttak_bigint_is_zero(const ttak_bigint_t *bi);
+limb_t sub_limbs(limb_t *u, const limb_t *v, size_t n);
 
 /**
  * @brief Adds two non-negative bigints: dst = lhs + rhs.
@@ -60,5 +69,22 @@ _Bool ttak_bigint_set_u64(ttak_bigint_t *bi, uint64_t value, uint64_t now);
  * @return true on success, false on allocation failure.
  */
 _Bool ttak_bigint_add(ttak_bigint_t *dst, const ttak_bigint_t *lhs, const ttak_bigint_t *rhs, uint64_t now);
+_Bool ttak_bigint_sub(ttak_bigint_t *dst, const ttak_bigint_t *lhs, const ttak_bigint_t *rhs, uint64_t now);
+_Bool ttak_bigint_mul(ttak_bigint_t *dst, const ttak_bigint_t *lhs, const ttak_bigint_t *rhs, uint64_t now);
+_Bool ttak_bigint_div(ttak_bigint_t *q, ttak_bigint_t *r, const ttak_bigint_t *n, const ttak_bigint_t *d, uint64_t now);
+_Bool ttak_bigint_mod(ttak_bigint_t *r, const ttak_bigint_t *n, const ttak_bigint_t *d, uint64_t now);
+
+_Bool ttak_bigint_add_u64(ttak_bigint_t *dst, const ttak_bigint_t *lhs, uint64_t rhs, uint64_t now);
+_Bool ttak_bigint_mul_u64(ttak_bigint_t *dst, const ttak_bigint_t *lhs, uint64_t rhs, uint64_t now);
+_Bool ttak_bigint_div_u64(ttak_bigint_t *q, ttak_bigint_t *r, const ttak_bigint_t *n, uint64_t d, uint64_t now);
+_Bool ttak_bigint_mod_u64(ttak_bigint_t *r, const ttak_bigint_t *n, uint64_t d, uint64_t now);
+
+size_t ttak_bigint_get_bit_length(const ttak_bigint_t *bi);
+char* ttak_bigint_to_string(const ttak_bigint_t *bi, uint64_t now);
+bool ttak_bigint_export_u64(const ttak_bigint_t *bi, uint64_t *value_out);
+void ttak_bigint_to_hex_hash(const ttak_bigint_t *bi, char out[65]);
+void ttak_bigint_format_prefix(const ttak_bigint_t *bi, char *dest, size_t dest_cap);
+void ttak_bigint_hash(const ttak_bigint_t *bi, uint8_t out[32]);
+
 
 #endif // TTAK_MATH_BIGINT_H

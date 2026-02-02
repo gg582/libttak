@@ -29,10 +29,39 @@
 #define ERR_TTAK_MATH_ERR   -206
 #define ERR_TTAK_INV_ACC    -205
 
+#if defined(__GNUC__) || defined(__clang__)
+#define TTAK_HOT_PATH __attribute__((hot))
+#define TTAK_COLD_PATH __attribute__((cold))
+#else
+#define TTAK_HOT_PATH
+#define TTAK_COLD_PATH
+#endif
+
+/**
+ * @brief Time unit macros for converting to nanoseconds.
+ */
+#define TT_NANO_SECOND(n)   ((uint64_t)(n))
+#define TT_MICRO_SECOND(n)  ((uint64_t)(n) * 1000ULL)
+#define TT_MILLI_SECOND(n)  ((uint64_t)(n) * 1000ULL * 1000ULL)
+#define TT_SECOND(n)        ((uint64_t)(n) * 1000ULL * 1000ULL * 1000ULL)
+#define TT_MINUTE(n)        ((uint64_t)(n) * 60ULL * 1000ULL * 1000ULL * 1000ULL)
+#define TT_HOUR(n)          ((uint64_t)(n) * 60ULL * 60ULL * 1000ULL * 1000ULL * 1000ULL)
+
 /**
  * @brief Sentinel for invalidated references.
  */
 #define SAFE_NULL NULL
+
+/**
+ * @brief Recommended pattern for resource-managing structures:
+ * All structures that manage dynamic resources (e.g., memory, threads, file handles)
+ * should follow an _init and _destroy pattern.
+ * - `void ttak_struct_init(ttak_struct_t *s, ...)`: Initializes the structure,
+ *   allocating necessary resources.
+ * - `void ttak_struct_destroy(ttak_struct_t *s, ...)`: Frees all resources
+ *   held by the structure.
+ * This ensures strict lifetime management and proper cleanup.
+ */
 
 /**
  * @brief "Fortress" Memory Header.
@@ -53,7 +82,11 @@ typedef struct {
     _Bool    is_volatile;   /**< Volatility hint */
     _Bool    allow_direct_access; /**< Safety bypass flag */
     _Bool    is_huge;       /**< Mapped via hugepages */
-    char     reserved[35];  /**< Explicit padding for 128-byte header on x64 */
+    _Bool    should_join;   /**< Indicates if associated resource needs joining */
+    _Bool    strict_check;  /**< Enable strict memory boundary checks */
+    uint64_t canary_start;  /**< Magic number for start of user data */
+    uint64_t canary_end;    /**< Magic number for end of user data */
+    char     reserved[11];  /**< Explicit padding for 128-byte header on x64 */
 } ttak_mem_header_t;
 
 /**
@@ -69,6 +102,12 @@ static inline uint32_t ttak_calc_header_checksum(const ttak_mem_header_t *h) {
 #if defined(__LP64__) || defined(_WIN64)
     sum ^= (uint32_t)(h->size >> 32);
 #endif
+    sum ^= (uint32_t)h->should_join;
+    sum ^= (uint32_t)h->strict_check;
+    sum ^= (uint32_t)h->canary_start;
+    sum ^= (uint32_t)(h->canary_start >> 32);
+    sum ^= (uint32_t)h->canary_end;
+    sum ^= (uint32_t)(h->canary_end >> 32);
     return sum;
 }
 

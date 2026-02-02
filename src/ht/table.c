@@ -102,7 +102,7 @@ void ttak_table_init(ttak_table_t *table, size_t capacity,
 
     // Use huge pages for large tables if possible
     ttak_mem_flags_t flags = (capacity * sizeof(ttak_table_entry_t *) >= 2 * 1024 * 1024) ? TTAK_MEM_HUGE_PAGES : TTAK_MEM_DEFAULT;
-    table->buckets = ttak_mem_alloc_safe(sizeof(ttak_table_entry_t *) * table->capacity, __TTAK_UNSAFE_MEM_FOREVER__, 0, false, false, true, flags);
+    table->buckets = ttak_mem_alloc_safe(sizeof(ttak_table_entry_t *) * table->capacity, __TTAK_UNSAFE_MEM_FOREVER__, 0, false, false, true, true, flags);
     
     // Explicitly zero out buckets (though mem_alloc usually zeros, safe to ensure)
     if (table->buckets) {
@@ -132,7 +132,7 @@ void ttak_table_put(ttak_table_t *table, void *key, size_t key_len, void *value,
     }
 
     // New entry
-    ttak_table_entry_t *new_entry = ttak_mem_alloc_safe(sizeof(ttak_table_entry_t), __TTAK_UNSAFE_MEM_FOREVER__, now, false, false, true, TTAK_MEM_DEFAULT);
+    ttak_table_entry_t *new_entry = ttak_mem_alloc_safe(sizeof(ttak_table_entry_t), __TTAK_UNSAFE_MEM_FOREVER__, now, false, false, true, true, TTAK_MEM_DEFAULT);
     if (!new_entry) return;
 
     new_entry->key = key;
