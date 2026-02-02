@@ -1,0 +1,116 @@
+\doxysection{include/ttak/thread/pool.h File Reference}
+\hypertarget{pool_8h}{}\label{pool_8h}\index{include/ttak/thread/pool.h@{include/ttak/thread/pool.h}}
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$ttak/async/task.\+h$>$}\newline
+{\ttfamily \#include $<$ttak/thread/worker.\+h$>$}\newline
+{\ttfamily \#include $<$ttak/priority/queue.\+h$>$}\newline
+Include dependency graph for pool.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pool_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=227pt]{pool_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structttak__thread__pool}{ttak\+\_\+thread\+\_\+pool}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{structttak__thread__pool}{ttak\+\_\+thread\+\_\+pool}} \mbox{\hyperlink{pool_8h_afedf2714ff1312529485b3643582ca0c}{ttak\+\_\+thread\+\_\+pool\+\_\+t}}
+\item 
+typedef struct \mbox{\hyperlink{structttak__worker}{ttak\+\_\+worker}} \mbox{\hyperlink{pool_8h_a0003749eead12470661f5e9d7d4cc842}{ttak\+\_\+worker\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{pool_8h_afedf2714ff1312529485b3643582ca0c}{ttak\+\_\+thread\+\_\+pool\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{pool_8h_aa8a2cc0a68f04fd121e38fc3f080057d}{ttak\+\_\+thread\+\_\+pool\+\_\+create}} (size\+\_\+t num\+\_\+threads, int default\+\_\+nice, uint64\+\_\+t now)
+\item 
+void \mbox{\hyperlink{pool_8h_a9ae856596b3923eb0471ab6c88498777}{ttak\+\_\+thread\+\_\+pool\+\_\+destroy}} (\mbox{\hyperlink{pool_8h_afedf2714ff1312529485b3643582ca0c}{ttak\+\_\+thread\+\_\+pool\+\_\+t}} \texorpdfstring{$\ast$}{*}pool)
+\item 
+\mbox{\hyperlink{future_8h_a56ca146ef4be9bd1d67a1250de2ce2c2}{ttak\+\_\+future\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{pool_8h_afd3ec6c19878c359270fe1442300c5f3}{ttak\+\_\+thread\+\_\+pool\+\_\+submit\+\_\+task}} (\mbox{\hyperlink{pool_8h_afedf2714ff1312529485b3643582ca0c}{ttak\+\_\+thread\+\_\+pool\+\_\+t}} \texorpdfstring{$\ast$}{*}pool, void \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*}func)(void \texorpdfstring{$\ast$}{*}), void \texorpdfstring{$\ast$}{*}arg, int priority, uint64\+\_\+t now)
+\item 
+\+\_\+\+Bool \mbox{\hyperlink{pool_8h_a39c6f28640ef62dc5e66dfeb44ce242a}{ttak\+\_\+thread\+\_\+pool\+\_\+schedule\+\_\+task}} (\mbox{\hyperlink{pool_8h_afedf2714ff1312529485b3643582ca0c}{ttak\+\_\+thread\+\_\+pool\+\_\+t}} \texorpdfstring{$\ast$}{*}pool, \mbox{\hyperlink{task_8h_a6a4c7b4b8f087d53e7b2a92f84db216e}{ttak\+\_\+task\+\_\+t}} \texorpdfstring{$\ast$}{*}task, int priority, uint64\+\_\+t now)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{pool_8h_afedf2714ff1312529485b3643582ca0c}{ttak\+\_\+thread\+\_\+pool\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{pool_8h_a5d1afca1eeeddf9e4fd83c80da10efcc}{async\+\_\+pool}}
+\end{DoxyCompactItemize}
+
+
+\label{doc-typedef-members}
+\Hypertarget{pool_8h_doc-typedef-members}
+\doxysubsection{Typedef Documentation}
+\Hypertarget{pool_8h_afedf2714ff1312529485b3643582ca0c}\index{pool.h@{pool.h}!ttak\_thread\_pool\_t@{ttak\_thread\_pool\_t}}
+\index{ttak\_thread\_pool\_t@{ttak\_thread\_pool\_t}!pool.h@{pool.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_thread\_pool\_t}{ttak\_thread\_pool\_t}}
+{\footnotesize\ttfamily \label{pool_8h_afedf2714ff1312529485b3643582ca0c} 
+typedef struct \mbox{\hyperlink{structttak__thread__pool}{ttak\+\_\+thread\+\_\+pool}} \mbox{\hyperlink{pool_8h_afedf2714ff1312529485b3643582ca0c}{ttak\+\_\+thread\+\_\+pool\+\_\+t}}}
+
+
+
+Definition at line \mbox{\hyperlink{pool_8h_source_l00010}{10}} of file \mbox{\hyperlink{pool_8h_source}{pool.\+h}}.
+
+\Hypertarget{pool_8h_a0003749eead12470661f5e9d7d4cc842}\index{pool.h@{pool.h}!ttak\_worker\_t@{ttak\_worker\_t}}
+\index{ttak\_worker\_t@{ttak\_worker\_t}!pool.h@{pool.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_worker\_t}{ttak\_worker\_t}}
+{\footnotesize\ttfamily \label{pool_8h_a0003749eead12470661f5e9d7d4cc842} 
+typedef struct \mbox{\hyperlink{structttak__worker}{ttak\+\_\+worker}} \mbox{\hyperlink{pool_8h_a0003749eead12470661f5e9d7d4cc842}{ttak\+\_\+worker\+\_\+t}}}
+
+
+
+Definition at line \mbox{\hyperlink{pool_8h_source_l00012}{12}} of file \mbox{\hyperlink{pool_8h_source}{pool.\+h}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{pool_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{pool_8h_aa8a2cc0a68f04fd121e38fc3f080057d}\index{pool.h@{pool.h}!ttak\_thread\_pool\_create@{ttak\_thread\_pool\_create}}
+\index{ttak\_thread\_pool\_create@{ttak\_thread\_pool\_create}!pool.h@{pool.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_thread\_pool\_create()}{ttak\_thread\_pool\_create()}}
+{\footnotesize\ttfamily \label{pool_8h_aa8a2cc0a68f04fd121e38fc3f080057d} 
+\mbox{\hyperlink{pool_8h_afedf2714ff1312529485b3643582ca0c}{ttak\+\_\+thread\+\_\+pool\+\_\+t}} \texorpdfstring{$\ast$}{*} ttak\+\_\+thread\+\_\+pool\+\_\+create (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{num\+\_\+threads}{, }\item[{int}]{default\+\_\+nice}{, }\item[{uint64\+\_\+t}]{now}{}\end{DoxyParamCaption})}
+
+\Hypertarget{pool_8h_a9ae856596b3923eb0471ab6c88498777}\index{pool.h@{pool.h}!ttak\_thread\_pool\_destroy@{ttak\_thread\_pool\_destroy}}
+\index{ttak\_thread\_pool\_destroy@{ttak\_thread\_pool\_destroy}!pool.h@{pool.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_thread\_pool\_destroy()}{ttak\_thread\_pool\_destroy()}}
+{\footnotesize\ttfamily \label{pool_8h_a9ae856596b3923eb0471ab6c88498777} 
+void ttak\+\_\+thread\+\_\+pool\+\_\+destroy (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{pool_8h_afedf2714ff1312529485b3643582ca0c}{ttak\+\_\+thread\+\_\+pool\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{pool}{}\end{DoxyParamCaption})}
+
+\Hypertarget{pool_8h_a39c6f28640ef62dc5e66dfeb44ce242a}\index{pool.h@{pool.h}!ttak\_thread\_pool\_schedule\_task@{ttak\_thread\_pool\_schedule\_task}}
+\index{ttak\_thread\_pool\_schedule\_task@{ttak\_thread\_pool\_schedule\_task}!pool.h@{pool.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_thread\_pool\_schedule\_task()}{ttak\_thread\_pool\_schedule\_task()}}
+{\footnotesize\ttfamily \label{pool_8h_a39c6f28640ef62dc5e66dfeb44ce242a} 
+\+\_\+\+Bool ttak\+\_\+thread\+\_\+pool\+\_\+schedule\+\_\+task (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{pool_8h_afedf2714ff1312529485b3643582ca0c}{ttak\+\_\+thread\+\_\+pool\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{pool}{, }\item[{\mbox{\hyperlink{task_8h_a6a4c7b4b8f087d53e7b2a92f84db216e}{ttak\+\_\+task\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{task}{, }\item[{int}]{priority}{, }\item[{uint64\+\_\+t}]{now}{}\end{DoxyParamCaption})}
+
+\Hypertarget{pool_8h_afd3ec6c19878c359270fe1442300c5f3}\index{pool.h@{pool.h}!ttak\_thread\_pool\_submit\_task@{ttak\_thread\_pool\_submit\_task}}
+\index{ttak\_thread\_pool\_submit\_task@{ttak\_thread\_pool\_submit\_task}!pool.h@{pool.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_thread\_pool\_submit\_task()}{ttak\_thread\_pool\_submit\_task()}}
+{\footnotesize\ttfamily \label{pool_8h_afd3ec6c19878c359270fe1442300c5f3} 
+\mbox{\hyperlink{future_8h_a56ca146ef4be9bd1d67a1250de2ce2c2}{ttak\+\_\+future\+\_\+t}} \texorpdfstring{$\ast$}{*} ttak\+\_\+thread\+\_\+pool\+\_\+submit\+\_\+task (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{pool_8h_afedf2714ff1312529485b3643582ca0c}{ttak\+\_\+thread\+\_\+pool\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{pool}{, }\item[{void \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*}}]{func~}{)(void \texorpdfstring{$\ast$}{*}), }\item[{void \texorpdfstring{$\ast$}{*}}]{arg}{, }\item[{int}]{priority}{, }\item[{uint64\+\_\+t}]{now}{}\end{DoxyParamCaption})}
+
+
+
+\label{doc-var-members}
+\Hypertarget{pool_8h_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{pool_8h_a5d1afca1eeeddf9e4fd83c80da10efcc}\index{pool.h@{pool.h}!async\_pool@{async\_pool}}
+\index{async\_pool@{async\_pool}!pool.h@{pool.h}}
+\doxysubsubsection{\texorpdfstring{async\_pool}{async\_pool}}
+{\footnotesize\ttfamily \label{pool_8h_a5d1afca1eeeddf9e4fd83c80da10efcc} 
+\mbox{\hyperlink{pool_8h_afedf2714ff1312529485b3643582ca0c}{ttak\+\_\+thread\+\_\+pool\+\_\+t}}\texorpdfstring{$\ast$}{*} async\+\_\+pool\hspace{0.3cm}{\ttfamily [extern]}}
+

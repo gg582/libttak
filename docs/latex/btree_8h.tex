@@ -1,0 +1,84 @@
+\doxysection{include/ttak/tree/btree.h File Reference}
+\hypertarget{btree_8h}{}\label{btree_8h}\index{include/ttak/tree/btree.h@{include/ttak/tree/btree.h}}
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+Include dependency graph for btree.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=285pt]{btree_8h__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structttak__btree__node}{ttak\+\_\+btree\+\_\+node}}
+\item 
+struct \mbox{\hyperlink{structttak__btree}{ttak\+\_\+btree}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{structttak__btree__node}{ttak\+\_\+btree\+\_\+node}} \mbox{\hyperlink{btree_8h_a5f94939042eb0dda439b350b1d82992b}{ttak\+\_\+btree\+\_\+node\+\_\+t}}
+\item 
+typedef struct \mbox{\hyperlink{structttak__btree}{ttak\+\_\+btree}} \mbox{\hyperlink{btree_8h_a97004fc99e5ce4ba125027dd30577544}{ttak\+\_\+btree\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{btree_8h_add5a7980a9183e3891200586a883dcd0}{ttak\+\_\+btree\+\_\+init}} (\mbox{\hyperlink{btree_8h_a97004fc99e5ce4ba125027dd30577544}{ttak\+\_\+btree\+\_\+t}} \texorpdfstring{$\ast$}{*}tree, int t, int(\texorpdfstring{$\ast$}{*}cmp)(const void \texorpdfstring{$\ast$}{*}, const void \texorpdfstring{$\ast$}{*}), void(\texorpdfstring{$\ast$}{*}key\+\_\+free)(void \texorpdfstring{$\ast$}{*}), void(\texorpdfstring{$\ast$}{*}val\+\_\+free)(void \texorpdfstring{$\ast$}{*}))
+\item 
+void \mbox{\hyperlink{btree_8h_a5e0cf134d190b3fbd28f04239d3bbb72}{ttak\+\_\+btree\+\_\+insert}} (\mbox{\hyperlink{btree_8h_a97004fc99e5ce4ba125027dd30577544}{ttak\+\_\+btree\+\_\+t}} \texorpdfstring{$\ast$}{*}tree, void \texorpdfstring{$\ast$}{*}key, void \texorpdfstring{$\ast$}{*}value, uint64\+\_\+t now)
+\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{btree_8h_aea833018b7b6dffbdf00bc5ec8474332}{ttak\+\_\+btree\+\_\+search}} (\mbox{\hyperlink{btree_8h_a97004fc99e5ce4ba125027dd30577544}{ttak\+\_\+btree\+\_\+t}} \texorpdfstring{$\ast$}{*}tree, const void \texorpdfstring{$\ast$}{*}key, uint64\+\_\+t now)
+\item 
+void \mbox{\hyperlink{btree_8h_a3fb9aceb407aac9091506d912edbb370}{ttak\+\_\+btree\+\_\+destroy}} (\mbox{\hyperlink{btree_8h_a97004fc99e5ce4ba125027dd30577544}{ttak\+\_\+btree\+\_\+t}} \texorpdfstring{$\ast$}{*}tree, uint64\+\_\+t now)
+\end{DoxyCompactItemize}
+
+
+\label{doc-typedef-members}
+\Hypertarget{btree_8h_doc-typedef-members}
+\doxysubsection{Typedef Documentation}
+\Hypertarget{btree_8h_a5f94939042eb0dda439b350b1d82992b}\index{btree.h@{btree.h}!ttak\_btree\_node\_t@{ttak\_btree\_node\_t}}
+\index{ttak\_btree\_node\_t@{ttak\_btree\_node\_t}!btree.h@{btree.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_btree\_node\_t}{ttak\_btree\_node\_t}}
+{\footnotesize\ttfamily \label{btree_8h_a5f94939042eb0dda439b350b1d82992b} 
+typedef struct \mbox{\hyperlink{structttak__btree__node}{ttak\+\_\+btree\+\_\+node}} \mbox{\hyperlink{btree_8h_a5f94939042eb0dda439b350b1d82992b}{ttak\+\_\+btree\+\_\+node\+\_\+t}}}
+
+\Hypertarget{btree_8h_a97004fc99e5ce4ba125027dd30577544}\index{btree.h@{btree.h}!ttak\_btree\_t@{ttak\_btree\_t}}
+\index{ttak\_btree\_t@{ttak\_btree\_t}!btree.h@{btree.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_btree\_t}{ttak\_btree\_t}}
+{\footnotesize\ttfamily \label{btree_8h_a97004fc99e5ce4ba125027dd30577544} 
+typedef struct \mbox{\hyperlink{structttak__btree}{ttak\+\_\+btree}} \mbox{\hyperlink{btree_8h_a97004fc99e5ce4ba125027dd30577544}{ttak\+\_\+btree\+\_\+t}}}
+
+
+
+\label{doc-func-members}
+\Hypertarget{btree_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{btree_8h_a3fb9aceb407aac9091506d912edbb370}\index{btree.h@{btree.h}!ttak\_btree\_destroy@{ttak\_btree\_destroy}}
+\index{ttak\_btree\_destroy@{ttak\_btree\_destroy}!btree.h@{btree.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_btree\_destroy()}{ttak\_btree\_destroy()}}
+{\footnotesize\ttfamily \label{btree_8h_a3fb9aceb407aac9091506d912edbb370} 
+void ttak\+\_\+btree\+\_\+destroy (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{btree_8h_a97004fc99e5ce4ba125027dd30577544}{ttak\+\_\+btree\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{tree}{, }\item[{uint64\+\_\+t}]{now}{}\end{DoxyParamCaption})}
+
+\Hypertarget{btree_8h_add5a7980a9183e3891200586a883dcd0}\index{btree.h@{btree.h}!ttak\_btree\_init@{ttak\_btree\_init}}
+\index{ttak\_btree\_init@{ttak\_btree\_init}!btree.h@{btree.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_btree\_init()}{ttak\_btree\_init()}}
+{\footnotesize\ttfamily \label{btree_8h_add5a7980a9183e3891200586a883dcd0} 
+void ttak\+\_\+btree\+\_\+init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{btree_8h_a97004fc99e5ce4ba125027dd30577544}{ttak\+\_\+btree\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{tree}{, }\item[{int}]{t}{, }\item[{int(\texorpdfstring{$\ast$}{*}}]{cmp~}{)(const void \texorpdfstring{$\ast$}{*}, const void \texorpdfstring{$\ast$}{*}), }\item[{void(\texorpdfstring{$\ast$}{*}}]{key\+\_\+free~}{)(void \texorpdfstring{$\ast$}{*}), }\item[{void(\texorpdfstring{$\ast$}{*}}]{val\+\_\+free~}{)(void \texorpdfstring{$\ast$}{*})}\end{DoxyParamCaption})}
+
+\Hypertarget{btree_8h_a5e0cf134d190b3fbd28f04239d3bbb72}\index{btree.h@{btree.h}!ttak\_btree\_insert@{ttak\_btree\_insert}}
+\index{ttak\_btree\_insert@{ttak\_btree\_insert}!btree.h@{btree.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_btree\_insert()}{ttak\_btree\_insert()}}
+{\footnotesize\ttfamily \label{btree_8h_a5e0cf134d190b3fbd28f04239d3bbb72} 
+void ttak\+\_\+btree\+\_\+insert (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{btree_8h_a97004fc99e5ce4ba125027dd30577544}{ttak\+\_\+btree\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{tree}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{key}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{value}{, }\item[{uint64\+\_\+t}]{now}{}\end{DoxyParamCaption})}
+
+\Hypertarget{btree_8h_aea833018b7b6dffbdf00bc5ec8474332}\index{btree.h@{btree.h}!ttak\_btree\_search@{ttak\_btree\_search}}
+\index{ttak\_btree\_search@{ttak\_btree\_search}!btree.h@{btree.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_btree\_search()}{ttak\_btree\_search()}}
+{\footnotesize\ttfamily \label{btree_8h_aea833018b7b6dffbdf00bc5ec8474332} 
+void \texorpdfstring{$\ast$}{*} ttak\+\_\+btree\+\_\+search (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{btree_8h_a97004fc99e5ce4ba125027dd30577544}{ttak\+\_\+btree\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{tree}{, }\item[{const void \texorpdfstring{$\ast$}{*}}]{key}{, }\item[{uint64\+\_\+t}]{now}{}\end{DoxyParamCaption})}
+

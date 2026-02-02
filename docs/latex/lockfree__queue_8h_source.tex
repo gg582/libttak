@@ -1,0 +1,59 @@
+\doxysection{lockfree\+\_\+queue.\+h}
+\hypertarget{lockfree__queue_8h_source}{}\label{lockfree__queue_8h_source}\index{examples/mersenne-\/prime/lockfree\_queue.h@{examples/mersenne-\/prime/lockfree\_queue.h}}
+\mbox{\hyperlink{lockfree__queue_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{lockfree__queue_8h_source_l00001}00001\ \textcolor{preprocessor}{\#ifndef\ TTAK\_LOCKFREE\_QUEUE\_H}}
+\DoxyCodeLine{\Hypertarget{lockfree__queue_8h_source_l00002}00002\ \textcolor{preprocessor}{\#define\ TTAK\_LOCKFREE\_QUEUE\_H}}
+\DoxyCodeLine{\Hypertarget{lockfree__queue_8h_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{lockfree__queue_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <stdatomic.h>}}
+\DoxyCodeLine{\Hypertarget{lockfree__queue_8h_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{\Hypertarget{lockfree__queue_8h_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <stddef.h>}}
+\DoxyCodeLine{\Hypertarget{lockfree__queue_8h_source_l00007}00007\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{lockfree__queue_8h_source_l00008}00008\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{lockfree__queue_8h_source_l00009}00009\ \textcolor{comment}{\ *\ @brief\ Simple\ Single-\/Producer\ Multi-\/Consumer\ (SPMC)\ Lock-\/Free\ Queue.}}
+\DoxyCodeLine{\Hypertarget{lockfree__queue_8h_source_l00010}00010\ \textcolor{comment}{\ *\ For\ Multi-\/Producer\ use,\ wrap\ ttak\_lf\_queue\_push\ in\ a\ mutex.}}
+\DoxyCodeLine{\Hypertarget{lockfree__queue_8h_source_l00011}00011\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{lockfree__queue_8h_source_l00012}\mbox{\hyperlink{lockfree__queue_8h_a74c3bf1f794ac13e6dcd82c68f975ac3}{00012}}\ \textcolor{preprocessor}{\#define\ TTAK\_LF\_QUEUE\_SIZE\ 1024}}
+\DoxyCodeLine{\Hypertarget{lockfree__queue_8h_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{lockfree__queue_8h_source_l00014}\mbox{\hyperlink{structttak__lf__queue__t}{00014}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{\Hypertarget{lockfree__queue_8h_source_l00015}\mbox{\hyperlink{structttak__lf__queue__t_a9ec3a51add9c337638fdfe9218481d98}{00015}}\ \ \ \ \ atomic\_size\_t\ \mbox{\hyperlink{structttak__lf__queue__t_a9ec3a51add9c337638fdfe9218481d98}{head}};}
+\DoxyCodeLine{\Hypertarget{lockfree__queue_8h_source_l00016}\mbox{\hyperlink{structttak__lf__queue__t_a9cba389b9110b02bc7e08be96514e7ed}{00016}}\ \ \ \ \ atomic\_size\_t\ \mbox{\hyperlink{structttak__lf__queue__t_a9cba389b9110b02bc7e08be96514e7ed}{tail}};}
+\DoxyCodeLine{\Hypertarget{lockfree__queue_8h_source_l00017}\mbox{\hyperlink{structttak__lf__queue__t_a9098da444001008adb5ea7219aada7b4}{00017}}\ \ \ \ \ \textcolor{keywordtype}{void}*\ \mbox{\hyperlink{structttak__lf__queue__t_a9098da444001008adb5ea7219aada7b4}{buffer}}[\mbox{\hyperlink{lockfree__queue_8h_a74c3bf1f794ac13e6dcd82c68f975ac3}{TTAK\_LF\_QUEUE\_SIZE}}];}
+\DoxyCodeLine{\Hypertarget{lockfree__queue_8h_source_l00018}00018\ \}\ \mbox{\hyperlink{structttak__lf__queue__t}{ttak\_lf\_queue\_t}};}
+\DoxyCodeLine{\Hypertarget{lockfree__queue_8h_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{lockfree__queue_8h_source_l00020}\mbox{\hyperlink{lockfree__queue_8h_a00b4213a1cea64323bcc09d9bfa21fb7}{00020}}\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{lockfree__queue_8h_a00b4213a1cea64323bcc09d9bfa21fb7}{ttak\_lf\_queue\_init}}(\mbox{\hyperlink{structttak__lf__queue__t}{ttak\_lf\_queue\_t}}\ *q)\ \{}
+\DoxyCodeLine{\Hypertarget{lockfree__queue_8h_source_l00021}00021\ \ \ \ \ atomic\_init(\&q-\/>\mbox{\hyperlink{structttak__lf__queue__t_a9ec3a51add9c337638fdfe9218481d98}{head}},\ 0);}
+\DoxyCodeLine{\Hypertarget{lockfree__queue_8h_source_l00022}00022\ \ \ \ \ atomic\_init(\&q-\/>\mbox{\hyperlink{structttak__lf__queue__t_a9cba389b9110b02bc7e08be96514e7ed}{tail}},\ 0);}
+\DoxyCodeLine{\Hypertarget{lockfree__queue_8h_source_l00023}00023\ \}}
+\DoxyCodeLine{\Hypertarget{lockfree__queue_8h_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{lockfree__queue_8h_source_l00025}\mbox{\hyperlink{lockfree__queue_8h_a39beefc38dadf1a405434189521bed86}{00025}}\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{lockfree__queue_8h_a39beefc38dadf1a405434189521bed86}{ttak\_lf\_queue\_push}}(\mbox{\hyperlink{structttak__lf__queue__t}{ttak\_lf\_queue\_t}}\ *q,\ \textcolor{keywordtype}{void}\ *data)\ \{}
+\DoxyCodeLine{\Hypertarget{lockfree__queue_8h_source_l00026}00026\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ tail\ =\ atomic\_load\_explicit(\&q-\/>\mbox{\hyperlink{structttak__lf__queue__t_a9cba389b9110b02bc7e08be96514e7ed}{tail}},\ memory\_order\_relaxed);}
+\DoxyCodeLine{\Hypertarget{lockfree__queue_8h_source_l00027}00027\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ next\_tail\ =\ (tail\ +\ 1)\ \%\ \mbox{\hyperlink{lockfree__queue_8h_a74c3bf1f794ac13e6dcd82c68f975ac3}{TTAK\_LF\_QUEUE\_SIZE}};}
+\DoxyCodeLine{\Hypertarget{lockfree__queue_8h_source_l00028}00028\ \ \ \ \ \textcolor{keywordflow}{if}\ (next\_tail\ ==\ atomic\_load\_explicit(\&q-\/>\mbox{\hyperlink{structttak__lf__queue__t_a9ec3a51add9c337638fdfe9218481d98}{head}},\ memory\_order\_acquire))\ \{}
+\DoxyCodeLine{\Hypertarget{lockfree__queue_8h_source_l00029}00029\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};\ \textcolor{comment}{//\ Full}}
+\DoxyCodeLine{\Hypertarget{lockfree__queue_8h_source_l00030}00030\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{lockfree__queue_8h_source_l00031}00031\ \ \ \ \ q-\/>\mbox{\hyperlink{structttak__lf__queue__t_a9098da444001008adb5ea7219aada7b4}{buffer}}[tail]\ =\ data;}
+\DoxyCodeLine{\Hypertarget{lockfree__queue_8h_source_l00032}00032\ \ \ \ \ \textcolor{comment}{//\ Release\ fence\ ensures\ the\ consumer\ sees\ the\ data\ in\ the\ buffer\ before\ the\ new\ tail.}}
+\DoxyCodeLine{\Hypertarget{lockfree__queue_8h_source_l00033}00033\ \ \ \ \ atomic\_store\_explicit(\&q-\/>\mbox{\hyperlink{structttak__lf__queue__t_a9cba389b9110b02bc7e08be96514e7ed}{tail}},\ next\_tail,\ memory\_order\_release);}
+\DoxyCodeLine{\Hypertarget{lockfree__queue_8h_source_l00034}00034\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{lockfree__queue_8h_source_l00035}00035\ \}}
+\DoxyCodeLine{\Hypertarget{lockfree__queue_8h_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{lockfree__queue_8h_source_l00037}\mbox{\hyperlink{lockfree__queue_8h_a06abee72014aa616a337cc494b14a083}{00037}}\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}*\ \mbox{\hyperlink{lockfree__queue_8h_a06abee72014aa616a337cc494b14a083}{ttak\_lf\_queue\_pop}}(\mbox{\hyperlink{structttak__lf__queue__t}{ttak\_lf\_queue\_t}}\ *q)\ \{}
+\DoxyCodeLine{\Hypertarget{lockfree__queue_8h_source_l00038}00038\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ head\ =\ atomic\_load\_explicit(\&q-\/>\mbox{\hyperlink{structttak__lf__queue__t_a9ec3a51add9c337638fdfe9218481d98}{head}},\ memory\_order\_relaxed);}
+\DoxyCodeLine{\Hypertarget{lockfree__queue_8h_source_l00039}00039\ \ \ \ \ \textcolor{keywordflow}{while}\ (\textcolor{keyword}{true})\ \{}
+\DoxyCodeLine{\Hypertarget{lockfree__queue_8h_source_l00040}00040\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Acquire\ fence\ ensures\ we\ see\ the\ data\ written\ by\ the\ producer.}}
+\DoxyCodeLine{\Hypertarget{lockfree__queue_8h_source_l00041}00041\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ tail\ =\ atomic\_load\_explicit(\&q-\/>\mbox{\hyperlink{structttak__lf__queue__t_a9cba389b9110b02bc7e08be96514e7ed}{tail}},\ memory\_order\_acquire);}
+\DoxyCodeLine{\Hypertarget{lockfree__queue_8h_source_l00042}00042\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (head\ ==\ tail)\ \{}
+\DoxyCodeLine{\Hypertarget{lockfree__queue_8h_source_l00043}00043\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ NULL;\ \textcolor{comment}{//\ Empty}}
+\DoxyCodeLine{\Hypertarget{lockfree__queue_8h_source_l00044}00044\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{lockfree__queue_8h_source_l00045}00045\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ *data\ =\ q-\/>\mbox{\hyperlink{structttak__lf__queue__t_a9098da444001008adb5ea7219aada7b4}{buffer}}[head];}
+\DoxyCodeLine{\Hypertarget{lockfree__queue_8h_source_l00046}00046\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (atomic\_compare\_exchange\_weak\_explicit(\&q-\/>\mbox{\hyperlink{structttak__lf__queue__t_a9ec3a51add9c337638fdfe9218481d98}{head}},\ \&head,\ (head\ +\ 1)\ \%\ \mbox{\hyperlink{lockfree__queue_8h_a74c3bf1f794ac13e6dcd82c68f975ac3}{TTAK\_LF\_QUEUE\_SIZE}},\ memory\_order\_release,\ memory\_order\_relaxed))\ \{}
+\DoxyCodeLine{\Hypertarget{lockfree__queue_8h_source_l00047}00047\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ data;}
+\DoxyCodeLine{\Hypertarget{lockfree__queue_8h_source_l00048}00048\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{lockfree__queue_8h_source_l00049}00049\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ head\ is\ updated\ by\ CAS\ on\ failure,\ retry.}}
+\DoxyCodeLine{\Hypertarget{lockfree__queue_8h_source_l00050}00050\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{lockfree__queue_8h_source_l00051}00051\ \}}
+\DoxyCodeLine{\Hypertarget{lockfree__queue_8h_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{lockfree__queue_8h_source_l00053}00053\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ TTAK\_LOCKFREE\_QUEUE\_H}}
+
+\end{DoxyCode}

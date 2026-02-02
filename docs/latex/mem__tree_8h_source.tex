@@ -1,0 +1,142 @@
+\doxysection{mem\+\_\+tree.\+h}
+\hypertarget{mem__tree_8h_source}{}\label{mem__tree_8h_source}\index{include/ttak/mem\_tree/mem\_tree.h@{include/ttak/mem\_tree/mem\_tree.h}}
+\mbox{\hyperlink{mem__tree_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00001}00001\ \textcolor{preprocessor}{\#ifndef\ TTAK\_MEM\_TREE\_H}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00002}00002\ \textcolor{preprocessor}{\#define\ TTAK\_MEM\_TREE\_H}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <stddef.h>}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00007}00007\ \textcolor{preprocessor}{\#include\ <stdatomic.h>}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00008}00008\ \textcolor{preprocessor}{\#include\ <pthread.h>}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00009}00009\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00010}00010\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00011}00011\ \textcolor{comment}{\ *\ @brief\ Represents\ a\ node\ in\ the\ generic\ heap\ tree,\ tracking\ a\ dynamically\ allocated\ memory\ block.}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00012}00012\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00013}00013\ \textcolor{comment}{\ *\ Each\ node\ stores\ metadata\ about\ a\ memory\ allocation,\ including\ its\ pointer,\ size,}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00014}00014\ \textcolor{comment}{\ *\ expiration\ time,\ and\ reference\ count.\ It\ also\ includes\ flags\ for\ managing\ its}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00015}00015\ \textcolor{comment}{\ *\ lifecycle\ within\ the\ heap\ tree\ and\ a\ mutex\ for\ thread-\/safe\ access.}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00016}00016\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00017}\mbox{\hyperlink{structttak__mem__node}{00017}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structttak__mem__node}{ttak\_mem\_node}}\ \{}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00018}\mbox{\hyperlink{structttak__mem__node_a23a25a9a5600d18e2666c96ad38608e5}{00018}}\ \ \ \ \ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{structttak__mem__node_a23a25a9a5600d18e2666c96ad38608e5}{ptr}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/**<\ Pointer\ to\ the\ actual\ memory\ block.\ */}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00019}\mbox{\hyperlink{structttak__mem__node_adeba8cfc20ec3186ab1f360d7eaf098a}{00019}}\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{structttak__mem__node_adeba8cfc20ec3186ab1f360d7eaf098a}{size}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/**<\ Size\ of\ the\ allocated\ memory\ block.\ */}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00020}\mbox{\hyperlink{structttak__mem__node_a57e33bb2997c65fba791df62dd986e22}{00020}}\ \ \ \ \ uint64\_t\ \mbox{\hyperlink{structttak__mem__node_a57e33bb2997c65fba791df62dd986e22}{expires\_tick}};\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/**<\ Monotonic\ tick\ when\ this\ memory\ block\ should\ expire.\ */}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00021}\mbox{\hyperlink{structttak__mem__node_ad60fe6cfc7abe4d4d1ec4f79c120899f}{00021}}\ \ \ \ \ \_Atomic\ uint32\_t\ \mbox{\hyperlink{structttak__mem__node_ad60fe6cfc7abe4d4d1ec4f79c120899f}{ref\_count}};\ \ \ \ \ \textcolor{comment}{/**<\ Atomic\ count\ of\ references\ to\ this\ node.\ */}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00022}\mbox{\hyperlink{structttak__mem__node_a7fa380a4b8f31d509cd7410d546264f5}{00022}}\ \ \ \ \ \_Bool\ \mbox{\hyperlink{structttak__mem__node_a7fa380a4b8f31d509cd7410d546264f5}{is\_root}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/**<\ True\ if\ this\ node\ is\ referenced\ externally\ (not\ by\ another\ heap\ node).\ */}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00023}\mbox{\hyperlink{structttak__mem__node_ad62b64575ef7533330e930c008d81c0a}{00023}}\ \ \ \ \ pthread\_mutex\_t\ \mbox{\hyperlink{structttak__mem__node_ad62b64575ef7533330e930c008d81c0a}{lock}};\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/**<\ Mutex\ for\ thread-\/safe\ access\ to\ this\ node's\ metadata.\ */}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00024}\mbox{\hyperlink{structttak__mem__node_a6896e5888fd2214f86e0d8fd74721819}{00024}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structttak__mem__node}{ttak\_mem\_node}}\ *\mbox{\hyperlink{structttak__mem__node_a6896e5888fd2214f86e0d8fd74721819}{next}};\ \ \ \ \textcolor{comment}{/**<\ Pointer\ to\ the\ next\ node\ in\ the\ mem\ tree's\ internal\ list.\ */}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00025}\mbox{\hyperlink{mem__tree_8h_aa9f7129a1849cc78030b371254a60a77}{00025}}\ \}\ \mbox{\hyperlink{mem__tree_8h_aa9f7129a1849cc78030b371254a60a77}{ttak\_mem\_node\_t}};}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00026}00026\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00027}00027\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00028}00028\ \textcolor{comment}{\ *\ @brief\ Manages\ the\ collection\ of\ dynamically\ allocated\ memory\ blocks\ as\ a\ mem\ tree.}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00029}00029\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00030}00030\ \textcolor{comment}{\ *\ This\ structure\ provides\ a\ centralized\ mechanism\ for\ tracking\ memory\ allocations,}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00031}00031\ \textcolor{comment}{\ *\ their\ interdependencies\ (via\ reference\ counts),\ and\ their\ lifetimes.\ It\ supports}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00032}00032\ \textcolor{comment}{\ *\ automatic\ cleanup\ of\ expired\ or\ unreferenced\ blocks\ and\ allows\ for\ manual\ control}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00033}00033\ \textcolor{comment}{\ *\ over\ the\ cleanup\ process.}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00034}00034\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00035}\mbox{\hyperlink{structttak__mem__tree}{00035}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structttak__mem__tree}{ttak\_mem\_tree}}\ \{}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00036}\mbox{\hyperlink{structttak__mem__tree_a43bbff79cb7fc8772703695aed2989bb}{00036}}\ \ \ \ \ \mbox{\hyperlink{mem__tree_8h_aa9f7129a1849cc78030b371254a60a77}{ttak\_mem\_node\_t}}\ *\mbox{\hyperlink{structttak__mem__tree_a43bbff79cb7fc8772703695aed2989bb}{head}};\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/**<\ Head\ of\ the\ linked\ list\ of\ all\ tracked\ mem\ nodes.\ */}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00037}\mbox{\hyperlink{structttak__mem__tree_abc03363062bc93c86d70c60d00812828}{00037}}\ \ \ \ \ pthread\_mutex\_t\ \mbox{\hyperlink{structttak__mem__tree_abc03363062bc93c86d70c60d00812828}{lock}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/**<\ Mutex\ for\ thread-\/safe\ access\ to\ the\ mem\ tree\ structure.\ */}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00038}\mbox{\hyperlink{structttak__mem__tree_a73c750f7c5e49d53189686409082a81f}{00038}}\ \ \ \ \ \_Atomic\ uint64\_t\ \mbox{\hyperlink{structttak__mem__tree_a73c750f7c5e49d53189686409082a81f}{cleanup\_interval\_ns}};\ \textcolor{comment}{/**<\ Interval\ in\ nanoseconds\ for\ automatic\ cleanup.\ */}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00039}\mbox{\hyperlink{structttak__mem__tree_a7bf5a075716a16c6db6f174a8ee85278}{00039}}\ \ \ \ \ \_Atomic\ \_Bool\ \mbox{\hyperlink{structttak__mem__tree_a7bf5a075716a16c6db6f174a8ee85278}{use\_manual\_cleanup}};\ \ \ \textcolor{comment}{/**<\ Flag\ to\ disable\ automatic\ cleanup\ (1\ for\ manual,\ 0\ for\ auto).\ */}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00040}\mbox{\hyperlink{structttak__mem__tree_a05f533891d26dee4a3ee9e1997b7b6cc}{00040}}\ \ \ \ \ pthread\_t\ \mbox{\hyperlink{structttak__mem__tree_a05f533891d26dee4a3ee9e1997b7b6cc}{cleanup\_thread}};\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/**<\ Thread\ ID\ for\ the\ background\ automatic\ cleanup\ process.\ */}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00041}\mbox{\hyperlink{structttak__mem__tree_ae6e6bee1dd3f2922877d8c96d86275b6}{00041}}\ \ \ \ \ \_Atomic\ \_Bool\ \mbox{\hyperlink{structttak__mem__tree_ae6e6bee1dd3f2922877d8c96d86275b6}{shutdown\_requested}};\ \ \ \textcolor{comment}{/**<\ Flag\ to\ signal\ the\ cleanup\ thread\ to\ terminate.\ */}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00042}\mbox{\hyperlink{mem__tree_8h_a247fb2ceb1803d4d3ad077d0785cc858}{00042}}\ \}\ \mbox{\hyperlink{mem__tree_8h_a247fb2ceb1803d4d3ad077d0785cc858}{ttak\_mem\_tree\_t}};}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00043}00043\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00044}00044\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00045}00045\ \textcolor{comment}{\ *\ @brief\ Initializes\ a\ new\ mem\ tree\ instance.}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00046}00046\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00047}00047\ \textcolor{comment}{\ *\ @param\ tree\ Pointer\ to\ the\ ttak\_mem\_tree\_t\ structure\ to\ initialize.}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00048}00048\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00049}\mbox{\hyperlink{mem__tree_8h_a886b8c79113ee78c206e16bfbf73c677}{00049}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{mem__tree_8h_a886b8c79113ee78c206e16bfbf73c677}{ttak\_mem\_tree\_init}}(\mbox{\hyperlink{mem__tree_8h_a247fb2ceb1803d4d3ad077d0785cc858}{ttak\_mem\_tree\_t}}\ *tree);}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00050}00050\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00051}00051\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00052}00052\ \textcolor{comment}{\ *\ @brief\ Destroys\ the\ mem\ tree,\ freeing\ all\ remaining\ allocated\ memory\ blocks\ and\ stopping\ the\ cleanup\ thread.}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00053}00053\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00054}00054\ \textcolor{comment}{\ *\ @param\ tree\ Pointer\ to\ the\ ttak\_mem\_tree\_t\ structure\ to\ destroy.}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00055}00055\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00056}\mbox{\hyperlink{mem__tree_8h_a4b6933d1bc2b4582826465605c4376c2}{00056}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{mem__tree_8h_a4b6933d1bc2b4582826465605c4376c2}{ttak\_mem\_tree\_destroy}}(\mbox{\hyperlink{mem__tree_8h_a247fb2ceb1803d4d3ad077d0785cc858}{ttak\_mem\_tree\_t}}\ *tree);}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00057}00057\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00058}00058\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00059}00059\ \textcolor{comment}{\ *\ @brief\ Adds\ a\ new\ memory\ block\ to\ be\ tracked\ by\ the\ mem\ tree.}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00060}00060\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00061}00061\ \textcolor{comment}{\ *\ @param\ tree\ Pointer\ to\ the\ mem\ tree.}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00062}00062\ \textcolor{comment}{\ *\ @param\ ptr\ Pointer\ to\ the\ allocated\ memory\ block.}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00063}00063\ \textcolor{comment}{\ *\ @param\ size\ Size\ of\ the\ allocated\ memory\ block.}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00064}00064\ \textcolor{comment}{\ *\ @param\ expires\_tick\ Monotonic\ tick\ when\ this\ memory\ block\ should\ expire.}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00065}00065\ \textcolor{comment}{\ *\ @param\ is\_root\ True\ if\ this\ is\ a\ root\ node\ (externally\ referenced).}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00066}00066\ \textcolor{comment}{\ *\ @return\ A\ pointer\ to\ the\ newly\ created\ mem\ node,\ or\ NULL\ on\ failure.}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00067}00067\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00068}\mbox{\hyperlink{mem__tree_8h_a829c009bd70438fe7468683c3cbc3222}{00068}}\ \mbox{\hyperlink{mem__tree_8h_aa9f7129a1849cc78030b371254a60a77}{ttak\_mem\_node\_t}}\ *\mbox{\hyperlink{mem__tree_8h_a829c009bd70438fe7468683c3cbc3222}{ttak\_mem\_tree\_add}}(\mbox{\hyperlink{mem__tree_8h_a247fb2ceb1803d4d3ad077d0785cc858}{ttak\_mem\_tree\_t}}\ *tree,\ \textcolor{keywordtype}{void}\ *ptr,\ \textcolor{keywordtype}{size\_t}\ size,\ uint64\_t\ expires\_tick,\ \_Bool\ is\_root);}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00069}00069\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00070}00070\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00071}00071\ \textcolor{comment}{\ *\ @brief\ Removes\ a\ memory\ block\ from\ the\ mem\ tree\ and\ frees\ it.}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00072}00072\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00073}00073\ \textcolor{comment}{\ *\ This\ function\ should\ only\ be\ called\ when\ the\ memory\ block\ is\ no\ longer\ referenced}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00074}00074\ \textcolor{comment}{\ *\ and\ its\ lifetime\ has\ expired,\ or\ when\ explicitly\ forced.}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00075}00075\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00076}00076\ \textcolor{comment}{\ *\ @param\ tree\ Pointer\ to\ the\ mem\ tree.}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00077}00077\ \textcolor{comment}{\ *\ @param\ node\ Pointer\ to\ the\ mem\ node\ to\ remove\ and\ free.}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00078}00078\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00079}\mbox{\hyperlink{mem__tree_8h_a42638152eb455b0d7f23e964f946c8df}{00079}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{mem__tree_8h_a42638152eb455b0d7f23e964f946c8df}{ttak\_mem\_tree\_remove}}(\mbox{\hyperlink{mem__tree_8h_a247fb2ceb1803d4d3ad077d0785cc858}{ttak\_mem\_tree\_t}}\ *tree,\ \mbox{\hyperlink{mem__tree_8h_aa9f7129a1849cc78030b371254a60a77}{ttak\_mem\_node\_t}}\ *node);}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00080}00080\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00081}00081\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00082}00082\ \textcolor{comment}{\ *\ @brief\ Increments\ the\ reference\ count\ for\ a\ given\ mem\ node.}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00083}00083\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00084}00084\ \textcolor{comment}{\ *\ @param\ node\ Pointer\ to\ the\ mem\ node.}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00085}00085\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00086}\mbox{\hyperlink{mem__tree_8h_af7a4426bfe47e5a396b851845d14af2d}{00086}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{mem__tree_8h_af7a4426bfe47e5a396b851845d14af2d}{ttak\_mem\_node\_acquire}}(\mbox{\hyperlink{mem__tree_8h_aa9f7129a1849cc78030b371254a60a77}{ttak\_mem\_node\_t}}\ *node);}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00087}00087\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00088}00088\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00089}00089\ \textcolor{comment}{\ *\ @brief\ Decrements\ the\ reference\ count\ for\ a\ given\ mem\ node.}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00090}00090\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00091}00091\ \textcolor{comment}{\ *\ If\ the\ reference\ count\ drops\ to\ zero\ and\ the\ node\ has\ expired,\ it\ may\ be}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00092}00092\ \textcolor{comment}{\ *\ marked\ for\ cleanup\ or\ immediately\ freed\ depending\ on\ the\ mem\ tree's\ policy.}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00093}00093\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00094}00094\ \textcolor{comment}{\ *\ @param\ node\ Pointer\ to\ the\ mem\ node.}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00095}00095\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00096}\mbox{\hyperlink{mem__tree_8h_aac7ffebbd2335f8acaab651abdd02633}{00096}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{mem__tree_8h_aac7ffebbd2335f8acaab651abdd02633}{ttak\_mem\_node\_release}}(\mbox{\hyperlink{mem__tree_8h_aa9f7129a1849cc78030b371254a60a77}{ttak\_mem\_node\_t}}\ *node);}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00097}00097\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00098}00098\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00099}00099\ \textcolor{comment}{\ *\ @brief\ Sets\ the\ interval\ for\ automatic\ memory\ cleanup.}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00100}00100\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00101}00101\ \textcolor{comment}{\ *\ @param\ tree\ Pointer\ to\ the\ mem\ tree.}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00102}00102\ \textcolor{comment}{\ *\ @param\ interval\_ns\ The\ new\ cleanup\ interval\ in\ nanoseconds.}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00103}00103\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00104}\mbox{\hyperlink{mem__tree_8h_a4dbe96bbd56762d5d53af8f2179d6759}{00104}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{mem__tree_8h_a4dbe96bbd56762d5d53af8f2179d6759}{ttak\_mem\_tree\_set\_cleanup\_interval}}(\mbox{\hyperlink{mem__tree_8h_a247fb2ceb1803d4d3ad077d0785cc858}{ttak\_mem\_tree\_t}}\ *tree,\ uint64\_t\ interval\_ns);}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00105}00105\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00106}00106\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00107}00107\ \textcolor{comment}{\ *\ @brief\ Sets\ the\ manual\ cleanup\ flag.}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00108}00108\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00109}00109\ \textcolor{comment}{\ *\ When\ set\ to\ true,\ automatic\ cleanup\ is\ disabled,\ and\ memory\ must\ be\ freed\ manually.}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00110}00110\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00111}00111\ \textcolor{comment}{\ *\ @param\ tree\ Pointer\ to\ the\ mem\ tree.}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00112}00112\ \textcolor{comment}{\ *\ @param\ manual\_cleanup\_enabled\ True\ to\ enable\ manual\ cleanup,\ false\ to\ enable\ automatic.}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00113}00113\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00114}\mbox{\hyperlink{mem__tree_8h_aa0c98b14defb177dc3873e04a23a872c}{00114}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{mem__tree_8h_aa0c98b14defb177dc3873e04a23a872c}{ttak\_mem\_tree\_set\_manual\_cleanup}}(\mbox{\hyperlink{mem__tree_8h_a247fb2ceb1803d4d3ad077d0785cc858}{ttak\_mem\_tree\_t}}\ *tree,\ \_Bool\ manual\_cleanup\_enabled);}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00115}00115\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00116}00116\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00117}00117\ \textcolor{comment}{\ *\ @brief\ Performs\ a\ manual\ cleanup\ pass,\ freeing\ expired\ and\ unreferenced\ memory\ blocks.}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00118}00118\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00119}00119\ \textcolor{comment}{\ *\ This\ function\ is\ typically\ called\ when\ automatic\ cleanup\ is\ disabled\ or\ when}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00120}00120\ \textcolor{comment}{\ *\ an\ immediate\ cleanup\ is\ desired.}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00121}00121\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00122}00122\ \textcolor{comment}{\ *\ @param\ tree\ Pointer\ to\ the\ mem\ tree.}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00123}00123\ \textcolor{comment}{\ *\ @param\ now\ Current\ monotonic\ tick.}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00124}00124\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00125}\mbox{\hyperlink{mem__tree_8h_a4ec6c7de2748fc8090db6fc273b9f7f9}{00125}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{mem__tree_8h_a4ec6c7de2748fc8090db6fc273b9f7f9}{ttak\_mem\_tree\_perform\_cleanup}}(\mbox{\hyperlink{mem__tree_8h_a247fb2ceb1803d4d3ad077d0785cc858}{ttak\_mem\_tree\_t}}\ *tree,\ uint64\_t\ now);}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00126}00126\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00127}00127\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00128}00128\ \textcolor{comment}{\ *\ @brief\ Finds\ a\ mem\ node\ associated\ with\ a\ given\ memory\ pointer.}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00129}00129\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00130}00130\ \textcolor{comment}{\ *\ @param\ tree\ Pointer\ to\ the\ mem\ tree.}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00131}00131\ \textcolor{comment}{\ *\ @param\ ptr\ The\ memory\ pointer\ to\ search\ for.}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00132}00132\ \textcolor{comment}{\ *\ @return\ A\ pointer\ to\ the\ found\ mem\ node,\ or\ NULL\ if\ not\ found.}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00133}00133\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00134}\mbox{\hyperlink{mem__tree_8h_a46caf44d87353e948b1b34132ecb2531}{00134}}\ \mbox{\hyperlink{mem__tree_8h_aa9f7129a1849cc78030b371254a60a77}{ttak\_mem\_node\_t}}\ *\mbox{\hyperlink{mem__tree_8h_a46caf44d87353e948b1b34132ecb2531}{ttak\_mem\_tree\_find\_node}}(\mbox{\hyperlink{mem__tree_8h_a247fb2ceb1803d4d3ad077d0785cc858}{ttak\_mem\_tree\_t}}\ *tree,\ \textcolor{keywordtype}{void}\ *ptr);}
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00135}00135\ }
+\DoxyCodeLine{\Hypertarget{mem__tree_8h_source_l00136}00136\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ TTAK\_HEAP\_TREE\_H}}
+
+\end{DoxyCode}

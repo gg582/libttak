@@ -1,0 +1,56 @@
+\doxysection{table.\+h}
+\hypertarget{table_8h_source}{}\label{table_8h_source}\index{include/ttak/ht/table.h@{include/ttak/ht/table.h}}
+\mbox{\hyperlink{table_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{table_8h_source_l00001}00001\ \textcolor{preprocessor}{\#ifndef\ TTAK\_HT\_TABLE\_H}}
+\DoxyCodeLine{\Hypertarget{table_8h_source_l00002}00002\ \textcolor{preprocessor}{\#define\ TTAK\_HT\_TABLE\_H}}
+\DoxyCodeLine{\Hypertarget{table_8h_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{table_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{\Hypertarget{table_8h_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <stddef.h>}}
+\DoxyCodeLine{\Hypertarget{table_8h_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{\Hypertarget{table_8h_source_l00007}00007\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{table_8h_source_l00008}00008\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{table_8h_source_l00009}00009\ \textcolor{comment}{\ *\ @brief\ Generic\ Table\ Entry.}}
+\DoxyCodeLine{\Hypertarget{table_8h_source_l00010}00010\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{table_8h_source_l00011}\mbox{\hyperlink{structttak__table__entry}{00011}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structttak__table__entry}{ttak\_table\_entry}}\ \{}
+\DoxyCodeLine{\Hypertarget{table_8h_source_l00012}\mbox{\hyperlink{structttak__table__entry_aa0d0864665bd2c504d3c012898da6a3f}{00012}}\ \ \ \ \ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{structttak__table__entry_aa0d0864665bd2c504d3c012898da6a3f}{key}};}
+\DoxyCodeLine{\Hypertarget{table_8h_source_l00013}\mbox{\hyperlink{structttak__table__entry_aacec9e2291d8b74728f9bcc5396c1ac2}{00013}}\ \ \ \ \ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{structttak__table__entry_aacec9e2291d8b74728f9bcc5396c1ac2}{value}};}
+\DoxyCodeLine{\Hypertarget{table_8h_source_l00014}\mbox{\hyperlink{structttak__table__entry_a69cc5c4b1c16e6e3ce515f007284ebc7}{00014}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structttak__table__entry}{ttak\_table\_entry}}\ *\mbox{\hyperlink{structttak__table__entry_a69cc5c4b1c16e6e3ce515f007284ebc7}{next}};\ \textcolor{comment}{//\ Chaining\ for\ collisions}}
+\DoxyCodeLine{\Hypertarget{table_8h_source_l00015}\mbox{\hyperlink{table_8h_a3bf40d9bd30341376b18a85e49f4440c}{00015}}\ \}\ \mbox{\hyperlink{table_8h_a3bf40d9bd30341376b18a85e49f4440c}{ttak\_table\_entry\_t}};}
+\DoxyCodeLine{\Hypertarget{table_8h_source_l00016}00016\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{table_8h_source_l00017}00017\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{table_8h_source_l00018}00018\ \textcolor{comment}{\ *\ @brief\ Generic\ SipHash\ Table.}}
+\DoxyCodeLine{\Hypertarget{table_8h_source_l00019}00019\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{table_8h_source_l00020}\mbox{\hyperlink{structttak__table}{00020}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structttak__table}{ttak\_table}}\ \{}
+\DoxyCodeLine{\Hypertarget{table_8h_source_l00021}\mbox{\hyperlink{structttak__table_af2bec832cd9fd19a6b687ba1edadba1d}{00021}}\ \ \ \ \ \mbox{\hyperlink{table_8h_a3bf40d9bd30341376b18a85e49f4440c}{ttak\_table\_entry\_t}}\ **\mbox{\hyperlink{structttak__table_af2bec832cd9fd19a6b687ba1edadba1d}{buckets}};}
+\DoxyCodeLine{\Hypertarget{table_8h_source_l00022}\mbox{\hyperlink{structttak__table_a2b70a3388897ec19b7b13534c0aac9d0}{00022}}\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{structttak__table_a2b70a3388897ec19b7b13534c0aac9d0}{capacity}};}
+\DoxyCodeLine{\Hypertarget{table_8h_source_l00023}\mbox{\hyperlink{structttak__table_aec32d1eeaa4f691e5268462b2a95e444}{00023}}\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{structttak__table_aec32d1eeaa4f691e5268462b2a95e444}{size}};}
+\DoxyCodeLine{\Hypertarget{table_8h_source_l00024}\mbox{\hyperlink{structttak__table_a7e6479ebfc2d791fcad1e1945692c713}{00024}}\ \ \ \ \ uint64\_t\ \mbox{\hyperlink{structttak__table_a7e6479ebfc2d791fcad1e1945692c713}{k0}};}
+\DoxyCodeLine{\Hypertarget{table_8h_source_l00025}\mbox{\hyperlink{structttak__table_a2f8f8082386ff94cde0afccb5e2269f9}{00025}}\ \ \ \ \ uint64\_t\ \mbox{\hyperlink{structttak__table_a2f8f8082386ff94cde0afccb5e2269f9}{k1}};}
+\DoxyCodeLine{\Hypertarget{table_8h_source_l00026}00026\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{table_8h_source_l00027}00027\ \ \ \ \ \textcolor{comment}{//\ Function\ pointers\ for\ generic\ behavior}}
+\DoxyCodeLine{\Hypertarget{table_8h_source_l00028}\mbox{\hyperlink{structttak__table_ac90c1f46800a3c62a2984c1af31dbef7}{00028}}\ \ \ \ \ uint64\_t\ (*\mbox{\hyperlink{structttak__table_ac90c1f46800a3c62a2984c1af31dbef7}{hash\_func}})(\textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ *key,\ \textcolor{keywordtype}{size\_t}\ key\_len,\ uint64\_t\ \mbox{\hyperlink{structttak__table_a7e6479ebfc2d791fcad1e1945692c713}{k0}},\ uint64\_t\ \mbox{\hyperlink{structttak__table_a2f8f8082386ff94cde0afccb5e2269f9}{k1}});}
+\DoxyCodeLine{\Hypertarget{table_8h_source_l00029}\mbox{\hyperlink{structttak__table_a59575b01f30c571d6e2e8818d6cc785a}{00029}}\ \ \ \ \ int\ (*\mbox{\hyperlink{structttak__table_a59575b01f30c571d6e2e8818d6cc785a}{key\_cmp}})(\textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{structttak__table_a2f8f8082386ff94cde0afccb5e2269f9}{k1}},\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ *k2);}
+\DoxyCodeLine{\Hypertarget{table_8h_source_l00030}\mbox{\hyperlink{structttak__table_a656889e2ba4a75d1a15a49808f2349cc}{00030}}\ \ \ \ \ void\ (*\mbox{\hyperlink{structttak__table_a656889e2ba4a75d1a15a49808f2349cc}{key\_free}})(\textcolor{keywordtype}{void}\ *key);}
+\DoxyCodeLine{\Hypertarget{table_8h_source_l00031}\mbox{\hyperlink{structttak__table_a691d524a5327dbfa40dae6bd48e02a48}{00031}}\ \ \ \ \ void\ (*\mbox{\hyperlink{structttak__table_a691d524a5327dbfa40dae6bd48e02a48}{val\_free}})(\textcolor{keywordtype}{void}\ *val);}
+\DoxyCodeLine{\Hypertarget{table_8h_source_l00032}\mbox{\hyperlink{table_8h_ae98c30e481bee1ad9ed4278ba2f0341a}{00032}}\ \}\ \mbox{\hyperlink{table_8h_ae98c30e481bee1ad9ed4278ba2f0341a}{ttak\_table\_t}};}
+\DoxyCodeLine{\Hypertarget{table_8h_source_l00033}00033\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{table_8h_source_l00034}00034\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{table_8h_source_l00035}00035\ \textcolor{comment}{\ *\ @brief\ Initialize\ a\ generic\ table.}}
+\DoxyCodeLine{\Hypertarget{table_8h_source_l00036}00036\ \textcolor{comment}{\ *\ @param\ hash\_func\ Custom\ hash\ function\ (or\ NULL\ for\ default\ SipHash\ on\ generic\ bytes).}}
+\DoxyCodeLine{\Hypertarget{table_8h_source_l00037}00037\ \textcolor{comment}{\ *\ @param\ key\_cmp\ Key\ comparison\ function\ (returns\ 0\ if\ equal).}}
+\DoxyCodeLine{\Hypertarget{table_8h_source_l00038}00038\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{table_8h_source_l00039}\mbox{\hyperlink{table_8h_ae1945199774ff7177dc5ace4551744f4}{00039}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{table_8h_ae1945199774ff7177dc5ace4551744f4}{ttak\_table\_init}}(\mbox{\hyperlink{table_8h_ae98c30e481bee1ad9ed4278ba2f0341a}{ttak\_table\_t}}\ *table,\ \textcolor{keywordtype}{size\_t}\ capacity,\ }
+\DoxyCodeLine{\Hypertarget{table_8h_source_l00040}00040\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint64\_t\ (*hash\_func)(\textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*,\ \textcolor{keywordtype}{size\_t},\ uint64\_t,\ uint64\_t),}
+\DoxyCodeLine{\Hypertarget{table_8h_source_l00041}00041\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ (*key\_cmp)(\textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*),}
+\DoxyCodeLine{\Hypertarget{table_8h_source_l00042}00042\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ (*key\_free)(\textcolor{keywordtype}{void}*),}
+\DoxyCodeLine{\Hypertarget{table_8h_source_l00043}00043\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ (*val\_free)(\textcolor{keywordtype}{void}*));}
+\DoxyCodeLine{\Hypertarget{table_8h_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{table_8h_source_l00045}\mbox{\hyperlink{table_8h_a82579cff9c3232ac17891676181dad8e}{00045}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{table_8h_a82579cff9c3232ac17891676181dad8e}{ttak\_table\_put}}(\mbox{\hyperlink{table_8h_ae98c30e481bee1ad9ed4278ba2f0341a}{ttak\_table\_t}}\ *table,\ \textcolor{keywordtype}{void}\ *key,\ \textcolor{keywordtype}{size\_t}\ key\_len,\ \textcolor{keywordtype}{void}\ *value,\ uint64\_t\ now);}
+\DoxyCodeLine{\Hypertarget{table_8h_source_l00046}\mbox{\hyperlink{table_8h_a047f32a6b1e36256b1dd520fc22566bc}{00046}}\ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{table_8h_a047f32a6b1e36256b1dd520fc22566bc}{ttak\_table\_get}}(\mbox{\hyperlink{table_8h_ae98c30e481bee1ad9ed4278ba2f0341a}{ttak\_table\_t}}\ *table,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ *key,\ \textcolor{keywordtype}{size\_t}\ key\_len,\ uint64\_t\ now);}
+\DoxyCodeLine{\Hypertarget{table_8h_source_l00047}\mbox{\hyperlink{table_8h_abf8cb48425390aa581af5263d67603d5}{00047}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{table_8h_abf8cb48425390aa581af5263d67603d5}{ttak\_table\_remove}}(\mbox{\hyperlink{table_8h_ae98c30e481bee1ad9ed4278ba2f0341a}{ttak\_table\_t}}\ *table,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ *key,\ \textcolor{keywordtype}{size\_t}\ key\_len,\ uint64\_t\ now);}
+\DoxyCodeLine{\Hypertarget{table_8h_source_l00048}\mbox{\hyperlink{table_8h_ab406f7ead7a3700b0d9959c6a73b3e76}{00048}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{table_8h_ab406f7ead7a3700b0d9959c6a73b3e76}{ttak\_table\_destroy}}(\mbox{\hyperlink{table_8h_ae98c30e481bee1ad9ed4278ba2f0341a}{ttak\_table\_t}}\ *table,\ uint64\_t\ now);}
+\DoxyCodeLine{\Hypertarget{table_8h_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{table_8h_source_l00050}00050\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ TTAK\_HT\_TABLE\_H}}
+
+\end{DoxyCode}

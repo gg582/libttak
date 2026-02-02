@@ -1,0 +1,127 @@
+\doxysection{ttak\+\_\+mem\+\_\+node Struct Reference}
+\hypertarget{structttak__mem__node}{}\label{structttak__mem__node}\index{ttak\_mem\_node@{ttak\_mem\_node}}
+
+
+Represents a node in the generic heap tree, tracking a dynamically allocated memory block.  
+
+
+
+
+{\ttfamily \#include $<$mem\+\_\+tree.\+h$>$}
+
+
+
+Collaboration diagram for ttak\+\_\+mem\+\_\+node\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=221pt]{structttak__mem__node__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structttak__mem__node_a23a25a9a5600d18e2666c96ad38608e5}{ptr}}
+\item 
+size\+\_\+t \mbox{\hyperlink{structttak__mem__node_adeba8cfc20ec3186ab1f360d7eaf098a}{size}}
+\item 
+uint64\+\_\+t \mbox{\hyperlink{structttak__mem__node_a57e33bb2997c65fba791df62dd986e22}{expires\+\_\+tick}}
+\item 
+\+\_\+\+Atomic uint32\+\_\+t \mbox{\hyperlink{structttak__mem__node_ad60fe6cfc7abe4d4d1ec4f79c120899f}{ref\+\_\+count}}
+\item 
+\+\_\+\+Bool \mbox{\hyperlink{structttak__mem__node_a7fa380a4b8f31d509cd7410d546264f5}{is\+\_\+root}}
+\item 
+pthread\+\_\+mutex\+\_\+t \mbox{\hyperlink{structttak__mem__node_ad62b64575ef7533330e930c008d81c0a}{lock}}
+\item 
+struct \mbox{\hyperlink{structttak__mem__node}{ttak\+\_\+mem\+\_\+node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structttak__mem__node_a6896e5888fd2214f86e0d8fd74721819}{next}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a node in the generic heap tree, tracking a dynamically allocated memory block. 
+
+Each node stores metadata about a memory allocation, including its pointer, size, expiration time, and reference count. It also includes flags for managing its lifecycle within the heap tree and a mutex for thread-\/safe access. 
+
+Definition at line \mbox{\hyperlink{mem__tree_8h_source_l00017}{17}} of file \mbox{\hyperlink{mem__tree_8h_source}{mem\+\_\+tree.\+h}}.
+
+
+
+\label{doc-variable-members}
+\Hypertarget{structttak__mem__node_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{structttak__mem__node_a57e33bb2997c65fba791df62dd986e22}\index{ttak\_mem\_node@{ttak\_mem\_node}!expires\_tick@{expires\_tick}}
+\index{expires\_tick@{expires\_tick}!ttak\_mem\_node@{ttak\_mem\_node}}
+\doxysubsubsection{\texorpdfstring{expires\_tick}{expires\_tick}}
+{\footnotesize\ttfamily \label{structttak__mem__node_a57e33bb2997c65fba791df62dd986e22} 
+uint64\+\_\+t ttak\+\_\+mem\+\_\+node\+::expires\+\_\+tick}
+
+Monotonic tick when this memory block should expire. 
+
+Definition at line \mbox{\hyperlink{mem__tree_8h_source_l00020}{20}} of file \mbox{\hyperlink{mem__tree_8h_source}{mem\+\_\+tree.\+h}}.
+
+\Hypertarget{structttak__mem__node_a7fa380a4b8f31d509cd7410d546264f5}\index{ttak\_mem\_node@{ttak\_mem\_node}!is\_root@{is\_root}}
+\index{is\_root@{is\_root}!ttak\_mem\_node@{ttak\_mem\_node}}
+\doxysubsubsection{\texorpdfstring{is\_root}{is\_root}}
+{\footnotesize\ttfamily \label{structttak__mem__node_a7fa380a4b8f31d509cd7410d546264f5} 
+\+\_\+\+Bool ttak\+\_\+mem\+\_\+node\+::is\+\_\+root}
+
+True if this node is referenced externally (not by another heap node). 
+
+Definition at line \mbox{\hyperlink{mem__tree_8h_source_l00022}{22}} of file \mbox{\hyperlink{mem__tree_8h_source}{mem\+\_\+tree.\+h}}.
+
+\Hypertarget{structttak__mem__node_ad62b64575ef7533330e930c008d81c0a}\index{ttak\_mem\_node@{ttak\_mem\_node}!lock@{lock}}
+\index{lock@{lock}!ttak\_mem\_node@{ttak\_mem\_node}}
+\doxysubsubsection{\texorpdfstring{lock}{lock}}
+{\footnotesize\ttfamily \label{structttak__mem__node_ad62b64575ef7533330e930c008d81c0a} 
+pthread\+\_\+mutex\+\_\+t ttak\+\_\+mem\+\_\+node\+::lock}
+
+Mutex for thread-\/safe access to this node\textquotesingle{}s metadata. 
+
+Definition at line \mbox{\hyperlink{mem__tree_8h_source_l00023}{23}} of file \mbox{\hyperlink{mem__tree_8h_source}{mem\+\_\+tree.\+h}}.
+
+\Hypertarget{structttak__mem__node_a6896e5888fd2214f86e0d8fd74721819}\index{ttak\_mem\_node@{ttak\_mem\_node}!next@{next}}
+\index{next@{next}!ttak\_mem\_node@{ttak\_mem\_node}}
+\doxysubsubsection{\texorpdfstring{next}{next}}
+{\footnotesize\ttfamily \label{structttak__mem__node_a6896e5888fd2214f86e0d8fd74721819} 
+struct \mbox{\hyperlink{structttak__mem__node}{ttak\+\_\+mem\+\_\+node}}\texorpdfstring{$\ast$}{*} ttak\+\_\+mem\+\_\+node\+::next}
+
+Pointer to the next node in the mem tree\textquotesingle{}s internal list. 
+
+Definition at line \mbox{\hyperlink{mem__tree_8h_source_l00024}{24}} of file \mbox{\hyperlink{mem__tree_8h_source}{mem\+\_\+tree.\+h}}.
+
+\Hypertarget{structttak__mem__node_a23a25a9a5600d18e2666c96ad38608e5}\index{ttak\_mem\_node@{ttak\_mem\_node}!ptr@{ptr}}
+\index{ptr@{ptr}!ttak\_mem\_node@{ttak\_mem\_node}}
+\doxysubsubsection{\texorpdfstring{ptr}{ptr}}
+{\footnotesize\ttfamily \label{structttak__mem__node_a23a25a9a5600d18e2666c96ad38608e5} 
+void\texorpdfstring{$\ast$}{*} ttak\+\_\+mem\+\_\+node\+::ptr}
+
+Pointer to the actual memory block. 
+
+Definition at line \mbox{\hyperlink{mem__tree_8h_source_l00018}{18}} of file \mbox{\hyperlink{mem__tree_8h_source}{mem\+\_\+tree.\+h}}.
+
+\Hypertarget{structttak__mem__node_ad60fe6cfc7abe4d4d1ec4f79c120899f}\index{ttak\_mem\_node@{ttak\_mem\_node}!ref\_count@{ref\_count}}
+\index{ref\_count@{ref\_count}!ttak\_mem\_node@{ttak\_mem\_node}}
+\doxysubsubsection{\texorpdfstring{ref\_count}{ref\_count}}
+{\footnotesize\ttfamily \label{structttak__mem__node_ad60fe6cfc7abe4d4d1ec4f79c120899f} 
+\+\_\+\+Atomic uint32\+\_\+t ttak\+\_\+mem\+\_\+node\+::ref\+\_\+count}
+
+Atomic count of references to this node. 
+
+Definition at line \mbox{\hyperlink{mem__tree_8h_source_l00021}{21}} of file \mbox{\hyperlink{mem__tree_8h_source}{mem\+\_\+tree.\+h}}.
+
+\Hypertarget{structttak__mem__node_adeba8cfc20ec3186ab1f360d7eaf098a}\index{ttak\_mem\_node@{ttak\_mem\_node}!size@{size}}
+\index{size@{size}!ttak\_mem\_node@{ttak\_mem\_node}}
+\doxysubsubsection{\texorpdfstring{size}{size}}
+{\footnotesize\ttfamily \label{structttak__mem__node_adeba8cfc20ec3186ab1f360d7eaf098a} 
+size\+\_\+t ttak\+\_\+mem\+\_\+node\+::size}
+
+Size of the allocated memory block. 
+
+Definition at line \mbox{\hyperlink{mem__tree_8h_source_l00019}{19}} of file \mbox{\hyperlink{mem__tree_8h_source}{mem\+\_\+tree.\+h}}.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/ttak/mem\+\_\+tree/\mbox{\hyperlink{mem__tree_8h}{mem\+\_\+tree.\+h}}\end{DoxyCompactItemize}

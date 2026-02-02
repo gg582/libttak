@@ -1,0 +1,15 @@
+<map id="include/ttak/math/sum_divisors.h" name="include/ttak/math/sum_divisors.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="132,5,301,50"/>
+<area shape="rect" id="Node000002" href="$bigint_8h.html" title=" " alt="" coords="147,98,286,126"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="219,50,219,82,214,82,214,50"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,174,76,201"/>
+<area shape="poly" id="edge6_Node000001_Node000003" title=" " alt="" coords="192,52,137,100,66,165,63,161,133,96,189,48"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="308,174,389,201"/>
+<area shape="poly" id="edge7_Node000001_Node000005" title=" " alt="" coords="248,48,275,70,300,96,322,128,339,158,334,161,317,130,296,100,271,74,245,52"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="186,129,87,170,85,165,184,124"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="100,174,173,201"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="204,128,164,165,160,161,200,124"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="241,124,313,163,310,168,239,129"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="198,174,283,201"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="223,125,234,158,229,160,218,127"/>
+</map>

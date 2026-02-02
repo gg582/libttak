@@ -1,0 +1,13 @@
+<map id="include/ttak/math/bigint.h" name="include/ttak/math/bigint.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="339,5,528,33"/>
+<area shape="rect" id="Node000002" href="$bigmul_8h.html" title=" " alt="" coords="5,90,203,117"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="366,40,157,92,156,86,365,35"/>
+<area shape="rect" id="Node000003" href="$bigreal_8h.html" title=" " alt="" coords="227,90,424,117"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="406,45,344,91,341,87,402,40"/>
+<area shape="rect" id="Node000005" href="$factor_8h.html" title=" " alt="" coords="448,90,637,117"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="465,40,527,87,524,91,461,45"/>
+<area shape="rect" id="Node000006" href="$sum__divisors_8h.html" title=" " alt="" coords="661,81,830,126"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="499,35,663,78,662,83,498,40"/>
+<area shape="rect" id="Node000004" href="$bigcomplex_8h.html" title=" " alt="" coords="211,174,440,201"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="328,133,328,173,323,173,323,133"/>
+</map>

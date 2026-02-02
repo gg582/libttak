@@ -1,0 +1,18 @@
+\chapter{Lib\+TTAK\+: Timestamp-\/tracking memory lifetime, Thread and Async Toolkit }
+\hypertarget{index}{}\label{index}\index{LibTTAK: Timestamp-\/tracking memory lifetime, Thread and Async Toolkit@{LibTTAK: Timestamp-\/tracking memory lifetime, Thread and Async Toolkit}}
+\label{index_md_README}%
+\Hypertarget{index_md_README}%
+
+
+Lib\+TTAK provides safer C development by following memory lifetime. All dynamically allocated variables using libttak have its own lifetime. If the variable\textquotesingle{}s lifefime is expired, you can call memory cleaner function to safely clean garbages without GC.
+
+
+\begin{DoxyItemize}
+\item Collect your garbages when you {\bfseries{want to clean}}
+\item No stop-\/and-\/go GC.
+\item Every memory blocks have lifetime.
+\end{DoxyItemize}\hypertarget{index_autotoc_md5}{}\doxysection{\texorpdfstring{How cool is it?}{How cool is it?}}\label{index_autotoc_md5}
+You can see {\ttfamily apps} example. This can run complex math programs without bad memory management so easily.\hypertarget{index_autotoc_md6}{}\doxysection{\texorpdfstring{C is good, if you stay safe.}{C is good, if you stay safe.}}\label{index_autotoc_md6}
+Lib\+TTAK aims for safety over performance. Contrary to common belief, it will not provide superior performance; its performance is similar to C++. However, this still follow C-\/style programming, and you don\textquotesingle{}t need to seek massive C++ documents. No iterators, every syntax is clear.
+
+If you use proper technique to prevent dangerous patterns, C is good, and sometimes it is even better than C++. Lib\+TTAK will help you to develop {\ttfamily adequate} C programs. 

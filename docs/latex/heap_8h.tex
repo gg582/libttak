@@ -1,0 +1,113 @@
+\doxysection{include/ttak/priority/heap.h File Reference}
+\hypertarget{heap_8h}{}\label{heap_8h}\index{include/ttak/priority/heap.h@{include/ttak/priority/heap.h}}
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+Include dependency graph for heap.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=285pt]{heap_8h__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structttak__heap__tree}{ttak\+\_\+heap\+\_\+tree}}
+\begin{DoxyCompactList}\small\item\em Generic Binary Heap (Tree). Implemented as a dynamic array. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{structttak__heap__tree}{ttak\+\_\+heap\+\_\+tree}} \mbox{\hyperlink{heap_8h_acaf2c89557215ad5abded52af431e6bf}{ttak\+\_\+heap\+\_\+tree\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Generic Binary Heap (Tree). Implemented as a dynamic array. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{heap_8h_aa6e8d0be11b933fbbbd9b2bb7b149534}{ttak\+\_\+heap\+\_\+tree\+\_\+init}} (\mbox{\hyperlink{heap_8h_acaf2c89557215ad5abded52af431e6bf}{ttak\+\_\+heap\+\_\+tree\+\_\+t}} \texorpdfstring{$\ast$}{*}heap, size\+\_\+t initial\+\_\+cap, int(\texorpdfstring{$\ast$}{*}cmp)(const void \texorpdfstring{$\ast$}{*}, const void \texorpdfstring{$\ast$}{*}))
+\begin{DoxyCompactList}\small\item\em Initialize the heap. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{heap_8h_a9dffa0e9b3d7131d6d542ac09b4af48e}{ttak\+\_\+heap\+\_\+tree\+\_\+push}} (\mbox{\hyperlink{heap_8h_acaf2c89557215ad5abded52af431e6bf}{ttak\+\_\+heap\+\_\+tree\+\_\+t}} \texorpdfstring{$\ast$}{*}heap, void \texorpdfstring{$\ast$}{*}element, uint64\+\_\+t now)
+\begin{DoxyCompactList}\small\item\em Push an element into the heap. \end{DoxyCompactList}\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{heap_8h_a02b1486e5be8d4b69b1cc1d976392baf}{ttak\+\_\+heap\+\_\+tree\+\_\+pop}} (\mbox{\hyperlink{heap_8h_acaf2c89557215ad5abded52af431e6bf}{ttak\+\_\+heap\+\_\+tree\+\_\+t}} \texorpdfstring{$\ast$}{*}heap, uint64\+\_\+t now)
+\begin{DoxyCompactList}\small\item\em Pop the root element (min or max depending on comparator). \end{DoxyCompactList}\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{heap_8h_af0aa24955197a77e33371833ad7ff0d6}{ttak\+\_\+heap\+\_\+tree\+\_\+peek}} (const \mbox{\hyperlink{heap_8h_acaf2c89557215ad5abded52af431e6bf}{ttak\+\_\+heap\+\_\+tree\+\_\+t}} \texorpdfstring{$\ast$}{*}heap)
+\begin{DoxyCompactList}\small\item\em Peek at the root element. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{heap_8h_aada8f29275c04f316ebe1fb751ddd89c}{ttak\+\_\+heap\+\_\+tree\+\_\+destroy}} (\mbox{\hyperlink{heap_8h_acaf2c89557215ad5abded52af431e6bf}{ttak\+\_\+heap\+\_\+tree\+\_\+t}} \texorpdfstring{$\ast$}{*}heap, uint64\+\_\+t now)
+\begin{DoxyCompactList}\small\item\em Destroy the heap internal storage. Does not free the elements themselves. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-typedef-members}
+\Hypertarget{heap_8h_doc-typedef-members}
+\doxysubsection{Typedef Documentation}
+\Hypertarget{heap_8h_acaf2c89557215ad5abded52af431e6bf}\index{heap.h@{heap.h}!ttak\_heap\_tree\_t@{ttak\_heap\_tree\_t}}
+\index{ttak\_heap\_tree\_t@{ttak\_heap\_tree\_t}!heap.h@{heap.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_heap\_tree\_t}{ttak\_heap\_tree\_t}}
+{\footnotesize\ttfamily \label{heap_8h_acaf2c89557215ad5abded52af431e6bf} 
+typedef struct \mbox{\hyperlink{structttak__heap__tree}{ttak\+\_\+heap\+\_\+tree}} \mbox{\hyperlink{heap_8h_acaf2c89557215ad5abded52af431e6bf}{ttak\+\_\+heap\+\_\+tree\+\_\+t}}}
+
+
+
+Generic Binary Heap (Tree). Implemented as a dynamic array. 
+
+
+
+\label{doc-func-members}
+\Hypertarget{heap_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{heap_8h_aada8f29275c04f316ebe1fb751ddd89c}\index{heap.h@{heap.h}!ttak\_heap\_tree\_destroy@{ttak\_heap\_tree\_destroy}}
+\index{ttak\_heap\_tree\_destroy@{ttak\_heap\_tree\_destroy}!heap.h@{heap.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_heap\_tree\_destroy()}{ttak\_heap\_tree\_destroy()}}
+{\footnotesize\ttfamily \label{heap_8h_aada8f29275c04f316ebe1fb751ddd89c} 
+void ttak\+\_\+heap\+\_\+tree\+\_\+destroy (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{heap_8h_acaf2c89557215ad5abded52af431e6bf}{ttak\+\_\+heap\+\_\+tree\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{heap}{, }\item[{uint64\+\_\+t}]{now}{}\end{DoxyParamCaption})}
+
+
+
+Destroy the heap internal storage. Does not free the elements themselves. 
+
+\Hypertarget{heap_8h_aa6e8d0be11b933fbbbd9b2bb7b149534}\index{heap.h@{heap.h}!ttak\_heap\_tree\_init@{ttak\_heap\_tree\_init}}
+\index{ttak\_heap\_tree\_init@{ttak\_heap\_tree\_init}!heap.h@{heap.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_heap\_tree\_init()}{ttak\_heap\_tree\_init()}}
+{\footnotesize\ttfamily \label{heap_8h_aa6e8d0be11b933fbbbd9b2bb7b149534} 
+void ttak\+\_\+heap\+\_\+tree\+\_\+init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{heap_8h_acaf2c89557215ad5abded52af431e6bf}{ttak\+\_\+heap\+\_\+tree\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{heap}{, }\item[{size\+\_\+t}]{initial\+\_\+cap}{, }\item[{int(\texorpdfstring{$\ast$}{*}}]{cmp~}{)(const void \texorpdfstring{$\ast$}{*}, const void \texorpdfstring{$\ast$}{*})}\end{DoxyParamCaption})}
+
+
+
+Initialize the heap. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em initial\+\_\+cap} & Initial capacity. \\
+\hline
+{\em cmp} & Comparator function. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{heap_8h_af0aa24955197a77e33371833ad7ff0d6}\index{heap.h@{heap.h}!ttak\_heap\_tree\_peek@{ttak\_heap\_tree\_peek}}
+\index{ttak\_heap\_tree\_peek@{ttak\_heap\_tree\_peek}!heap.h@{heap.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_heap\_tree\_peek()}{ttak\_heap\_tree\_peek()}}
+{\footnotesize\ttfamily \label{heap_8h_af0aa24955197a77e33371833ad7ff0d6} 
+void \texorpdfstring{$\ast$}{*} ttak\+\_\+heap\+\_\+tree\+\_\+peek (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{heap_8h_acaf2c89557215ad5abded52af431e6bf}{ttak\+\_\+heap\+\_\+tree\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{heap}{}\end{DoxyParamCaption})}
+
+
+
+Peek at the root element. 
+
+\Hypertarget{heap_8h_a02b1486e5be8d4b69b1cc1d976392baf}\index{heap.h@{heap.h}!ttak\_heap\_tree\_pop@{ttak\_heap\_tree\_pop}}
+\index{ttak\_heap\_tree\_pop@{ttak\_heap\_tree\_pop}!heap.h@{heap.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_heap\_tree\_pop()}{ttak\_heap\_tree\_pop()}}
+{\footnotesize\ttfamily \label{heap_8h_a02b1486e5be8d4b69b1cc1d976392baf} 
+void \texorpdfstring{$\ast$}{*} ttak\+\_\+heap\+\_\+tree\+\_\+pop (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{heap_8h_acaf2c89557215ad5abded52af431e6bf}{ttak\+\_\+heap\+\_\+tree\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{heap}{, }\item[{uint64\+\_\+t}]{now}{}\end{DoxyParamCaption})}
+
+
+
+Pop the root element (min or max depending on comparator). 
+
+\Hypertarget{heap_8h_a9dffa0e9b3d7131d6d542ac09b4af48e}\index{heap.h@{heap.h}!ttak\_heap\_tree\_push@{ttak\_heap\_tree\_push}}
+\index{ttak\_heap\_tree\_push@{ttak\_heap\_tree\_push}!heap.h@{heap.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_heap\_tree\_push()}{ttak\_heap\_tree\_push()}}
+{\footnotesize\ttfamily \label{heap_8h_a9dffa0e9b3d7131d6d542ac09b4af48e} 
+void ttak\+\_\+heap\+\_\+tree\+\_\+push (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{heap_8h_acaf2c89557215ad5abded52af431e6bf}{ttak\+\_\+heap\+\_\+tree\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{heap}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{element}{, }\item[{uint64\+\_\+t}]{now}{}\end{DoxyParamCaption})}
+
+
+
+Push an element into the heap. 
+

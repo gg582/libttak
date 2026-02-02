@@ -1,0 +1,69 @@
+\doxysection{include/ttak/math/sum\+\_\+divisors.h File Reference}
+\hypertarget{sum__divisors_8h}{}\label{sum__divisors_8h}\index{include/ttak/math/sum\_divisors.h@{include/ttak/math/sum\_divisors.h}}
+{\ttfamily \#include $<$ttak/math/bigint.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+Include dependency graph for sum\+\_\+divisors.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{sum__divisors_8h__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{sum__divisors_8h_aa36d7c4d87b8d15c5bd59820d55dedc9}{ttak\+\_\+sum\+\_\+proper\+\_\+divisors\+\_\+u64}} (uint64\+\_\+t n, uint64\+\_\+t \texorpdfstring{$\ast$}{*}result\+\_\+out)
+\begin{DoxyCompactList}\small\item\em Calculates the sum of proper divisors for a 64-\/bit unsigned integer. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{sum__divisors_8h_af34288a320578a37a35a1843a4ac9c62}{ttak\+\_\+sum\+\_\+proper\+\_\+divisors\+\_\+big}} (const \mbox{\hyperlink{bigint_8h_ad2cfb5db6b27efcca04f256dc0622bfa}{ttak\+\_\+bigint\+\_\+t}} \texorpdfstring{$\ast$}{*}n, \mbox{\hyperlink{bigint_8h_ad2cfb5db6b27efcca04f256dc0622bfa}{ttak\+\_\+bigint\+\_\+t}} \texorpdfstring{$\ast$}{*}result\+\_\+out, uint64\+\_\+t now)
+\begin{DoxyCompactList}\small\item\em Calculates the sum of proper divisors for a big integer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{sum__divisors_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{sum__divisors_8h_af34288a320578a37a35a1843a4ac9c62}\index{sum\_divisors.h@{sum\_divisors.h}!ttak\_sum\_proper\_divisors\_big@{ttak\_sum\_proper\_divisors\_big}}
+\index{ttak\_sum\_proper\_divisors\_big@{ttak\_sum\_proper\_divisors\_big}!sum\_divisors.h@{sum\_divisors.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_sum\_proper\_divisors\_big()}{ttak\_sum\_proper\_divisors\_big()}}
+{\footnotesize\ttfamily \label{sum__divisors_8h_af34288a320578a37a35a1843a4ac9c62} 
+bool ttak\+\_\+sum\+\_\+proper\+\_\+divisors\+\_\+big (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{bigint_8h_ad2cfb5db6b27efcca04f256dc0622bfa}{ttak\+\_\+bigint\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{n}{, }\item[{\mbox{\hyperlink{bigint_8h_ad2cfb5db6b27efcca04f256dc0622bfa}{ttak\+\_\+bigint\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{result\+\_\+out}{, }\item[{uint64\+\_\+t}]{now}{}\end{DoxyParamCaption})}
+
+
+
+Calculates the sum of proper divisors for a big integer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & The bigint number. \\
+\hline
+{\em result\+\_\+out} & The bigint to store the sum of proper divisors. \\
+\hline
+{\em now} & The current timestamp for memory allocation. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} on success, {\ttfamily false} on memory allocation failure. 
+\end{DoxyReturn}
+\Hypertarget{sum__divisors_8h_aa36d7c4d87b8d15c5bd59820d55dedc9}\index{sum\_divisors.h@{sum\_divisors.h}!ttak\_sum\_proper\_divisors\_u64@{ttak\_sum\_proper\_divisors\_u64}}
+\index{ttak\_sum\_proper\_divisors\_u64@{ttak\_sum\_proper\_divisors\_u64}!sum\_divisors.h@{sum\_divisors.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_sum\_proper\_divisors\_u64()}{ttak\_sum\_proper\_divisors\_u64()}}
+{\footnotesize\ttfamily \label{sum__divisors_8h_aa36d7c4d87b8d15c5bd59820d55dedc9} 
+bool ttak\+\_\+sum\+\_\+proper\+\_\+divisors\+\_\+u64 (\begin{DoxyParamCaption}\item[{uint64\+\_\+t}]{n}{, }\item[{uint64\+\_\+t \texorpdfstring{$\ast$}{*}}]{result\+\_\+out}{}\end{DoxyParamCaption})}
+
+
+
+Calculates the sum of proper divisors for a 64-\/bit unsigned integer. 
+
+This function calculates sigma(n) -\/ n. It uses 128-\/bit intermediate arithmetic to detect overflow.
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & The number. \\
+\hline
+{\em result\+\_\+out} & A pointer to store the sum of proper divisors. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if the calculation was successful and fits in a uint64\+\_\+t. {\ttfamily false} if the sum of divisors overflows uint64\+\_\+t. In this case, the value in result\+\_\+out is undefined. 
+\end{DoxyReturn}

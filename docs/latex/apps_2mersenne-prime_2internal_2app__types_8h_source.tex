@@ -1,0 +1,44 @@
+\doxysection{app\+\_\+types.\+h}
+\hypertarget{apps_2mersenne-prime_2internal_2app__types_8h_source}{}\label{apps_2mersenne-prime_2internal_2app__types_8h_source}\index{apps/mersenne-\/prime/internal/app\_types.h@{apps/mersenne-\/prime/internal/app\_types.h}}
+\mbox{\hyperlink{apps_2mersenne-prime_2internal_2app__types_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{apps_2mersenne-prime_2internal_2app__types_8h_source_l00001}00001\ \textcolor{preprocessor}{\#ifndef\ MERSENNE\_APP\_TYPES\_H}}
+\DoxyCodeLine{\Hypertarget{apps_2mersenne-prime_2internal_2app__types_8h_source_l00002}00002\ \textcolor{preprocessor}{\#define\ MERSENNE\_APP\_TYPES\_H}}
+\DoxyCodeLine{\Hypertarget{apps_2mersenne-prime_2internal_2app__types_8h_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{apps_2mersenne-prime_2internal_2app__types_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{\Hypertarget{apps_2mersenne-prime_2internal_2app__types_8h_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{\Hypertarget{apps_2mersenne-prime_2internal_2app__types_8h_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <stddef.h>}}
+\DoxyCodeLine{\Hypertarget{apps_2mersenne-prime_2internal_2app__types_8h_source_l00007}00007\ \textcolor{preprocessor}{\#include\ <stdalign.h>}}
+\DoxyCodeLine{\Hypertarget{apps_2mersenne-prime_2internal_2app__types_8h_source_l00008}00008\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{apps_2mersenne-prime_2internal_2app__types_8h_source_l00009}00009\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{apps_2mersenne-prime_2internal_2app__types_8h_source_l00010}00010\ \textcolor{comment}{\ *\ @brief\ GIMPS\ Result\ structure\ for\ reporting\ and\ retry\ queue.}}
+\DoxyCodeLine{\Hypertarget{apps_2mersenne-prime_2internal_2app__types_8h_source_l00011}00011\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{apps_2mersenne-prime_2internal_2app__types_8h_source_l00012}00012\ \textcolor{comment}{\ *\ Memory\ Layout:}}
+\DoxyCodeLine{\Hypertarget{apps_2mersenne-prime_2internal_2app__types_8h_source_l00013}00013\ \textcolor{comment}{\ *\ +-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/+}}
+\DoxyCodeLine{\Hypertarget{apps_2mersenne-prime_2internal_2app__types_8h_source_l00014}00014\ \textcolor{comment}{\ *\ |\ p\ (uint32\_t)\ \ \ \ \ \ |\ residue\ (uint64\_t)|\ is\_prime\ (bool)\ \ \ |}}
+\DoxyCodeLine{\Hypertarget{apps_2mersenne-prime_2internal_2app__types_8h_source_l00015}00015\ \textcolor{comment}{\ *\ +-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/+}}
+\DoxyCodeLine{\Hypertarget{apps_2mersenne-prime_2internal_2app__types_8h_source_l00016}00016\ \textcolor{comment}{\ *\ |\ status\ (int)\ \ \ \ \ \ |\ padding\ (64b)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |}}
+\DoxyCodeLine{\Hypertarget{apps_2mersenne-prime_2internal_2app__types_8h_source_l00017}00017\ \textcolor{comment}{\ *\ +-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/+}}
+\DoxyCodeLine{\Hypertarget{apps_2mersenne-prime_2internal_2app__types_8h_source_l00018}00018\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{apps_2mersenne-prime_2internal_2app__types_8h_source_l00019}\mbox{\hyperlink{structgimps__result__t}{00019}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{\Hypertarget{apps_2mersenne-prime_2internal_2app__types_8h_source_l00020}\mbox{\hyperlink{structgimps__result__t_a7482d2276caaac227a694feba9c754cf}{00020}}\ \ \ \ \ uint32\_t\ \mbox{\hyperlink{structgimps__result__t_a7482d2276caaac227a694feba9c754cf}{p}};}
+\DoxyCodeLine{\Hypertarget{apps_2mersenne-prime_2internal_2app__types_8h_source_l00021}\mbox{\hyperlink{structgimps__result__t_ad9af60e85ed442532a6120c7f5db825a}{00021}}\ \ \ \ \ uint64\_t\ \mbox{\hyperlink{structgimps__result__t_ad9af60e85ed442532a6120c7f5db825a}{residue}};}
+\DoxyCodeLine{\Hypertarget{apps_2mersenne-prime_2internal_2app__types_8h_source_l00022}\mbox{\hyperlink{structgimps__result__t_a92fb4ed790aa327968aaa0cacbd356d9}{00022}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \mbox{\hyperlink{structgimps__result__t_a92fb4ed790aa327968aaa0cacbd356d9}{is\_prime}};}
+\DoxyCodeLine{\Hypertarget{apps_2mersenne-prime_2internal_2app__types_8h_source_l00023}\mbox{\hyperlink{structgimps__result__t_a3077b7c59ae0dbddc0e3a108588d986e}{00023}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \mbox{\hyperlink{structgimps__result__t_a3077b7c59ae0dbddc0e3a108588d986e}{status}};\ \textcolor{comment}{//\ 0:\ pending,\ 1:\ reported}}
+\DoxyCodeLine{\Hypertarget{apps_2mersenne-prime_2internal_2app__types_8h_source_l00024}\mbox{\hyperlink{structgimps__result__t_a2d23b11a81bfc5b0979ba4ca0a6d4aa1}{00024}}\ \ \ \ \ \textcolor{keyword}{alignas}(64)\ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{structgimps__result__t_a2d23b11a81bfc5b0979ba4ca0a6d4aa1}{padding}}[0];}
+\DoxyCodeLine{\Hypertarget{apps_2mersenne-prime_2internal_2app__types_8h_source_l00025}00025\ \}\ \mbox{\hyperlink{structgimps__result__t}{gimps\_result\_t}};}
+\DoxyCodeLine{\Hypertarget{apps_2mersenne-prime_2internal_2app__types_8h_source_l00026}00026\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{apps_2mersenne-prime_2internal_2app__types_8h_source_l00027}00027\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{apps_2mersenne-prime_2internal_2app__types_8h_source_l00028}00028\ \textcolor{comment}{\ *\ @brief\ Application\ State\ for\ persistence\ and\ GIMPS\ metadata.}}
+\DoxyCodeLine{\Hypertarget{apps_2mersenne-prime_2internal_2app__types_8h_source_l00029}00029\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{apps_2mersenne-prime_2internal_2app__types_8h_source_l00030}\mbox{\hyperlink{structapp__state__t}{00030}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{\Hypertarget{apps_2mersenne-prime_2internal_2app__types_8h_source_l00031}\mbox{\hyperlink{structapp__state__t_acaf0198605f77b7ef9ffd33b44f080c6}{00031}}\ \ \ \ \ \textcolor{keywordtype}{char}\ \ \ \ \ \mbox{\hyperlink{structapp__state__t_acaf0198605f77b7ef9ffd33b44f080c6}{computerid}}[64];}
+\DoxyCodeLine{\Hypertarget{apps_2mersenne-prime_2internal_2app__types_8h_source_l00032}\mbox{\hyperlink{structapp__state__t_af8dadc68ed393fe04e68c1b213de7370}{00032}}\ \ \ \ \ \textcolor{keywordtype}{char}\ \ \ \ \ \mbox{\hyperlink{structapp__state__t_af8dadc68ed393fe04e68c1b213de7370}{userid}}[64];}
+\DoxyCodeLine{\Hypertarget{apps_2mersenne-prime_2internal_2app__types_8h_source_l00033}\mbox{\hyperlink{structapp__state__t_a8744d58a638830bab6b022841522d37a}{00033}}\ \ \ \ \ uint32\_t\ \mbox{\hyperlink{structapp__state__t_a8744d58a638830bab6b022841522d37a}{last\_p}};}
+\DoxyCodeLine{\Hypertarget{apps_2mersenne-prime_2internal_2app__types_8h_source_l00034}\mbox{\hyperlink{structapp__state__t_ab5621fb2cf39dff9965557115fe4081b}{00034}}\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \ \ \mbox{\hyperlink{structapp__state__t_ab5621fb2cf39dff9965557115fe4081b}{result\_count}};}
+\DoxyCodeLine{\Hypertarget{apps_2mersenne-prime_2internal_2app__types_8h_source_l00035}\mbox{\hyperlink{structapp__state__t_a1d174e4af01dc2fc7aff325e8a1b997d}{00035}}\ \ \ \ \ \mbox{\hyperlink{structgimps__result__t}{gimps\_result\_t}}\ *\mbox{\hyperlink{structapp__state__t_a1d174e4af01dc2fc7aff325e8a1b997d}{results}};}
+\DoxyCodeLine{\Hypertarget{apps_2mersenne-prime_2internal_2app__types_8h_source_l00036}00036\ \}\ \mbox{\hyperlink{structapp__state__t}{app\_state\_t}};}
+\DoxyCodeLine{\Hypertarget{apps_2mersenne-prime_2internal_2app__types_8h_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{apps_2mersenne-prime_2internal_2app__types_8h_source_l00038}00038\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ MERSENNE\_APP\_TYPES\_H}}
+
+\end{DoxyCode}

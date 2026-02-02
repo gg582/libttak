@@ -1,0 +1,255 @@
+\doxysection{ttak\+\_\+mem\+\_\+header\+\_\+t Struct Reference}
+\hypertarget{structttak__mem__header__t}{}\label{structttak__mem__header__t}\index{ttak\_mem\_header\_t@{ttak\_mem\_header\_t}}
+
+
+Recommended pattern for resource-\/managing structures\+: All structures that manage dynamic resources (e.\+g., memory, threads, file handles) should follow an \+\_\+init and \+\_\+destroy pattern.  
+
+
+
+
+{\ttfamily \#include $<$app\+\_\+types.\+h$>$}
+
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{structttak__mem__header__t_a63c543d0e2277438790686ca125adadf}{magic}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{structttak__mem__header__t_a49f32c7dc3f8c633c289870c99841153}{checksum}}
+\item 
+uint64\+\_\+t \mbox{\hyperlink{structttak__mem__header__t_aefba5a41d63f62a6de53c3a9a6f0f51b}{created\+\_\+tick}}
+\item 
+uint64\+\_\+t \mbox{\hyperlink{structttak__mem__header__t_a0362d896df5d92be01157426136ad6b0}{expires\+\_\+tick}}
+\item 
+uint64\+\_\+t \mbox{\hyperlink{structttak__mem__header__t_a0318bb3cfda8bb54cf6ec0c43e6b2584}{access\+\_\+count}}
+\item 
+uint64\+\_\+t \mbox{\hyperlink{structttak__mem__header__t_a6f56f8247cfdee283312f6d76b0625a1}{pin\+\_\+count}}
+\item 
+size\+\_\+t \mbox{\hyperlink{structttak__mem__header__t_a576f96336f81e4af314e70b911232dda}{size}}
+\item 
+pthread\+\_\+mutex\+\_\+t \mbox{\hyperlink{structttak__mem__header__t_a5c63e95556a7b6528834155059dae312}{lock}}
+\item 
+\+\_\+\+Bool \mbox{\hyperlink{structttak__mem__header__t_a86b5bea8ae5d34192969173c8ea7ef88}{freed}}
+\item 
+\+\_\+\+Bool \mbox{\hyperlink{structttak__mem__header__t_a5bf1a1bf467c6b8f9df7c13ff72ee660}{is\+\_\+const}}
+\item 
+\+\_\+\+Bool \mbox{\hyperlink{structttak__mem__header__t_a69a6983e3aa59121684422c82714b3c9}{is\+\_\+volatile}}
+\item 
+\+\_\+\+Bool \mbox{\hyperlink{structttak__mem__header__t_afebc4673ac816dd1ca85e2368dee4694}{allow\+\_\+direct\+\_\+access}}
+\item 
+\+\_\+\+Bool \mbox{\hyperlink{structttak__mem__header__t_aec81dfe0c2ad6a934ac1daae25d1c823}{is\+\_\+huge}}
+\item 
+\+\_\+\+Bool \mbox{\hyperlink{structttak__mem__header__t_a8430c7b034f0da69e2fe16ae2a999e2d}{should\+\_\+join}}
+\item 
+\+\_\+\+Bool \mbox{\hyperlink{structttak__mem__header__t_a4de6b9462e84fa2602c694e3e9633b9e}{strict\+\_\+check}}
+\item 
+uint64\+\_\+t \mbox{\hyperlink{structttak__mem__header__t_aeb69c52bed0292761ce4ff581eae37df}{canary\+\_\+start}}
+\item 
+uint64\+\_\+t \mbox{\hyperlink{structttak__mem__header__t_a9bc5cff0708537fe474f41e356e69284}{canary\+\_\+end}}
+\item 
+char \mbox{\hyperlink{structttak__mem__header__t_acc4f1b34d6e7f6d2e71755779a88ffa3}{reserved}} \mbox{[}11\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Recommended pattern for resource-\/managing structures\+: All structures that manage dynamic resources (e.\+g., memory, threads, file handles) should follow an \+\_\+init and \+\_\+destroy pattern. 
+
+
+\begin{DoxyItemize}
+\item {\ttfamily void ttak\+\_\+struct\+\_\+init(ttak\+\_\+struct\+\_\+t \texorpdfstring{$\ast$}{*}s, ...)}\+: Initializes the structure, allocating necessary resources.
+\item {\ttfamily void ttak\+\_\+struct\+\_\+destroy(ttak\+\_\+struct\+\_\+t \texorpdfstring{$\ast$}{*}s, ...)}\+: Frees all resources held by the structure. This ensures strict lifetime management and proper cleanup.
+\end{DoxyItemize}
+
+"{}\+Fortress"{} Memory Header. 64-\/byte aligned to prevent False Sharing and ensure user pointer alignment. Total size is 128 bytes to maintain 64-\/byte alignment for user data. 
+
+Definition at line \mbox{\hyperlink{internal_2app__types_8h_source_l00071}{71}} of file \mbox{\hyperlink{internal_2app__types_8h_source}{app\+\_\+types.\+h}}.
+
+
+
+\label{doc-variable-members}
+\Hypertarget{structttak__mem__header__t_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{structttak__mem__header__t_a0318bb3cfda8bb54cf6ec0c43e6b2584}\index{ttak\_mem\_header\_t@{ttak\_mem\_header\_t}!access\_count@{access\_count}}
+\index{access\_count@{access\_count}!ttak\_mem\_header\_t@{ttak\_mem\_header\_t}}
+\doxysubsubsection{\texorpdfstring{access\_count}{access\_count}}
+{\footnotesize\ttfamily \label{structttak__mem__header__t_a0318bb3cfda8bb54cf6ec0c43e6b2584} 
+uint64\+\_\+t ttak\+\_\+mem\+\_\+header\+\_\+t\+::access\+\_\+count}
+
+Atomic access audit counter 
+
+Definition at line \mbox{\hyperlink{internal_2app__types_8h_source_l00076}{76}} of file \mbox{\hyperlink{internal_2app__types_8h_source}{app\+\_\+types.\+h}}.
+
+\Hypertarget{structttak__mem__header__t_afebc4673ac816dd1ca85e2368dee4694}\index{ttak\_mem\_header\_t@{ttak\_mem\_header\_t}!allow\_direct\_access@{allow\_direct\_access}}
+\index{allow\_direct\_access@{allow\_direct\_access}!ttak\_mem\_header\_t@{ttak\_mem\_header\_t}}
+\doxysubsubsection{\texorpdfstring{allow\_direct\_access}{allow\_direct\_access}}
+{\footnotesize\ttfamily \label{structttak__mem__header__t_afebc4673ac816dd1ca85e2368dee4694} 
+\+\_\+\+Bool ttak\+\_\+mem\+\_\+header\+\_\+t\+::allow\+\_\+direct\+\_\+access}
+
+Safety bypass flag 
+
+Definition at line \mbox{\hyperlink{internal_2app__types_8h_source_l00083}{83}} of file \mbox{\hyperlink{internal_2app__types_8h_source}{app\+\_\+types.\+h}}.
+
+\Hypertarget{structttak__mem__header__t_a9bc5cff0708537fe474f41e356e69284}\index{ttak\_mem\_header\_t@{ttak\_mem\_header\_t}!canary\_end@{canary\_end}}
+\index{canary\_end@{canary\_end}!ttak\_mem\_header\_t@{ttak\_mem\_header\_t}}
+\doxysubsubsection{\texorpdfstring{canary\_end}{canary\_end}}
+{\footnotesize\ttfamily \label{structttak__mem__header__t_a9bc5cff0708537fe474f41e356e69284} 
+uint64\+\_\+t ttak\+\_\+mem\+\_\+header\+\_\+t\+::canary\+\_\+end}
+
+Magic number for end of user data 
+
+Definition at line \mbox{\hyperlink{internal_2app__types_8h_source_l00088}{88}} of file \mbox{\hyperlink{internal_2app__types_8h_source}{app\+\_\+types.\+h}}.
+
+\Hypertarget{structttak__mem__header__t_aeb69c52bed0292761ce4ff581eae37df}\index{ttak\_mem\_header\_t@{ttak\_mem\_header\_t}!canary\_start@{canary\_start}}
+\index{canary\_start@{canary\_start}!ttak\_mem\_header\_t@{ttak\_mem\_header\_t}}
+\doxysubsubsection{\texorpdfstring{canary\_start}{canary\_start}}
+{\footnotesize\ttfamily \label{structttak__mem__header__t_aeb69c52bed0292761ce4ff581eae37df} 
+uint64\+\_\+t ttak\+\_\+mem\+\_\+header\+\_\+t\+::canary\+\_\+start}
+
+Magic number for start of user data 
+
+Definition at line \mbox{\hyperlink{internal_2app__types_8h_source_l00087}{87}} of file \mbox{\hyperlink{internal_2app__types_8h_source}{app\+\_\+types.\+h}}.
+
+\Hypertarget{structttak__mem__header__t_a49f32c7dc3f8c633c289870c99841153}\index{ttak\_mem\_header\_t@{ttak\_mem\_header\_t}!checksum@{checksum}}
+\index{checksum@{checksum}!ttak\_mem\_header\_t@{ttak\_mem\_header\_t}}
+\doxysubsubsection{\texorpdfstring{checksum}{checksum}}
+{\footnotesize\ttfamily \label{structttak__mem__header__t_a49f32c7dc3f8c633c289870c99841153} 
+uint32\+\_\+t ttak\+\_\+mem\+\_\+header\+\_\+t\+::checksum}
+
+Metadata checksum 
+
+Definition at line \mbox{\hyperlink{internal_2app__types_8h_source_l00073}{73}} of file \mbox{\hyperlink{internal_2app__types_8h_source}{app\+\_\+types.\+h}}.
+
+\Hypertarget{structttak__mem__header__t_aefba5a41d63f62a6de53c3a9a6f0f51b}\index{ttak\_mem\_header\_t@{ttak\_mem\_header\_t}!created\_tick@{created\_tick}}
+\index{created\_tick@{created\_tick}!ttak\_mem\_header\_t@{ttak\_mem\_header\_t}}
+\doxysubsubsection{\texorpdfstring{created\_tick}{created\_tick}}
+{\footnotesize\ttfamily \label{structttak__mem__header__t_aefba5a41d63f62a6de53c3a9a6f0f51b} 
+uint64\+\_\+t ttak\+\_\+mem\+\_\+header\+\_\+t\+::created\+\_\+tick}
+
+Creation timestamp 
+
+Definition at line \mbox{\hyperlink{internal_2app__types_8h_source_l00074}{74}} of file \mbox{\hyperlink{internal_2app__types_8h_source}{app\+\_\+types.\+h}}.
+
+\Hypertarget{structttak__mem__header__t_a0362d896df5d92be01157426136ad6b0}\index{ttak\_mem\_header\_t@{ttak\_mem\_header\_t}!expires\_tick@{expires\_tick}}
+\index{expires\_tick@{expires\_tick}!ttak\_mem\_header\_t@{ttak\_mem\_header\_t}}
+\doxysubsubsection{\texorpdfstring{expires\_tick}{expires\_tick}}
+{\footnotesize\ttfamily \label{structttak__mem__header__t_a0362d896df5d92be01157426136ad6b0} 
+uint64\+\_\+t ttak\+\_\+mem\+\_\+header\+\_\+t\+::expires\+\_\+tick}
+
+Expiration timestamp 
+
+Definition at line \mbox{\hyperlink{internal_2app__types_8h_source_l00075}{75}} of file \mbox{\hyperlink{internal_2app__types_8h_source}{app\+\_\+types.\+h}}.
+
+\Hypertarget{structttak__mem__header__t_a86b5bea8ae5d34192969173c8ea7ef88}\index{ttak\_mem\_header\_t@{ttak\_mem\_header\_t}!freed@{freed}}
+\index{freed@{freed}!ttak\_mem\_header\_t@{ttak\_mem\_header\_t}}
+\doxysubsubsection{\texorpdfstring{freed}{freed}}
+{\footnotesize\ttfamily \label{structttak__mem__header__t_a86b5bea8ae5d34192969173c8ea7ef88} 
+\+\_\+\+Bool ttak\+\_\+mem\+\_\+header\+\_\+t\+::freed}
+
+Allocation status 
+
+Definition at line \mbox{\hyperlink{internal_2app__types_8h_source_l00080}{80}} of file \mbox{\hyperlink{internal_2app__types_8h_source}{app\+\_\+types.\+h}}.
+
+\Hypertarget{structttak__mem__header__t_a5bf1a1bf467c6b8f9df7c13ff72ee660}\index{ttak\_mem\_header\_t@{ttak\_mem\_header\_t}!is\_const@{is\_const}}
+\index{is\_const@{is\_const}!ttak\_mem\_header\_t@{ttak\_mem\_header\_t}}
+\doxysubsubsection{\texorpdfstring{is\_const}{is\_const}}
+{\footnotesize\ttfamily \label{structttak__mem__header__t_a5bf1a1bf467c6b8f9df7c13ff72ee660} 
+\+\_\+\+Bool ttak\+\_\+mem\+\_\+header\+\_\+t\+::is\+\_\+const}
+
+Immutability hint 
+
+Definition at line \mbox{\hyperlink{internal_2app__types_8h_source_l00081}{81}} of file \mbox{\hyperlink{internal_2app__types_8h_source}{app\+\_\+types.\+h}}.
+
+\Hypertarget{structttak__mem__header__t_aec81dfe0c2ad6a934ac1daae25d1c823}\index{ttak\_mem\_header\_t@{ttak\_mem\_header\_t}!is\_huge@{is\_huge}}
+\index{is\_huge@{is\_huge}!ttak\_mem\_header\_t@{ttak\_mem\_header\_t}}
+\doxysubsubsection{\texorpdfstring{is\_huge}{is\_huge}}
+{\footnotesize\ttfamily \label{structttak__mem__header__t_aec81dfe0c2ad6a934ac1daae25d1c823} 
+\+\_\+\+Bool ttak\+\_\+mem\+\_\+header\+\_\+t\+::is\+\_\+huge}
+
+Mapped via hugepages 
+
+Definition at line \mbox{\hyperlink{internal_2app__types_8h_source_l00084}{84}} of file \mbox{\hyperlink{internal_2app__types_8h_source}{app\+\_\+types.\+h}}.
+
+\Hypertarget{structttak__mem__header__t_a69a6983e3aa59121684422c82714b3c9}\index{ttak\_mem\_header\_t@{ttak\_mem\_header\_t}!is\_volatile@{is\_volatile}}
+\index{is\_volatile@{is\_volatile}!ttak\_mem\_header\_t@{ttak\_mem\_header\_t}}
+\doxysubsubsection{\texorpdfstring{is\_volatile}{is\_volatile}}
+{\footnotesize\ttfamily \label{structttak__mem__header__t_a69a6983e3aa59121684422c82714b3c9} 
+\+\_\+\+Bool ttak\+\_\+mem\+\_\+header\+\_\+t\+::is\+\_\+volatile}
+
+Volatility hint 
+
+Definition at line \mbox{\hyperlink{internal_2app__types_8h_source_l00082}{82}} of file \mbox{\hyperlink{internal_2app__types_8h_source}{app\+\_\+types.\+h}}.
+
+\Hypertarget{structttak__mem__header__t_a5c63e95556a7b6528834155059dae312}\index{ttak\_mem\_header\_t@{ttak\_mem\_header\_t}!lock@{lock}}
+\index{lock@{lock}!ttak\_mem\_header\_t@{ttak\_mem\_header\_t}}
+\doxysubsubsection{\texorpdfstring{lock}{lock}}
+{\footnotesize\ttfamily \label{structttak__mem__header__t_a5c63e95556a7b6528834155059dae312} 
+pthread\+\_\+mutex\+\_\+t ttak\+\_\+mem\+\_\+header\+\_\+t\+::lock}
+
+Per-\/header synchronization 
+
+Definition at line \mbox{\hyperlink{internal_2app__types_8h_source_l00079}{79}} of file \mbox{\hyperlink{internal_2app__types_8h_source}{app\+\_\+types.\+h}}.
+
+\Hypertarget{structttak__mem__header__t_a63c543d0e2277438790686ca125adadf}\index{ttak\_mem\_header\_t@{ttak\_mem\_header\_t}!magic@{magic}}
+\index{magic@{magic}!ttak\_mem\_header\_t@{ttak\_mem\_header\_t}}
+\doxysubsubsection{\texorpdfstring{magic}{magic}}
+{\footnotesize\ttfamily \label{structttak__mem__header__t_a63c543d0e2277438790686ca125adadf} 
+uint32\+\_\+t ttak\+\_\+mem\+\_\+header\+\_\+t\+::magic}
+
+0x5454414B 
+
+Definition at line \mbox{\hyperlink{internal_2app__types_8h_source_l00072}{72}} of file \mbox{\hyperlink{internal_2app__types_8h_source}{app\+\_\+types.\+h}}.
+
+\Hypertarget{structttak__mem__header__t_a6f56f8247cfdee283312f6d76b0625a1}\index{ttak\_mem\_header\_t@{ttak\_mem\_header\_t}!pin\_count@{pin\_count}}
+\index{pin\_count@{pin\_count}!ttak\_mem\_header\_t@{ttak\_mem\_header\_t}}
+\doxysubsubsection{\texorpdfstring{pin\_count}{pin\_count}}
+{\footnotesize\ttfamily \label{structttak__mem__header__t_a6f56f8247cfdee283312f6d76b0625a1} 
+uint64\+\_\+t ttak\+\_\+mem\+\_\+header\+\_\+t\+::pin\+\_\+count}
+
+Atomic reference count for pinning 
+
+Definition at line \mbox{\hyperlink{internal_2app__types_8h_source_l00077}{77}} of file \mbox{\hyperlink{internal_2app__types_8h_source}{app\+\_\+types.\+h}}.
+
+\Hypertarget{structttak__mem__header__t_acc4f1b34d6e7f6d2e71755779a88ffa3}\index{ttak\_mem\_header\_t@{ttak\_mem\_header\_t}!reserved@{reserved}}
+\index{reserved@{reserved}!ttak\_mem\_header\_t@{ttak\_mem\_header\_t}}
+\doxysubsubsection{\texorpdfstring{reserved}{reserved}}
+{\footnotesize\ttfamily \label{structttak__mem__header__t_acc4f1b34d6e7f6d2e71755779a88ffa3} 
+char ttak\+\_\+mem\+\_\+header\+\_\+t\+::reserved\mbox{[}11\mbox{]}}
+
+Explicit padding for 128-\/byte header on x64 
+
+Definition at line \mbox{\hyperlink{internal_2app__types_8h_source_l00089}{89}} of file \mbox{\hyperlink{internal_2app__types_8h_source}{app\+\_\+types.\+h}}.
+
+\Hypertarget{structttak__mem__header__t_a8430c7b034f0da69e2fe16ae2a999e2d}\index{ttak\_mem\_header\_t@{ttak\_mem\_header\_t}!should\_join@{should\_join}}
+\index{should\_join@{should\_join}!ttak\_mem\_header\_t@{ttak\_mem\_header\_t}}
+\doxysubsubsection{\texorpdfstring{should\_join}{should\_join}}
+{\footnotesize\ttfamily \label{structttak__mem__header__t_a8430c7b034f0da69e2fe16ae2a999e2d} 
+\+\_\+\+Bool ttak\+\_\+mem\+\_\+header\+\_\+t\+::should\+\_\+join}
+
+Indicates if associated resource needs joining 
+
+Definition at line \mbox{\hyperlink{internal_2app__types_8h_source_l00085}{85}} of file \mbox{\hyperlink{internal_2app__types_8h_source}{app\+\_\+types.\+h}}.
+
+\Hypertarget{structttak__mem__header__t_a576f96336f81e4af314e70b911232dda}\index{ttak\_mem\_header\_t@{ttak\_mem\_header\_t}!size@{size}}
+\index{size@{size}!ttak\_mem\_header\_t@{ttak\_mem\_header\_t}}
+\doxysubsubsection{\texorpdfstring{size}{size}}
+{\footnotesize\ttfamily \label{structttak__mem__header__t_a576f96336f81e4af314e70b911232dda} 
+size\+\_\+t ttak\+\_\+mem\+\_\+header\+\_\+t\+::size}
+
+User-\/requested size 
+
+Definition at line \mbox{\hyperlink{internal_2app__types_8h_source_l00078}{78}} of file \mbox{\hyperlink{internal_2app__types_8h_source}{app\+\_\+types.\+h}}.
+
+\Hypertarget{structttak__mem__header__t_a4de6b9462e84fa2602c694e3e9633b9e}\index{ttak\_mem\_header\_t@{ttak\_mem\_header\_t}!strict\_check@{strict\_check}}
+\index{strict\_check@{strict\_check}!ttak\_mem\_header\_t@{ttak\_mem\_header\_t}}
+\doxysubsubsection{\texorpdfstring{strict\_check}{strict\_check}}
+{\footnotesize\ttfamily \label{structttak__mem__header__t_a4de6b9462e84fa2602c694e3e9633b9e} 
+\+\_\+\+Bool ttak\+\_\+mem\+\_\+header\+\_\+t\+::strict\+\_\+check}
+
+Enable strict memory boundary checks 
+
+Definition at line \mbox{\hyperlink{internal_2app__types_8h_source_l00086}{86}} of file \mbox{\hyperlink{internal_2app__types_8h_source}{app\+\_\+types.\+h}}.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+internal/\mbox{\hyperlink{internal_2app__types_8h}{app\+\_\+types.\+h}}\end{DoxyCompactItemize}

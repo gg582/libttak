@@ -1,0 +1,34 @@
+\doxysection{sha256.\+h}
+\hypertarget{sha256_8h_source}{}\label{sha256_8h_source}\index{include/ttak/security/sha256.h@{include/ttak/security/sha256.h}}
+\mbox{\hyperlink{sha256_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{sha256_8h_source_l00001}00001\ \textcolor{preprocessor}{\#ifndef\ TTAK\_SECURITY\_SHA256\_H\_}}
+\DoxyCodeLine{\Hypertarget{sha256_8h_source_l00002}00002\ \textcolor{preprocessor}{\#define\ TTAK\_SECURITY\_SHA256\_H\_}}
+\DoxyCodeLine{\Hypertarget{sha256_8h_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{sha256_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <stddef.h>}}
+\DoxyCodeLine{\Hypertarget{sha256_8h_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{\Hypertarget{sha256_8h_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{sha256_8h_source_l00007}00007\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{\Hypertarget{sha256_8h_source_l00008}00008\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{\Hypertarget{sha256_8h_source_l00009}00009\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{sha256_8h_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{sha256_8h_source_l00011}\mbox{\hyperlink{sha256_8h_a9c1fe69ad43d4ca74b84303a0ed64f2f}{00011}}\ \textcolor{preprocessor}{\#define\ SHA256\_BLOCK\_SIZE\ 32}}
+\DoxyCodeLine{\Hypertarget{sha256_8h_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{sha256_8h_source_l00013}\mbox{\hyperlink{structSHA256__CTX}{00013}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{\Hypertarget{sha256_8h_source_l00014}\mbox{\hyperlink{structSHA256__CTX_a6cf3cb8ea45199394807480f74d10744}{00014}}\ \ \ \ \ uint8\_t\ \mbox{\hyperlink{structSHA256__CTX_a6cf3cb8ea45199394807480f74d10744}{data}}[64];}
+\DoxyCodeLine{\Hypertarget{sha256_8h_source_l00015}\mbox{\hyperlink{structSHA256__CTX_a3323baf7e2859578db6c7a59fbb67fcc}{00015}}\ \ \ \ \ uint32\_t\ \mbox{\hyperlink{structSHA256__CTX_a3323baf7e2859578db6c7a59fbb67fcc}{datalen}};}
+\DoxyCodeLine{\Hypertarget{sha256_8h_source_l00016}\mbox{\hyperlink{structSHA256__CTX_a22b9f345eb0273f497b397a09409cc4e}{00016}}\ \ \ \ \ uint64\_t\ \mbox{\hyperlink{structSHA256__CTX_a22b9f345eb0273f497b397a09409cc4e}{bitlen}};}
+\DoxyCodeLine{\Hypertarget{sha256_8h_source_l00017}\mbox{\hyperlink{structSHA256__CTX_a4824db6fff77d15d5c8579b45d3f9b22}{00017}}\ \ \ \ \ uint32\_t\ \mbox{\hyperlink{structSHA256__CTX_a4824db6fff77d15d5c8579b45d3f9b22}{state}}[8];}
+\DoxyCodeLine{\Hypertarget{sha256_8h_source_l00018}00018\ \}\ \mbox{\hyperlink{structSHA256__CTX}{SHA256\_CTX}};}
+\DoxyCodeLine{\Hypertarget{sha256_8h_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{sha256_8h_source_l00020}\mbox{\hyperlink{sha256_8h_ade6fde6ef9ea137449d72891931c77ef}{00020}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{sha256_8h_ade6fde6ef9ea137449d72891931c77ef}{sha256\_init}}(\mbox{\hyperlink{structSHA256__CTX}{SHA256\_CTX}}\ *ctx);}
+\DoxyCodeLine{\Hypertarget{sha256_8h_source_l00021}\mbox{\hyperlink{sha256_8h_ad50c7f40296b547daf5b9ebd5d7de32d}{00021}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{sha256_8h_ad50c7f40296b547daf5b9ebd5d7de32d}{sha256\_update}}(\mbox{\hyperlink{structSHA256__CTX}{SHA256\_CTX}}\ *ctx,\ \textcolor{keyword}{const}\ uint8\_t\ data[],\ \textcolor{keywordtype}{size\_t}\ len);}
+\DoxyCodeLine{\Hypertarget{sha256_8h_source_l00022}\mbox{\hyperlink{sha256_8h_a06e2c69855478e4860ba1b82e8b1fbc5}{00022}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{sha256_8h_a06e2c69855478e4860ba1b82e8b1fbc5}{sha256\_final}}(\mbox{\hyperlink{structSHA256__CTX}{SHA256\_CTX}}\ *ctx,\ uint8\_t\ hash[]);}
+\DoxyCodeLine{\Hypertarget{sha256_8h_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{sha256_8h_source_l00024}00024\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{\Hypertarget{sha256_8h_source_l00025}00025\ \}}
+\DoxyCodeLine{\Hypertarget{sha256_8h_source_l00026}00026\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{sha256_8h_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{sha256_8h_source_l00028}00028\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ TTAK\_SECURITY\_SHA256\_H\_}}
+
+\end{DoxyCode}

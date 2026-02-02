@@ -1,0 +1,127 @@
+\doxysection{simple.\+h}
+\hypertarget{simple_8h_source}{}\label{simple_8h_source}\index{include/ttak/priority/simple.h@{include/ttak/priority/simple.h}}
+\mbox{\hyperlink{simple_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00001}00001\ \textcolor{preprocessor}{\#ifndef\ TTAK\_PRIORITY\_SIMPLE\_H}}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00002}00002\ \textcolor{preprocessor}{\#define\ TTAK\_PRIORITY\_SIMPLE\_H}}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <stddef.h>}}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00007}00007\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00008}00008\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00009}00009\ \textcolor{comment}{\ *\ @brief\ Generic\ singly\ linked\ list\ node\ used\ by\ simple\ stacks\ and\ queues.}}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00010}00010\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00011}\mbox{\hyperlink{structttak__simple__node}{00011}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structttak__simple__node}{ttak\_simple\_node}}\ \{}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00012}\mbox{\hyperlink{structttak__simple__node_a55606c8cd46abbe9789ac61b8e6801ce}{00012}}\ \ \ \ \ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{structttak__simple__node_a55606c8cd46abbe9789ac61b8e6801ce}{data}};}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00013}\mbox{\hyperlink{structttak__simple__node_a9093ac7a5583d3055eab5a13e91f9e2d}{00013}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structttak__simple__node}{ttak\_simple\_node}}\ *\mbox{\hyperlink{structttak__simple__node_a9093ac7a5583d3055eab5a13e91f9e2d}{next}};}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00014}\mbox{\hyperlink{simple_8h_aa66a8b50461258fc56184e64a99033ca}{00014}}\ \}\ \mbox{\hyperlink{simple_8h_aa66a8b50461258fc56184e64a99033ca}{ttak\_simple\_node\_t}};}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00015}00015\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00016}00016\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00017}00017\ \textcolor{comment}{\ *\ @brief\ Generic\ FIFO\ queue\ implemented\ with\ linked\ nodes.}}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00018}00018\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00019}\mbox{\hyperlink{structttak__simple__queue__t}{00019}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00020}\mbox{\hyperlink{structttak__simple__queue__t_a29f654c76e443f1f905f5f378d665aef}{00020}}\ \ \ \ \ \mbox{\hyperlink{simple_8h_aa66a8b50461258fc56184e64a99033ca}{ttak\_simple\_node\_t}}\ *\mbox{\hyperlink{structttak__simple__queue__t_a29f654c76e443f1f905f5f378d665aef}{head}};}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00021}\mbox{\hyperlink{structttak__simple__queue__t_a26d066acebc0f9f98517a29d89c28592}{00021}}\ \ \ \ \ \mbox{\hyperlink{simple_8h_aa66a8b50461258fc56184e64a99033ca}{ttak\_simple\_node\_t}}\ *\mbox{\hyperlink{structttak__simple__queue__t_a26d066acebc0f9f98517a29d89c28592}{tail}};}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00022}\mbox{\hyperlink{structttak__simple__queue__t_ac0e017e5009f20388d72c68218239848}{00022}}\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{structttak__simple__queue__t_ac0e017e5009f20388d72c68218239848}{size}};}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00023}00023\ \}\ \mbox{\hyperlink{structttak__simple__queue__t}{ttak\_simple\_queue\_t}};}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00024}00024\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00025}00025\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00026}00026\ \textcolor{comment}{\ *\ @brief\ Generic\ LIFO\ stack\ implemented\ with\ linked\ nodes.}}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00027}00027\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00028}\mbox{\hyperlink{structttak__simple__stack__t}{00028}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00029}\mbox{\hyperlink{structttak__simple__stack__t_a2efd82c00fc2515e5ddeecd0e1563a8e}{00029}}\ \ \ \ \ \mbox{\hyperlink{simple_8h_aa66a8b50461258fc56184e64a99033ca}{ttak\_simple\_node\_t}}\ *\mbox{\hyperlink{structttak__simple__stack__t_a2efd82c00fc2515e5ddeecd0e1563a8e}{top}};}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00030}\mbox{\hyperlink{structttak__simple__stack__t_ad288f00b1d7ede0325e476fdff45a253}{00030}}\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{structttak__simple__stack__t_ad288f00b1d7ede0325e476fdff45a253}{size}};}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00031}00031\ \}\ \mbox{\hyperlink{structttak__simple__stack__t}{ttak\_simple\_stack\_t}};}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00032}00032\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00033}00033\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00034}00034\ \textcolor{comment}{\ *\ @brief\ Initialize\ a\ queue\ before\ first\ use.}}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00035}00035\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00036}00036\ \textcolor{comment}{\ *\ @param\ q\ Queue\ instance\ to\ initialize.}}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00037}00037\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00038}\mbox{\hyperlink{simple_8h_a7b567319dcc36d0121cdb53eee620211}{00038}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{simple_8h_a7b567319dcc36d0121cdb53eee620211}{ttak\_simple\_queue\_init}}(\mbox{\hyperlink{structttak__simple__queue__t}{ttak\_simple\_queue\_t}}\ *q);\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00039}00039\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00040}00040\ \textcolor{comment}{\ *\ @brief\ Enqueue\ an\ element\ at\ the\ tail.}}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00041}00041\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00042}00042\ \textcolor{comment}{\ *\ @param\ q\ Target\ queue.}}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00043}00043\ \textcolor{comment}{\ *\ @param\ data\ Pointer\ to\ store.}}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00044}00044\ \textcolor{comment}{\ *\ @param\ now\ Timestamp/epoch\ forwarded\ to\ profiling\ hooks.}}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00045}00045\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00046}\mbox{\hyperlink{simple_8h_a3fdf06e59e28de8b2c3f287cabe4dc81}{00046}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{simple_8h_a3fdf06e59e28de8b2c3f287cabe4dc81}{ttak\_simple\_queue\_push}}(\mbox{\hyperlink{structttak__simple__queue__t}{ttak\_simple\_queue\_t}}\ *q,\ \textcolor{keywordtype}{void}\ *data,\ uint64\_t\ now);\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00047}00047\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00048}00048\ \textcolor{comment}{\ *\ @brief\ Remove\ and\ return\ the\ head\ element.}}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00049}00049\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00050}00050\ \textcolor{comment}{\ *\ @param\ q\ Target\ queue.}}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00051}00051\ \textcolor{comment}{\ *\ @param\ now\ Timestamp/epoch\ forwarded\ to\ profiling\ hooks.}}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00052}00052\ \textcolor{comment}{\ *\ @return\ Stored\ pointer\ or\ NULL\ when\ empty.}}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00053}00053\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00054}\mbox{\hyperlink{simple_8h_aa492385fc54809b436b23b8c03950f08}{00054}}\ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{simple_8h_aa492385fc54809b436b23b8c03950f08}{ttak\_simple\_queue\_pop}}(\mbox{\hyperlink{structttak__simple__queue__t}{ttak\_simple\_queue\_t}}\ *q,\ uint64\_t\ now);\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00055}00055\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00056}00056\ \textcolor{comment}{\ *\ @brief\ Check\ whether\ the\ queue\ has\ no\ elements.}}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00057}00057\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00058}00058\ \textcolor{comment}{\ *\ @param\ q\ Queue\ to\ inspect.}}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00059}00059\ \textcolor{comment}{\ *\ @return\ true\ when\ the\ queue\ is\ empty,\ false\ otherwise.}}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00060}00060\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00061}\mbox{\hyperlink{simple_8h_a73b36bdb42e2ce0b4b928297eb133b5b}{00061}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{simple_8h_a73b36bdb42e2ce0b4b928297eb133b5b}{ttak\_simple\_queue\_is\_empty}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structttak__simple__queue__t}{ttak\_simple\_queue\_t}}\ *q);\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00062}00062\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00063}00063\ \textcolor{comment}{\ *\ @brief\ Return\ the\ number\ of\ enqueued\ elements.}}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00064}00064\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00065}00065\ \textcolor{comment}{\ *\ @param\ q\ Queue\ to\ inspect.}}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00066}00066\ \textcolor{comment}{\ *\ @return\ Element\ count.}}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00067}00067\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00068}\mbox{\hyperlink{simple_8h_a1ae15f1da40e5f2b706723bc8176f47d}{00068}}\ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{simple_8h_a1ae15f1da40e5f2b706723bc8176f47d}{ttak\_simple\_queue\_size}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structttak__simple__queue__t}{ttak\_simple\_queue\_t}}\ *q);\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00069}00069\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00070}00070\ \textcolor{comment}{\ *\ @brief\ Release\ any\ resources\ associated\ with\ the\ queue.}}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00071}00071\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00072}00072\ \textcolor{comment}{\ *\ @param\ q\ Queue\ to\ destroy.}}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00073}00073\ \textcolor{comment}{\ *\ @param\ now\ Timestamp/epoch\ forwarded\ to\ profiling\ hooks.}}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00074}00074\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00075}\mbox{\hyperlink{simple_8h_a79bced9835125232d684854747eb3a25}{00075}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{simple_8h_a79bced9835125232d684854747eb3a25}{ttak\_simple\_queue\_destroy}}(\mbox{\hyperlink{structttak__simple__queue__t}{ttak\_simple\_queue\_t}}\ *q,\ uint64\_t\ now);}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00076}00076\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00077}00077\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00078}00078\ \textcolor{comment}{\ *\ @brief\ Initialize\ a\ stack\ before\ first\ use.}}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00079}00079\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00080}00080\ \textcolor{comment}{\ *\ @param\ s\ Stack\ instance\ to\ initialize.}}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00081}00081\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00082}\mbox{\hyperlink{simple_8h_ab2d66e0d98a28e2398353ec3380d1286}{00082}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{simple_8h_ab2d66e0d98a28e2398353ec3380d1286}{ttak\_simple\_stack\_init}}(\mbox{\hyperlink{structttak__simple__stack__t}{ttak\_simple\_stack\_t}}\ *s);\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00083}00083\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00084}00084\ \textcolor{comment}{\ *\ @brief\ Push\ an\ element\ onto\ the\ stack.}}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00085}00085\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00086}00086\ \textcolor{comment}{\ *\ @param\ s\ Target\ stack.}}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00087}00087\ \textcolor{comment}{\ *\ @param\ data\ Pointer\ to\ store.}}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00088}00088\ \textcolor{comment}{\ *\ @param\ now\ Timestamp/epoch\ forwarded\ to\ profiling\ hooks.}}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00089}00089\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00090}\mbox{\hyperlink{simple_8h_a6da07f999e9f47eb800e93b1134db2a2}{00090}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{simple_8h_a6da07f999e9f47eb800e93b1134db2a2}{ttak\_simple\_stack\_push}}(\mbox{\hyperlink{structttak__simple__stack__t}{ttak\_simple\_stack\_t}}\ *s,\ \textcolor{keywordtype}{void}\ *data,\ uint64\_t\ now);\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00091}00091\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00092}00092\ \textcolor{comment}{\ *\ @brief\ Pop\ the\ top\ element\ from\ the\ stack.}}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00093}00093\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00094}00094\ \textcolor{comment}{\ *\ @param\ s\ Target\ stack.}}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00095}00095\ \textcolor{comment}{\ *\ @param\ now\ Timestamp/epoch\ forwarded\ to\ profiling\ hooks.}}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00096}00096\ \textcolor{comment}{\ *\ @return\ Stored\ pointer\ or\ NULL\ when\ empty.}}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00097}00097\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00098}\mbox{\hyperlink{simple_8h_ac4138f0df2770cfec56294dd367c2010}{00098}}\ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{simple_8h_ac4138f0df2770cfec56294dd367c2010}{ttak\_simple\_stack\_pop}}(\mbox{\hyperlink{structttak__simple__stack__t}{ttak\_simple\_stack\_t}}\ *s,\ uint64\_t\ now);\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00099}00099\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00100}00100\ \textcolor{comment}{\ *\ @brief\ Check\ whether\ the\ stack\ is\ empty.}}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00101}00101\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00102}00102\ \textcolor{comment}{\ *\ @param\ s\ Stack\ to\ inspect.}}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00103}00103\ \textcolor{comment}{\ *\ @return\ true\ when\ the\ stack\ is\ empty,\ false\ otherwise.}}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00104}00104\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00105}\mbox{\hyperlink{simple_8h_a679c27fa92239761b7f879401b012973}{00105}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{simple_8h_a679c27fa92239761b7f879401b012973}{ttak\_simple\_stack\_is\_empty}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structttak__simple__stack__t}{ttak\_simple\_stack\_t}}\ *s);\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00106}00106\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00107}00107\ \textcolor{comment}{\ *\ @brief\ Return\ the\ number\ of\ elements\ stored\ in\ the\ stack.}}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00108}00108\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00109}00109\ \textcolor{comment}{\ *\ @param\ s\ Stack\ to\ inspect.}}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00110}00110\ \textcolor{comment}{\ *\ @return\ Element\ count.}}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00111}00111\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00112}\mbox{\hyperlink{simple_8h_a40512cdb9a5ac240457e3fb26c900860}{00112}}\ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{simple_8h_a40512cdb9a5ac240457e3fb26c900860}{ttak\_simple\_stack\_size}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structttak__simple__stack__t}{ttak\_simple\_stack\_t}}\ *s);\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00113}00113\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00114}00114\ \textcolor{comment}{\ *\ @brief\ Release\ any\ resources\ associated\ with\ the\ stack.}}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00115}00115\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00116}00116\ \textcolor{comment}{\ *\ @param\ s\ Stack\ to\ destroy.}}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00117}00117\ \textcolor{comment}{\ *\ @param\ now\ Timestamp/epoch\ forwarded\ to\ profiling\ hooks.}}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00118}00118\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00119}\mbox{\hyperlink{simple_8h_a7e84bd90a7cbeeab74176494c454dacf}{00119}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{simple_8h_a7e84bd90a7cbeeab74176494c454dacf}{ttak\_simple\_stack\_destroy}}(\mbox{\hyperlink{structttak__simple__stack__t}{ttak\_simple\_stack\_t}}\ *s,\ uint64\_t\ now);}
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00120}00120\ }
+\DoxyCodeLine{\Hypertarget{simple_8h_source_l00121}00121\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ TTAK\_PRIORITY\_SIMPLE\_H}}
+
+\end{DoxyCode}

@@ -1,0 +1,91 @@
+\doxysection{ttak\+\_\+ntt\+\_\+prime Struct Reference}
+\hypertarget{structttak__ntt__prime}{}\label{structttak__ntt__prime}\index{ttak\_ntt\_prime@{ttak\_ntt\_prime}}
+
+
+Predefined prime information for NTT operations.  
+
+
+
+
+{\ttfamily \#include $<$ntt.\+h$>$}
+
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+uint64\+\_\+t \mbox{\hyperlink{structttak__ntt__prime_a854879b16fbf84c36a6e8e41b6db31e0}{modulus}}
+\item 
+uint64\+\_\+t \mbox{\hyperlink{structttak__ntt__prime_a9b8cd05275c746fe6ed2a8a99492d36c}{primitive\+\_\+root}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{structttak__ntt__prime_ae5762556924dedb941fd3622d4780370}{max\+\_\+power\+\_\+two}}
+\item 
+uint64\+\_\+t \mbox{\hyperlink{structttak__ntt__prime_af6b567c81813b57a6664f9c95fb59319}{montgomery\+\_\+inv}}
+\item 
+uint64\+\_\+t \mbox{\hyperlink{structttak__ntt__prime_aef021b4050093e70985ebbe2719b36d7}{montgomery\+\_\+r2}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Predefined prime information for NTT operations. 
+
+Definition at line \mbox{\hyperlink{include_2ttak_2math_2ntt_8h_source_l00017}{17}} of file \mbox{\hyperlink{include_2ttak_2math_2ntt_8h_source}{ntt.\+h}}.
+
+
+
+\label{doc-variable-members}
+\Hypertarget{structttak__ntt__prime_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{structttak__ntt__prime_ae5762556924dedb941fd3622d4780370}\index{ttak\_ntt\_prime@{ttak\_ntt\_prime}!max\_power\_two@{max\_power\_two}}
+\index{max\_power\_two@{max\_power\_two}!ttak\_ntt\_prime@{ttak\_ntt\_prime}}
+\doxysubsubsection{\texorpdfstring{max\_power\_two}{max\_power\_two}}
+{\footnotesize\ttfamily \label{structttak__ntt__prime_ae5762556924dedb941fd3622d4780370} 
+uint32\+\_\+t ttak\+\_\+ntt\+\_\+prime\+::max\+\_\+power\+\_\+two}
+
+Maximum supported log2 transform size. 
+
+Definition at line \mbox{\hyperlink{include_2ttak_2math_2ntt_8h_source_l00020}{20}} of file \mbox{\hyperlink{include_2ttak_2math_2ntt_8h_source}{ntt.\+h}}.
+
+\Hypertarget{structttak__ntt__prime_a854879b16fbf84c36a6e8e41b6db31e0}\index{ttak\_ntt\_prime@{ttak\_ntt\_prime}!modulus@{modulus}}
+\index{modulus@{modulus}!ttak\_ntt\_prime@{ttak\_ntt\_prime}}
+\doxysubsubsection{\texorpdfstring{modulus}{modulus}}
+{\footnotesize\ttfamily \label{structttak__ntt__prime_a854879b16fbf84c36a6e8e41b6db31e0} 
+uint64\+\_\+t ttak\+\_\+ntt\+\_\+prime\+::modulus}
+
+Prime modulus suitable for 2\texorpdfstring{$^\wedge$}{\string^}k NTT. 
+
+Definition at line \mbox{\hyperlink{include_2ttak_2math_2ntt_8h_source_l00018}{18}} of file \mbox{\hyperlink{include_2ttak_2math_2ntt_8h_source}{ntt.\+h}}.
+
+\Hypertarget{structttak__ntt__prime_af6b567c81813b57a6664f9c95fb59319}\index{ttak\_ntt\_prime@{ttak\_ntt\_prime}!montgomery\_inv@{montgomery\_inv}}
+\index{montgomery\_inv@{montgomery\_inv}!ttak\_ntt\_prime@{ttak\_ntt\_prime}}
+\doxysubsubsection{\texorpdfstring{montgomery\_inv}{montgomery\_inv}}
+{\footnotesize\ttfamily \label{structttak__ntt__prime_af6b567c81813b57a6664f9c95fb59319} 
+uint64\+\_\+t ttak\+\_\+ntt\+\_\+prime\+::montgomery\+\_\+inv}
+
+-\/mod\texorpdfstring{$^\wedge$}{\string^}\{-\/1\} mod 2\texorpdfstring{$^\wedge$}{\string^}64 for Montgomery reduction. 
+
+Definition at line \mbox{\hyperlink{include_2ttak_2math_2ntt_8h_source_l00021}{21}} of file \mbox{\hyperlink{include_2ttak_2math_2ntt_8h_source}{ntt.\+h}}.
+
+\Hypertarget{structttak__ntt__prime_aef021b4050093e70985ebbe2719b36d7}\index{ttak\_ntt\_prime@{ttak\_ntt\_prime}!montgomery\_r2@{montgomery\_r2}}
+\index{montgomery\_r2@{montgomery\_r2}!ttak\_ntt\_prime@{ttak\_ntt\_prime}}
+\doxysubsubsection{\texorpdfstring{montgomery\_r2}{montgomery\_r2}}
+{\footnotesize\ttfamily \label{structttak__ntt__prime_aef021b4050093e70985ebbe2719b36d7} 
+uint64\+\_\+t ttak\+\_\+ntt\+\_\+prime\+::montgomery\+\_\+r2}
+
+R\texorpdfstring{$^\wedge$}{\string^}2 mod modulus for Montgomery conversion. 
+
+Definition at line \mbox{\hyperlink{include_2ttak_2math_2ntt_8h_source_l00022}{22}} of file \mbox{\hyperlink{include_2ttak_2math_2ntt_8h_source}{ntt.\+h}}.
+
+\Hypertarget{structttak__ntt__prime_a9b8cd05275c746fe6ed2a8a99492d36c}\index{ttak\_ntt\_prime@{ttak\_ntt\_prime}!primitive\_root@{primitive\_root}}
+\index{primitive\_root@{primitive\_root}!ttak\_ntt\_prime@{ttak\_ntt\_prime}}
+\doxysubsubsection{\texorpdfstring{primitive\_root}{primitive\_root}}
+{\footnotesize\ttfamily \label{structttak__ntt__prime_a9b8cd05275c746fe6ed2a8a99492d36c} 
+uint64\+\_\+t ttak\+\_\+ntt\+\_\+prime\+::primitive\+\_\+root}
+
+Primitive root of unity for the modulus. 
+
+Definition at line \mbox{\hyperlink{include_2ttak_2math_2ntt_8h_source_l00019}{19}} of file \mbox{\hyperlink{include_2ttak_2math_2ntt_8h_source}{ntt.\+h}}.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/ttak/math/\mbox{\hyperlink{include_2ttak_2math_2ntt_8h}{ntt.\+h}}\end{DoxyCompactItemize}

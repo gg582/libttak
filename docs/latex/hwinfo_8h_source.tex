@@ -1,0 +1,59 @@
+\doxysection{hwinfo.\+h}
+\hypertarget{hwinfo_8h_source}{}\label{hwinfo_8h_source}\index{apps/mersenne-\/prime/include/hwinfo.h@{apps/mersenne-\/prime/include/hwinfo.h}}
+\mbox{\hyperlink{hwinfo_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{hwinfo_8h_source_l00001}00001\ \textcolor{preprocessor}{\#ifndef\ TTAK\_MERSENNE\_HWINFO\_H}}
+\DoxyCodeLine{\Hypertarget{hwinfo_8h_source_l00002}00002\ \textcolor{preprocessor}{\#define\ TTAK\_MERSENNE\_HWINFO\_H}}
+\DoxyCodeLine{\Hypertarget{hwinfo_8h_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{hwinfo_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{\Hypertarget{hwinfo_8h_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{\Hypertarget{hwinfo_8h_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{hwinfo_8h_source_l00007}\mbox{\hyperlink{structttak__hw__spec__t}{00007}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{\Hypertarget{hwinfo_8h_source_l00008}\mbox{\hyperlink{structttak__hw__spec__t_aa88cd7dcd77c7e35a7dd8344b579b931}{00008}}\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{structttak__hw__spec__t_aa88cd7dcd77c7e35a7dd8344b579b931}{hostname}}[64];}
+\DoxyCodeLine{\Hypertarget{hwinfo_8h_source_l00009}\mbox{\hyperlink{structttak__hw__spec__t_adba43c6698c48f438221d4753a851876}{00009}}\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{structttak__hw__spec__t_adba43c6698c48f438221d4753a851876}{os\_name}}[128];}
+\DoxyCodeLine{\Hypertarget{hwinfo_8h_source_l00010}\mbox{\hyperlink{structttak__hw__spec__t_a14cde2ce163d49183455fb6af8b128eb}{00010}}\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{structttak__hw__spec__t_a14cde2ce163d49183455fb6af8b128eb}{kernel}}[128];}
+\DoxyCodeLine{\Hypertarget{hwinfo_8h_source_l00011}\mbox{\hyperlink{structttak__hw__spec__t_a484438dd23f9d0d952cba8e631a741cb}{00011}}\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{structttak__hw__spec__t_a484438dd23f9d0d952cba8e631a741cb}{architecture}}[32];}
+\DoxyCodeLine{\Hypertarget{hwinfo_8h_source_l00012}\mbox{\hyperlink{structttak__hw__spec__t_aa24ec18dc361441049b719cc84f594ae}{00012}}\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{structttak__hw__spec__t_aa24ec18dc361441049b719cc84f594ae}{cpu\_model}}[128];}
+\DoxyCodeLine{\Hypertarget{hwinfo_8h_source_l00013}\mbox{\hyperlink{structttak__hw__spec__t_ac5a787647378f204cb7d2311c57ca8fb}{00013}}\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{structttak__hw__spec__t_ac5a787647378f204cb7d2311c57ca8fb}{cpu\_flags}}[256];}
+\DoxyCodeLine{\Hypertarget{hwinfo_8h_source_l00014}\mbox{\hyperlink{structttak__hw__spec__t_a41adab4fe61007aaee30523e465533d3}{00014}}\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{structttak__hw__spec__t_a41adab4fe61007aaee30523e465533d3}{vendor\_string}}[64];}
+\DoxyCodeLine{\Hypertarget{hwinfo_8h_source_l00015}\mbox{\hyperlink{structttak__hw__spec__t_a610a1476f26fba85f1044eae62490919}{00015}}\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{structttak__hw__spec__t_a610a1476f26fba85f1044eae62490919}{optimized\_features}}[128];}
+\DoxyCodeLine{\Hypertarget{hwinfo_8h_source_l00016}\mbox{\hyperlink{structttak__hw__spec__t_a7fd64811cdd2d22c6075592c6110b251}{00016}}\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{structttak__hw__spec__t_a7fd64811cdd2d22c6075592c6110b251}{environment}}[192];}
+\DoxyCodeLine{\Hypertarget{hwinfo_8h_source_l00017}\mbox{\hyperlink{structttak__hw__spec__t_a4ed9e14021bb48f0d2008ab5ba41507c}{00017}}\ \ \ \ \ uint32\_t\ \mbox{\hyperlink{structttak__hw__spec__t_a4ed9e14021bb48f0d2008ab5ba41507c}{logical\_cores}};}
+\DoxyCodeLine{\Hypertarget{hwinfo_8h_source_l00018}\mbox{\hyperlink{structttak__hw__spec__t_a93faf8b9edc3908ce75aabc7b58b0b7e}{00018}}\ \ \ \ \ uint32\_t\ \mbox{\hyperlink{structttak__hw__spec__t_a93faf8b9edc3908ce75aabc7b58b0b7e}{physical\_cores}};}
+\DoxyCodeLine{\Hypertarget{hwinfo_8h_source_l00019}\mbox{\hyperlink{structttak__hw__spec__t_ac34a9652f00dcea40a2782b8d49ac672}{00019}}\ \ \ \ \ uint64\_t\ \mbox{\hyperlink{structttak__hw__spec__t_ac34a9652f00dcea40a2782b8d49ac672}{cpu\_freq\_khz}};}
+\DoxyCodeLine{\Hypertarget{hwinfo_8h_source_l00020}\mbox{\hyperlink{structttak__hw__spec__t_aa17b87ee1d8d2a0d75fdf85e99c9c8f6}{00020}}\ \ \ \ \ uint64\_t\ \mbox{\hyperlink{structttak__hw__spec__t_aa17b87ee1d8d2a0d75fdf85e99c9c8f6}{cache\_l1\_kb}};}
+\DoxyCodeLine{\Hypertarget{hwinfo_8h_source_l00021}\mbox{\hyperlink{structttak__hw__spec__t_a9ad43ae38428c73e9767b47d6ec547ef}{00021}}\ \ \ \ \ uint64\_t\ \mbox{\hyperlink{structttak__hw__spec__t_a9ad43ae38428c73e9767b47d6ec547ef}{cache\_l2\_kb}};}
+\DoxyCodeLine{\Hypertarget{hwinfo_8h_source_l00022}\mbox{\hyperlink{structttak__hw__spec__t_aba59d8ae2171c7eb4e5de0f2759b093b}{00022}}\ \ \ \ \ uint64\_t\ \mbox{\hyperlink{structttak__hw__spec__t_aba59d8ae2171c7eb4e5de0f2759b093b}{cache\_l3\_kb}};}
+\DoxyCodeLine{\Hypertarget{hwinfo_8h_source_l00023}\mbox{\hyperlink{structttak__hw__spec__t_a911a64aee0183a66ce44e9136fc66814}{00023}}\ \ \ \ \ uint64\_t\ \mbox{\hyperlink{structttak__hw__spec__t_a911a64aee0183a66ce44e9136fc66814}{total\_mem\_kb}};}
+\DoxyCodeLine{\Hypertarget{hwinfo_8h_source_l00024}\mbox{\hyperlink{structttak__hw__spec__t_a4639661caacad319bd32d82bde9fd40b}{00024}}\ \ \ \ \ uint64\_t\ \mbox{\hyperlink{structttak__hw__spec__t_a4639661caacad319bd32d82bde9fd40b}{avail\_mem\_kb}};}
+\DoxyCodeLine{\Hypertarget{hwinfo_8h_source_l00025}\mbox{\hyperlink{structttak__hw__spec__t_a64ccf768997dff01bd906da3e2aac8d1}{00025}}\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structttak__hw__spec__t_a64ccf768997dff01bd906da3e2aac8d1}{load\_avg}}[3];}
+\DoxyCodeLine{\Hypertarget{hwinfo_8h_source_l00026}00026\ \}\ \mbox{\hyperlink{structttak__hw__spec__t}{ttak\_hw\_spec\_t}};}
+\DoxyCodeLine{\Hypertarget{hwinfo_8h_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{hwinfo_8h_source_l00028}\mbox{\hyperlink{structttak__node__telemetry__t}{00028}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{\Hypertarget{hwinfo_8h_source_l00029}\mbox{\hyperlink{structttak__node__telemetry__t_a069f896cd6031c6ae63e6e96bafa4dcc}{00029}}\ \ \ \ \ \mbox{\hyperlink{structttak__hw__spec__t}{ttak\_hw\_spec\_t}}\ \mbox{\hyperlink{structttak__node__telemetry__t_a069f896cd6031c6ae63e6e96bafa4dcc}{spec}};}
+\DoxyCodeLine{\Hypertarget{hwinfo_8h_source_l00030}\mbox{\hyperlink{structttak__node__telemetry__t_ae3b6cc54ef2bc9bc3924354669ba46a8}{00030}}\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structttak__node__telemetry__t_ae3b6cc54ef2bc9bc3924354669ba46a8}{uptime\_seconds}};}
+\DoxyCodeLine{\Hypertarget{hwinfo_8h_source_l00031}\mbox{\hyperlink{structttak__node__telemetry__t_a6900b9c27d86cfaef6613b6c3eb47f38}{00031}}\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structttak__node__telemetry__t_a6900b9c27d86cfaef6613b6c3eb47f38}{ops\_per\_second}};}
+\DoxyCodeLine{\Hypertarget{hwinfo_8h_source_l00032}\mbox{\hyperlink{structttak__node__telemetry__t_a31f749ae8f5a0454767997952493bb97}{00032}}\ \ \ \ \ uint64\_t\ \mbox{\hyperlink{structttak__node__telemetry__t_a31f749ae8f5a0454767997952493bb97}{total\_ops}};}
+\DoxyCodeLine{\Hypertarget{hwinfo_8h_source_l00033}\mbox{\hyperlink{structttak__node__telemetry__t_aadeabd9fc9c3dcba5e82315e7c301c70}{00033}}\ \ \ \ \ uint32\_t\ \mbox{\hyperlink{structttak__node__telemetry__t_aadeabd9fc9c3dcba5e82315e7c301c70}{active\_workers}};}
+\DoxyCodeLine{\Hypertarget{hwinfo_8h_source_l00034}\mbox{\hyperlink{structttak__node__telemetry__t_a1fb5c67214e13822a6e2954a3ae6a32e}{00034}}\ \ \ \ \ uint32\_t\ \mbox{\hyperlink{structttak__node__telemetry__t_a1fb5c67214e13822a6e2954a3ae6a32e}{exponent\_in\_progress}};}
+\DoxyCodeLine{\Hypertarget{hwinfo_8h_source_l00035}\mbox{\hyperlink{structttak__node__telemetry__t_a52c69d3354011583b5596796e0275d8d}{00035}}\ \ \ \ \ uint64\_t\ \mbox{\hyperlink{structttak__node__telemetry__t_a52c69d3354011583b5596796e0275d8d}{latest\_residue}};}
+\DoxyCodeLine{\Hypertarget{hwinfo_8h_source_l00036}\mbox{\hyperlink{structttak__node__telemetry__t_a4a5a75138a70d5c9036cecaf800bd5e8}{00036}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structttak__node__telemetry__t_a4a5a75138a70d5c9036cecaf800bd5e8}{residue\_is\_zero}};}
+\DoxyCodeLine{\Hypertarget{hwinfo_8h_source_l00037}\mbox{\hyperlink{structttak__node__telemetry__t_a74833888685c4cfd22c0c49dd7ac058f}{00037}}\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{structttak__node__telemetry__t_a74833888685c4cfd22c0c49dd7ac058f}{residual\_snapshot}}[128];}
+\DoxyCodeLine{\Hypertarget{hwinfo_8h_source_l00038}\mbox{\hyperlink{structttak__node__telemetry__t_ab718fcfb9ae30ab77adf32be820dd6c6}{00038}}\ \ \ \ \ uint64\_t\ \mbox{\hyperlink{structttak__node__telemetry__t_ab718fcfb9ae30ab77adf32be820dd6c6}{iteration\_time\_ms}};}
+\DoxyCodeLine{\Hypertarget{hwinfo_8h_source_l00039}00039\ \}\ \mbox{\hyperlink{structttak__node__telemetry__t}{ttak\_node\_telemetry\_t}};}
+\DoxyCodeLine{\Hypertarget{hwinfo_8h_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{hwinfo_8h_source_l00041}\mbox{\hyperlink{hwinfo_8h_a412eb65a97bac2026a552cce7f50b965}{00041}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{hwinfo_8h_a412eb65a97bac2026a552cce7f50b965}{ttak\_collect\_hw\_spec}}(\mbox{\hyperlink{structttak__hw__spec__t}{ttak\_hw\_spec\_t}}\ *spec);}
+\DoxyCodeLine{\Hypertarget{hwinfo_8h_source_l00042}\mbox{\hyperlink{hwinfo_8h_ad31dafa898783e8a09048e48e22a95ab}{00042}}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{hwinfo_8h_ad31dafa898783e8a09048e48e22a95ab}{ttak\_query\_uptime\_seconds}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{hwinfo_8h_source_l00043}\mbox{\hyperlink{hwinfo_8h_addc1f6e9d99108543ef1723ac49a3913}{00043}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{hwinfo_8h_addc1f6e9d99108543ef1723ac49a3913}{ttak\_build\_node\_telemetry}}(\mbox{\hyperlink{structttak__node__telemetry__t}{ttak\_node\_telemetry\_t}}\ *telemetry,}
+\DoxyCodeLine{\Hypertarget{hwinfo_8h_source_l00044}00044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structttak__hw__spec__t}{ttak\_hw\_spec\_t}}\ *spec,}
+\DoxyCodeLine{\Hypertarget{hwinfo_8h_source_l00045}00045\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ ops\_per\_sec,}
+\DoxyCodeLine{\Hypertarget{hwinfo_8h_source_l00046}00046\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ interval\_ms,}
+\DoxyCodeLine{\Hypertarget{hwinfo_8h_source_l00047}00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint64\_t\ total\_ops,}
+\DoxyCodeLine{\Hypertarget{hwinfo_8h_source_l00048}00048\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ active\_workers,}
+\DoxyCodeLine{\Hypertarget{hwinfo_8h_source_l00049}00049\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ exponent,}
+\DoxyCodeLine{\Hypertarget{hwinfo_8h_source_l00050}00050\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint64\_t\ residue,}
+\DoxyCodeLine{\Hypertarget{hwinfo_8h_source_l00051}00051\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ residue\_is\_zero);}
+\DoxyCodeLine{\Hypertarget{hwinfo_8h_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{hwinfo_8h_source_l00053}00053\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ TTAK\_MERSENNE\_HWINFO\_H}}
+
+\end{DoxyCode}

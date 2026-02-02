@@ -1,0 +1,54 @@
+\doxysection{simd\+\_\+math.\+h}
+\hypertarget{simd__math_8h_source}{}\label{simd__math_8h_source}\index{examples/mersenne-\/prime/simd\_math.h@{examples/mersenne-\/prime/simd\_math.h}}
+\mbox{\hyperlink{simd__math_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{simd__math_8h_source_l00001}00001\ \textcolor{preprocessor}{\#ifndef\ TTAK\_SIMD\_MATH\_H}}
+\DoxyCodeLine{\Hypertarget{simd__math_8h_source_l00002}00002\ \textcolor{preprocessor}{\#define\ TTAK\_SIMD\_MATH\_H}}
+\DoxyCodeLine{\Hypertarget{simd__math_8h_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{simd__math_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{\Hypertarget{simd__math_8h_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{simd__math_8h_source_l00006}00006\ \textcolor{preprocessor}{\#if\ defined(\_\_AVX512F\_\_)}}
+\DoxyCodeLine{\Hypertarget{simd__math_8h_source_l00007}00007\ \textcolor{preprocessor}{\#include\ <immintrin.h>}}
+\DoxyCodeLine{\Hypertarget{simd__math_8h_source_l00008}00008\ \textcolor{preprocessor}{\#define\ TTAK\_HAS\_SIMD\ 1}}
+\DoxyCodeLine{\Hypertarget{simd__math_8h_source_l00009}00009\ \textcolor{keyword}{typedef}\ \_\_m512i\ ttak\_simd\_vec\_t;}
+\DoxyCodeLine{\Hypertarget{simd__math_8h_source_l00010}00010\ \textcolor{preprocessor}{\#elif\ defined(\_\_AVX2\_\_)}}
+\DoxyCodeLine{\Hypertarget{simd__math_8h_source_l00011}00011\ \textcolor{preprocessor}{\#include\ <immintrin.h>}}
+\DoxyCodeLine{\Hypertarget{simd__math_8h_source_l00012}00012\ \textcolor{preprocessor}{\#define\ TTAK\_HAS\_SIMD\ 1}}
+\DoxyCodeLine{\Hypertarget{simd__math_8h_source_l00013}00013\ \textcolor{keyword}{typedef}\ \_\_m256i\ ttak\_simd\_vec\_t;}
+\DoxyCodeLine{\Hypertarget{simd__math_8h_source_l00014}00014\ \textcolor{preprocessor}{\#elif\ defined(\_\_ARM\_NEON)}}
+\DoxyCodeLine{\Hypertarget{simd__math_8h_source_l00015}00015\ \textcolor{preprocessor}{\#include\ <arm\_neon.h>}}
+\DoxyCodeLine{\Hypertarget{simd__math_8h_source_l00016}00016\ \textcolor{preprocessor}{\#define\ TTAK\_HAS\_SIMD\ 1}}
+\DoxyCodeLine{\Hypertarget{simd__math_8h_source_l00017}00017\ \textcolor{keyword}{typedef}\ uint32x4\_t\ ttak\_simd\_vec\_t;}
+\DoxyCodeLine{\Hypertarget{simd__math_8h_source_l00018}00018\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{simd__math_8h_source_l00019}\mbox{\hyperlink{simd__math_8h_ad1f877845f73e4e6ed7c169692eac76c}{00019}}\ \textcolor{preprocessor}{\#define\ TTAK\_HAS\_SIMD\ 0}}
+\DoxyCodeLine{\Hypertarget{simd__math_8h_source_l00020}00020\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{simd__math_8h_source_l00021}00021\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{simd__math_8h_source_l00022}00022\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{simd__math_8h_source_l00023}00023\ \textcolor{comment}{\ *\ @brief\ Vectorized\ limb\ addition.}}
+\DoxyCodeLine{\Hypertarget{simd__math_8h_source_l00024}00024\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{simd__math_8h_source_l00025}\mbox{\hyperlink{simd__math_8h_ae41a86080f9893cb74899659bdb549d3}{00025}}\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{simd__math_8h_ae41a86080f9893cb74899659bdb549d3}{ttak\_vec\_add}}(uint32\_t\ *res,\ \textcolor{keyword}{const}\ uint32\_t\ *a,\ \textcolor{keyword}{const}\ uint32\_t\ *b,\ \textcolor{keywordtype}{size\_t}\ n)\ \{}
+\DoxyCodeLine{\Hypertarget{simd__math_8h_source_l00026}00026\ \textcolor{preprocessor}{\#if\ defined(\_\_AVX2\_\_)}}
+\DoxyCodeLine{\Hypertarget{simd__math_8h_source_l00027}00027\ \ \ \ \ \textcolor{comment}{/*\ Use\ aligned\ load/store\ for\ better\ performance\ if\ memory\ is\ 32-\/byte\ aligned\ */}}
+\DoxyCodeLine{\Hypertarget{simd__math_8h_source_l00028}00028\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ n;\ i\ +=\ 8)\ \{}
+\DoxyCodeLine{\Hypertarget{simd__math_8h_source_l00029}00029\ \ \ \ \ \ \ \ \ \_\_m256i\ va\ =\ \_mm256\_load\_si256((\_\_m256i*)\&a[i]);}
+\DoxyCodeLine{\Hypertarget{simd__math_8h_source_l00030}00030\ \ \ \ \ \ \ \ \ \_\_m256i\ vb\ =\ \_mm256\_load\_si256((\_\_m256i*)\&b[i]);}
+\DoxyCodeLine{\Hypertarget{simd__math_8h_source_l00031}00031\ \ \ \ \ \ \ \ \ \_\_m256i\ vr\ =\ \_mm256\_add\_epi32(va,\ vb);}
+\DoxyCodeLine{\Hypertarget{simd__math_8h_source_l00032}00032\ \ \ \ \ \ \ \ \ \_mm256\_store\_si256((\_\_m256i*)\&res[i],\ vr);}
+\DoxyCodeLine{\Hypertarget{simd__math_8h_source_l00033}00033\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{simd__math_8h_source_l00034}00034\ \textcolor{preprocessor}{\#elif\ defined(\_\_ARM\_NEON)}}
+\DoxyCodeLine{\Hypertarget{simd__math_8h_source_l00035}00035\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ n;\ i\ +=\ 4)\ \{}
+\DoxyCodeLine{\Hypertarget{simd__math_8h_source_l00036}00036\ \ \ \ \ \ \ \ \ uint32x4\_t\ va\ =\ vld1q\_u32(\&a[i]);}
+\DoxyCodeLine{\Hypertarget{simd__math_8h_source_l00037}00037\ \ \ \ \ \ \ \ \ uint32x4\_t\ vb\ =\ vld1q\_u32(\&b[i]);}
+\DoxyCodeLine{\Hypertarget{simd__math_8h_source_l00038}00038\ \ \ \ \ \ \ \ \ uint32x4\_t\ vr\ =\ vaddq\_u32(va,\ vb);}
+\DoxyCodeLine{\Hypertarget{simd__math_8h_source_l00039}00039\ \ \ \ \ \ \ \ \ vst1q\_u32(\&res[i],\ vr);}
+\DoxyCodeLine{\Hypertarget{simd__math_8h_source_l00040}00040\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{simd__math_8h_source_l00041}00041\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{simd__math_8h_source_l00042}00042\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ n;\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{simd__math_8h_source_l00043}00043\ \ \ \ \ \ \ \ \ res[i]\ =\ a[i]\ +\ b[i];}
+\DoxyCodeLine{\Hypertarget{simd__math_8h_source_l00044}00044\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{simd__math_8h_source_l00045}00045\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{simd__math_8h_source_l00046}00046\ \}}
+\DoxyCodeLine{\Hypertarget{simd__math_8h_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{simd__math_8h_source_l00048}00048\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ TTAK\_SIMD\_MATH\_H}}
+
+\end{DoxyCode}

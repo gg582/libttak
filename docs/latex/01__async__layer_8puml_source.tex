@@ -1,0 +1,49 @@
+\doxysection{01\+\_\+async\+\_\+layer.\+puml}
+\hypertarget{01__async__layer_8puml_source}{}\label{01__async__layer_8puml_source}\index{blueprints/01\_async\_layer.puml@{blueprints/01\_async\_layer.puml}}
+\mbox{\hyperlink{01__async__layer_8puml}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{01__async__layer_8puml_source_l00001}00001\ @startuml\ libttak\_async\_layer}
+\DoxyCodeLine{\Hypertarget{01__async__layer_8puml_source_l00002}00002\ !theme\ vibrant}
+\DoxyCodeLine{\Hypertarget{01__async__layer_8puml_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{01__async__layer_8puml_source_l00004}00004\ title\ Async\ Layer}
+\DoxyCodeLine{\Hypertarget{01__async__layer_8puml_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{01__async__layer_8puml_source_l00006}00006\ package\ "{}Async"{}\ \{}
+\DoxyCodeLine{\Hypertarget{01__async__layer_8puml_source_l00007}00007\ \ \ \ \ component\ [Task]}
+\DoxyCodeLine{\Hypertarget{01__async__layer_8puml_source_l00008}00008\ \ \ \ \ component\ [Promise]}
+\DoxyCodeLine{\Hypertarget{01__async__layer_8puml_source_l00009}00009\ \ \ \ \ component\ [Future]}
+\DoxyCodeLine{\Hypertarget{01__async__layer_8puml_source_l00010}00010\ \ \ \ \ component\ [Scheduler]\ as\ Sched}
+\DoxyCodeLine{\Hypertarget{01__async__layer_8puml_source_l00011}00011\ \}}
+\DoxyCodeLine{\Hypertarget{01__async__layer_8puml_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{01__async__layer_8puml_source_l00013}00013\ package\ "{}Threading"{}\ \{}
+\DoxyCodeLine{\Hypertarget{01__async__layer_8puml_source_l00014}00014\ \ \ \ \ [Thread\ Pool]}
+\DoxyCodeLine{\Hypertarget{01__async__layer_8puml_source_l00015}00015\ \}}
+\DoxyCodeLine{\Hypertarget{01__async__layer_8puml_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{01__async__layer_8puml_source_l00017}00017\ [Promise]\ -\/>\ [Future]\ :\ Creates}
+\DoxyCodeLine{\Hypertarget{01__async__layer_8puml_source_l00018}00018\ [Task]\ -\/-\/>\ [Promise]\ :\ Fulfills\ or\ Rejects}
+\DoxyCodeLine{\Hypertarget{01__async__layer_8puml_source_l00019}00019\ [Sched]\ -\/-\/>\ [Task]\ :\ Manages\ and\ Executes}
+\DoxyCodeLine{\Hypertarget{01__async__layer_8puml_source_l00020}00020\ [Sched]\ -\/-\/>\ [Thread\ Pool]\ :\ Dispatches\ work\ to}
+\DoxyCodeLine{\Hypertarget{01__async__layer_8puml_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{01__async__layer_8puml_source_l00022}00022\ note\ right\ of\ [Task]}
+\DoxyCodeLine{\Hypertarget{01__async__layer_8puml_source_l00023}00023\ \ \ Represents\ a\ unit\ of\ work}
+\DoxyCodeLine{\Hypertarget{01__async__layer_8puml_source_l00024}00024\ \ \ to\ be\ executed\ asynchronously.}
+\DoxyCodeLine{\Hypertarget{01__async__layer_8puml_source_l00025}00025\ end\ note}
+\DoxyCodeLine{\Hypertarget{01__async__layer_8puml_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{01__async__layer_8puml_source_l00027}00027\ note\ left\ of\ [Promise]}
+\DoxyCodeLine{\Hypertarget{01__async__layer_8puml_source_l00028}00028\ \ \ Represents\ the\ eventual}
+\DoxyCodeLine{\Hypertarget{01__async__layer_8puml_source_l00029}00029\ \ \ completion\ (or\ failure)\ of\ an}
+\DoxyCodeLine{\Hypertarget{01__async__layer_8puml_source_l00030}00030\ \ \ asynchronous\ operation,\ and\ its}
+\DoxyCodeLine{\Hypertarget{01__async__layer_8puml_source_l00031}00031\ \ \ resulting\ value.}
+\DoxyCodeLine{\Hypertarget{01__async__layer_8puml_source_l00032}00032\ end\ note}
+\DoxyCodeLine{\Hypertarget{01__async__layer_8puml_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{01__async__layer_8puml_source_l00034}00034\ note\ right\ of\ [Future]}
+\DoxyCodeLine{\Hypertarget{01__async__layer_8puml_source_l00035}00035\ \ \ Represents\ a\ proxy\ for\ a\ value\ not}
+\DoxyCodeLine{\Hypertarget{01__async__layer_8puml_source_l00036}00036\ \ \ necessarily\ known\ at\ the\ time\ of\ creation.}
+\DoxyCodeLine{\Hypertarget{01__async__layer_8puml_source_l00037}00037\ \ \ Allows\ for\ handling\ the\ result\ of\ a\ Promise.}
+\DoxyCodeLine{\Hypertarget{01__async__layer_8puml_source_l00038}00038\ end\ note}
+\DoxyCodeLine{\Hypertarget{01__async__layer_8puml_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{01__async__layer_8puml_source_l00040}00040\ note\ "{}The\ Scheduler\ is\ responsible\ for\(\backslash\)nrunning\ tasks,\ potentially\ on\ a\ thread\ pool."{}\ as\ sched\_note}
+\DoxyCodeLine{\Hypertarget{01__async__layer_8puml_source_l00041}00041\ [Sched]\ ..\ sched\_note}
+\DoxyCodeLine{\Hypertarget{01__async__layer_8puml_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{01__async__layer_8puml_source_l00043}00043\ @enduml}
+
+\end{DoxyCode}

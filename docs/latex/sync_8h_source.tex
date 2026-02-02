@@ -1,0 +1,39 @@
+\doxysection{sync.\+h}
+\hypertarget{sync_8h_source}{}\label{sync_8h_source}\index{include/ttak/sync/sync.h@{include/ttak/sync/sync.h}}
+\mbox{\hyperlink{sync_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{sync_8h_source_l00001}00001\ \textcolor{preprocessor}{\#ifndef\ TTAK\_SYNC\_H}}
+\DoxyCodeLine{\Hypertarget{sync_8h_source_l00002}00002\ \textcolor{preprocessor}{\#define\ TTAK\_SYNC\_H}}
+\DoxyCodeLine{\Hypertarget{sync_8h_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{sync_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <pthread.h>}}
+\DoxyCodeLine{\Hypertarget{sync_8h_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{\Hypertarget{sync_8h_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{sync_8h_source_l00007}\mbox{\hyperlink{sync_8h_a099d39f1f8999756bc828ad4b337d5b6}{00007}}\ \textcolor{keyword}{typedef}\ pthread\_mutex\_t\ \mbox{\hyperlink{sync_8h_a099d39f1f8999756bc828ad4b337d5b6}{ttak\_mutex\_t}};}
+\DoxyCodeLine{\Hypertarget{sync_8h_source_l00008}\mbox{\hyperlink{sync_8h_aecf69ab36c01d7bce72c0f206d73031d}{00008}}\ \textcolor{keyword}{typedef}\ pthread\_cond\_t\ \mbox{\hyperlink{sync_8h_aecf69ab36c01d7bce72c0f206d73031d}{ttak\_cond\_t}};}
+\DoxyCodeLine{\Hypertarget{sync_8h_source_l00009}00009\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{sync_8h_source_l00010}00010\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{sync_8h_source_l00011}00011\ \textcolor{comment}{\ *\ @brief\ Shared\ resource\ structure.}}
+\DoxyCodeLine{\Hypertarget{sync_8h_source_l00012}00012\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{sync_8h_source_l00013}\mbox{\hyperlink{structtt__type__shared}{00013}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structtt__type__shared}{tt\_type\_shared}}\ \{}
+\DoxyCodeLine{\Hypertarget{sync_8h_source_l00014}\mbox{\hyperlink{structtt__type__shared_accb59476dc158f9f07b3b3aee82d8bee}{00014}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ \ *\mbox{\hyperlink{structtt__type__shared_accb59476dc158f9f07b3b3aee82d8bee}{data}};}
+\DoxyCodeLine{\Hypertarget{sync_8h_source_l00015}\mbox{\hyperlink{structtt__type__shared_a18f3abb508490cc4119a57a177553289}{00015}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structtt__type__shared_a18f3abb508490cc4119a57a177553289}{size}};}
+\DoxyCodeLine{\Hypertarget{sync_8h_source_l00016}\mbox{\hyperlink{structtt__type__shared_a08e5aa220f313a26ba27ff5e4c45cd60}{00016}}\ \ \ \ \ pthread\_mutex\_t\ \mbox{\hyperlink{structtt__type__shared_a08e5aa220f313a26ba27ff5e4c45cd60}{mutex}};}
+\DoxyCodeLine{\Hypertarget{sync_8h_source_l00017}\mbox{\hyperlink{structtt__type__shared_aa04c9333dcd0c2a95d117afc3a2e1e18}{00017}}\ \ \ \ \ uint64\_t\ \ \ \ \ \ \ \ \mbox{\hyperlink{structtt__type__shared_aa04c9333dcd0c2a95d117afc3a2e1e18}{ts}};\ \ \ \ \textcolor{comment}{/**\ Inherited\ timestamp\ (tick\ count)\ */}}
+\DoxyCodeLine{\Hypertarget{sync_8h_source_l00018}\mbox{\hyperlink{sync_8h_af7e69d4612c0d58e7c611b79f1f5d43e}{00018}}\ \}\ \mbox{\hyperlink{sync_8h_af7e69d4612c0d58e7c611b79f1f5d43e}{tt\_type\_shared\_t}};}
+\DoxyCodeLine{\Hypertarget{sync_8h_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{sync_8h_source_l00020}00020\ \textcolor{comment}{//\ Mutex}}
+\DoxyCodeLine{\Hypertarget{sync_8h_source_l00021}\mbox{\hyperlink{sync_8h_a7d304f966c52c975456a7f618a17dc7f}{00021}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{sync_8h_a7d304f966c52c975456a7f618a17dc7f}{ttak\_mutex\_init}}(\mbox{\hyperlink{sync_8h_a099d39f1f8999756bc828ad4b337d5b6}{ttak\_mutex\_t}}\ *mutex);}
+\DoxyCodeLine{\Hypertarget{sync_8h_source_l00022}\mbox{\hyperlink{sync_8h_a65d82f049c34962c2dde6cdd45a09563}{00022}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{sync_8h_a65d82f049c34962c2dde6cdd45a09563}{ttak\_mutex\_lock}}(\mbox{\hyperlink{sync_8h_a099d39f1f8999756bc828ad4b337d5b6}{ttak\_mutex\_t}}\ *mutex);}
+\DoxyCodeLine{\Hypertarget{sync_8h_source_l00023}\mbox{\hyperlink{sync_8h_a1dfa60f4c2eb49ec4f5d9b5eaf6448f0}{00023}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{sync_8h_a1dfa60f4c2eb49ec4f5d9b5eaf6448f0}{ttak\_mutex\_unlock}}(\mbox{\hyperlink{sync_8h_a099d39f1f8999756bc828ad4b337d5b6}{ttak\_mutex\_t}}\ *mutex);}
+\DoxyCodeLine{\Hypertarget{sync_8h_source_l00024}\mbox{\hyperlink{sync_8h_a578b3284d758bc51aa4ecf76f2e0dbc2}{00024}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{sync_8h_a578b3284d758bc51aa4ecf76f2e0dbc2}{ttak\_mutex\_destroy}}(\mbox{\hyperlink{sync_8h_a099d39f1f8999756bc828ad4b337d5b6}{ttak\_mutex\_t}}\ *mutex);}
+\DoxyCodeLine{\Hypertarget{sync_8h_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{sync_8h_source_l00026}00026\ \textcolor{comment}{//\ Condition\ Variable}}
+\DoxyCodeLine{\Hypertarget{sync_8h_source_l00027}\mbox{\hyperlink{sync_8h_ad001a691fece502b0a7d9d056e4c6952}{00027}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{sync_8h_ad001a691fece502b0a7d9d056e4c6952}{ttak\_cond\_init}}(\mbox{\hyperlink{sync_8h_aecf69ab36c01d7bce72c0f206d73031d}{ttak\_cond\_t}}\ *cond);}
+\DoxyCodeLine{\Hypertarget{sync_8h_source_l00028}\mbox{\hyperlink{sync_8h_a134420d688a31a76bdfc34082a400247}{00028}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{sync_8h_a134420d688a31a76bdfc34082a400247}{ttak\_cond\_wait}}(\mbox{\hyperlink{sync_8h_aecf69ab36c01d7bce72c0f206d73031d}{ttak\_cond\_t}}\ *cond,\ \mbox{\hyperlink{sync_8h_a099d39f1f8999756bc828ad4b337d5b6}{ttak\_mutex\_t}}\ *mutex);}
+\DoxyCodeLine{\Hypertarget{sync_8h_source_l00029}\mbox{\hyperlink{sync_8h_a276f3229135d70e3e3814755219766c4}{00029}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{sync_8h_a276f3229135d70e3e3814755219766c4}{ttak\_cond\_signal}}(\mbox{\hyperlink{sync_8h_aecf69ab36c01d7bce72c0f206d73031d}{ttak\_cond\_t}}\ *cond);}
+\DoxyCodeLine{\Hypertarget{sync_8h_source_l00030}\mbox{\hyperlink{sync_8h_afae6538fc09fc9a3250a30adb1ba9637}{00030}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{sync_8h_afae6538fc09fc9a3250a30adb1ba9637}{ttak\_cond\_broadcast}}(\mbox{\hyperlink{sync_8h_aecf69ab36c01d7bce72c0f206d73031d}{ttak\_cond\_t}}\ *cond);}
+\DoxyCodeLine{\Hypertarget{sync_8h_source_l00031}\mbox{\hyperlink{sync_8h_a0ff8df06a516ac77b19fd1f81a2e04a6}{00031}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{sync_8h_a0ff8df06a516ac77b19fd1f81a2e04a6}{ttak\_cond\_destroy}}(\mbox{\hyperlink{sync_8h_aecf69ab36c01d7bce72c0f206d73031d}{ttak\_cond\_t}}\ *cond);}
+\DoxyCodeLine{\Hypertarget{sync_8h_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{sync_8h_source_l00033}00033\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ TTAK\_SYNC\_H}}
+
+\end{DoxyCode}

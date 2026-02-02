@@ -1,0 +1,133 @@
+\doxysection{include/ttak/ht/map.h File Reference}
+\hypertarget{map_8h}{}\label{map_8h}\index{include/ttak/ht/map.h@{include/ttak/ht/map.h}}
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$ttak/ht/hash.\+h$>$}\newline
+Include dependency graph for map.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=288pt]{map_8h__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{map_8h_a1e585d13c2e9006359f5bff2e3dc5d80}{ttak\+\_\+create\+\_\+map}}~tt\+\_\+create\+\_\+map
+\item 
+\#define \mbox{\hyperlink{map_8h_a0da5008a7fc916608a4d15b37c0cd0fe}{ttak\+\_\+insert\+\_\+to\+\_\+map}}~tt\+\_\+ins\+\_\+map
+\item 
+\#define \mbox{\hyperlink{map_8h_a1051095fca50e9ef2982aff8b139b60a}{ttak\+\_\+map\+\_\+get\+\_\+key}}~tt\+\_\+map\+\_\+get
+\item 
+\#define \mbox{\hyperlink{map_8h_aaf07aafced923862d2b186975733f846}{ttak\+\_\+delete\+\_\+from\+\_\+map}}~tt\+\_\+del\+\_\+map
+\item 
+\#define \mbox{\hyperlink{map_8h_ac9d48387fe08e1741f9f916fd05697ee}{\+\_\+\+\_\+\+TT\+\_\+\+MAP\+\_\+\+RESIZE\+\_\+\+\_\+}}~3
+\item 
+\#define \mbox{\hyperlink{map_8h_ae5ce0ae47e6cc761a9c49dbb3e5f06b5}{\+\_\+\+\_\+\+TT\+\_\+\+MAP\+\_\+\+SHRINK\+\_\+\+\_\+}}~2
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{hash_8h_a1f1a8bb38c53fea315e97508c3d66efd}{tt\+\_\+map\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{map_8h_a6ffa9856b32ae9f5b1b265db61bbafa6}{ttak\+\_\+create\+\_\+map}} (size\+\_\+t init\+\_\+cap, uint64\+\_\+t now)
+\item 
+void \mbox{\hyperlink{map_8h_ab15a74cf74e73a2a596a238eceec7f33}{ttak\+\_\+insert\+\_\+to\+\_\+map}} (\mbox{\hyperlink{hash_8h_a1f1a8bb38c53fea315e97508c3d66efd}{tt\+\_\+map\+\_\+t}} \texorpdfstring{$\ast$}{*}map, uintptr\+\_\+t key, size\+\_\+t val, uint64\+\_\+t now)
+\item 
+void \mbox{\hyperlink{map_8h_aa69948afd2835468dc6d23d559c72a87}{ttak\+\_\+delete\+\_\+from\+\_\+map}} (\mbox{\hyperlink{hash_8h_a1f1a8bb38c53fea315e97508c3d66efd}{tt\+\_\+map\+\_\+t}} \texorpdfstring{$\ast$}{*}map, uintptr\+\_\+t key, uint64\+\_\+t now)
+\item 
+\+\_\+\+Bool \mbox{\hyperlink{map_8h_aebb1ab4dbd5d7dd2887690388f47f0c8}{ttak\+\_\+map\+\_\+get\+\_\+key}} (\mbox{\hyperlink{hash_8h_a1f1a8bb38c53fea315e97508c3d66efd}{tt\+\_\+map\+\_\+t}} \texorpdfstring{$\ast$}{*}map, uintptr\+\_\+t key, size\+\_\+t \texorpdfstring{$\ast$}{*}out, uint64\+\_\+t now)
+\end{DoxyCompactItemize}
+
+
+\label{doc-define-members}
+\Hypertarget{map_8h_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{map_8h_ac9d48387fe08e1741f9f916fd05697ee}\index{map.h@{map.h}!\_\_TT\_MAP\_RESIZE\_\_@{\_\_TT\_MAP\_RESIZE\_\_}}
+\index{\_\_TT\_MAP\_RESIZE\_\_@{\_\_TT\_MAP\_RESIZE\_\_}!map.h@{map.h}}
+\doxysubsubsection{\texorpdfstring{\_\_TT\_MAP\_RESIZE\_\_}{\_\_TT\_MAP\_RESIZE\_\_}}
+{\footnotesize\ttfamily \label{map_8h_ac9d48387fe08e1741f9f916fd05697ee} 
+\#define \+\_\+\+\_\+\+TT\+\_\+\+MAP\+\_\+\+RESIZE\+\_\+\+\_\+~3}
+
+
+
+Definition at line \mbox{\hyperlink{map_8h_source_l00020}{20}} of file \mbox{\hyperlink{map_8h_source}{map.\+h}}.
+
+\Hypertarget{map_8h_ae5ce0ae47e6cc761a9c49dbb3e5f06b5}\index{map.h@{map.h}!\_\_TT\_MAP\_SHRINK\_\_@{\_\_TT\_MAP\_SHRINK\_\_}}
+\index{\_\_TT\_MAP\_SHRINK\_\_@{\_\_TT\_MAP\_SHRINK\_\_}!map.h@{map.h}}
+\doxysubsubsection{\texorpdfstring{\_\_TT\_MAP\_SHRINK\_\_}{\_\_TT\_MAP\_SHRINK\_\_}}
+{\footnotesize\ttfamily \label{map_8h_ae5ce0ae47e6cc761a9c49dbb3e5f06b5} 
+\#define \+\_\+\+\_\+\+TT\+\_\+\+MAP\+\_\+\+SHRINK\+\_\+\+\_\+~2}
+
+
+
+Definition at line \mbox{\hyperlink{map_8h_source_l00021}{21}} of file \mbox{\hyperlink{map_8h_source}{map.\+h}}.
+
+\Hypertarget{map_8h_a1e585d13c2e9006359f5bff2e3dc5d80}\index{map.h@{map.h}!ttak\_create\_map@{ttak\_create\_map}}
+\index{ttak\_create\_map@{ttak\_create\_map}!map.h@{map.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_create\_map}{ttak\_create\_map}}
+{\footnotesize\ttfamily \label{map_8h_a1e585d13c2e9006359f5bff2e3dc5d80} 
+\#define ttak\+\_\+create\+\_\+map~tt\+\_\+create\+\_\+map}
+
+
+
+Definition at line \mbox{\hyperlink{map_8h_source_l00009}{9}} of file \mbox{\hyperlink{map_8h_source}{map.\+h}}.
+
+\Hypertarget{map_8h_aaf07aafced923862d2b186975733f846}\index{map.h@{map.h}!ttak\_delete\_from\_map@{ttak\_delete\_from\_map}}
+\index{ttak\_delete\_from\_map@{ttak\_delete\_from\_map}!map.h@{map.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_delete\_from\_map}{ttak\_delete\_from\_map}}
+{\footnotesize\ttfamily \label{map_8h_aaf07aafced923862d2b186975733f846} 
+\#define ttak\+\_\+delete\+\_\+from\+\_\+map~tt\+\_\+del\+\_\+map}
+
+
+
+Definition at line \mbox{\hyperlink{map_8h_source_l00012}{12}} of file \mbox{\hyperlink{map_8h_source}{map.\+h}}.
+
+\Hypertarget{map_8h_a0da5008a7fc916608a4d15b37c0cd0fe}\index{map.h@{map.h}!ttak\_insert\_to\_map@{ttak\_insert\_to\_map}}
+\index{ttak\_insert\_to\_map@{ttak\_insert\_to\_map}!map.h@{map.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_insert\_to\_map}{ttak\_insert\_to\_map}}
+{\footnotesize\ttfamily \label{map_8h_a0da5008a7fc916608a4d15b37c0cd0fe} 
+\#define ttak\+\_\+insert\+\_\+to\+\_\+map~tt\+\_\+ins\+\_\+map}
+
+
+
+Definition at line \mbox{\hyperlink{map_8h_source_l00010}{10}} of file \mbox{\hyperlink{map_8h_source}{map.\+h}}.
+
+\Hypertarget{map_8h_a1051095fca50e9ef2982aff8b139b60a}\index{map.h@{map.h}!ttak\_map\_get\_key@{ttak\_map\_get\_key}}
+\index{ttak\_map\_get\_key@{ttak\_map\_get\_key}!map.h@{map.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_map\_get\_key}{ttak\_map\_get\_key}}
+{\footnotesize\ttfamily \label{map_8h_a1051095fca50e9ef2982aff8b139b60a} 
+\#define ttak\+\_\+map\+\_\+get\+\_\+key~tt\+\_\+map\+\_\+get}
+
+
+
+Definition at line \mbox{\hyperlink{map_8h_source_l00011}{11}} of file \mbox{\hyperlink{map_8h_source}{map.\+h}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{map_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{map_8h_a6ffa9856b32ae9f5b1b265db61bbafa6}\index{map.h@{map.h}!ttak\_create\_map@{ttak\_create\_map}}
+\index{ttak\_create\_map@{ttak\_create\_map}!map.h@{map.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_create\_map()}{ttak\_create\_map()}}
+{\footnotesize\ttfamily \label{map_8h_a6ffa9856b32ae9f5b1b265db61bbafa6} 
+\mbox{\hyperlink{hash_8h_a1f1a8bb38c53fea315e97508c3d66efd}{tt\+\_\+map\+\_\+t}} \texorpdfstring{$\ast$}{*} ttak\+\_\+create\+\_\+map (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{init\+\_\+cap}{, }\item[{uint64\+\_\+t}]{now}{}\end{DoxyParamCaption})}
+
+\Hypertarget{map_8h_aa69948afd2835468dc6d23d559c72a87}\index{map.h@{map.h}!ttak\_delete\_from\_map@{ttak\_delete\_from\_map}}
+\index{ttak\_delete\_from\_map@{ttak\_delete\_from\_map}!map.h@{map.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_delete\_from\_map()}{ttak\_delete\_from\_map()}}
+{\footnotesize\ttfamily \label{map_8h_aa69948afd2835468dc6d23d559c72a87} 
+void ttak\+\_\+delete\+\_\+from\+\_\+map (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{hash_8h_a1f1a8bb38c53fea315e97508c3d66efd}{tt\+\_\+map\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{map}{, }\item[{uintptr\+\_\+t}]{key}{, }\item[{uint64\+\_\+t}]{now}{}\end{DoxyParamCaption})}
+
+\Hypertarget{map_8h_ab15a74cf74e73a2a596a238eceec7f33}\index{map.h@{map.h}!ttak\_insert\_to\_map@{ttak\_insert\_to\_map}}
+\index{ttak\_insert\_to\_map@{ttak\_insert\_to\_map}!map.h@{map.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_insert\_to\_map()}{ttak\_insert\_to\_map()}}
+{\footnotesize\ttfamily \label{map_8h_ab15a74cf74e73a2a596a238eceec7f33} 
+void ttak\+\_\+insert\+\_\+to\+\_\+map (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{hash_8h_a1f1a8bb38c53fea315e97508c3d66efd}{tt\+\_\+map\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{map}{, }\item[{uintptr\+\_\+t}]{key}{, }\item[{size\+\_\+t}]{val}{, }\item[{uint64\+\_\+t}]{now}{}\end{DoxyParamCaption})}
+
+\Hypertarget{map_8h_aebb1ab4dbd5d7dd2887690388f47f0c8}\index{map.h@{map.h}!ttak\_map\_get\_key@{ttak\_map\_get\_key}}
+\index{ttak\_map\_get\_key@{ttak\_map\_get\_key}!map.h@{map.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_map\_get\_key()}{ttak\_map\_get\_key()}}
+{\footnotesize\ttfamily \label{map_8h_aebb1ab4dbd5d7dd2887690388f47f0c8} 
+\+\_\+\+Bool ttak\+\_\+map\+\_\+get\+\_\+key (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{hash_8h_a1f1a8bb38c53fea315e97508c3d66efd}{tt\+\_\+map\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{map}{, }\item[{uintptr\+\_\+t}]{key}{, }\item[{size\+\_\+t \texorpdfstring{$\ast$}{*}}]{out}{, }\item[{uint64\+\_\+t}]{now}{}\end{DoxyParamCaption})}
+

@@ -1,0 +1,40 @@
+\doxysection{00\+\_\+overview.\+puml}
+\hypertarget{00__overview_8puml_source}{}\label{00__overview_8puml_source}\index{blueprints/00\_overview.puml@{blueprints/00\_overview.puml}}
+\mbox{\hyperlink{00__overview_8puml}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{00__overview_8puml_source_l00001}00001\ @startuml\ libttak\_overview}
+\DoxyCodeLine{\Hypertarget{00__overview_8puml_source_l00002}00002\ !theme\ vibrant}
+\DoxyCodeLine{\Hypertarget{00__overview_8puml_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{00__overview_8puml_source_l00004}00004\ title\ libttak\ High-\/Level\ Architecture}
+\DoxyCodeLine{\Hypertarget{00__overview_8puml_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{00__overview_8puml_source_l00006}00006\ package\ "{}libttak\ Core"{}\ \{}
+\DoxyCodeLine{\Hypertarget{00__overview_8puml_source_l00007}00007\ \ \ \ \ component\ "{}Async"{}\ as\ Async}
+\DoxyCodeLine{\Hypertarget{00__overview_8puml_source_l00008}00008\ \ \ \ \ component\ "{}Data\ Structures"{}\ as\ DS}
+\DoxyCodeLine{\Hypertarget{00__overview_8puml_source_l00009}00009\ \ \ \ \ component\ "{}Memory"{}\ as\ Mem}
+\DoxyCodeLine{\Hypertarget{00__overview_8puml_source_l00010}00010\ \ \ \ \ component\ "{}Threading"{}\ as\ Thread}
+\DoxyCodeLine{\Hypertarget{00__overview_8puml_source_l00011}00011\ \ \ \ \ component\ "{}Math"{}\ as\ Math}
+\DoxyCodeLine{\Hypertarget{00__overview_8puml_source_l00012}00012\ \ \ \ \ component\ "{}Security"{}\ as\ Security}
+\DoxyCodeLine{\Hypertarget{00__overview_8puml_source_l00013}00013\ \ \ \ \ component\ "{}Scheduling"{}\ as\ Priority}
+\DoxyCodeLine{\Hypertarget{00__overview_8puml_source_l00014}00014\ \}}
+\DoxyCodeLine{\Hypertarget{00__overview_8puml_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{00__overview_8puml_source_l00016}00016\ package\ "{}Low-\/Level\ Primitives"{}\ \{}
+\DoxyCodeLine{\Hypertarget{00__overview_8puml_source_l00017}00017\ \ \ \ \ component\ "{}Atomics"{}\ as\ Atomic}
+\DoxyCodeLine{\Hypertarget{00__overview_8puml_source_l00018}00018\ \ \ \ \ component\ "{}Sync"{}\ as\ Sync}
+\DoxyCodeLine{\Hypertarget{00__overview_8puml_source_l00019}00019\ \ \ \ \ component\ "{}Timing"{}\ as\ Timing}
+\DoxyCodeLine{\Hypertarget{00__overview_8puml_source_l00020}00020\ \}}
+\DoxyCodeLine{\Hypertarget{00__overview_8puml_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{00__overview_8puml_source_l00022}00022\ '\ Relationships}
+\DoxyCodeLine{\Hypertarget{00__overview_8puml_source_l00023}00023\ Thread\ ..>\ Sync}
+\DoxyCodeLine{\Hypertarget{00__overview_8puml_source_l00024}00024\ Thread\ ..>\ Atomic}
+\DoxyCodeLine{\Hypertarget{00__overview_8puml_source_l00025}00025\ Async\ ..>\ Thread}
+\DoxyCodeLine{\Hypertarget{00__overview_8puml_source_l00026}00026\ Async\ ..>\ Timing}
+\DoxyCodeLine{\Hypertarget{00__overview_8puml_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{00__overview_8puml_source_l00028}00028\ Priority\ ..>\ DS}
+\DoxyCodeLine{\Hypertarget{00__overview_8puml_source_l00029}00029\ DS\ ..>\ Mem}
+\DoxyCodeLine{\Hypertarget{00__overview_8puml_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{00__overview_8puml_source_l00031}00031\ Math\ ..>\ Mem}
+\DoxyCodeLine{\Hypertarget{00__overview_8puml_source_l00032}00032\ Security\ ..>\ Mem}
+\DoxyCodeLine{\Hypertarget{00__overview_8puml_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{00__overview_8puml_source_l00034}00034\ @enduml}
+
+\end{DoxyCode}

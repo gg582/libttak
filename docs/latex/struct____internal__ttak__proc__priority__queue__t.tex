@@ -1,0 +1,144 @@
+\doxysection{\+\_\+\+\_\+internal\+\_\+ttak\+\_\+proc\+\_\+priority\+\_\+queue\+\_\+t Struct Reference}
+\hypertarget{struct____internal__ttak__proc__priority__queue__t}{}\label{struct____internal__ttak__proc__priority__queue__t}\index{\_\_internal\_ttak\_proc\_priority\_queue\_t@{\_\_internal\_ttak\_proc\_priority\_queue\_t}}
+
+
+{\ttfamily \#include $<$queue.\+h$>$}
+
+
+
+Collaboration diagram for \+\_\+\+\_\+internal\+\_\+ttak\+\_\+proc\+\_\+priority\+\_\+queue\+\_\+t\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=259pt]{struct____internal__ttak__proc__priority__queue__t__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct____internal__ttak__qnode__t}{\+\_\+\+\_\+internal\+\_\+ttak\+\_\+qnode\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct____internal__ttak__proc__priority__queue__t_ad30eaad0ddb741a11a90ba44679ac14f}{head}}
+\item 
+size\+\_\+t \mbox{\hyperlink{struct____internal__ttak__proc__priority__queue__t_aa5a80a180a7add7734a612bcdabbe153}{size}}
+\item 
+size\+\_\+t \mbox{\hyperlink{struct____internal__ttak__proc__priority__queue__t_a7f14aaf86cf1424d01be46536bb77252}{cap}}
+\item 
+void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct____internal__ttak__proc__priority__queue__t_a6c6bac2e8015d4467bd676d11dfb42fd}{init}} )(struct \mbox{\hyperlink{struct____internal__ttak__proc__priority__queue__t}{\+\_\+\+\_\+internal\+\_\+ttak\+\_\+proc\+\_\+priority\+\_\+queue\+\_\+t}} \texorpdfstring{$\ast$}{*}q)
+\item 
+void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct____internal__ttak__proc__priority__queue__t_a6e905df5cb0dd39ba5e87a656d8213d5}{push}} )(struct \mbox{\hyperlink{struct____internal__ttak__proc__priority__queue__t}{\+\_\+\+\_\+internal\+\_\+ttak\+\_\+proc\+\_\+priority\+\_\+queue\+\_\+t}} \texorpdfstring{$\ast$}{*}q, \mbox{\hyperlink{task_8h_a6a4c7b4b8f087d53e7b2a92f84db216e}{ttak\+\_\+task\+\_\+t}} \texorpdfstring{$\ast$}{*}task, int priority, uint64\+\_\+t now)
+\item 
+\mbox{\hyperlink{task_8h_a6a4c7b4b8f087d53e7b2a92f84db216e}{ttak\+\_\+task\+\_\+t}} \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct____internal__ttak__proc__priority__queue__t_a5030da90c871eef34c5c2f6cc371dfe3}{pop}} )(struct \mbox{\hyperlink{struct____internal__ttak__proc__priority__queue__t}{\+\_\+\+\_\+internal\+\_\+ttak\+\_\+proc\+\_\+priority\+\_\+queue\+\_\+t}} \texorpdfstring{$\ast$}{*}q, uint64\+\_\+t now)
+\item 
+\mbox{\hyperlink{task_8h_a6a4c7b4b8f087d53e7b2a92f84db216e}{ttak\+\_\+task\+\_\+t}} \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct____internal__ttak__proc__priority__queue__t_a5746fafea46762105cb4047a777275a7}{pop\+\_\+blocking}} )(struct \mbox{\hyperlink{struct____internal__ttak__proc__priority__queue__t}{\+\_\+\+\_\+internal\+\_\+ttak\+\_\+proc\+\_\+priority\+\_\+queue\+\_\+t}} \texorpdfstring{$\ast$}{*}q, pthread\+\_\+mutex\+\_\+t \texorpdfstring{$\ast$}{*}mutex, pthread\+\_\+cond\+\_\+t \texorpdfstring{$\ast$}{*}cond, uint64\+\_\+t now)
+\item 
+size\+\_\+t(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct____internal__ttak__proc__priority__queue__t_abfe3e7817ed79ec79fb5d7cc1d5255db}{get\+\_\+size}} )(struct \mbox{\hyperlink{struct____internal__ttak__proc__priority__queue__t}{\+\_\+\+\_\+internal\+\_\+ttak\+\_\+proc\+\_\+priority\+\_\+queue\+\_\+t}} \texorpdfstring{$\ast$}{*}q)
+\item 
+size\+\_\+t(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct____internal__ttak__proc__priority__queue__t_af1b881827ecdf862eb6c999cf54be10c}{get\+\_\+cap}} )(struct \mbox{\hyperlink{struct____internal__ttak__proc__priority__queue__t}{\+\_\+\+\_\+internal\+\_\+ttak\+\_\+proc\+\_\+priority\+\_\+queue\+\_\+t}} \texorpdfstring{$\ast$}{*}q)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{internal_2queue_8h_source_l00015}{15}} of file \mbox{\hyperlink{internal_2queue_8h_source}{queue.\+h}}.
+
+
+
+\label{doc-variable-members}
+\Hypertarget{struct____internal__ttak__proc__priority__queue__t_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{struct____internal__ttak__proc__priority__queue__t_a7f14aaf86cf1424d01be46536bb77252}\index{\_\_internal\_ttak\_proc\_priority\_queue\_t@{\_\_internal\_ttak\_proc\_priority\_queue\_t}!cap@{cap}}
+\index{cap@{cap}!\_\_internal\_ttak\_proc\_priority\_queue\_t@{\_\_internal\_ttak\_proc\_priority\_queue\_t}}
+\doxysubsubsection{\texorpdfstring{cap}{cap}}
+{\footnotesize\ttfamily \label{struct____internal__ttak__proc__priority__queue__t_a7f14aaf86cf1424d01be46536bb77252} 
+size\+\_\+t \+\_\+\+\_\+internal\+\_\+ttak\+\_\+proc\+\_\+priority\+\_\+queue\+\_\+t\+::cap}
+
+
+
+Definition at line \mbox{\hyperlink{internal_2queue_8h_source_l00018}{18}} of file \mbox{\hyperlink{internal_2queue_8h_source}{queue.\+h}}.
+
+\Hypertarget{struct____internal__ttak__proc__priority__queue__t_af1b881827ecdf862eb6c999cf54be10c}\index{\_\_internal\_ttak\_proc\_priority\_queue\_t@{\_\_internal\_ttak\_proc\_priority\_queue\_t}!get\_cap@{get\_cap}}
+\index{get\_cap@{get\_cap}!\_\_internal\_ttak\_proc\_priority\_queue\_t@{\_\_internal\_ttak\_proc\_priority\_queue\_t}}
+\doxysubsubsection{\texorpdfstring{get\_cap}{get\_cap}}
+{\footnotesize\ttfamily \label{struct____internal__ttak__proc__priority__queue__t_af1b881827ecdf862eb6c999cf54be10c} 
+size\+\_\+t(\texorpdfstring{$\ast$}{*} \+\_\+\+\_\+internal\+\_\+ttak\+\_\+proc\+\_\+priority\+\_\+queue\+\_\+t\+::get\+\_\+cap) (struct \mbox{\hyperlink{struct____internal__ttak__proc__priority__queue__t}{\+\_\+\+\_\+internal\+\_\+ttak\+\_\+proc\+\_\+priority\+\_\+queue\+\_\+t}} \texorpdfstring{$\ast$}{*}q)}
+
+
+
+Definition at line \mbox{\hyperlink{internal_2queue_8h_source_l00025}{25}} of file \mbox{\hyperlink{internal_2queue_8h_source}{queue.\+h}}.
+
+\Hypertarget{struct____internal__ttak__proc__priority__queue__t_abfe3e7817ed79ec79fb5d7cc1d5255db}\index{\_\_internal\_ttak\_proc\_priority\_queue\_t@{\_\_internal\_ttak\_proc\_priority\_queue\_t}!get\_size@{get\_size}}
+\index{get\_size@{get\_size}!\_\_internal\_ttak\_proc\_priority\_queue\_t@{\_\_internal\_ttak\_proc\_priority\_queue\_t}}
+\doxysubsubsection{\texorpdfstring{get\_size}{get\_size}}
+{\footnotesize\ttfamily \label{struct____internal__ttak__proc__priority__queue__t_abfe3e7817ed79ec79fb5d7cc1d5255db} 
+size\+\_\+t(\texorpdfstring{$\ast$}{*} \+\_\+\+\_\+internal\+\_\+ttak\+\_\+proc\+\_\+priority\+\_\+queue\+\_\+t\+::get\+\_\+size) (struct \mbox{\hyperlink{struct____internal__ttak__proc__priority__queue__t}{\+\_\+\+\_\+internal\+\_\+ttak\+\_\+proc\+\_\+priority\+\_\+queue\+\_\+t}} \texorpdfstring{$\ast$}{*}q)}
+
+
+
+Definition at line \mbox{\hyperlink{internal_2queue_8h_source_l00024}{24}} of file \mbox{\hyperlink{internal_2queue_8h_source}{queue.\+h}}.
+
+\Hypertarget{struct____internal__ttak__proc__priority__queue__t_ad30eaad0ddb741a11a90ba44679ac14f}\index{\_\_internal\_ttak\_proc\_priority\_queue\_t@{\_\_internal\_ttak\_proc\_priority\_queue\_t}!head@{head}}
+\index{head@{head}!\_\_internal\_ttak\_proc\_priority\_queue\_t@{\_\_internal\_ttak\_proc\_priority\_queue\_t}}
+\doxysubsubsection{\texorpdfstring{head}{head}}
+{\footnotesize\ttfamily \label{struct____internal__ttak__proc__priority__queue__t_ad30eaad0ddb741a11a90ba44679ac14f} 
+struct \mbox{\hyperlink{struct____internal__ttak__qnode__t}{\+\_\+\+\_\+internal\+\_\+ttak\+\_\+qnode\+\_\+t}}\texorpdfstring{$\ast$}{*} \+\_\+\+\_\+internal\+\_\+ttak\+\_\+proc\+\_\+priority\+\_\+queue\+\_\+t\+::head}
+
+
+
+Definition at line \mbox{\hyperlink{internal_2queue_8h_source_l00016}{16}} of file \mbox{\hyperlink{internal_2queue_8h_source}{queue.\+h}}.
+
+\Hypertarget{struct____internal__ttak__proc__priority__queue__t_a6c6bac2e8015d4467bd676d11dfb42fd}\index{\_\_internal\_ttak\_proc\_priority\_queue\_t@{\_\_internal\_ttak\_proc\_priority\_queue\_t}!init@{init}}
+\index{init@{init}!\_\_internal\_ttak\_proc\_priority\_queue\_t@{\_\_internal\_ttak\_proc\_priority\_queue\_t}}
+\doxysubsubsection{\texorpdfstring{init}{init}}
+{\footnotesize\ttfamily \label{struct____internal__ttak__proc__priority__queue__t_a6c6bac2e8015d4467bd676d11dfb42fd} 
+void(\texorpdfstring{$\ast$}{*} \+\_\+\+\_\+internal\+\_\+ttak\+\_\+proc\+\_\+priority\+\_\+queue\+\_\+t\+::init) (struct \mbox{\hyperlink{struct____internal__ttak__proc__priority__queue__t}{\+\_\+\+\_\+internal\+\_\+ttak\+\_\+proc\+\_\+priority\+\_\+queue\+\_\+t}} \texorpdfstring{$\ast$}{*}q)}
+
+
+
+Definition at line \mbox{\hyperlink{internal_2queue_8h_source_l00020}{20}} of file \mbox{\hyperlink{internal_2queue_8h_source}{queue.\+h}}.
+
+\Hypertarget{struct____internal__ttak__proc__priority__queue__t_a5030da90c871eef34c5c2f6cc371dfe3}\index{\_\_internal\_ttak\_proc\_priority\_queue\_t@{\_\_internal\_ttak\_proc\_priority\_queue\_t}!pop@{pop}}
+\index{pop@{pop}!\_\_internal\_ttak\_proc\_priority\_queue\_t@{\_\_internal\_ttak\_proc\_priority\_queue\_t}}
+\doxysubsubsection{\texorpdfstring{pop}{pop}}
+{\footnotesize\ttfamily \label{struct____internal__ttak__proc__priority__queue__t_a5030da90c871eef34c5c2f6cc371dfe3} 
+\mbox{\hyperlink{task_8h_a6a4c7b4b8f087d53e7b2a92f84db216e}{ttak\+\_\+task\+\_\+t}} \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*} \+\_\+\+\_\+internal\+\_\+ttak\+\_\+proc\+\_\+priority\+\_\+queue\+\_\+t\+::pop) (struct \mbox{\hyperlink{struct____internal__ttak__proc__priority__queue__t}{\+\_\+\+\_\+internal\+\_\+ttak\+\_\+proc\+\_\+priority\+\_\+queue\+\_\+t}} \texorpdfstring{$\ast$}{*}q, uint64\+\_\+t now)}
+
+
+
+Definition at line \mbox{\hyperlink{internal_2queue_8h_source_l00022}{22}} of file \mbox{\hyperlink{internal_2queue_8h_source}{queue.\+h}}.
+
+\Hypertarget{struct____internal__ttak__proc__priority__queue__t_a5746fafea46762105cb4047a777275a7}\index{\_\_internal\_ttak\_proc\_priority\_queue\_t@{\_\_internal\_ttak\_proc\_priority\_queue\_t}!pop\_blocking@{pop\_blocking}}
+\index{pop\_blocking@{pop\_blocking}!\_\_internal\_ttak\_proc\_priority\_queue\_t@{\_\_internal\_ttak\_proc\_priority\_queue\_t}}
+\doxysubsubsection{\texorpdfstring{pop\_blocking}{pop\_blocking}}
+{\footnotesize\ttfamily \label{struct____internal__ttak__proc__priority__queue__t_a5746fafea46762105cb4047a777275a7} 
+\mbox{\hyperlink{task_8h_a6a4c7b4b8f087d53e7b2a92f84db216e}{ttak\+\_\+task\+\_\+t}} \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*} \+\_\+\+\_\+internal\+\_\+ttak\+\_\+proc\+\_\+priority\+\_\+queue\+\_\+t\+::pop\+\_\+blocking) (struct \mbox{\hyperlink{struct____internal__ttak__proc__priority__queue__t}{\+\_\+\+\_\+internal\+\_\+ttak\+\_\+proc\+\_\+priority\+\_\+queue\+\_\+t}} \texorpdfstring{$\ast$}{*}q, pthread\+\_\+mutex\+\_\+t \texorpdfstring{$\ast$}{*}mutex, pthread\+\_\+cond\+\_\+t \texorpdfstring{$\ast$}{*}cond, uint64\+\_\+t now)}
+
+
+
+Definition at line \mbox{\hyperlink{internal_2queue_8h_source_l00023}{23}} of file \mbox{\hyperlink{internal_2queue_8h_source}{queue.\+h}}.
+
+\Hypertarget{struct____internal__ttak__proc__priority__queue__t_a6e905df5cb0dd39ba5e87a656d8213d5}\index{\_\_internal\_ttak\_proc\_priority\_queue\_t@{\_\_internal\_ttak\_proc\_priority\_queue\_t}!push@{push}}
+\index{push@{push}!\_\_internal\_ttak\_proc\_priority\_queue\_t@{\_\_internal\_ttak\_proc\_priority\_queue\_t}}
+\doxysubsubsection{\texorpdfstring{push}{push}}
+{\footnotesize\ttfamily \label{struct____internal__ttak__proc__priority__queue__t_a6e905df5cb0dd39ba5e87a656d8213d5} 
+void(\texorpdfstring{$\ast$}{*} \+\_\+\+\_\+internal\+\_\+ttak\+\_\+proc\+\_\+priority\+\_\+queue\+\_\+t\+::push) (struct \mbox{\hyperlink{struct____internal__ttak__proc__priority__queue__t}{\+\_\+\+\_\+internal\+\_\+ttak\+\_\+proc\+\_\+priority\+\_\+queue\+\_\+t}} \texorpdfstring{$\ast$}{*}q, \mbox{\hyperlink{task_8h_a6a4c7b4b8f087d53e7b2a92f84db216e}{ttak\+\_\+task\+\_\+t}} \texorpdfstring{$\ast$}{*}task, int priority, uint64\+\_\+t now)}
+
+
+
+Definition at line \mbox{\hyperlink{internal_2queue_8h_source_l00021}{21}} of file \mbox{\hyperlink{internal_2queue_8h_source}{queue.\+h}}.
+
+\Hypertarget{struct____internal__ttak__proc__priority__queue__t_aa5a80a180a7add7734a612bcdabbe153}\index{\_\_internal\_ttak\_proc\_priority\_queue\_t@{\_\_internal\_ttak\_proc\_priority\_queue\_t}!size@{size}}
+\index{size@{size}!\_\_internal\_ttak\_proc\_priority\_queue\_t@{\_\_internal\_ttak\_proc\_priority\_queue\_t}}
+\doxysubsubsection{\texorpdfstring{size}{size}}
+{\footnotesize\ttfamily \label{struct____internal__ttak__proc__priority__queue__t_aa5a80a180a7add7734a612bcdabbe153} 
+size\+\_\+t \+\_\+\+\_\+internal\+\_\+ttak\+\_\+proc\+\_\+priority\+\_\+queue\+\_\+t\+::size}
+
+
+
+Definition at line \mbox{\hyperlink{internal_2queue_8h_source_l00017}{17}} of file \mbox{\hyperlink{internal_2queue_8h_source}{queue.\+h}}.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/ttak/priority/internal/\mbox{\hyperlink{internal_2queue_8h}{queue.\+h}}\end{DoxyCompactItemize}

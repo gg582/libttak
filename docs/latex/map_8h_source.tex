@@ -1,0 +1,29 @@
+\doxysection{map.\+h}
+\hypertarget{map_8h_source}{}\label{map_8h_source}\index{include/ttak/ht/map.h@{include/ttak/ht/map.h}}
+\mbox{\hyperlink{map_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{map_8h_source_l00001}00001\ \textcolor{preprocessor}{\#ifndef\ \_\_TTAK\_MAP\_H\_\_}}
+\DoxyCodeLine{\Hypertarget{map_8h_source_l00002}00002\ \textcolor{preprocessor}{\#define\ \_\_TTAK\_MAP\_H\_\_}}
+\DoxyCodeLine{\Hypertarget{map_8h_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{map_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <stddef.h>}}
+\DoxyCodeLine{\Hypertarget{map_8h_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{\Hypertarget{map_8h_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{hash_8h}{ttak/ht/hash.h}}>}}
+\DoxyCodeLine{\Hypertarget{map_8h_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{map_8h_source_l00008}00008\ \textcolor{comment}{//\ Shortcuts\ definition}}
+\DoxyCodeLine{\Hypertarget{map_8h_source_l00009}\mbox{\hyperlink{map_8h_a1e585d13c2e9006359f5bff2e3dc5d80}{00009}}\ \textcolor{preprocessor}{\#define\ ttak\_create\_map\ tt\_create\_map}}
+\DoxyCodeLine{\Hypertarget{map_8h_source_l00010}\mbox{\hyperlink{map_8h_a0da5008a7fc916608a4d15b37c0cd0fe}{00010}}\ \textcolor{preprocessor}{\#define\ ttak\_insert\_to\_map\ tt\_ins\_map}}
+\DoxyCodeLine{\Hypertarget{map_8h_source_l00011}\mbox{\hyperlink{map_8h_a1051095fca50e9ef2982aff8b139b60a}{00011}}\ \textcolor{preprocessor}{\#define\ ttak\_map\_get\_key\ tt\_map\_get}}
+\DoxyCodeLine{\Hypertarget{map_8h_source_l00012}\mbox{\hyperlink{map_8h_aaf07aafced923862d2b186975733f846}{00012}}\ \textcolor{preprocessor}{\#define\ ttak\_delete\_from\_map\ tt\_del\_map}}
+\DoxyCodeLine{\Hypertarget{map_8h_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{map_8h_source_l00014}\mbox{\hyperlink{map_8h_a6ffa9856b32ae9f5b1b265db61bbafa6}{00014}}\ \mbox{\hyperlink{hash_8h_a1f1a8bb38c53fea315e97508c3d66efd}{tt\_map\_t}}\ *\mbox{\hyperlink{map_8h_a1e585d13c2e9006359f5bff2e3dc5d80}{ttak\_create\_map}}(\textcolor{keywordtype}{size\_t}\ init\_cap,\ uint64\_t\ now);}
+\DoxyCodeLine{\Hypertarget{map_8h_source_l00015}\mbox{\hyperlink{map_8h_ab15a74cf74e73a2a596a238eceec7f33}{00015}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{map_8h_a0da5008a7fc916608a4d15b37c0cd0fe}{ttak\_insert\_to\_map}}(\mbox{\hyperlink{hash_8h_a1f1a8bb38c53fea315e97508c3d66efd}{tt\_map\_t}}\ *map,\ uintptr\_t\ key,\ \textcolor{keywordtype}{size\_t}\ val,\ uint64\_t\ now);}
+\DoxyCodeLine{\Hypertarget{map_8h_source_l00016}\mbox{\hyperlink{map_8h_aa69948afd2835468dc6d23d559c72a87}{00016}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{map_8h_aaf07aafced923862d2b186975733f846}{ttak\_delete\_from\_map}}(\mbox{\hyperlink{hash_8h_a1f1a8bb38c53fea315e97508c3d66efd}{tt\_map\_t}}\ *map,\ uintptr\_t\ key,\ uint64\_t\ now);}
+\DoxyCodeLine{\Hypertarget{map_8h_source_l00017}\mbox{\hyperlink{map_8h_aebb1ab4dbd5d7dd2887690388f47f0c8}{00017}}\ \_Bool\ \mbox{\hyperlink{map_8h_a1051095fca50e9ef2982aff8b139b60a}{ttak\_map\_get\_key}}(\mbox{\hyperlink{hash_8h_a1f1a8bb38c53fea315e97508c3d66efd}{tt\_map\_t}}\ *map,\ uintptr\_t\ key,\ \textcolor{keywordtype}{size\_t}\ *out,\ uint64\_t\ now);}
+\DoxyCodeLine{\Hypertarget{map_8h_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{map_8h_source_l00019}00019\ \textcolor{comment}{//\ Macros\ for\ memory\ resizing}}
+\DoxyCodeLine{\Hypertarget{map_8h_source_l00020}\mbox{\hyperlink{map_8h_ac9d48387fe08e1741f9f916fd05697ee}{00020}}\ \textcolor{preprocessor}{\#define\ \_\_TT\_MAP\_RESIZE\_\_\ 3}}
+\DoxyCodeLine{\Hypertarget{map_8h_source_l00021}\mbox{\hyperlink{map_8h_ae5ce0ae47e6cc761a9c49dbb3e5f06b5}{00021}}\ \textcolor{preprocessor}{\#define\ \_\_TT\_MAP\_SHRINK\_\_\ 2}}
+\DoxyCodeLine{\Hypertarget{map_8h_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{map_8h_source_l00023}00023\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ \_\_TTAK\_MAP\_H\_\_}}
+
+\end{DoxyCode}

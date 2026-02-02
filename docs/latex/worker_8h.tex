@@ -1,0 +1,113 @@
+\doxysection{include/ttak/thread/worker.h File Reference}
+\hypertarget{worker_8h}{}\label{worker_8h}\index{include/ttak/thread/worker.h@{include/ttak/thread/worker.h}}
+{\ttfamily \#include $<$pthread.\+h$>$}\newline
+{\ttfamily \#include $<$setjmp.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$ttak/async/promise.\+h$>$}\newline
+Include dependency graph for worker.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{worker_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=229pt]{worker_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structttak__worker__wrapper}{ttak\+\_\+worker\+\_\+wrapper}}
+\item 
+struct \mbox{\hyperlink{structttak__worker}{ttak\+\_\+worker}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{worker_8h_a3cd30f2c4e30576065ee8e7347240afc}{TTAK\+\_\+\+ERR\+\_\+\+JOIN\+\_\+\+FAILED}}~-\/101
+\item 
+\#define \mbox{\hyperlink{worker_8h_a2f35c31672151f0fb0cd32d74ee03cd7}{TTAK\+\_\+\+ERR\+\_\+\+SHUTDOWN\+\_\+\+RETRY}}~-\/102
+\item 
+\#define \mbox{\hyperlink{worker_8h_abf4f2175a2fdbc6712b1929ef8078d8d}{TTAK\+\_\+\+ERR\+\_\+\+FATAL\+\_\+\+EXIT}}~-\/103
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{structttak__worker__wrapper}{ttak\+\_\+worker\+\_\+wrapper}} \mbox{\hyperlink{worker_8h_a0f54418484a47d2ee2bb2e3d8b471b7d}{ttak\+\_\+worker\+\_\+wrapper\+\_\+t}}
+\item 
+typedef struct \mbox{\hyperlink{structttak__worker}{ttak\+\_\+worker}} \mbox{\hyperlink{worker_8h_a0003749eead12470661f5e9d7d4cc842}{ttak\+\_\+worker\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{worker_8h_afdb21bc290370c6055f5f8ce3e204337}{ttak\+\_\+worker\+\_\+routine}} (void \texorpdfstring{$\ast$}{*}arg)
+\end{DoxyCompactItemize}
+
+
+\label{doc-define-members}
+\Hypertarget{worker_8h_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{worker_8h_abf4f2175a2fdbc6712b1929ef8078d8d}\index{worker.h@{worker.h}!TTAK\_ERR\_FATAL\_EXIT@{TTAK\_ERR\_FATAL\_EXIT}}
+\index{TTAK\_ERR\_FATAL\_EXIT@{TTAK\_ERR\_FATAL\_EXIT}!worker.h@{worker.h}}
+\doxysubsubsection{\texorpdfstring{TTAK\_ERR\_FATAL\_EXIT}{TTAK\_ERR\_FATAL\_EXIT}}
+{\footnotesize\ttfamily \label{worker_8h_abf4f2175a2fdbc6712b1929ef8078d8d} 
+\#define TTAK\+\_\+\+ERR\+\_\+\+FATAL\+\_\+\+EXIT~-\/103}
+
+
+
+Definition at line \mbox{\hyperlink{worker_8h_source_l00011}{11}} of file \mbox{\hyperlink{worker_8h_source}{worker.\+h}}.
+
+\Hypertarget{worker_8h_a3cd30f2c4e30576065ee8e7347240afc}\index{worker.h@{worker.h}!TTAK\_ERR\_JOIN\_FAILED@{TTAK\_ERR\_JOIN\_FAILED}}
+\index{TTAK\_ERR\_JOIN\_FAILED@{TTAK\_ERR\_JOIN\_FAILED}!worker.h@{worker.h}}
+\doxysubsubsection{\texorpdfstring{TTAK\_ERR\_JOIN\_FAILED}{TTAK\_ERR\_JOIN\_FAILED}}
+{\footnotesize\ttfamily \label{worker_8h_a3cd30f2c4e30576065ee8e7347240afc} 
+\#define TTAK\+\_\+\+ERR\+\_\+\+JOIN\+\_\+\+FAILED~-\/101}
+
+
+
+Definition at line \mbox{\hyperlink{worker_8h_source_l00009}{9}} of file \mbox{\hyperlink{worker_8h_source}{worker.\+h}}.
+
+\Hypertarget{worker_8h_a2f35c31672151f0fb0cd32d74ee03cd7}\index{worker.h@{worker.h}!TTAK\_ERR\_SHUTDOWN\_RETRY@{TTAK\_ERR\_SHUTDOWN\_RETRY}}
+\index{TTAK\_ERR\_SHUTDOWN\_RETRY@{TTAK\_ERR\_SHUTDOWN\_RETRY}!worker.h@{worker.h}}
+\doxysubsubsection{\texorpdfstring{TTAK\_ERR\_SHUTDOWN\_RETRY}{TTAK\_ERR\_SHUTDOWN\_RETRY}}
+{\footnotesize\ttfamily \label{worker_8h_a2f35c31672151f0fb0cd32d74ee03cd7} 
+\#define TTAK\+\_\+\+ERR\+\_\+\+SHUTDOWN\+\_\+\+RETRY~-\/102}
+
+
+
+Definition at line \mbox{\hyperlink{worker_8h_source_l00010}{10}} of file \mbox{\hyperlink{worker_8h_source}{worker.\+h}}.
+
+
+
+\label{doc-typedef-members}
+\Hypertarget{worker_8h_doc-typedef-members}
+\doxysubsection{Typedef Documentation}
+\Hypertarget{worker_8h_a0003749eead12470661f5e9d7d4cc842}\index{worker.h@{worker.h}!ttak\_worker\_t@{ttak\_worker\_t}}
+\index{ttak\_worker\_t@{ttak\_worker\_t}!worker.h@{worker.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_worker\_t}{ttak\_worker\_t}}
+{\footnotesize\ttfamily \label{worker_8h_a0003749eead12470661f5e9d7d4cc842} 
+typedef struct \mbox{\hyperlink{structttak__worker}{ttak\+\_\+worker}} \mbox{\hyperlink{pool_8h_a0003749eead12470661f5e9d7d4cc842}{ttak\+\_\+worker\+\_\+t}}}
+
+\Hypertarget{worker_8h_a0f54418484a47d2ee2bb2e3d8b471b7d}\index{worker.h@{worker.h}!ttak\_worker\_wrapper\_t@{ttak\_worker\_wrapper\_t}}
+\index{ttak\_worker\_wrapper\_t@{ttak\_worker\_wrapper\_t}!worker.h@{worker.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_worker\_wrapper\_t}{ttak\_worker\_wrapper\_t}}
+{\footnotesize\ttfamily \label{worker_8h_a0f54418484a47d2ee2bb2e3d8b471b7d} 
+typedef struct \mbox{\hyperlink{structttak__worker__wrapper}{ttak\+\_\+worker\+\_\+wrapper}} \mbox{\hyperlink{worker_8h_a0f54418484a47d2ee2bb2e3d8b471b7d}{ttak\+\_\+worker\+\_\+wrapper\+\_\+t}}}
+
+
+
+\label{doc-func-members}
+\Hypertarget{worker_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{worker_8h_afdb21bc290370c6055f5f8ce3e204337}\index{worker.h@{worker.h}!ttak\_worker\_routine@{ttak\_worker\_routine}}
+\index{ttak\_worker\_routine@{ttak\_worker\_routine}!worker.h@{worker.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_worker\_routine()}{ttak\_worker\_routine()}}
+{\footnotesize\ttfamily \label{worker_8h_afdb21bc290370c6055f5f8ce3e204337} 
+void \texorpdfstring{$\ast$}{*} ttak\+\_\+worker\+\_\+routine (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{arg}{}\end{DoxyParamCaption})}
+

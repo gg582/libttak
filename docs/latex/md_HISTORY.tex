@@ -1,0 +1,50 @@
+\chapter{Development History }
+\hypertarget{md_HISTORY}{}\label{md_HISTORY}\index{Development History@{Development History}}
+\label{md_HISTORY_autotoc_md0}%
+\Hypertarget{md_HISTORY_autotoc_md0}%
+\hypertarget{md_HISTORY_autotoc_md1}{}\doxysection{\texorpdfstring{2026-\/01-\/30}{2026-\/01-\/30}}\label{md_HISTORY_autotoc_md1}
+\hypertarget{md_HISTORY_autotoc_md2}{}\doxysubsection{\texorpdfstring{Initial Skeleton Creation \& Build Stabilization}{Initial Skeleton Creation \& Build Stabilization}}\label{md_HISTORY_autotoc_md2}
+
+\begin{DoxyItemize}
+\item Established naming convention\+: {\ttfamily ttak\+\_\+\texorpdfstring{$<$}{<}module\texorpdfstring{$>$}{>}\+\_\+\texorpdfstring{$<$}{<}func\texorpdfstring{$>$}{>}} and {\ttfamily ttak\+\_\+\texorpdfstring{$<$}{<}module\texorpdfstring{$>$}{>}\+\_\+\texorpdfstring{$<$}{<}type\+\_\+t\texorpdfstring{$>$}{>}}.
+\item {\bfseries{Memory Management ({\ttfamily mem})\+:}}
+\begin{DoxyItemize}
+\item Created basic structure for {\ttfamily ttak\+\_\+mem\+\_\+alloc}, {\ttfamily ttak\+\_\+mem\+\_\+free}, {\ttfamily ttak\+\_\+mem\+\_\+realloc}.
+\item Restored original detailed usage comments in {\ttfamily include/mem/mem.\+h}.
+\end{DoxyItemize}
+\item {\bfseries{Async Tasks ({\ttfamily async/task})\+:}}
+\begin{DoxyItemize}
+\item Defined {\ttfamily \doxylink{task_8h_a6a4c7b4b8f087d53e7b2a92f84db216e}{ttak\+\_\+task\+\_\+t}} and basic lifecycle functions.
+\end{DoxyItemize}
+\item {\bfseries{Thread Pool ({\ttfamily thread/pool})\+:}}
+\begin{DoxyItemize}
+\item Defined {\ttfamily \doxylink{pool_8h_afedf2714ff1312529485b3643582ca0c}{ttak\+\_\+thread\+\_\+pool\+\_\+t}} skeleton.
+\end{DoxyItemize}
+\item {\bfseries{Synchronization ({\ttfamily sync})\+:}}
+\begin{DoxyItemize}
+\item Created {\ttfamily pthread} wrappers for mutex and condition variables with {\ttfamily ttak\+\_\+} prefix.
+\end{DoxyItemize}
+\item {\bfseries{Hash Map ({\ttfamily ht})\+:}}
+\begin{DoxyItemize}
+\item Fixed naming inconsistencies and syntax errors in {\ttfamily src/ht/map.\+c}.
+\item Implemented {\ttfamily gen\+\_\+hash} in {\ttfamily src/ht/hash.\+c}.
+\item Unified function names to use {\ttfamily ttak\+\_\+} prefix in {\ttfamily include/ht/map.\+h}.
+\item Fixed missing {\ttfamily \#include \texorpdfstring{$<$}{<}stddef.\+h\texorpdfstring{$>$}{>}} and broken {\ttfamily \#ifndef} in {\ttfamily include/ht/hash.\+h}.
+\item {\bfseries{Restored Shortcuts\+:}} Re-\/added {\ttfamily \#define ttak\+\_\+... tt\+\_\+...} macros in {\ttfamily include/ht/map.\+h} to support original short names while maintaining naming convention.
+\item {\bfseries{Restored Comments\+:}} Fully restored detailed comments in {\ttfamily src/ht/map.\+c} regarding memory initialization, load factor, and resizing logic.
+\end{DoxyItemize}
+\item {\bfseries{Atomic ({\ttfamily atomic})\+:}}
+\begin{DoxyItemize}
+\item Fixed {\ttfamily \doxylink{atomic_8h_a37a39e5ffd47a8c7afba57d3cdf6f788}{ttak\+\_\+generic\+\_\+func\+\_\+t}} typedef syntax.
+\item Implemented skeletal {\ttfamily atomic\+\_\+function\+\_\+execute}.
+\end{DoxyItemize}
+\item {\bfseries{Build System\+:}}
+\begin{DoxyItemize}
+\item Verified successful compilation of {\ttfamily lib/libttak.\+a} using {\ttfamily make}.
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{md_HISTORY_autotoc_md3}{}\doxysubsection{\texorpdfstring{Key Diffs Overview}{Key Diffs Overview}}\label{md_HISTORY_autotoc_md3}
+
+\begin{DoxyItemize}
+\item {\bfseries{\doxylink{map_8h}{ht/map.\+h}\+:}} Added shortcut macros ({\ttfamily ttak\+\_\+create\+\_\+map} -\/\texorpdfstring{$>$}{>} {\ttfamily tt\+\_\+create\+\_\+map}, etc.) to align with original usage.
+\item {\bfseries{ht/map.\+c\+:}} Reverted comments to original detailed versions. Renamed functions to {\ttfamily ttak\+\_\+} to match header declarations (which then expand to {\ttfamily tt\+\_\+} symbols via macros). 
+\end{DoxyItemize}

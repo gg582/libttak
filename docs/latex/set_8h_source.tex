@@ -1,0 +1,49 @@
+\doxysection{set.\+h}
+\hypertarget{set_8h_source}{}\label{set_8h_source}\index{include/ttak/container/set.h@{include/ttak/container/set.h}}
+\mbox{\hyperlink{set_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{set_8h_source_l00001}00001\ \textcolor{preprocessor}{\#ifndef\ TTAK\_CONTAINER\_SET\_H}}
+\DoxyCodeLine{\Hypertarget{set_8h_source_l00002}00002\ \textcolor{preprocessor}{\#define\ TTAK\_CONTAINER\_SET\_H}}
+\DoxyCodeLine{\Hypertarget{set_8h_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{set_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{table_8h}{ttak/ht/table.h}}>}}
+\DoxyCodeLine{\Hypertarget{set_8h_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{\Hypertarget{set_8h_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{set_8h_source_l00007}\mbox{\hyperlink{structttak__set}{00007}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structttak__set}{ttak\_set}}\ \{}
+\DoxyCodeLine{\Hypertarget{set_8h_source_l00008}\mbox{\hyperlink{structttak__set_a78414e7f4e16b42a495d1629a729f7a2}{00008}}\ \ \ \ \ \mbox{\hyperlink{table_8h_ae98c30e481bee1ad9ed4278ba2f0341a}{ttak\_table\_t}}\ \mbox{\hyperlink{structttak__set_a78414e7f4e16b42a495d1629a729f7a2}{table}};}
+\DoxyCodeLine{\Hypertarget{set_8h_source_l00009}\mbox{\hyperlink{set_8h_a883b9629413040813df22b6b87ede789}{00009}}\ \}\ \mbox{\hyperlink{set_8h_a883b9629413040813df22b6b87ede789}{ttak\_set\_t}};}
+\DoxyCodeLine{\Hypertarget{set_8h_source_l00010}00010\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{set_8h_source_l00011}00011\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{set_8h_source_l00012}00012\ \textcolor{comment}{\ *\ @brief\ Initialize\ a\ generic\ set.}}
+\DoxyCodeLine{\Hypertarget{set_8h_source_l00013}00013\ \textcolor{comment}{\ *\ @param\ capacity\ Initial\ capacity.}}
+\DoxyCodeLine{\Hypertarget{set_8h_source_l00014}00014\ \textcolor{comment}{\ *\ @param\ hash\_func\ Custom\ hash\ function\ (or\ NULL\ for\ default).}}
+\DoxyCodeLine{\Hypertarget{set_8h_source_l00015}00015\ \textcolor{comment}{\ *\ @param\ key\_cmp\ Key\ comparison\ function.}}
+\DoxyCodeLine{\Hypertarget{set_8h_source_l00016}00016\ \textcolor{comment}{\ *\ @param\ key\_free\ Key\ cleanup\ function.}}
+\DoxyCodeLine{\Hypertarget{set_8h_source_l00017}00017\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{set_8h_source_l00018}\mbox{\hyperlink{set_8h_a77b4d18547cdf8b07e8d14eb45e126e0}{00018}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{set_8h_a77b4d18547cdf8b07e8d14eb45e126e0}{ttak\_set\_init}}(\mbox{\hyperlink{set_8h_a883b9629413040813df22b6b87ede789}{ttak\_set\_t}}\ *set,\ \textcolor{keywordtype}{size\_t}\ capacity,\ }
+\DoxyCodeLine{\Hypertarget{set_8h_source_l00019}00019\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint64\_t\ (*hash\_func)(\textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*,\ \textcolor{keywordtype}{size\_t},\ uint64\_t,\ uint64\_t),}
+\DoxyCodeLine{\Hypertarget{set_8h_source_l00020}00020\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ (*key\_cmp)(\textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*),}
+\DoxyCodeLine{\Hypertarget{set_8h_source_l00021}00021\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ (*key\_free)(\textcolor{keywordtype}{void}*));}
+\DoxyCodeLine{\Hypertarget{set_8h_source_l00022}00022\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{set_8h_source_l00023}00023\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{set_8h_source_l00024}00024\ \textcolor{comment}{\ *\ @brief\ Add\ an\ element\ to\ the\ set.}}
+\DoxyCodeLine{\Hypertarget{set_8h_source_l00025}00025\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{set_8h_source_l00026}\mbox{\hyperlink{set_8h_a07e7d9f1bd2527017e30ac1386fa1304}{00026}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{set_8h_a07e7d9f1bd2527017e30ac1386fa1304}{ttak\_set\_add}}(\mbox{\hyperlink{set_8h_a883b9629413040813df22b6b87ede789}{ttak\_set\_t}}\ *set,\ \textcolor{keywordtype}{void}\ *key,\ \textcolor{keywordtype}{size\_t}\ key\_len,\ uint64\_t\ now);}
+\DoxyCodeLine{\Hypertarget{set_8h_source_l00027}00027\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{set_8h_source_l00028}00028\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{set_8h_source_l00029}00029\ \textcolor{comment}{\ *\ @brief\ Check\ if\ the\ set\ contains\ an\ element.}}
+\DoxyCodeLine{\Hypertarget{set_8h_source_l00030}00030\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{set_8h_source_l00031}\mbox{\hyperlink{set_8h_a1cdac4dcce86a23c6e1dd7b5a718b6f8}{00031}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{set_8h_a1cdac4dcce86a23c6e1dd7b5a718b6f8}{ttak\_set\_contains}}(\mbox{\hyperlink{set_8h_a883b9629413040813df22b6b87ede789}{ttak\_set\_t}}\ *set,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ *key,\ \textcolor{keywordtype}{size\_t}\ key\_len,\ uint64\_t\ now);}
+\DoxyCodeLine{\Hypertarget{set_8h_source_l00032}00032\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{set_8h_source_l00033}00033\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{set_8h_source_l00034}00034\ \textcolor{comment}{\ *\ @brief\ Remove\ an\ element\ from\ the\ set.}}
+\DoxyCodeLine{\Hypertarget{set_8h_source_l00035}00035\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{set_8h_source_l00036}\mbox{\hyperlink{set_8h_a91004f309add8c50a1c87353802833c4}{00036}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{set_8h_a91004f309add8c50a1c87353802833c4}{ttak\_set\_remove}}(\mbox{\hyperlink{set_8h_a883b9629413040813df22b6b87ede789}{ttak\_set\_t}}\ *set,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ *key,\ \textcolor{keywordtype}{size\_t}\ key\_len,\ uint64\_t\ now);}
+\DoxyCodeLine{\Hypertarget{set_8h_source_l00037}00037\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{set_8h_source_l00038}00038\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{set_8h_source_l00039}00039\ \textcolor{comment}{\ *\ @brief\ Destroy\ the\ set.}}
+\DoxyCodeLine{\Hypertarget{set_8h_source_l00040}00040\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{set_8h_source_l00041}\mbox{\hyperlink{set_8h_ac864da315678655fa2fc937f1b8516db}{00041}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{set_8h_ac864da315678655fa2fc937f1b8516db}{ttak\_set\_destroy}}(\mbox{\hyperlink{set_8h_a883b9629413040813df22b6b87ede789}{ttak\_set\_t}}\ *set,\ uint64\_t\ now);}
+\DoxyCodeLine{\Hypertarget{set_8h_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{set_8h_source_l00043}00043\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ TTAK\_CONTAINER\_SET\_H}}
+
+\end{DoxyCode}

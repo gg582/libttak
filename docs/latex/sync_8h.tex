@@ -1,0 +1,141 @@
+\doxysection{include/ttak/sync/sync.h File Reference}
+\hypertarget{sync_8h}{}\label{sync_8h}\index{include/ttak/sync/sync.h@{include/ttak/sync/sync.h}}
+{\ttfamily \#include $<$pthread.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+Include dependency graph for sync.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=216pt]{sync_8h__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structtt__type__shared}{tt\+\_\+type\+\_\+shared}}
+\begin{DoxyCompactList}\small\item\em Shared resource structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef pthread\+\_\+mutex\+\_\+t \mbox{\hyperlink{sync_8h_a099d39f1f8999756bc828ad4b337d5b6}{ttak\+\_\+mutex\+\_\+t}}
+\item 
+typedef pthread\+\_\+cond\+\_\+t \mbox{\hyperlink{sync_8h_aecf69ab36c01d7bce72c0f206d73031d}{ttak\+\_\+cond\+\_\+t}}
+\item 
+typedef struct \mbox{\hyperlink{structtt__type__shared}{tt\+\_\+type\+\_\+shared}} \mbox{\hyperlink{sync_8h_af7e69d4612c0d58e7c611b79f1f5d43e}{tt\+\_\+type\+\_\+shared\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Shared resource structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{sync_8h_a7d304f966c52c975456a7f618a17dc7f}{ttak\+\_\+mutex\+\_\+init}} (\mbox{\hyperlink{sync_8h_a099d39f1f8999756bc828ad4b337d5b6}{ttak\+\_\+mutex\+\_\+t}} \texorpdfstring{$\ast$}{*}mutex)
+\item 
+int \mbox{\hyperlink{sync_8h_a65d82f049c34962c2dde6cdd45a09563}{ttak\+\_\+mutex\+\_\+lock}} (\mbox{\hyperlink{sync_8h_a099d39f1f8999756bc828ad4b337d5b6}{ttak\+\_\+mutex\+\_\+t}} \texorpdfstring{$\ast$}{*}mutex)
+\item 
+int \mbox{\hyperlink{sync_8h_a1dfa60f4c2eb49ec4f5d9b5eaf6448f0}{ttak\+\_\+mutex\+\_\+unlock}} (\mbox{\hyperlink{sync_8h_a099d39f1f8999756bc828ad4b337d5b6}{ttak\+\_\+mutex\+\_\+t}} \texorpdfstring{$\ast$}{*}mutex)
+\item 
+int \mbox{\hyperlink{sync_8h_a578b3284d758bc51aa4ecf76f2e0dbc2}{ttak\+\_\+mutex\+\_\+destroy}} (\mbox{\hyperlink{sync_8h_a099d39f1f8999756bc828ad4b337d5b6}{ttak\+\_\+mutex\+\_\+t}} \texorpdfstring{$\ast$}{*}mutex)
+\item 
+int \mbox{\hyperlink{sync_8h_ad001a691fece502b0a7d9d056e4c6952}{ttak\+\_\+cond\+\_\+init}} (\mbox{\hyperlink{sync_8h_aecf69ab36c01d7bce72c0f206d73031d}{ttak\+\_\+cond\+\_\+t}} \texorpdfstring{$\ast$}{*}cond)
+\item 
+int \mbox{\hyperlink{sync_8h_a134420d688a31a76bdfc34082a400247}{ttak\+\_\+cond\+\_\+wait}} (\mbox{\hyperlink{sync_8h_aecf69ab36c01d7bce72c0f206d73031d}{ttak\+\_\+cond\+\_\+t}} \texorpdfstring{$\ast$}{*}cond, \mbox{\hyperlink{sync_8h_a099d39f1f8999756bc828ad4b337d5b6}{ttak\+\_\+mutex\+\_\+t}} \texorpdfstring{$\ast$}{*}mutex)
+\item 
+int \mbox{\hyperlink{sync_8h_a276f3229135d70e3e3814755219766c4}{ttak\+\_\+cond\+\_\+signal}} (\mbox{\hyperlink{sync_8h_aecf69ab36c01d7bce72c0f206d73031d}{ttak\+\_\+cond\+\_\+t}} \texorpdfstring{$\ast$}{*}cond)
+\item 
+int \mbox{\hyperlink{sync_8h_afae6538fc09fc9a3250a30adb1ba9637}{ttak\+\_\+cond\+\_\+broadcast}} (\mbox{\hyperlink{sync_8h_aecf69ab36c01d7bce72c0f206d73031d}{ttak\+\_\+cond\+\_\+t}} \texorpdfstring{$\ast$}{*}cond)
+\item 
+int \mbox{\hyperlink{sync_8h_a0ff8df06a516ac77b19fd1f81a2e04a6}{ttak\+\_\+cond\+\_\+destroy}} (\mbox{\hyperlink{sync_8h_aecf69ab36c01d7bce72c0f206d73031d}{ttak\+\_\+cond\+\_\+t}} \texorpdfstring{$\ast$}{*}cond)
+\end{DoxyCompactItemize}
+
+
+\label{doc-typedef-members}
+\Hypertarget{sync_8h_doc-typedef-members}
+\doxysubsection{Typedef Documentation}
+\Hypertarget{sync_8h_af7e69d4612c0d58e7c611b79f1f5d43e}\index{sync.h@{sync.h}!tt\_type\_shared\_t@{tt\_type\_shared\_t}}
+\index{tt\_type\_shared\_t@{tt\_type\_shared\_t}!sync.h@{sync.h}}
+\doxysubsubsection{\texorpdfstring{tt\_type\_shared\_t}{tt\_type\_shared\_t}}
+{\footnotesize\ttfamily \label{sync_8h_af7e69d4612c0d58e7c611b79f1f5d43e} 
+typedef struct \mbox{\hyperlink{structtt__type__shared}{tt\+\_\+type\+\_\+shared}} \mbox{\hyperlink{sync_8h_af7e69d4612c0d58e7c611b79f1f5d43e}{tt\+\_\+type\+\_\+shared\+\_\+t}}}
+
+
+
+Shared resource structure. 
+
+\Hypertarget{sync_8h_aecf69ab36c01d7bce72c0f206d73031d}\index{sync.h@{sync.h}!ttak\_cond\_t@{ttak\_cond\_t}}
+\index{ttak\_cond\_t@{ttak\_cond\_t}!sync.h@{sync.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_cond\_t}{ttak\_cond\_t}}
+{\footnotesize\ttfamily \label{sync_8h_aecf69ab36c01d7bce72c0f206d73031d} 
+typedef pthread\+\_\+cond\+\_\+t \mbox{\hyperlink{sync_8h_aecf69ab36c01d7bce72c0f206d73031d}{ttak\+\_\+cond\+\_\+t}}}
+
+
+
+Definition at line \mbox{\hyperlink{sync_8h_source_l00008}{8}} of file \mbox{\hyperlink{sync_8h_source}{sync.\+h}}.
+
+\Hypertarget{sync_8h_a099d39f1f8999756bc828ad4b337d5b6}\index{sync.h@{sync.h}!ttak\_mutex\_t@{ttak\_mutex\_t}}
+\index{ttak\_mutex\_t@{ttak\_mutex\_t}!sync.h@{sync.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_mutex\_t}{ttak\_mutex\_t}}
+{\footnotesize\ttfamily \label{sync_8h_a099d39f1f8999756bc828ad4b337d5b6} 
+typedef pthread\+\_\+mutex\+\_\+t \mbox{\hyperlink{sync_8h_a099d39f1f8999756bc828ad4b337d5b6}{ttak\+\_\+mutex\+\_\+t}}}
+
+
+
+Definition at line \mbox{\hyperlink{sync_8h_source_l00007}{7}} of file \mbox{\hyperlink{sync_8h_source}{sync.\+h}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{sync_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{sync_8h_afae6538fc09fc9a3250a30adb1ba9637}\index{sync.h@{sync.h}!ttak\_cond\_broadcast@{ttak\_cond\_broadcast}}
+\index{ttak\_cond\_broadcast@{ttak\_cond\_broadcast}!sync.h@{sync.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_cond\_broadcast()}{ttak\_cond\_broadcast()}}
+{\footnotesize\ttfamily \label{sync_8h_afae6538fc09fc9a3250a30adb1ba9637} 
+int ttak\+\_\+cond\+\_\+broadcast (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{sync_8h_aecf69ab36c01d7bce72c0f206d73031d}{ttak\+\_\+cond\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{cond}{}\end{DoxyParamCaption})}
+
+\Hypertarget{sync_8h_a0ff8df06a516ac77b19fd1f81a2e04a6}\index{sync.h@{sync.h}!ttak\_cond\_destroy@{ttak\_cond\_destroy}}
+\index{ttak\_cond\_destroy@{ttak\_cond\_destroy}!sync.h@{sync.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_cond\_destroy()}{ttak\_cond\_destroy()}}
+{\footnotesize\ttfamily \label{sync_8h_a0ff8df06a516ac77b19fd1f81a2e04a6} 
+int ttak\+\_\+cond\+\_\+destroy (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{sync_8h_aecf69ab36c01d7bce72c0f206d73031d}{ttak\+\_\+cond\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{cond}{}\end{DoxyParamCaption})}
+
+\Hypertarget{sync_8h_ad001a691fece502b0a7d9d056e4c6952}\index{sync.h@{sync.h}!ttak\_cond\_init@{ttak\_cond\_init}}
+\index{ttak\_cond\_init@{ttak\_cond\_init}!sync.h@{sync.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_cond\_init()}{ttak\_cond\_init()}}
+{\footnotesize\ttfamily \label{sync_8h_ad001a691fece502b0a7d9d056e4c6952} 
+int ttak\+\_\+cond\+\_\+init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{sync_8h_aecf69ab36c01d7bce72c0f206d73031d}{ttak\+\_\+cond\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{cond}{}\end{DoxyParamCaption})}
+
+\Hypertarget{sync_8h_a276f3229135d70e3e3814755219766c4}\index{sync.h@{sync.h}!ttak\_cond\_signal@{ttak\_cond\_signal}}
+\index{ttak\_cond\_signal@{ttak\_cond\_signal}!sync.h@{sync.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_cond\_signal()}{ttak\_cond\_signal()}}
+{\footnotesize\ttfamily \label{sync_8h_a276f3229135d70e3e3814755219766c4} 
+int ttak\+\_\+cond\+\_\+signal (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{sync_8h_aecf69ab36c01d7bce72c0f206d73031d}{ttak\+\_\+cond\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{cond}{}\end{DoxyParamCaption})}
+
+\Hypertarget{sync_8h_a134420d688a31a76bdfc34082a400247}\index{sync.h@{sync.h}!ttak\_cond\_wait@{ttak\_cond\_wait}}
+\index{ttak\_cond\_wait@{ttak\_cond\_wait}!sync.h@{sync.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_cond\_wait()}{ttak\_cond\_wait()}}
+{\footnotesize\ttfamily \label{sync_8h_a134420d688a31a76bdfc34082a400247} 
+int ttak\+\_\+cond\+\_\+wait (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{sync_8h_aecf69ab36c01d7bce72c0f206d73031d}{ttak\+\_\+cond\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{cond}{, }\item[{\mbox{\hyperlink{sync_8h_a099d39f1f8999756bc828ad4b337d5b6}{ttak\+\_\+mutex\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{mutex}{}\end{DoxyParamCaption})}
+
+\Hypertarget{sync_8h_a578b3284d758bc51aa4ecf76f2e0dbc2}\index{sync.h@{sync.h}!ttak\_mutex\_destroy@{ttak\_mutex\_destroy}}
+\index{ttak\_mutex\_destroy@{ttak\_mutex\_destroy}!sync.h@{sync.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_mutex\_destroy()}{ttak\_mutex\_destroy()}}
+{\footnotesize\ttfamily \label{sync_8h_a578b3284d758bc51aa4ecf76f2e0dbc2} 
+int ttak\+\_\+mutex\+\_\+destroy (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{sync_8h_a099d39f1f8999756bc828ad4b337d5b6}{ttak\+\_\+mutex\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{mutex}{}\end{DoxyParamCaption})}
+
+\Hypertarget{sync_8h_a7d304f966c52c975456a7f618a17dc7f}\index{sync.h@{sync.h}!ttak\_mutex\_init@{ttak\_mutex\_init}}
+\index{ttak\_mutex\_init@{ttak\_mutex\_init}!sync.h@{sync.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_mutex\_init()}{ttak\_mutex\_init()}}
+{\footnotesize\ttfamily \label{sync_8h_a7d304f966c52c975456a7f618a17dc7f} 
+int ttak\+\_\+mutex\+\_\+init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{sync_8h_a099d39f1f8999756bc828ad4b337d5b6}{ttak\+\_\+mutex\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{mutex}{}\end{DoxyParamCaption})}
+
+\Hypertarget{sync_8h_a65d82f049c34962c2dde6cdd45a09563}\index{sync.h@{sync.h}!ttak\_mutex\_lock@{ttak\_mutex\_lock}}
+\index{ttak\_mutex\_lock@{ttak\_mutex\_lock}!sync.h@{sync.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_mutex\_lock()}{ttak\_mutex\_lock()}}
+{\footnotesize\ttfamily \label{sync_8h_a65d82f049c34962c2dde6cdd45a09563} 
+int ttak\+\_\+mutex\+\_\+lock (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{sync_8h_a099d39f1f8999756bc828ad4b337d5b6}{ttak\+\_\+mutex\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{mutex}{}\end{DoxyParamCaption})}
+
+\Hypertarget{sync_8h_a1dfa60f4c2eb49ec4f5d9b5eaf6448f0}\index{sync.h@{sync.h}!ttak\_mutex\_unlock@{ttak\_mutex\_unlock}}
+\index{ttak\_mutex\_unlock@{ttak\_mutex\_unlock}!sync.h@{sync.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_mutex\_unlock()}{ttak\_mutex\_unlock()}}
+{\footnotesize\ttfamily \label{sync_8h_a1dfa60f4c2eb49ec4f5d9b5eaf6448f0} 
+int ttak\+\_\+mutex\+\_\+unlock (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{sync_8h_a099d39f1f8999756bc828ad4b337d5b6}{ttak\+\_\+mutex\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{mutex}{}\end{DoxyParamCaption})}
+

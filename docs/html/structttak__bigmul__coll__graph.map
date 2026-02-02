@@ -1,0 +1,5 @@
+<map id="ttak_bigmul" name="ttak_bigmul">
+<area shape="rect" id="Node000001" title="Helper container for bigint multiplication workflows." alt="" coords="5,151,105,178"/>
+<area shape="rect" id="Node000002" href="$structttak__bigint.html" title="Arbitrary&#45;precision integer engine with Small Stack Optimization (SSO)." alt="" coords="9,5,101,33"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="58,49,58,150,52,150,52,49"/>
+</map>

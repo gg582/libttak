@@ -1,0 +1,10 @@
+<map id="include/ttak/priority/queue.h" name="include/ttak/priority/queue.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="54,5,204,50"/>
+<area shape="rect" id="Node000002" href="$pool_8h.html" title=" " alt="" coords="57,98,201,143"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="132,66,132,98,126,98,126,66"/>
+<area shape="rect" id="Node000003" href="$promise_8h.html" title=" " alt="" coords="5,191,146,235"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="111,157,90,192,86,189,106,155"/>
+<area shape="rect" id="Node000004" href="$worker_8h.html" title=" " alt="" coords="57,283,201,328"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="98,247,119,282,114,285,94,250"/>
+<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="145,268,156,235,158,213,156,191,138,144,143,142,161,190,164,213,161,236,150,270"/>
+</map>

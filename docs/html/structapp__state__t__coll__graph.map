@@ -1,0 +1,5 @@
+<map id="app_state_t" name="app_state_t">
+<area shape="rect" id="Node000001" title="Application State for persistence and GIMPS metadata." alt="" coords="15,106,113,134"/>
+<area shape="rect" id="Node000002" href="$structgimps__result__t.html" title="GIMPS Result structure for reporting and retry queue." alt="" coords="5,5,123,33"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="67,49,67,105,61,105,61,49"/>
+</map>

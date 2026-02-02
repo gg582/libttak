@@ -1,0 +1,166 @@
+\doxysection{include/ttak/priority/nice.h File Reference}
+\hypertarget{nice_8h}{}\label{nice_8h}\index{include/ttak/priority/nice.h@{include/ttak/priority/nice.h}}
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+Include dependency graph for nice.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=192pt]{nice_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=192pt]{nice_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{nice_8h_ac2e106fbfccc8b53f046946ceb69b4bb}{\+\_\+\+\_\+\+TT\+\_\+\+SCHED\+\_\+\+URGENT\+\_\+\+\_\+}}~-\/20
+\begin{DoxyCompactList}\small\item\em Standard priority levels for the scheduler. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{nice_8h_a827251f314101228cb0813839c0b8301}{\+\_\+\+\_\+\+TT\+\_\+\+SCHED\+\_\+\+HIGH\+\_\+\+\_\+}}~-\/10
+\item 
+\#define \mbox{\hyperlink{nice_8h_a9e45310e5ca23508ed30762fb9db3479}{\+\_\+\+\_\+\+TT\+\_\+\+SCHED\+\_\+\+NORMAL\+\_\+\+\_\+}}~0
+\item 
+\#define \mbox{\hyperlink{nice_8h_a739a57849d8ff711a8b97a422390c80d}{\+\_\+\+\_\+\+TT\+\_\+\+SCHED\+\_\+\+LAZY\+\_\+\+\_\+}}~19
+\item 
+\#define \mbox{\hyperlink{nice_8h_a2a49f10b39cf40456d40624904a0246b}{\+\_\+\+\_\+\+TT\+\_\+\+PRIO\+\_\+\+MIN}}~-\/20
+\begin{DoxyCompactList}\small\item\em Priority range limits. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{nice_8h_a05533261c80142afcb1c5ffa0c48753c}{\+\_\+\+\_\+\+TT\+\_\+\+PRIO\+\_\+\+MAX}}~19
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{nice_8h_a716386d094268b7299fd2c02c96474f8}{ttak\+\_\+nice\+\_\+to\+\_\+prio}} (int nice)
+\begin{DoxyCompactList}\small\item\em Convert nice value to priority. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{nice_8h_a04fbd5b55ec0729fd30bb5da9b39faa3}{ttak\+\_\+shuffle\+\_\+by\+\_\+nice}} (int \texorpdfstring{$\ast$}{*}nices, size\+\_\+t count)
+\begin{DoxyCompactList}\small\item\em Shuffles an array of nice values. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{nice_8h_a77319332ebab2484a40cac7c96524fb2}{ttak\+\_\+lock\+\_\+priority}} (int nice)
+\begin{DoxyCompactList}\small\item\em Locks the priority to a safe user range (0 to 19). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-define-members}
+\Hypertarget{nice_8h_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{nice_8h_a05533261c80142afcb1c5ffa0c48753c}\index{nice.h@{nice.h}!\_\_TT\_PRIO\_MAX@{\_\_TT\_PRIO\_MAX}}
+\index{\_\_TT\_PRIO\_MAX@{\_\_TT\_PRIO\_MAX}!nice.h@{nice.h}}
+\doxysubsubsection{\texorpdfstring{\_\_TT\_PRIO\_MAX}{\_\_TT\_PRIO\_MAX}}
+{\footnotesize\ttfamily \label{nice_8h_a05533261c80142afcb1c5ffa0c48753c} 
+\#define \+\_\+\+\_\+\+TT\+\_\+\+PRIO\+\_\+\+MAX~19}
+
+
+
+Definition at line \mbox{\hyperlink{nice_8h_source_l00018}{18}} of file \mbox{\hyperlink{nice_8h_source}{nice.\+h}}.
+
+\Hypertarget{nice_8h_a2a49f10b39cf40456d40624904a0246b}\index{nice.h@{nice.h}!\_\_TT\_PRIO\_MIN@{\_\_TT\_PRIO\_MIN}}
+\index{\_\_TT\_PRIO\_MIN@{\_\_TT\_PRIO\_MIN}!nice.h@{nice.h}}
+\doxysubsubsection{\texorpdfstring{\_\_TT\_PRIO\_MIN}{\_\_TT\_PRIO\_MIN}}
+{\footnotesize\ttfamily \label{nice_8h_a2a49f10b39cf40456d40624904a0246b} 
+\#define \+\_\+\+\_\+\+TT\+\_\+\+PRIO\+\_\+\+MIN~-\/20}
+
+
+
+Priority range limits. 
+
+
+
+Definition at line \mbox{\hyperlink{nice_8h_source_l00017}{17}} of file \mbox{\hyperlink{nice_8h_source}{nice.\+h}}.
+
+\Hypertarget{nice_8h_a827251f314101228cb0813839c0b8301}\index{nice.h@{nice.h}!\_\_TT\_SCHED\_HIGH\_\_@{\_\_TT\_SCHED\_HIGH\_\_}}
+\index{\_\_TT\_SCHED\_HIGH\_\_@{\_\_TT\_SCHED\_HIGH\_\_}!nice.h@{nice.h}}
+\doxysubsubsection{\texorpdfstring{\_\_TT\_SCHED\_HIGH\_\_}{\_\_TT\_SCHED\_HIGH\_\_}}
+{\footnotesize\ttfamily \label{nice_8h_a827251f314101228cb0813839c0b8301} 
+\#define \+\_\+\+\_\+\+TT\+\_\+\+SCHED\+\_\+\+HIGH\+\_\+\+\_\+~-\/10}
+
+
+
+Definition at line \mbox{\hyperlink{nice_8h_source_l00010}{10}} of file \mbox{\hyperlink{nice_8h_source}{nice.\+h}}.
+
+\Hypertarget{nice_8h_a739a57849d8ff711a8b97a422390c80d}\index{nice.h@{nice.h}!\_\_TT\_SCHED\_LAZY\_\_@{\_\_TT\_SCHED\_LAZY\_\_}}
+\index{\_\_TT\_SCHED\_LAZY\_\_@{\_\_TT\_SCHED\_LAZY\_\_}!nice.h@{nice.h}}
+\doxysubsubsection{\texorpdfstring{\_\_TT\_SCHED\_LAZY\_\_}{\_\_TT\_SCHED\_LAZY\_\_}}
+{\footnotesize\ttfamily \label{nice_8h_a739a57849d8ff711a8b97a422390c80d} 
+\#define \+\_\+\+\_\+\+TT\+\_\+\+SCHED\+\_\+\+LAZY\+\_\+\+\_\+~19}
+
+
+
+Definition at line \mbox{\hyperlink{nice_8h_source_l00012}{12}} of file \mbox{\hyperlink{nice_8h_source}{nice.\+h}}.
+
+\Hypertarget{nice_8h_a9e45310e5ca23508ed30762fb9db3479}\index{nice.h@{nice.h}!\_\_TT\_SCHED\_NORMAL\_\_@{\_\_TT\_SCHED\_NORMAL\_\_}}
+\index{\_\_TT\_SCHED\_NORMAL\_\_@{\_\_TT\_SCHED\_NORMAL\_\_}!nice.h@{nice.h}}
+\doxysubsubsection{\texorpdfstring{\_\_TT\_SCHED\_NORMAL\_\_}{\_\_TT\_SCHED\_NORMAL\_\_}}
+{\footnotesize\ttfamily \label{nice_8h_a9e45310e5ca23508ed30762fb9db3479} 
+\#define \+\_\+\+\_\+\+TT\+\_\+\+SCHED\+\_\+\+NORMAL\+\_\+\+\_\+~0}
+
+
+
+Definition at line \mbox{\hyperlink{nice_8h_source_l00011}{11}} of file \mbox{\hyperlink{nice_8h_source}{nice.\+h}}.
+
+\Hypertarget{nice_8h_ac2e106fbfccc8b53f046946ceb69b4bb}\index{nice.h@{nice.h}!\_\_TT\_SCHED\_URGENT\_\_@{\_\_TT\_SCHED\_URGENT\_\_}}
+\index{\_\_TT\_SCHED\_URGENT\_\_@{\_\_TT\_SCHED\_URGENT\_\_}!nice.h@{nice.h}}
+\doxysubsubsection{\texorpdfstring{\_\_TT\_SCHED\_URGENT\_\_}{\_\_TT\_SCHED\_URGENT\_\_}}
+{\footnotesize\ttfamily \label{nice_8h_ac2e106fbfccc8b53f046946ceb69b4bb} 
+\#define \+\_\+\+\_\+\+TT\+\_\+\+SCHED\+\_\+\+URGENT\+\_\+\+\_\+~-\/20}
+
+
+
+Standard priority levels for the scheduler. 
+
+
+
+Definition at line \mbox{\hyperlink{nice_8h_source_l00009}{9}} of file \mbox{\hyperlink{nice_8h_source}{nice.\+h}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{nice_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{nice_8h_a77319332ebab2484a40cac7c96524fb2}\index{nice.h@{nice.h}!ttak\_lock\_priority@{ttak\_lock\_priority}}
+\index{ttak\_lock\_priority@{ttak\_lock\_priority}!nice.h@{nice.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_lock\_priority()}{ttak\_lock\_priority()}}
+{\footnotesize\ttfamily \label{nice_8h_a77319332ebab2484a40cac7c96524fb2} 
+int ttak\+\_\+lock\+\_\+priority (\begin{DoxyParamCaption}\item[{int}]{nice}{}\end{DoxyParamCaption})}
+
+
+
+Locks the priority to a safe user range (0 to 19). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nice} & The nice value to lock. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The locked nice value. 
+\end{DoxyReturn}
+\Hypertarget{nice_8h_a716386d094268b7299fd2c02c96474f8}\index{nice.h@{nice.h}!ttak\_nice\_to\_prio@{ttak\_nice\_to\_prio}}
+\index{ttak\_nice\_to\_prio@{ttak\_nice\_to\_prio}!nice.h@{nice.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_nice\_to\_prio()}{ttak\_nice\_to\_prio()}}
+{\footnotesize\ttfamily \label{nice_8h_a716386d094268b7299fd2c02c96474f8} 
+int ttak\+\_\+nice\+\_\+to\+\_\+prio (\begin{DoxyParamCaption}\item[{int}]{nice}{}\end{DoxyParamCaption})}
+
+
+
+Convert nice value to priority. 
+
+\Hypertarget{nice_8h_a04fbd5b55ec0729fd30bb5da9b39faa3}\index{nice.h@{nice.h}!ttak\_shuffle\_by\_nice@{ttak\_shuffle\_by\_nice}}
+\index{ttak\_shuffle\_by\_nice@{ttak\_shuffle\_by\_nice}!nice.h@{nice.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_shuffle\_by\_nice()}{ttak\_shuffle\_by\_nice()}}
+{\footnotesize\ttfamily \label{nice_8h_a04fbd5b55ec0729fd30bb5da9b39faa3} 
+void ttak\+\_\+shuffle\+\_\+by\+\_\+nice (\begin{DoxyParamCaption}\item[{int \texorpdfstring{$\ast$}{*}}]{nices}{, }\item[{size\+\_\+t}]{count}{}\end{DoxyParamCaption})}
+
+
+
+Shuffles an array of nice values. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nices} & Array of nice values. \\
+\hline
+{\em count} & Number of elements. \\
+\hline
+\end{DoxyParams}

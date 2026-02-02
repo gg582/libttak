@@ -1,0 +1,37 @@
+\doxysection{ast.\+h}
+\hypertarget{ast_8h_source}{}\label{ast_8h_source}\index{include/ttak/tree/ast.h@{include/ttak/tree/ast.h}}
+\mbox{\hyperlink{ast_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{ast_8h_source_l00001}00001\ \textcolor{preprocessor}{\#ifndef\ TTAK\_TREE\_AST\_H}}
+\DoxyCodeLine{\Hypertarget{ast_8h_source_l00002}00002\ \textcolor{preprocessor}{\#define\ TTAK\_TREE\_AST\_H}}
+\DoxyCodeLine{\Hypertarget{ast_8h_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{ast_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <stddef.h>}}
+\DoxyCodeLine{\Hypertarget{ast_8h_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{\Hypertarget{ast_8h_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{\Hypertarget{ast_8h_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{ast_8h_source_l00008}\mbox{\hyperlink{structttak__ast__node}{00008}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structttak__ast__node}{ttak\_ast\_node}}\ \{}
+\DoxyCodeLine{\Hypertarget{ast_8h_source_l00009}\mbox{\hyperlink{structttak__ast__node_ac668549219bcbf93e667bb1782fe9a79}{00009}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structttak__ast__node_ac668549219bcbf93e667bb1782fe9a79}{type}};}
+\DoxyCodeLine{\Hypertarget{ast_8h_source_l00010}\mbox{\hyperlink{structttak__ast__node_a508bf8a1f90cfdd4cc22d36885d35989}{00010}}\ \ \ \ \ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{structttak__ast__node_a508bf8a1f90cfdd4cc22d36885d35989}{value}};\ \textcolor{comment}{/*\ Generic\ payload\ */}}
+\DoxyCodeLine{\Hypertarget{ast_8h_source_l00011}00011\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{ast_8h_source_l00012}\mbox{\hyperlink{structttak__ast__node_a6077e5f3f5257268f8d72dad396b8093}{00012}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structttak__ast__node}{ttak\_ast\_node}}\ **\mbox{\hyperlink{structttak__ast__node_a6077e5f3f5257268f8d72dad396b8093}{children}};}
+\DoxyCodeLine{\Hypertarget{ast_8h_source_l00013}\mbox{\hyperlink{structttak__ast__node_a9268b4c9f09ddde04a6e8c5d416a2f3a}{00013}}\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{structttak__ast__node_a9268b4c9f09ddde04a6e8c5d416a2f3a}{num\_children}};}
+\DoxyCodeLine{\Hypertarget{ast_8h_source_l00014}\mbox{\hyperlink{structttak__ast__node_a05ab59ed348b907f6e1bea112f1f64e1}{00014}}\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{structttak__ast__node_a05ab59ed348b907f6e1bea112f1f64e1}{cap\_children}};}
+\DoxyCodeLine{\Hypertarget{ast_8h_source_l00015}00015\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{ast_8h_source_l00016}\mbox{\hyperlink{structttak__ast__node_aefdb65fdbe23f369e314e00bada4228d}{00016}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structttak__ast__node}{ttak\_ast\_node}}\ *\mbox{\hyperlink{structttak__ast__node_aefdb65fdbe23f369e314e00bada4228d}{parent}};}
+\DoxyCodeLine{\Hypertarget{ast_8h_source_l00017}\mbox{\hyperlink{ast_8h_af6f9447fb5efbad1f370e82ba9f329e9}{00017}}\ \}\ \mbox{\hyperlink{ast_8h_af6f9447fb5efbad1f370e82ba9f329e9}{ttak\_ast\_node\_t}};}
+\DoxyCodeLine{\Hypertarget{ast_8h_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{ast_8h_source_l00019}\mbox{\hyperlink{structttak__ast__tree}{00019}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structttak__ast__tree}{ttak\_ast\_tree}}\ \{}
+\DoxyCodeLine{\Hypertarget{ast_8h_source_l00020}\mbox{\hyperlink{structttak__ast__tree_a7efbb896fdcb6a33156b41e725b57ec7}{00020}}\ \ \ \ \ \mbox{\hyperlink{ast_8h_af6f9447fb5efbad1f370e82ba9f329e9}{ttak\_ast\_node\_t}}\ *\mbox{\hyperlink{structttak__ast__tree_a7efbb896fdcb6a33156b41e725b57ec7}{root}};}
+\DoxyCodeLine{\Hypertarget{ast_8h_source_l00021}00021\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{ast_8h_source_l00022}00022\ \ \ \ \ \textcolor{comment}{/*\ Optional\ hooks\ for\ payload\ management\ */}}
+\DoxyCodeLine{\Hypertarget{ast_8h_source_l00023}\mbox{\hyperlink{structttak__ast__tree_aa10c77485d216b45e0e614c850e9dfcb}{00023}}\ \ \ \ \ void\ (*\mbox{\hyperlink{structttak__ast__tree_aa10c77485d216b45e0e614c850e9dfcb}{free\_value}})(\textcolor{keywordtype}{void}\ *value);}
+\DoxyCodeLine{\Hypertarget{ast_8h_source_l00024}\mbox{\hyperlink{ast_8h_ad44ef89627e87a7c4aad13fc4564f1b1}{00024}}\ \}\ \mbox{\hyperlink{ast_8h_ad44ef89627e87a7c4aad13fc4564f1b1}{ttak\_ast\_tree\_t}};}
+\DoxyCodeLine{\Hypertarget{ast_8h_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{ast_8h_source_l00026}\mbox{\hyperlink{ast_8h_aebbcc071ac34541207ac87f73bbaec1d}{00026}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{ast_8h_aebbcc071ac34541207ac87f73bbaec1d}{ttak\_ast\_tree\_init}}(\mbox{\hyperlink{ast_8h_ad44ef89627e87a7c4aad13fc4564f1b1}{ttak\_ast\_tree\_t}}\ *tree,\ \textcolor{keywordtype}{void}\ (*free\_value)(\textcolor{keywordtype}{void}*));}
+\DoxyCodeLine{\Hypertarget{ast_8h_source_l00027}\mbox{\hyperlink{ast_8h_a4e4a3e6e21dc39964e2c689b5b3dee96}{00027}}\ \mbox{\hyperlink{ast_8h_af6f9447fb5efbad1f370e82ba9f329e9}{ttak\_ast\_node\_t}}\ *\mbox{\hyperlink{ast_8h_a4e4a3e6e21dc39964e2c689b5b3dee96}{ttak\_ast\_create\_node}}(\textcolor{keywordtype}{int}\ type,\ \textcolor{keywordtype}{void}\ *value,\ uint64\_t\ now);}
+\DoxyCodeLine{\Hypertarget{ast_8h_source_l00028}\mbox{\hyperlink{ast_8h_a54984432553ab53fea6a488835597a6b}{00028}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{ast_8h_a54984432553ab53fea6a488835597a6b}{ttak\_ast\_add\_child}}(\mbox{\hyperlink{ast_8h_af6f9447fb5efbad1f370e82ba9f329e9}{ttak\_ast\_node\_t}}\ *parent,\ \mbox{\hyperlink{ast_8h_af6f9447fb5efbad1f370e82ba9f329e9}{ttak\_ast\_node\_t}}\ *child,\ uint64\_t\ now);}
+\DoxyCodeLine{\Hypertarget{ast_8h_source_l00029}\mbox{\hyperlink{ast_8h_a095479cf7ef707f72ca914ebde1c07d7}{00029}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{ast_8h_a095479cf7ef707f72ca914ebde1c07d7}{ttak\_ast\_tree\_destroy}}(\mbox{\hyperlink{ast_8h_ad44ef89627e87a7c4aad13fc4564f1b1}{ttak\_ast\_tree\_t}}\ *tree,\ uint64\_t\ now);}
+\DoxyCodeLine{\Hypertarget{ast_8h_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{ast_8h_source_l00031}00031\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ TTAK\_TREE\_AST\_H}}
+
+\end{DoxyCode}

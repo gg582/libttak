@@ -1,0 +1,54 @@
+\doxysection{task.\+h}
+\hypertarget{task_8h_source}{}\label{task_8h_source}\index{include/ttak/async/task.h@{include/ttak/async/task.h}}
+\mbox{\hyperlink{task_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{task_8h_source_l00001}00001\ \textcolor{preprocessor}{\#ifndef\ TTAK\_ASYNC\_TASK\_H}}
+\DoxyCodeLine{\Hypertarget{task_8h_source_l00002}00002\ \textcolor{preprocessor}{\#define\ TTAK\_ASYNC\_TASK\_H}}
+\DoxyCodeLine{\Hypertarget{task_8h_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{task_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{\Hypertarget{task_8h_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{task_8h_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{task_8h_source_l00007}\mbox{\hyperlink{task_8h_a6a4c7b4b8f087d53e7b2a92f84db216e}{00007}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }ttak\_task\ \mbox{\hyperlink{task_8h_a6a4c7b4b8f087d53e7b2a92f84db216e}{ttak\_task\_t}};}
+\DoxyCodeLine{\Hypertarget{task_8h_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{task_8h_source_l00009}\mbox{\hyperlink{task_8h_aef94bfb234ab18af239e4a15f8366480}{00009}}\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{void}\ *(*ttak\_task\_func\_t)(\textcolor{keywordtype}{void}\ *arg);}
+\DoxyCodeLine{\Hypertarget{task_8h_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{task_8h_source_l00011}00011\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structttak__promise}{ttak\_promise}};}
+\DoxyCodeLine{\Hypertarget{task_8h_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{task_8h_source_l00013}00013\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structttak__promise}{ttak\_promise}}\ \mbox{\hyperlink{promise_8h_aa604edbaa7c611ec386757f8db43d1e3}{ttak\_promise\_t}};}
+\DoxyCodeLine{\Hypertarget{task_8h_source_l00014}00014\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{task_8h_source_l00015}00015\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{task_8h_source_l00016}00016\ \textcolor{comment}{\ *\ @brief\ Creates\ a\ new\ task.}}
+\DoxyCodeLine{\Hypertarget{task_8h_source_l00017}00017\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{task_8h_source_l00018}00018\ \textcolor{comment}{\ *\ @param\ func\ Function\ to\ execute.}}
+\DoxyCodeLine{\Hypertarget{task_8h_source_l00019}00019\ \textcolor{comment}{\ *\ @param\ arg\ Argument\ to\ pass\ to\ the\ function.}}
+\DoxyCodeLine{\Hypertarget{task_8h_source_l00020}00020\ \textcolor{comment}{\ *\ @param\ promise\ Promise\ to\ fulfill\ when\ the\ task\ is\ complete.}}
+\DoxyCodeLine{\Hypertarget{task_8h_source_l00021}00021\ \textcolor{comment}{\ *\ @return\ Pointer\ to\ the\ created\ task.}}
+\DoxyCodeLine{\Hypertarget{task_8h_source_l00022}00022\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{task_8h_source_l00023}\mbox{\hyperlink{task_8h_a1c33c69a8ac4bfcb69301692c5d3ee51}{00023}}\ \mbox{\hyperlink{task_8h_a6a4c7b4b8f087d53e7b2a92f84db216e}{ttak\_task\_t}}\ *\mbox{\hyperlink{task_8h_a1c33c69a8ac4bfcb69301692c5d3ee51}{ttak\_task\_create}}(\mbox{\hyperlink{task_8h_aef94bfb234ab18af239e4a15f8366480}{ttak\_task\_func\_t}}\ func,\ \textcolor{keywordtype}{void}\ *arg,\ \mbox{\hyperlink{promise_8h_aa604edbaa7c611ec386757f8db43d1e3}{ttak\_promise\_t}}\ *promise,\ uint64\_t\ now);}
+\DoxyCodeLine{\Hypertarget{task_8h_source_l00024}00024\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{task_8h_source_l00025}00025\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{task_8h_source_l00026}00026\ \textcolor{comment}{\ *\ @brief\ Executes\ the\ task.}}
+\DoxyCodeLine{\Hypertarget{task_8h_source_l00027}00027\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{task_8h_source_l00028}00028\ \textcolor{comment}{\ *\ @param\ task\ Task\ to\ execute.}}
+\DoxyCodeLine{\Hypertarget{task_8h_source_l00029}00029\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{task_8h_source_l00030}\mbox{\hyperlink{task_8h_ad2360ffa34e1f6a02e6219f02e03d560}{00030}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{task_8h_ad2360ffa34e1f6a02e6219f02e03d560}{ttak\_task\_execute}}(\mbox{\hyperlink{task_8h_a6a4c7b4b8f087d53e7b2a92f84db216e}{ttak\_task\_t}}\ *task,\ uint64\_t\ now);}
+\DoxyCodeLine{\Hypertarget{task_8h_source_l00031}00031\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{task_8h_source_l00032}00032\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{task_8h_source_l00033}00033\ \textcolor{comment}{\ *\ @brief\ Destroys\ the\ task\ and\ frees\ resources.}}
+\DoxyCodeLine{\Hypertarget{task_8h_source_l00034}00034\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{task_8h_source_l00035}00035\ \textcolor{comment}{\ *\ @param\ task\ Task\ to\ destroy.}}
+\DoxyCodeLine{\Hypertarget{task_8h_source_l00036}00036\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{task_8h_source_l00037}\mbox{\hyperlink{task_8h_aa24c4cc8032a794871c61baf42f49486}{00037}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{task_8h_aa24c4cc8032a794871c61baf42f49486}{ttak\_task\_destroy}}(\mbox{\hyperlink{task_8h_a6a4c7b4b8f087d53e7b2a92f84db216e}{ttak\_task\_t}}\ *task,\ uint64\_t\ now);}
+\DoxyCodeLine{\Hypertarget{task_8h_source_l00038}00038\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{task_8h_source_l00039}00039\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{task_8h_source_l00040}00040\ \textcolor{comment}{\ *\ @brief\ Creates\ a\ duplicate\ of\ an\ existing\ task.}}
+\DoxyCodeLine{\Hypertarget{task_8h_source_l00041}00041\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{task_8h_source_l00042}00042\ \textcolor{comment}{\ *\ @param\ task\ Task\ to\ clone.}}
+\DoxyCodeLine{\Hypertarget{task_8h_source_l00043}00043\ \textcolor{comment}{\ *\ @param\ now\ Current\ timestamp\ for\ memory\ tracking.}}
+\DoxyCodeLine{\Hypertarget{task_8h_source_l00044}00044\ \textcolor{comment}{\ *\ @return\ Pointer\ to\ the\ cloned\ task,\ or\ NULL\ on\ failure.}}
+\DoxyCodeLine{\Hypertarget{task_8h_source_l00045}00045\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{task_8h_source_l00046}\mbox{\hyperlink{task_8h_a95071c16c2a8a8982bc55c09845b2cb8}{00046}}\ \mbox{\hyperlink{task_8h_a6a4c7b4b8f087d53e7b2a92f84db216e}{ttak\_task\_t}}\ *\mbox{\hyperlink{task_8h_a95071c16c2a8a8982bc55c09845b2cb8}{ttak\_task\_clone}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{task_8h_a6a4c7b4b8f087d53e7b2a92f84db216e}{ttak\_task\_t}}\ *task,\ uint64\_t\ now);}
+\DoxyCodeLine{\Hypertarget{task_8h_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{task_8h_source_l00048}00048\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ TTAK\_ASYNC\_TASK\_H}}
+
+\end{DoxyCode}

@@ -1,0 +1,132 @@
+\doxysection{include/ttak/ht/hash.h File Reference}
+\hypertarget{hash_8h}{}\label{hash_8h}\index{include/ttak/ht/hash.h@{include/ttak/ht/hash.h}}
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+{\ttfamily \#include $<$stdalign.\+h$>$}\newline
+Include dependency graph for hash.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=288pt]{hash_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=328pt]{hash_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct__node}{\+\_\+node}}
+\begin{DoxyCompactList}\small\item\em Node structure with max\+\_\+align\+\_\+t padding for Raspberry Pi compatibility. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structttak__map__t}{ttak\+\_\+map\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{hash_8h_a2b7cf2a3641be7b89138615764d60ba3}{EMPTY}}~0x00
+\item 
+\#define \mbox{\hyperlink{hash_8h_ab792dfd97ab00abb6a5fc20191a9e952}{DELETED}}~0x\+DE
+\item 
+\#define \mbox{\hyperlink{hash_8h_a217ad8485de2dcca79110f37d4da9688}{OCCUPIED}}~0x0C
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{struct__node}{\+\_\+node}} \mbox{\hyperlink{hash_8h_a39cea30a6762653587526256ec50c847}{ttak\+\_\+node\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Node structure with max\+\_\+align\+\_\+t padding for Raspberry Pi compatibility. \end{DoxyCompactList}\item 
+typedef \mbox{\hyperlink{hash_8h_a39cea30a6762653587526256ec50c847}{ttak\+\_\+node\+\_\+t}} \mbox{\hyperlink{hash_8h_ab5081f0575ed9a431e1e35e25975dfda}{tt\+\_\+nd\+\_\+t}}
+\item 
+typedef \mbox{\hyperlink{structttak__map__t}{ttak\+\_\+map\+\_\+t}} \mbox{\hyperlink{hash_8h_a1f1a8bb38c53fea315e97508c3d66efd}{tt\+\_\+map\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint64\+\_\+t \mbox{\hyperlink{hash_8h_a86c0b717fb0af43c6f5c2232a2efa00f}{gen\+\_\+hash\+\_\+sip24}} (uintptr\+\_\+t key, uint64\+\_\+t k0, uint64\+\_\+t k1)
+\end{DoxyCompactItemize}
+
+
+\label{doc-define-members}
+\Hypertarget{hash_8h_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{hash_8h_ab792dfd97ab00abb6a5fc20191a9e952}\index{hash.h@{hash.h}!DELETED@{DELETED}}
+\index{DELETED@{DELETED}!hash.h@{hash.h}}
+\doxysubsubsection{\texorpdfstring{DELETED}{DELETED}}
+{\footnotesize\ttfamily \label{hash_8h_ab792dfd97ab00abb6a5fc20191a9e952} 
+\#define DELETED~0x\+DE}
+
+
+
+Definition at line \mbox{\hyperlink{hash_8h_source_l00009}{9}} of file \mbox{\hyperlink{hash_8h_source}{hash.\+h}}.
+
+\Hypertarget{hash_8h_a2b7cf2a3641be7b89138615764d60ba3}\index{hash.h@{hash.h}!EMPTY@{EMPTY}}
+\index{EMPTY@{EMPTY}!hash.h@{hash.h}}
+\doxysubsubsection{\texorpdfstring{EMPTY}{EMPTY}}
+{\footnotesize\ttfamily \label{hash_8h_a2b7cf2a3641be7b89138615764d60ba3} 
+\#define EMPTY~0x00}
+
+
+
+Definition at line \mbox{\hyperlink{hash_8h_source_l00008}{8}} of file \mbox{\hyperlink{hash_8h_source}{hash.\+h}}.
+
+\Hypertarget{hash_8h_a217ad8485de2dcca79110f37d4da9688}\index{hash.h@{hash.h}!OCCUPIED@{OCCUPIED}}
+\index{OCCUPIED@{OCCUPIED}!hash.h@{hash.h}}
+\doxysubsubsection{\texorpdfstring{OCCUPIED}{OCCUPIED}}
+{\footnotesize\ttfamily \label{hash_8h_a217ad8485de2dcca79110f37d4da9688} 
+\#define OCCUPIED~0x0C}
+
+
+
+Definition at line \mbox{\hyperlink{hash_8h_source_l00010}{10}} of file \mbox{\hyperlink{hash_8h_source}{hash.\+h}}.
+
+
+
+\label{doc-typedef-members}
+\Hypertarget{hash_8h_doc-typedef-members}
+\doxysubsection{Typedef Documentation}
+\Hypertarget{hash_8h_a1f1a8bb38c53fea315e97508c3d66efd}\index{hash.h@{hash.h}!tt\_map\_t@{tt\_map\_t}}
+\index{tt\_map\_t@{tt\_map\_t}!hash.h@{hash.h}}
+\doxysubsubsection{\texorpdfstring{tt\_map\_t}{tt\_map\_t}}
+{\footnotesize\ttfamily \label{hash_8h_a1f1a8bb38c53fea315e97508c3d66efd} 
+typedef \mbox{\hyperlink{structttak__map__t}{ttak\+\_\+map\+\_\+t}} \mbox{\hyperlink{hash_8h_a1f1a8bb38c53fea315e97508c3d66efd}{tt\+\_\+map\+\_\+t}}}
+
+
+
+Definition at line \mbox{\hyperlink{hash_8h_source_l00031}{31}} of file \mbox{\hyperlink{hash_8h_source}{hash.\+h}}.
+
+\Hypertarget{hash_8h_ab5081f0575ed9a431e1e35e25975dfda}\index{hash.h@{hash.h}!tt\_nd\_t@{tt\_nd\_t}}
+\index{tt\_nd\_t@{tt\_nd\_t}!hash.h@{hash.h}}
+\doxysubsubsection{\texorpdfstring{tt\_nd\_t}{tt\_nd\_t}}
+{\footnotesize\ttfamily \label{hash_8h_ab5081f0575ed9a431e1e35e25975dfda} 
+typedef \mbox{\hyperlink{hash_8h_a39cea30a6762653587526256ec50c847}{ttak\+\_\+node\+\_\+t}} \mbox{\hyperlink{hash_8h_ab5081f0575ed9a431e1e35e25975dfda}{tt\+\_\+nd\+\_\+t}}}
+
+
+
+Definition at line \mbox{\hyperlink{hash_8h_source_l00022}{22}} of file \mbox{\hyperlink{hash_8h_source}{hash.\+h}}.
+
+\Hypertarget{hash_8h_a39cea30a6762653587526256ec50c847}\index{hash.h@{hash.h}!ttak\_node\_t@{ttak\_node\_t}}
+\index{ttak\_node\_t@{ttak\_node\_t}!hash.h@{hash.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_node\_t}{ttak\_node\_t}}
+{\footnotesize\ttfamily \label{hash_8h_a39cea30a6762653587526256ec50c847} 
+typedef struct \mbox{\hyperlink{struct__node}{\+\_\+node}} \mbox{\hyperlink{hash_8h_a39cea30a6762653587526256ec50c847}{ttak\+\_\+node\+\_\+t}}}
+
+
+
+Node structure with max\+\_\+align\+\_\+t padding for Raspberry Pi compatibility. 
+
+
+
+\label{doc-func-members}
+\Hypertarget{hash_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{hash_8h_a86c0b717fb0af43c6f5c2232a2efa00f}\index{hash.h@{hash.h}!gen\_hash\_sip24@{gen\_hash\_sip24}}
+\index{gen\_hash\_sip24@{gen\_hash\_sip24}!hash.h@{hash.h}}
+\doxysubsubsection{\texorpdfstring{gen\_hash\_sip24()}{gen\_hash\_sip24()}}
+{\footnotesize\ttfamily \label{hash_8h_a86c0b717fb0af43c6f5c2232a2efa00f} 
+uint64\+\_\+t gen\+\_\+hash\+\_\+sip24 (\begin{DoxyParamCaption}\item[{uintptr\+\_\+t}]{key}{, }\item[{uint64\+\_\+t}]{k0}{, }\item[{uint64\+\_\+t}]{k1}{}\end{DoxyParamCaption})}
+

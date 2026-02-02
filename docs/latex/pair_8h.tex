@@ -1,0 +1,106 @@
+\doxysection{include/ttak/container/pair.h File Reference}
+\hypertarget{pair_8h}{}\label{pair_8h}\index{include/ttak/container/pair.h@{include/ttak/container/pair.h}}
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+Include dependency graph for pair.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=285pt]{pair_8h__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structttak__pair}{ttak\+\_\+pair}}
+\begin{DoxyCompactList}\small\item\em Generic Pair/\+Tuple structure. Despite the name "{}\+Pair"{}, it can hold \textquotesingle{}length\textquotesingle{} number of generic elements. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{structttak__pair}{ttak\+\_\+pair}} \mbox{\hyperlink{pair_8h_a304636d57c9d5b6ea2451941355943d7}{ttak\+\_\+pair\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Generic Pair/\+Tuple structure. Despite the name "{}\+Pair"{}, it can hold \textquotesingle{}length\textquotesingle{} number of generic elements. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{pair_8h_aebf9c7cbf6b34b582765ec4402eebb2a}{ttak\+\_\+pair\+\_\+init}} (\mbox{\hyperlink{pair_8h_a304636d57c9d5b6ea2451941355943d7}{ttak\+\_\+pair\+\_\+t}} \texorpdfstring{$\ast$}{*}pair, size\+\_\+t length, uint64\+\_\+t now)
+\begin{DoxyCompactList}\small\item\em Initialize a pair (tuple) with a fixed length. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{pair_8h_a0b4627cc662cfecb967b0931fa0c562a}{ttak\+\_\+pair\+\_\+set}} (\mbox{\hyperlink{pair_8h_a304636d57c9d5b6ea2451941355943d7}{ttak\+\_\+pair\+\_\+t}} \texorpdfstring{$\ast$}{*}pair, size\+\_\+t index, void \texorpdfstring{$\ast$}{*}element)
+\begin{DoxyCompactList}\small\item\em Set an element at a specific index. \end{DoxyCompactList}\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{pair_8h_a29e03dd74e5583357a3d429ee7a76546}{ttak\+\_\+pair\+\_\+get}} (const \mbox{\hyperlink{pair_8h_a304636d57c9d5b6ea2451941355943d7}{ttak\+\_\+pair\+\_\+t}} \texorpdfstring{$\ast$}{*}pair, size\+\_\+t index)
+\begin{DoxyCompactList}\small\item\em Get an element at a specific index. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{pair_8h_a27b68a5b6316f6955eabb9e777a2159a}{ttak\+\_\+pair\+\_\+destroy}} (\mbox{\hyperlink{pair_8h_a304636d57c9d5b6ea2451941355943d7}{ttak\+\_\+pair\+\_\+t}} \texorpdfstring{$\ast$}{*}pair, void(\texorpdfstring{$\ast$}{*}free\+\_\+elem)(void \texorpdfstring{$\ast$}{*}), uint64\+\_\+t now)
+\begin{DoxyCompactList}\small\item\em Destroy the pair structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-typedef-members}
+\Hypertarget{pair_8h_doc-typedef-members}
+\doxysubsection{Typedef Documentation}
+\Hypertarget{pair_8h_a304636d57c9d5b6ea2451941355943d7}\index{pair.h@{pair.h}!ttak\_pair\_t@{ttak\_pair\_t}}
+\index{ttak\_pair\_t@{ttak\_pair\_t}!pair.h@{pair.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_pair\_t}{ttak\_pair\_t}}
+{\footnotesize\ttfamily \label{pair_8h_a304636d57c9d5b6ea2451941355943d7} 
+typedef struct \mbox{\hyperlink{structttak__pair}{ttak\+\_\+pair}} \mbox{\hyperlink{pair_8h_a304636d57c9d5b6ea2451941355943d7}{ttak\+\_\+pair\+\_\+t}}}
+
+
+
+Generic Pair/\+Tuple structure. Despite the name "{}\+Pair"{}, it can hold \textquotesingle{}length\textquotesingle{} number of generic elements. 
+
+
+
+\label{doc-func-members}
+\Hypertarget{pair_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{pair_8h_a27b68a5b6316f6955eabb9e777a2159a}\index{pair.h@{pair.h}!ttak\_pair\_destroy@{ttak\_pair\_destroy}}
+\index{ttak\_pair\_destroy@{ttak\_pair\_destroy}!pair.h@{pair.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_pair\_destroy()}{ttak\_pair\_destroy()}}
+{\footnotesize\ttfamily \label{pair_8h_a27b68a5b6316f6955eabb9e777a2159a} 
+void ttak\+\_\+pair\+\_\+destroy (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{pair_8h_a304636d57c9d5b6ea2451941355943d7}{ttak\+\_\+pair\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{pair}{, }\item[{void(\texorpdfstring{$\ast$}{*}}]{free\+\_\+elem~}{)(void \texorpdfstring{$\ast$}{*}), }\item[{uint64\+\_\+t}]{now}{}\end{DoxyParamCaption})}
+
+
+
+Destroy the pair structure. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em free\+\_\+elem} & Optional function to free elements. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{pair_8h_a29e03dd74e5583357a3d429ee7a76546}\index{pair.h@{pair.h}!ttak\_pair\_get@{ttak\_pair\_get}}
+\index{ttak\_pair\_get@{ttak\_pair\_get}!pair.h@{pair.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_pair\_get()}{ttak\_pair\_get()}}
+{\footnotesize\ttfamily \label{pair_8h_a29e03dd74e5583357a3d429ee7a76546} 
+void \texorpdfstring{$\ast$}{*} ttak\+\_\+pair\+\_\+get (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{pair_8h_a304636d57c9d5b6ea2451941355943d7}{ttak\+\_\+pair\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{pair}{, }\item[{size\+\_\+t}]{index}{}\end{DoxyParamCaption})}
+
+
+
+Get an element at a specific index. 
+
+\Hypertarget{pair_8h_aebf9c7cbf6b34b582765ec4402eebb2a}\index{pair.h@{pair.h}!ttak\_pair\_init@{ttak\_pair\_init}}
+\index{ttak\_pair\_init@{ttak\_pair\_init}!pair.h@{pair.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_pair\_init()}{ttak\_pair\_init()}}
+{\footnotesize\ttfamily \label{pair_8h_aebf9c7cbf6b34b582765ec4402eebb2a} 
+void ttak\+\_\+pair\+\_\+init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{pair_8h_a304636d57c9d5b6ea2451941355943d7}{ttak\+\_\+pair\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{pair}{, }\item[{size\+\_\+t}]{length}{, }\item[{uint64\+\_\+t}]{now}{}\end{DoxyParamCaption})}
+
+
+
+Initialize a pair (tuple) with a fixed length. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pair} & Pointer to the pair structure. \\
+\hline
+{\em length} & Number of elements this pair will hold. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{pair_8h_a0b4627cc662cfecb967b0931fa0c562a}\index{pair.h@{pair.h}!ttak\_pair\_set@{ttak\_pair\_set}}
+\index{ttak\_pair\_set@{ttak\_pair\_set}!pair.h@{pair.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_pair\_set()}{ttak\_pair\_set()}}
+{\footnotesize\ttfamily \label{pair_8h_a0b4627cc662cfecb967b0931fa0c562a} 
+void ttak\+\_\+pair\+\_\+set (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{pair_8h_a304636d57c9d5b6ea2451941355943d7}{ttak\+\_\+pair\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{pair}{, }\item[{size\+\_\+t}]{index}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{element}{}\end{DoxyParamCaption})}
+
+
+
+Set an element at a specific index. 
+

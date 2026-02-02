@@ -1,0 +1,25 @@
+var include_2ttak_2math_2ntt_8h =
+[
+    [ "ttak_ntt_prime", "structttak__ntt__prime.html", "structttak__ntt__prime" ],
+    [ "ttak_u128", "structttak__u128.html", "structttak__u128" ],
+    [ "ttak_crt_term", "structttak__crt__term.html", "structttak__crt__term" ],
+    [ "TTAK_NTT_PRIME_COUNT", "include_2ttak_2math_2ntt_8h.html#a3d17fcf4b6668cff2d6f9a3e2efd8cfe", null ],
+    [ "ttak_crt_term_t", "include_2ttak_2math_2ntt_8h.html#a1dc73a007834c1254aa8d4cb6f4eb296", null ],
+    [ "ttak_ntt_prime_t", "include_2ttak_2math_2ntt_8h.html#ae62e3373c925615a3883c0c6c0ad4ed2", null ],
+    [ "ttak_u128_t", "include_2ttak_2math_2ntt_8h.html#abfeb90537e89e74c3a5e0ac335194187", null ],
+    [ "ttak_uint128_native_t", "include_2ttak_2math_2ntt_8h.html#a67323f7c611937893a2237faa187b351", null ],
+    [ "ttak_crt_combine", "include_2ttak_2math_2ntt_8h.html#a5c01d8cc3142495ce988b8539d6a4d6b", null ],
+    [ "ttak_mod_add", "include_2ttak_2math_2ntt_8h.html#a721347613fb78eea89d768eccb29d145", null ],
+    [ "ttak_mod_inverse", "include_2ttak_2math_2ntt_8h.html#a2dbe59bb30c472b256471090bbb1e1da", null ],
+    [ "ttak_mod_mul", "include_2ttak_2math_2ntt_8h.html#a3d692168f7bd0997d122ba2cefe19261", null ],
+    [ "ttak_mod_pow", "include_2ttak_2math_2ntt_8h.html#afb422eba69e737d6bc6f63b62c83d570", null ],
+    [ "ttak_mod_sub", "include_2ttak_2math_2ntt_8h.html#aa690100cd8ebb7050f44abf055cfb678", null ],
+    [ "ttak_montgomery_convert", "include_2ttak_2math_2ntt_8h.html#ae3dc9c710e3c7c90784df382a1502795", null ],
+    [ "ttak_montgomery_mul", "include_2ttak_2math_2ntt_8h.html#ac3dac3e8b60b32bfde3360432a71318e", null ],
+    [ "ttak_montgomery_reduce", "include_2ttak_2math_2ntt_8h.html#a3eacfaf694bbfb771b99ac41bd23a894", null ],
+    [ "ttak_next_power_of_two", "include_2ttak_2math_2ntt_8h.html#a26f3bdf570043a69c628318d3ff96117", null ],
+    [ "ttak_ntt_pointwise_mul", "include_2ttak_2math_2ntt_8h.html#aca4e392874373caf51b01fe0bd52a04f", null ],
+    [ "ttak_ntt_pointwise_square", "include_2ttak_2math_2ntt_8h.html#a5987151d8bbc95394224bfdf2ea2b0a9", null ],
+    [ "ttak_ntt_transform", "include_2ttak_2math_2ntt_8h.html#a3372a84ab2ae3592b9f69d2389320880", null ],
+    [ "ttak_ntt_primes", "include_2ttak_2math_2ntt_8h.html#a08d9004f7979851e9e96fa6dc2ec982b", null ]
+];

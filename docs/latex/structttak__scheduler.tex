@@ -1,0 +1,86 @@
+\doxysection{ttak\+\_\+scheduler Struct Reference}
+\hypertarget{structttak__scheduler}{}\label{structttak__scheduler}\index{ttak\_scheduler@{ttak\_scheduler}}
+
+
+{\ttfamily \#include $<$scheduler.\+h$>$}
+
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structttak__scheduler_ab1461b2473b5c907902bbe06d1425347}{get\+\_\+current\+\_\+priority}} )(\mbox{\hyperlink{scheduler_8h_ac3b38b93cbc96685a8e81488999d7717}{ttak\+\_\+scheduler\+\_\+t}} \texorpdfstring{$\ast$}{*}sched)
+\item 
+void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structttak__scheduler_a92aea68756d5941841d07f0240d5781c}{set\+\_\+priority\+\_\+override}} )(\mbox{\hyperlink{scheduler_8h_ac3b38b93cbc96685a8e81488999d7717}{ttak\+\_\+scheduler\+\_\+t}} \texorpdfstring{$\ast$}{*}sched, \mbox{\hyperlink{task_8h_a6a4c7b4b8f087d53e7b2a92f84db216e}{ttak\+\_\+task\+\_\+t}} \texorpdfstring{$\ast$}{*}task, int new\+\_\+priority)
+\item 
+size\+\_\+t(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structttak__scheduler_afe35f4bb762a64de648a69e0df3ec114}{get\+\_\+pending\+\_\+count}} )(\mbox{\hyperlink{scheduler_8h_ac3b38b93cbc96685a8e81488999d7717}{ttak\+\_\+scheduler\+\_\+t}} \texorpdfstring{$\ast$}{*}sched)
+\item 
+size\+\_\+t(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structttak__scheduler_af3448cd2c75d1a97380db9f6e77b3e1e}{get\+\_\+running\+\_\+count}} )(\mbox{\hyperlink{scheduler_8h_ac3b38b93cbc96685a8e81488999d7717}{ttak\+\_\+scheduler\+\_\+t}} \texorpdfstring{$\ast$}{*}sched)
+\item 
+double(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structttak__scheduler_a9ed7f5dad32f52dda6ec697850105cf3}{get\+\_\+load\+\_\+average}} )(\mbox{\hyperlink{scheduler_8h_ac3b38b93cbc96685a8e81488999d7717}{ttak\+\_\+scheduler\+\_\+t}} \texorpdfstring{$\ast$}{*}sched)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{scheduler_8h_source_l00011}{11}} of file \mbox{\hyperlink{scheduler_8h_source}{scheduler.\+h}}.
+
+
+
+\label{doc-variable-members}
+\Hypertarget{structttak__scheduler_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{structttak__scheduler_ab1461b2473b5c907902bbe06d1425347}\index{ttak\_scheduler@{ttak\_scheduler}!get\_current\_priority@{get\_current\_priority}}
+\index{get\_current\_priority@{get\_current\_priority}!ttak\_scheduler@{ttak\_scheduler}}
+\doxysubsubsection{\texorpdfstring{get\_current\_priority}{get\_current\_priority}}
+{\footnotesize\ttfamily \label{structttak__scheduler_ab1461b2473b5c907902bbe06d1425347} 
+int(\texorpdfstring{$\ast$}{*} ttak\+\_\+scheduler\+::get\+\_\+current\+\_\+priority) (\mbox{\hyperlink{scheduler_8h_ac3b38b93cbc96685a8e81488999d7717}{ttak\+\_\+scheduler\+\_\+t}} \texorpdfstring{$\ast$}{*}sched)}
+
+
+
+Definition at line \mbox{\hyperlink{scheduler_8h_source_l00012}{12}} of file \mbox{\hyperlink{scheduler_8h_source}{scheduler.\+h}}.
+
+\Hypertarget{structttak__scheduler_a9ed7f5dad32f52dda6ec697850105cf3}\index{ttak\_scheduler@{ttak\_scheduler}!get\_load\_average@{get\_load\_average}}
+\index{get\_load\_average@{get\_load\_average}!ttak\_scheduler@{ttak\_scheduler}}
+\doxysubsubsection{\texorpdfstring{get\_load\_average}{get\_load\_average}}
+{\footnotesize\ttfamily \label{structttak__scheduler_a9ed7f5dad32f52dda6ec697850105cf3} 
+double(\texorpdfstring{$\ast$}{*} ttak\+\_\+scheduler\+::get\+\_\+load\+\_\+average) (\mbox{\hyperlink{scheduler_8h_ac3b38b93cbc96685a8e81488999d7717}{ttak\+\_\+scheduler\+\_\+t}} \texorpdfstring{$\ast$}{*}sched)}
+
+
+
+Definition at line \mbox{\hyperlink{scheduler_8h_source_l00018}{18}} of file \mbox{\hyperlink{scheduler_8h_source}{scheduler.\+h}}.
+
+\Hypertarget{structttak__scheduler_afe35f4bb762a64de648a69e0df3ec114}\index{ttak\_scheduler@{ttak\_scheduler}!get\_pending\_count@{get\_pending\_count}}
+\index{get\_pending\_count@{get\_pending\_count}!ttak\_scheduler@{ttak\_scheduler}}
+\doxysubsubsection{\texorpdfstring{get\_pending\_count}{get\_pending\_count}}
+{\footnotesize\ttfamily \label{structttak__scheduler_afe35f4bb762a64de648a69e0df3ec114} 
+size\+\_\+t(\texorpdfstring{$\ast$}{*} ttak\+\_\+scheduler\+::get\+\_\+pending\+\_\+count) (\mbox{\hyperlink{scheduler_8h_ac3b38b93cbc96685a8e81488999d7717}{ttak\+\_\+scheduler\+\_\+t}} \texorpdfstring{$\ast$}{*}sched)}
+
+
+
+Definition at line \mbox{\hyperlink{scheduler_8h_source_l00016}{16}} of file \mbox{\hyperlink{scheduler_8h_source}{scheduler.\+h}}.
+
+\Hypertarget{structttak__scheduler_af3448cd2c75d1a97380db9f6e77b3e1e}\index{ttak\_scheduler@{ttak\_scheduler}!get\_running\_count@{get\_running\_count}}
+\index{get\_running\_count@{get\_running\_count}!ttak\_scheduler@{ttak\_scheduler}}
+\doxysubsubsection{\texorpdfstring{get\_running\_count}{get\_running\_count}}
+{\footnotesize\ttfamily \label{structttak__scheduler_af3448cd2c75d1a97380db9f6e77b3e1e} 
+size\+\_\+t(\texorpdfstring{$\ast$}{*} ttak\+\_\+scheduler\+::get\+\_\+running\+\_\+count) (\mbox{\hyperlink{scheduler_8h_ac3b38b93cbc96685a8e81488999d7717}{ttak\+\_\+scheduler\+\_\+t}} \texorpdfstring{$\ast$}{*}sched)}
+
+
+
+Definition at line \mbox{\hyperlink{scheduler_8h_source_l00017}{17}} of file \mbox{\hyperlink{scheduler_8h_source}{scheduler.\+h}}.
+
+\Hypertarget{structttak__scheduler_a92aea68756d5941841d07f0240d5781c}\index{ttak\_scheduler@{ttak\_scheduler}!set\_priority\_override@{set\_priority\_override}}
+\index{set\_priority\_override@{set\_priority\_override}!ttak\_scheduler@{ttak\_scheduler}}
+\doxysubsubsection{\texorpdfstring{set\_priority\_override}{set\_priority\_override}}
+{\footnotesize\ttfamily \label{structttak__scheduler_a92aea68756d5941841d07f0240d5781c} 
+void(\texorpdfstring{$\ast$}{*} ttak\+\_\+scheduler\+::set\+\_\+priority\+\_\+override) (\mbox{\hyperlink{scheduler_8h_ac3b38b93cbc96685a8e81488999d7717}{ttak\+\_\+scheduler\+\_\+t}} \texorpdfstring{$\ast$}{*}sched, \mbox{\hyperlink{task_8h_a6a4c7b4b8f087d53e7b2a92f84db216e}{ttak\+\_\+task\+\_\+t}} \texorpdfstring{$\ast$}{*}task, int new\+\_\+priority)}
+
+
+
+Definition at line \mbox{\hyperlink{scheduler_8h_source_l00013}{13}} of file \mbox{\hyperlink{scheduler_8h_source}{scheduler.\+h}}.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/ttak/priority/\mbox{\hyperlink{scheduler_8h}{scheduler.\+h}}\end{DoxyCompactItemize}

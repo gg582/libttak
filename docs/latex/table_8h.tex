@@ -1,0 +1,119 @@
+\doxysection{include/ttak/ht/table.h File Reference}
+\hypertarget{table_8h}{}\label{table_8h}\index{include/ttak/ht/table.h@{include/ttak/ht/table.h}}
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+Include dependency graph for table.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=285pt]{table_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=203pt]{table_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structttak__table__entry}{ttak\+\_\+table\+\_\+entry}}
+\begin{DoxyCompactList}\small\item\em Generic Table Entry. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structttak__table}{ttak\+\_\+table}}
+\begin{DoxyCompactList}\small\item\em Generic Sip\+Hash Table. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{structttak__table__entry}{ttak\+\_\+table\+\_\+entry}} \mbox{\hyperlink{table_8h_a3bf40d9bd30341376b18a85e49f4440c}{ttak\+\_\+table\+\_\+entry\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Generic Table Entry. \end{DoxyCompactList}\item 
+typedef struct \mbox{\hyperlink{structttak__table}{ttak\+\_\+table}} \mbox{\hyperlink{table_8h_ae98c30e481bee1ad9ed4278ba2f0341a}{ttak\+\_\+table\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Generic Sip\+Hash Table. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{table_8h_ae1945199774ff7177dc5ace4551744f4}{ttak\+\_\+table\+\_\+init}} (\mbox{\hyperlink{table_8h_ae98c30e481bee1ad9ed4278ba2f0341a}{ttak\+\_\+table\+\_\+t}} \texorpdfstring{$\ast$}{*}table, size\+\_\+t capacity, uint64\+\_\+t(\texorpdfstring{$\ast$}{*}hash\+\_\+func)(const void \texorpdfstring{$\ast$}{*}, size\+\_\+t, uint64\+\_\+t, uint64\+\_\+t), int(\texorpdfstring{$\ast$}{*}key\+\_\+cmp)(const void \texorpdfstring{$\ast$}{*}, const void \texorpdfstring{$\ast$}{*}), void(\texorpdfstring{$\ast$}{*}key\+\_\+free)(void \texorpdfstring{$\ast$}{*}), void(\texorpdfstring{$\ast$}{*}val\+\_\+free)(void \texorpdfstring{$\ast$}{*}))
+\begin{DoxyCompactList}\small\item\em Initialize a generic table. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{table_8h_a82579cff9c3232ac17891676181dad8e}{ttak\+\_\+table\+\_\+put}} (\mbox{\hyperlink{table_8h_ae98c30e481bee1ad9ed4278ba2f0341a}{ttak\+\_\+table\+\_\+t}} \texorpdfstring{$\ast$}{*}table, void \texorpdfstring{$\ast$}{*}key, size\+\_\+t key\+\_\+len, void \texorpdfstring{$\ast$}{*}value, uint64\+\_\+t now)
+\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{table_8h_a047f32a6b1e36256b1dd520fc22566bc}{ttak\+\_\+table\+\_\+get}} (\mbox{\hyperlink{table_8h_ae98c30e481bee1ad9ed4278ba2f0341a}{ttak\+\_\+table\+\_\+t}} \texorpdfstring{$\ast$}{*}table, const void \texorpdfstring{$\ast$}{*}key, size\+\_\+t key\+\_\+len, uint64\+\_\+t now)
+\item 
+bool \mbox{\hyperlink{table_8h_abf8cb48425390aa581af5263d67603d5}{ttak\+\_\+table\+\_\+remove}} (\mbox{\hyperlink{table_8h_ae98c30e481bee1ad9ed4278ba2f0341a}{ttak\+\_\+table\+\_\+t}} \texorpdfstring{$\ast$}{*}table, const void \texorpdfstring{$\ast$}{*}key, size\+\_\+t key\+\_\+len, uint64\+\_\+t now)
+\item 
+void \mbox{\hyperlink{table_8h_ab406f7ead7a3700b0d9959c6a73b3e76}{ttak\+\_\+table\+\_\+destroy}} (\mbox{\hyperlink{table_8h_ae98c30e481bee1ad9ed4278ba2f0341a}{ttak\+\_\+table\+\_\+t}} \texorpdfstring{$\ast$}{*}table, uint64\+\_\+t now)
+\end{DoxyCompactItemize}
+
+
+\label{doc-typedef-members}
+\Hypertarget{table_8h_doc-typedef-members}
+\doxysubsection{Typedef Documentation}
+\Hypertarget{table_8h_a3bf40d9bd30341376b18a85e49f4440c}\index{table.h@{table.h}!ttak\_table\_entry\_t@{ttak\_table\_entry\_t}}
+\index{ttak\_table\_entry\_t@{ttak\_table\_entry\_t}!table.h@{table.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_table\_entry\_t}{ttak\_table\_entry\_t}}
+{\footnotesize\ttfamily \label{table_8h_a3bf40d9bd30341376b18a85e49f4440c} 
+typedef struct \mbox{\hyperlink{structttak__table__entry}{ttak\+\_\+table\+\_\+entry}} \mbox{\hyperlink{table_8h_a3bf40d9bd30341376b18a85e49f4440c}{ttak\+\_\+table\+\_\+entry\+\_\+t}}}
+
+
+
+Generic Table Entry. 
+
+\Hypertarget{table_8h_ae98c30e481bee1ad9ed4278ba2f0341a}\index{table.h@{table.h}!ttak\_table\_t@{ttak\_table\_t}}
+\index{ttak\_table\_t@{ttak\_table\_t}!table.h@{table.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_table\_t}{ttak\_table\_t}}
+{\footnotesize\ttfamily \label{table_8h_ae98c30e481bee1ad9ed4278ba2f0341a} 
+typedef struct \mbox{\hyperlink{structttak__table}{ttak\+\_\+table}} \mbox{\hyperlink{table_8h_ae98c30e481bee1ad9ed4278ba2f0341a}{ttak\+\_\+table\+\_\+t}}}
+
+
+
+Generic Sip\+Hash Table. 
+
+
+
+\label{doc-func-members}
+\Hypertarget{table_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{table_8h_ab406f7ead7a3700b0d9959c6a73b3e76}\index{table.h@{table.h}!ttak\_table\_destroy@{ttak\_table\_destroy}}
+\index{ttak\_table\_destroy@{ttak\_table\_destroy}!table.h@{table.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_table\_destroy()}{ttak\_table\_destroy()}}
+{\footnotesize\ttfamily \label{table_8h_ab406f7ead7a3700b0d9959c6a73b3e76} 
+void ttak\+\_\+table\+\_\+destroy (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{table_8h_ae98c30e481bee1ad9ed4278ba2f0341a}{ttak\+\_\+table\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{table}{, }\item[{uint64\+\_\+t}]{now}{}\end{DoxyParamCaption})}
+
+\Hypertarget{table_8h_a047f32a6b1e36256b1dd520fc22566bc}\index{table.h@{table.h}!ttak\_table\_get@{ttak\_table\_get}}
+\index{ttak\_table\_get@{ttak\_table\_get}!table.h@{table.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_table\_get()}{ttak\_table\_get()}}
+{\footnotesize\ttfamily \label{table_8h_a047f32a6b1e36256b1dd520fc22566bc} 
+void \texorpdfstring{$\ast$}{*} ttak\+\_\+table\+\_\+get (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{table_8h_ae98c30e481bee1ad9ed4278ba2f0341a}{ttak\+\_\+table\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{table}{, }\item[{const void \texorpdfstring{$\ast$}{*}}]{key}{, }\item[{size\+\_\+t}]{key\+\_\+len}{, }\item[{uint64\+\_\+t}]{now}{}\end{DoxyParamCaption})}
+
+\Hypertarget{table_8h_ae1945199774ff7177dc5ace4551744f4}\index{table.h@{table.h}!ttak\_table\_init@{ttak\_table\_init}}
+\index{ttak\_table\_init@{ttak\_table\_init}!table.h@{table.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_table\_init()}{ttak\_table\_init()}}
+{\footnotesize\ttfamily \label{table_8h_ae1945199774ff7177dc5ace4551744f4} 
+void ttak\+\_\+table\+\_\+init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{table_8h_ae98c30e481bee1ad9ed4278ba2f0341a}{ttak\+\_\+table\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{table}{, }\item[{size\+\_\+t}]{capacity}{, }\item[{uint64\+\_\+t(\texorpdfstring{$\ast$}{*}}]{hash\+\_\+func~}{)(const void \texorpdfstring{$\ast$}{*}, size\+\_\+t, uint64\+\_\+t, uint64\+\_\+t), }\item[{int(\texorpdfstring{$\ast$}{*}}]{key\+\_\+cmp~}{)(const void \texorpdfstring{$\ast$}{*}, const void \texorpdfstring{$\ast$}{*}), }\item[{void(\texorpdfstring{$\ast$}{*}}]{key\+\_\+free~}{)(void \texorpdfstring{$\ast$}{*}), }\item[{void(\texorpdfstring{$\ast$}{*}}]{val\+\_\+free~}{)(void \texorpdfstring{$\ast$}{*})}\end{DoxyParamCaption})}
+
+
+
+Initialize a generic table. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em hash\+\_\+func} & Custom hash function (or NULL for default Sip\+Hash on generic bytes). \\
+\hline
+{\em key\+\_\+cmp} & Key comparison function (returns 0 if equal). \\
+\hline
+\end{DoxyParams}
+\Hypertarget{table_8h_a82579cff9c3232ac17891676181dad8e}\index{table.h@{table.h}!ttak\_table\_put@{ttak\_table\_put}}
+\index{ttak\_table\_put@{ttak\_table\_put}!table.h@{table.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_table\_put()}{ttak\_table\_put()}}
+{\footnotesize\ttfamily \label{table_8h_a82579cff9c3232ac17891676181dad8e} 
+void ttak\+\_\+table\+\_\+put (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{table_8h_ae98c30e481bee1ad9ed4278ba2f0341a}{ttak\+\_\+table\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{table}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{key}{, }\item[{size\+\_\+t}]{key\+\_\+len}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{value}{, }\item[{uint64\+\_\+t}]{now}{}\end{DoxyParamCaption})}
+
+\Hypertarget{table_8h_abf8cb48425390aa581af5263d67603d5}\index{table.h@{table.h}!ttak\_table\_remove@{ttak\_table\_remove}}
+\index{ttak\_table\_remove@{ttak\_table\_remove}!table.h@{table.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_table\_remove()}{ttak\_table\_remove()}}
+{\footnotesize\ttfamily \label{table_8h_abf8cb48425390aa581af5263d67603d5} 
+bool ttak\+\_\+table\+\_\+remove (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{table_8h_ae98c30e481bee1ad9ed4278ba2f0341a}{ttak\+\_\+table\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{table}{, }\item[{const void \texorpdfstring{$\ast$}{*}}]{key}{, }\item[{size\+\_\+t}]{key\+\_\+len}{, }\item[{uint64\+\_\+t}]{now}{}\end{DoxyParamCaption})}
+

@@ -1,0 +1,126 @@
+\doxysection{examples/mersenne-\/prime/thread\+\_\+compat.h File Reference}
+\hypertarget{thread__compat_8h}{}\label{thread__compat_8h}\index{examples/mersenne-\/prime/thread\_compat.h@{examples/mersenne-\/prime/thread\_compat.h}}
+{\ttfamily \#include $<$pthread.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$sched.\+h$>$}\newline
+Include dependency graph for thread\+\_\+compat.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=287pt]{thread__compat_8h__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{thread__compat_8h_a99da1eadff2d3dbed9d01c2e7f00220c}{TTAK\+\_\+\+THREAD\+\_\+\+CALL}}
+\item 
+\#define \mbox{\hyperlink{thread__compat_8h_acbece6975db97e6f2a4dde166f5d45db}{ttak\+\_\+thread\+\_\+yield}}()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef pthread\+\_\+t \mbox{\hyperlink{thread__compat_8h_a5e92380b97dd7511fd0d4a31c43a6e31}{ttak\+\_\+thread\+\_\+t}}
+\item 
+typedef pthread\+\_\+t \mbox{\hyperlink{thread__compat_8h_aed0cde1556bd55109429d49799f3a9c8}{ttak\+\_\+thread\+\_\+id\+\_\+t}}
+\item 
+typedef void \texorpdfstring{$\ast$}{*}(\mbox{\hyperlink{thread__compat_8h_a99da1eadff2d3dbed9d01c2e7f00220c}{TTAK\+\_\+\+THREAD\+\_\+\+CALL}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{thread__compat_8h_af1b8833fa4200b211d5e8decdc446373}{ttak\+\_\+thread\+\_\+func\+\_\+t}}) (void \texorpdfstring{$\ast$}{*})
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static int \mbox{\hyperlink{thread__compat_8h_ad3bcc4d911261945c26bb74007d177e0}{ttak\+\_\+thread\+\_\+create}} (\mbox{\hyperlink{thread__compat_8h_a5e92380b97dd7511fd0d4a31c43a6e31}{ttak\+\_\+thread\+\_\+t}} \texorpdfstring{$\ast$}{*}thread, \mbox{\hyperlink{thread__compat_8h_af1b8833fa4200b211d5e8decdc446373}{ttak\+\_\+thread\+\_\+func\+\_\+t}} func, void \texorpdfstring{$\ast$}{*}arg)
+\item 
+static int \mbox{\hyperlink{thread__compat_8h_ace9b37e1813eabe490a60c0f6b1c6bb8}{ttak\+\_\+thread\+\_\+join}} (\mbox{\hyperlink{thread__compat_8h_a5e92380b97dd7511fd0d4a31c43a6e31}{ttak\+\_\+thread\+\_\+t}} thread, void \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}retval)
+\end{DoxyCompactItemize}
+
+
+\label{doc-define-members}
+\Hypertarget{thread__compat_8h_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{thread__compat_8h_a99da1eadff2d3dbed9d01c2e7f00220c}\index{thread\_compat.h@{thread\_compat.h}!TTAK\_THREAD\_CALL@{TTAK\_THREAD\_CALL}}
+\index{TTAK\_THREAD\_CALL@{TTAK\_THREAD\_CALL}!thread\_compat.h@{thread\_compat.h}}
+\doxysubsubsection{\texorpdfstring{TTAK\_THREAD\_CALL}{TTAK\_THREAD\_CALL}}
+{\footnotesize\ttfamily \label{thread__compat_8h_a99da1eadff2d3dbed9d01c2e7f00220c} 
+\#define TTAK\+\_\+\+THREAD\+\_\+\+CALL}
+
+
+
+Definition at line \mbox{\hyperlink{thread__compat_8h_source_l00017}{17}} of file \mbox{\hyperlink{thread__compat_8h_source}{thread\+\_\+compat.\+h}}.
+
+\Hypertarget{thread__compat_8h_acbece6975db97e6f2a4dde166f5d45db}\index{thread\_compat.h@{thread\_compat.h}!ttak\_thread\_yield@{ttak\_thread\_yield}}
+\index{ttak\_thread\_yield@{ttak\_thread\_yield}!thread\_compat.h@{thread\_compat.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_thread\_yield}{ttak\_thread\_yield}}
+{\footnotesize\ttfamily \label{thread__compat_8h_acbece6975db97e6f2a4dde166f5d45db} 
+\#define ttak\+\_\+thread\+\_\+yield(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{sched\_yield()}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{thread__compat_8h_source_l00018}{18}} of file \mbox{\hyperlink{thread__compat_8h_source}{thread\+\_\+compat.\+h}}.
+
+
+
+\label{doc-typedef-members}
+\Hypertarget{thread__compat_8h_doc-typedef-members}
+\doxysubsection{Typedef Documentation}
+\Hypertarget{thread__compat_8h_af1b8833fa4200b211d5e8decdc446373}\index{thread\_compat.h@{thread\_compat.h}!ttak\_thread\_func\_t@{ttak\_thread\_func\_t}}
+\index{ttak\_thread\_func\_t@{ttak\_thread\_func\_t}!thread\_compat.h@{thread\_compat.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_thread\_func\_t}{ttak\_thread\_func\_t}}
+{\footnotesize\ttfamily \label{thread__compat_8h_af1b8833fa4200b211d5e8decdc446373} 
+typedef void \texorpdfstring{$\ast$}{*}(\mbox{\hyperlink{thread__compat_8h_a99da1eadff2d3dbed9d01c2e7f00220c}{TTAK\+\_\+\+THREAD\+\_\+\+CALL}} \texorpdfstring{$\ast$}{*} ttak\+\_\+thread\+\_\+func\+\_\+t) (void \texorpdfstring{$\ast$}{*})}
+
+
+
+Definition at line \mbox{\hyperlink{thread__compat_8h_source_l00021}{21}} of file \mbox{\hyperlink{thread__compat_8h_source}{thread\+\_\+compat.\+h}}.
+
+\Hypertarget{thread__compat_8h_aed0cde1556bd55109429d49799f3a9c8}\index{thread\_compat.h@{thread\_compat.h}!ttak\_thread\_id\_t@{ttak\_thread\_id\_t}}
+\index{ttak\_thread\_id\_t@{ttak\_thread\_id\_t}!thread\_compat.h@{thread\_compat.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_thread\_id\_t}{ttak\_thread\_id\_t}}
+{\footnotesize\ttfamily \label{thread__compat_8h_aed0cde1556bd55109429d49799f3a9c8} 
+typedef pthread\+\_\+t \mbox{\hyperlink{thread__compat_8h_aed0cde1556bd55109429d49799f3a9c8}{ttak\+\_\+thread\+\_\+id\+\_\+t}}}
+
+
+
+Definition at line \mbox{\hyperlink{thread__compat_8h_source_l00016}{16}} of file \mbox{\hyperlink{thread__compat_8h_source}{thread\+\_\+compat.\+h}}.
+
+\Hypertarget{thread__compat_8h_a5e92380b97dd7511fd0d4a31c43a6e31}\index{thread\_compat.h@{thread\_compat.h}!ttak\_thread\_t@{ttak\_thread\_t}}
+\index{ttak\_thread\_t@{ttak\_thread\_t}!thread\_compat.h@{thread\_compat.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_thread\_t}{ttak\_thread\_t}}
+{\footnotesize\ttfamily \label{thread__compat_8h_a5e92380b97dd7511fd0d4a31c43a6e31} 
+typedef pthread\+\_\+t \mbox{\hyperlink{thread__compat_8h_a5e92380b97dd7511fd0d4a31c43a6e31}{ttak\+\_\+thread\+\_\+t}}}
+
+
+
+Definition at line \mbox{\hyperlink{thread__compat_8h_source_l00015}{15}} of file \mbox{\hyperlink{thread__compat_8h_source}{thread\+\_\+compat.\+h}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{thread__compat_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{thread__compat_8h_ad3bcc4d911261945c26bb74007d177e0}\index{thread\_compat.h@{thread\_compat.h}!ttak\_thread\_create@{ttak\_thread\_create}}
+\index{ttak\_thread\_create@{ttak\_thread\_create}!thread\_compat.h@{thread\_compat.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_thread\_create()}{ttak\_thread\_create()}}
+{\footnotesize\ttfamily \label{thread__compat_8h_ad3bcc4d911261945c26bb74007d177e0} 
+int ttak\+\_\+thread\+\_\+create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{thread__compat_8h_a5e92380b97dd7511fd0d4a31c43a6e31}{ttak\+\_\+thread\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{thread}{, }\item[{\mbox{\hyperlink{thread__compat_8h_af1b8833fa4200b211d5e8decdc446373}{ttak\+\_\+thread\+\_\+func\+\_\+t}}}]{func}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{arg}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{thread__compat_8h_source_l00023}{23}} of file \mbox{\hyperlink{thread__compat_8h_source}{thread\+\_\+compat.\+h}}.
+
+\Hypertarget{thread__compat_8h_ace9b37e1813eabe490a60c0f6b1c6bb8}\index{thread\_compat.h@{thread\_compat.h}!ttak\_thread\_join@{ttak\_thread\_join}}
+\index{ttak\_thread\_join@{ttak\_thread\_join}!thread\_compat.h@{thread\_compat.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_thread\_join()}{ttak\_thread\_join()}}
+{\footnotesize\ttfamily \label{thread__compat_8h_ace9b37e1813eabe490a60c0f6b1c6bb8} 
+int ttak\+\_\+thread\+\_\+join (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{thread__compat_8h_a5e92380b97dd7511fd0d4a31c43a6e31}{ttak\+\_\+thread\+\_\+t}}}]{thread}{, }\item[{void \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{retval}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{thread__compat_8h_source_l00032}{32}} of file \mbox{\hyperlink{thread__compat_8h_source}{thread\+\_\+compat.\+h}}.
+

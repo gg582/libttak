@@ -1,0 +1,279 @@
+\doxysection{include/ttak/mem/mem.h File Reference}
+\hypertarget{mem_8h}{}\label{mem_8h}\index{include/ttak/mem/mem.h@{include/ttak/mem/mem.h}}
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+Include dependency graph for mem.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=285pt]{mem_8h__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{mem_8h_a56bacec5f02dbd8cad7b15e6682fbf20}{TTAK\+\_\+\+CACHE\+\_\+\+LINE\+\_\+\+SIZE}}~64
+\begin{DoxyCompactList}\small\item\em Alignment for cache-\/line optimization (64-\/byte). \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{mem_8h_a798ceb4ce7e1d84af3001d7ec38d3da2}{\+\_\+\+\_\+\+TTAK\+\_\+\+UNSAFE\+\_\+\+MEM\+\_\+\+FOREVER\+\_\+\+\_\+}}~((uint64\+\_\+t)-\/1)
+\begin{DoxyCompactList}\small\item\em Macro to indicate that the allocated memory should persist forever. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{mem_8h_aa4fb4762838f23fd8edc26f01d12f0e5}{ttak\+\_\+mem\+\_\+alloc}}(size,  lifetime,  now)
+\item 
+\#define \mbox{\hyperlink{mem_8h_a29ae926197a7e7154d98730bd3de6242}{ttak\+\_\+mem\+\_\+alloc\+\_\+with\+\_\+flags}}(size,  lifetime,  now,  flags)
+\item 
+\#define \mbox{\hyperlink{mem_8h_aecbcfc6a4045b6bd854f785a49706a77}{ttak\+\_\+mem\+\_\+realloc}}(ptr,  size,  lifetime,  now)
+\item 
+\#define \mbox{\hyperlink{mem_8h_ac436c1f90ce06b2759063c0d124cbd90}{ttak\+\_\+mem\+\_\+realloc\+\_\+with\+\_\+flags}}(ptr,  size,  lifetime,  now,  flags)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef void \mbox{\hyperlink{mem_8h_ab724d37f1a1c16f006309b8b2036b232}{ttak\+\_\+lifecycle\+\_\+obj\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{mem_8h_a05020ce7df6068f7d7f515ee4ea9cdad}{ttak\+\_\+mem\+\_\+flags\+\_\+t}} \{ \mbox{\hyperlink{mem_8h_a05020ce7df6068f7d7f515ee4ea9cdadab57ac5f60f1170e17ecfe853611ac80a}{TTAK\+\_\+\+MEM\+\_\+\+DEFAULT}} = 0
+, \mbox{\hyperlink{mem_8h_a05020ce7df6068f7d7f515ee4ea9cdadaa4cff10407296a029dba423e1ac75551}{TTAK\+\_\+\+MEM\+\_\+\+HUGE\+\_\+\+PAGES}} = (1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 0)
+, \mbox{\hyperlink{mem_8h_a05020ce7df6068f7d7f515ee4ea9cdada85fc84c07c8164ea4cd8048365cc3e2d}{TTAK\+\_\+\+MEM\+\_\+\+CACHE\+\_\+\+ALIGNED}} = (1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 1)
+, \mbox{\hyperlink{mem_8h_a05020ce7df6068f7d7f515ee4ea9cdada0b16ffc2f709ae7e7a5439e0ca8d7d86}{TTAK\+\_\+\+MEM\+\_\+\+STRICT\+\_\+\+CHECK}} = (1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 2)
+ \}
+\begin{DoxyCompactList}\small\item\em Memory allocation flags. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{mem_8h_aff3d4e6c920caf8bdeee3b2561a2ae46}{ttak\+\_\+mem\+\_\+alloc\+\_\+safe}} (size\+\_\+t size, uint64\+\_\+t lifetime\+\_\+ticks, uint64\+\_\+t now, \+\_\+\+Bool is\+\_\+const, \+\_\+\+Bool is\+\_\+volatile, \+\_\+\+Bool allow\+\_\+direct, \+\_\+\+Bool is\+\_\+root, \mbox{\hyperlink{mem_8h_a05020ce7df6068f7d7f515ee4ea9cdad}{ttak\+\_\+mem\+\_\+flags\+\_\+t}} flags)
+\begin{DoxyCompactList}\small\item\em Unified memory allocation with lifecycle management and hardware optimization. \end{DoxyCompactList}\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{mem_8h_a7eec3d633592a863f39155500dd0227a}{ttak\+\_\+mem\+\_\+realloc\+\_\+safe}} (void \texorpdfstring{$\ast$}{*}ptr, size\+\_\+t new\+\_\+size, uint64\+\_\+t lifetime\+\_\+ticks, uint64\+\_\+t now, \+\_\+\+Bool is\+\_\+root, \mbox{\hyperlink{mem_8h_a05020ce7df6068f7d7f515ee4ea9cdad}{ttak\+\_\+mem\+\_\+flags\+\_\+t}} flags)
+\begin{DoxyCompactList}\small\item\em Reallocates memory with lifecycle management. \end{DoxyCompactList}\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{mem_8h_a2dacee529eb86de1f9f589fd417d0fe3}{ttak\+\_\+mem\+\_\+access}} (void \texorpdfstring{$\ast$}{*}ptr, uint64\+\_\+t now)
+\begin{DoxyCompactList}\small\item\em Accesses the memory block, verifying its lifecycle and security. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{mem_8h_afdcd75479e1ca4dde197214d0430de65}{ttak\+\_\+mem\+\_\+free}} (void \texorpdfstring{$\ast$}{*}ptr)
+\begin{DoxyCompactList}\small\item\em Frees the memory block and removes it from the global shadow map. \end{DoxyCompactList}\item 
+void \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{mem_8h_ada3d51eee9ddc6a5859312387539df65}{tt\+\_\+inspect\+\_\+dirty\+\_\+pointers}} (uint64\+\_\+t now, size\+\_\+t \texorpdfstring{$\ast$}{*}count\+\_\+out)
+\begin{DoxyCompactList}\small\item\em Inspects and returns pointers that are expired or have abnormal access counts. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{mem_8h_af73ea5e149eaa8dc0df429ad1f27cd45}{tt\+\_\+autoclean\+\_\+dirty\+\_\+pointers}} (uint64\+\_\+t now)
+\begin{DoxyCompactList}\small\item\em Automatically cleans up expired memory blocks with adaptive scheduling. \end{DoxyCompactList}\item 
+void \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{mem_8h_a23a79fc56d219a37227ec07299e4571b}{tt\+\_\+autoclean\+\_\+and\+\_\+inspect}} (uint64\+\_\+t now, size\+\_\+t \texorpdfstring{$\ast$}{*}count\+\_\+out)
+\begin{DoxyCompactList}\small\item\em Cleans up and returns abnormal pointers. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-define-members}
+\Hypertarget{mem_8h_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{mem_8h_a798ceb4ce7e1d84af3001d7ec38d3da2}\index{mem.h@{mem.h}!\_\_TTAK\_UNSAFE\_MEM\_FOREVER\_\_@{\_\_TTAK\_UNSAFE\_MEM\_FOREVER\_\_}}
+\index{\_\_TTAK\_UNSAFE\_MEM\_FOREVER\_\_@{\_\_TTAK\_UNSAFE\_MEM\_FOREVER\_\_}!mem.h@{mem.h}}
+\doxysubsubsection{\texorpdfstring{\_\_TTAK\_UNSAFE\_MEM\_FOREVER\_\_}{\_\_TTAK\_UNSAFE\_MEM\_FOREVER\_\_}}
+{\footnotesize\ttfamily \label{mem_8h_a798ceb4ce7e1d84af3001d7ec38d3da2} 
+\#define \+\_\+\+\_\+\+TTAK\+\_\+\+UNSAFE\+\_\+\+MEM\+\_\+\+FOREVER\+\_\+\+\_\+~((uint64\+\_\+t)-\/1)}
+
+
+
+Macro to indicate that the allocated memory should persist forever. 
+
+
+
+Definition at line \mbox{\hyperlink{mem_8h_source_l00016}{16}} of file \mbox{\hyperlink{mem_8h_source}{mem.\+h}}.
+
+\Hypertarget{mem_8h_a56bacec5f02dbd8cad7b15e6682fbf20}\index{mem.h@{mem.h}!TTAK\_CACHE\_LINE\_SIZE@{TTAK\_CACHE\_LINE\_SIZE}}
+\index{TTAK\_CACHE\_LINE\_SIZE@{TTAK\_CACHE\_LINE\_SIZE}!mem.h@{mem.h}}
+\doxysubsubsection{\texorpdfstring{TTAK\_CACHE\_LINE\_SIZE}{TTAK\_CACHE\_LINE\_SIZE}}
+{\footnotesize\ttfamily \label{mem_8h_a56bacec5f02dbd8cad7b15e6682fbf20} 
+\#define TTAK\+\_\+\+CACHE\+\_\+\+LINE\+\_\+\+SIZE~64}
+
+
+
+Alignment for cache-\/line optimization (64-\/byte). 
+
+
+
+Definition at line \mbox{\hyperlink{mem_8h_source_l00011}{11}} of file \mbox{\hyperlink{mem_8h_source}{mem.\+h}}.
+
+\Hypertarget{mem_8h_aa4fb4762838f23fd8edc26f01d12f0e5}\index{mem.h@{mem.h}!ttak\_mem\_alloc@{ttak\_mem\_alloc}}
+\index{ttak\_mem\_alloc@{ttak\_mem\_alloc}!mem.h@{mem.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_mem\_alloc}{ttak\_mem\_alloc}}
+{\footnotesize\ttfamily \label{mem_8h_aa4fb4762838f23fd8edc26f01d12f0e5} 
+\#define ttak\+\_\+mem\+\_\+alloc(\begin{DoxyParamCaption}\item[{}]{size}{, }\item[{}]{lifetime}{, }\item[{}]{now}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{mem_8h_aff3d4e6c920caf8bdeee3b2561a2ae46}{ttak\_mem\_alloc\_safe}}(size,\ lifetime,\ now,\ \textcolor{keyword}{false},\ \textcolor{keyword}{false},\ \textcolor{keyword}{true},\ \textcolor{keyword}{true},\ \mbox{\hyperlink{mem_8h_a05020ce7df6068f7d7f515ee4ea9cdadab57ac5f60f1170e17ecfe853611ac80a}{TTAK\_MEM\_DEFAULT}})}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{mem_8h_source_l00065}{65}} of file \mbox{\hyperlink{mem_8h_source}{mem.\+h}}.
+
+\Hypertarget{mem_8h_a29ae926197a7e7154d98730bd3de6242}\index{mem.h@{mem.h}!ttak\_mem\_alloc\_with\_flags@{ttak\_mem\_alloc\_with\_flags}}
+\index{ttak\_mem\_alloc\_with\_flags@{ttak\_mem\_alloc\_with\_flags}!mem.h@{mem.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_mem\_alloc\_with\_flags}{ttak\_mem\_alloc\_with\_flags}}
+{\footnotesize\ttfamily \label{mem_8h_a29ae926197a7e7154d98730bd3de6242} 
+\#define ttak\+\_\+mem\+\_\+alloc\+\_\+with\+\_\+flags(\begin{DoxyParamCaption}\item[{}]{size}{, }\item[{}]{lifetime}{, }\item[{}]{now}{, }\item[{}]{flags}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{mem_8h_aff3d4e6c920caf8bdeee3b2561a2ae46}{ttak\_mem\_alloc\_safe}}(size,\ lifetime,\ now,\ \textcolor{keyword}{false},\ \textcolor{keyword}{false},\ \textcolor{keyword}{true},\ \textcolor{keyword}{true},\ flags)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{mem_8h_source_l00066}{66}} of file \mbox{\hyperlink{mem_8h_source}{mem.\+h}}.
+
+\Hypertarget{mem_8h_aecbcfc6a4045b6bd854f785a49706a77}\index{mem.h@{mem.h}!ttak\_mem\_realloc@{ttak\_mem\_realloc}}
+\index{ttak\_mem\_realloc@{ttak\_mem\_realloc}!mem.h@{mem.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_mem\_realloc}{ttak\_mem\_realloc}}
+{\footnotesize\ttfamily \label{mem_8h_aecbcfc6a4045b6bd854f785a49706a77} 
+\#define ttak\+\_\+mem\+\_\+realloc(\begin{DoxyParamCaption}\item[{}]{ptr}{, }\item[{}]{size}{, }\item[{}]{lifetime}{, }\item[{}]{now}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{mem_8h_a7eec3d633592a863f39155500dd0227a}{ttak\_mem\_realloc\_safe}}(ptr,\ size,\ lifetime,\ now,\ \textcolor{keyword}{true},\ \mbox{\hyperlink{mem_8h_a05020ce7df6068f7d7f515ee4ea9cdadab57ac5f60f1170e17ecfe853611ac80a}{TTAK\_MEM\_DEFAULT}})}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{mem_8h_source_l00067}{67}} of file \mbox{\hyperlink{mem_8h_source}{mem.\+h}}.
+
+\Hypertarget{mem_8h_ac436c1f90ce06b2759063c0d124cbd90}\index{mem.h@{mem.h}!ttak\_mem\_realloc\_with\_flags@{ttak\_mem\_realloc\_with\_flags}}
+\index{ttak\_mem\_realloc\_with\_flags@{ttak\_mem\_realloc\_with\_flags}!mem.h@{mem.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_mem\_realloc\_with\_flags}{ttak\_mem\_realloc\_with\_flags}}
+{\footnotesize\ttfamily \label{mem_8h_ac436c1f90ce06b2759063c0d124cbd90} 
+\#define ttak\+\_\+mem\+\_\+realloc\+\_\+with\+\_\+flags(\begin{DoxyParamCaption}\item[{}]{ptr}{, }\item[{}]{size}{, }\item[{}]{lifetime}{, }\item[{}]{now}{, }\item[{}]{flags}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{mem_8h_a7eec3d633592a863f39155500dd0227a}{ttak\_mem\_realloc\_safe}}(ptr,\ size,\ lifetime,\ now,\ \textcolor{keyword}{true},\ flags)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{mem_8h_source_l00068}{68}} of file \mbox{\hyperlink{mem_8h_source}{mem.\+h}}.
+
+
+
+\label{doc-typedef-members}
+\Hypertarget{mem_8h_doc-typedef-members}
+\doxysubsection{Typedef Documentation}
+\Hypertarget{mem_8h_ab724d37f1a1c16f006309b8b2036b232}\index{mem.h@{mem.h}!ttak\_lifecycle\_obj\_t@{ttak\_lifecycle\_obj\_t}}
+\index{ttak\_lifecycle\_obj\_t@{ttak\_lifecycle\_obj\_t}!mem.h@{mem.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_lifecycle\_obj\_t}{ttak\_lifecycle\_obj\_t}}
+{\footnotesize\ttfamily \label{mem_8h_ab724d37f1a1c16f006309b8b2036b232} 
+typedef void \mbox{\hyperlink{mem_8h_ab724d37f1a1c16f006309b8b2036b232}{ttak\+\_\+lifecycle\+\_\+obj\+\_\+t}}}
+
+
+
+Definition at line \mbox{\hyperlink{mem_8h_source_l00064}{64}} of file \mbox{\hyperlink{mem_8h_source}{mem.\+h}}.
+
+
+
+\label{doc-enum-members}
+\Hypertarget{mem_8h_doc-enum-members}
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{mem_8h_a05020ce7df6068f7d7f515ee4ea9cdad}\index{mem.h@{mem.h}!ttak\_mem\_flags\_t@{ttak\_mem\_flags\_t}}
+\index{ttak\_mem\_flags\_t@{ttak\_mem\_flags\_t}!mem.h@{mem.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_mem\_flags\_t}{ttak\_mem\_flags\_t}}
+{\footnotesize\ttfamily \label{mem_8h_a05020ce7df6068f7d7f515ee4ea9cdad} 
+enum \mbox{\hyperlink{mem_8h_a05020ce7df6068f7d7f515ee4ea9cdad}{ttak\+\_\+mem\+\_\+flags\+\_\+t}}}
+
+
+
+Memory allocation flags. 
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TTAK\_MEM\_DEFAULT@{TTAK\_MEM\_DEFAULT}!mem.h@{mem.h}}\index{mem.h@{mem.h}!TTAK\_MEM\_DEFAULT@{TTAK\_MEM\_DEFAULT}}}\Hypertarget{mem_8h_a05020ce7df6068f7d7f515ee4ea9cdadab57ac5f60f1170e17ecfe853611ac80a}\label{mem_8h_a05020ce7df6068f7d7f515ee4ea9cdadab57ac5f60f1170e17ecfe853611ac80a} 
+TTAK\+\_\+\+MEM\+\_\+\+DEFAULT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TTAK\_MEM\_HUGE\_PAGES@{TTAK\_MEM\_HUGE\_PAGES}!mem.h@{mem.h}}\index{mem.h@{mem.h}!TTAK\_MEM\_HUGE\_PAGES@{TTAK\_MEM\_HUGE\_PAGES}}}\Hypertarget{mem_8h_a05020ce7df6068f7d7f515ee4ea9cdadaa4cff10407296a029dba423e1ac75551}\label{mem_8h_a05020ce7df6068f7d7f515ee4ea9cdadaa4cff10407296a029dba423e1ac75551} 
+TTAK\+\_\+\+MEM\+\_\+\+HUGE\+\_\+\+PAGES&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TTAK\_MEM\_CACHE\_ALIGNED@{TTAK\_MEM\_CACHE\_ALIGNED}!mem.h@{mem.h}}\index{mem.h@{mem.h}!TTAK\_MEM\_CACHE\_ALIGNED@{TTAK\_MEM\_CACHE\_ALIGNED}}}\Hypertarget{mem_8h_a05020ce7df6068f7d7f515ee4ea9cdada85fc84c07c8164ea4cd8048365cc3e2d}\label{mem_8h_a05020ce7df6068f7d7f515ee4ea9cdada85fc84c07c8164ea4cd8048365cc3e2d} 
+TTAK\+\_\+\+MEM\+\_\+\+CACHE\+\_\+\+ALIGNED&Try to use 2MB/1\+GB pages \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TTAK\_MEM\_STRICT\_CHECK@{TTAK\_MEM\_STRICT\_CHECK}!mem.h@{mem.h}}\index{mem.h@{mem.h}!TTAK\_MEM\_STRICT\_CHECK@{TTAK\_MEM\_STRICT\_CHECK}}}\Hypertarget{mem_8h_a05020ce7df6068f7d7f515ee4ea9cdada0b16ffc2f709ae7e7a5439e0ca8d7d86}\label{mem_8h_a05020ce7df6068f7d7f515ee4ea9cdada0b16ffc2f709ae7e7a5439e0ca8d7d86} 
+TTAK\+\_\+\+MEM\+\_\+\+STRICT\+\_\+\+CHECK&Force 64-\/byte alignment \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{mem_8h_source_l00021}{21}} of file \mbox{\hyperlink{mem_8h_source}{mem.\+h}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{mem_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{mem_8h_a23a79fc56d219a37227ec07299e4571b}\index{mem.h@{mem.h}!tt\_autoclean\_and\_inspect@{tt\_autoclean\_and\_inspect}}
+\index{tt\_autoclean\_and\_inspect@{tt\_autoclean\_and\_inspect}!mem.h@{mem.h}}
+\doxysubsubsection{\texorpdfstring{tt\_autoclean\_and\_inspect()}{tt\_autoclean\_and\_inspect()}}
+{\footnotesize\ttfamily \label{mem_8h_a23a79fc56d219a37227ec07299e4571b} 
+void \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} tt\+\_\+autoclean\+\_\+and\+\_\+inspect (\begin{DoxyParamCaption}\item[{uint64\+\_\+t}]{now}{, }\item[{size\+\_\+t \texorpdfstring{$\ast$}{*}}]{count\+\_\+out}{}\end{DoxyParamCaption})}
+
+
+
+Cleans up and returns abnormal pointers. 
+
+\Hypertarget{mem_8h_af73ea5e149eaa8dc0df429ad1f27cd45}\index{mem.h@{mem.h}!tt\_autoclean\_dirty\_pointers@{tt\_autoclean\_dirty\_pointers}}
+\index{tt\_autoclean\_dirty\_pointers@{tt\_autoclean\_dirty\_pointers}!mem.h@{mem.h}}
+\doxysubsubsection{\texorpdfstring{tt\_autoclean\_dirty\_pointers()}{tt\_autoclean\_dirty\_pointers()}}
+{\footnotesize\ttfamily \label{mem_8h_af73ea5e149eaa8dc0df429ad1f27cd45} 
+void tt\+\_\+autoclean\+\_\+dirty\+\_\+pointers (\begin{DoxyParamCaption}\item[{uint64\+\_\+t}]{now}{}\end{DoxyParamCaption})}
+
+
+
+Automatically cleans up expired memory blocks with adaptive scheduling. 
+
+\Hypertarget{mem_8h_ada3d51eee9ddc6a5859312387539df65}\index{mem.h@{mem.h}!tt\_inspect\_dirty\_pointers@{tt\_inspect\_dirty\_pointers}}
+\index{tt\_inspect\_dirty\_pointers@{tt\_inspect\_dirty\_pointers}!mem.h@{mem.h}}
+\doxysubsubsection{\texorpdfstring{tt\_inspect\_dirty\_pointers()}{tt\_inspect\_dirty\_pointers()}}
+{\footnotesize\ttfamily \label{mem_8h_ada3d51eee9ddc6a5859312387539df65} 
+void \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} tt\+\_\+inspect\+\_\+dirty\+\_\+pointers (\begin{DoxyParamCaption}\item[{uint64\+\_\+t}]{now}{, }\item[{size\+\_\+t \texorpdfstring{$\ast$}{*}}]{count\+\_\+out}{}\end{DoxyParamCaption})}
+
+
+
+Inspects and returns pointers that are expired or have abnormal access counts. 
+
+\Hypertarget{mem_8h_a2dacee529eb86de1f9f589fd417d0fe3}\index{mem.h@{mem.h}!ttak\_mem\_access@{ttak\_mem\_access}}
+\index{ttak\_mem\_access@{ttak\_mem\_access}!mem.h@{mem.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_mem\_access()}{ttak\_mem\_access()}}
+{\footnotesize\ttfamily \label{mem_8h_a2dacee529eb86de1f9f589fd417d0fe3} 
+void \texorpdfstring{$\ast$}{*} ttak\+\_\+mem\+\_\+access (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{ptr}{, }\item[{uint64\+\_\+t}]{now}{}\end{DoxyParamCaption})}
+
+
+
+Accesses the memory block, verifying its lifecycle and security. 
+
+\Hypertarget{mem_8h_aff3d4e6c920caf8bdeee3b2561a2ae46}\index{mem.h@{mem.h}!ttak\_mem\_alloc\_safe@{ttak\_mem\_alloc\_safe}}
+\index{ttak\_mem\_alloc\_safe@{ttak\_mem\_alloc\_safe}!mem.h@{mem.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_mem\_alloc\_safe()}{ttak\_mem\_alloc\_safe()}}
+{\footnotesize\ttfamily \label{mem_8h_aff3d4e6c920caf8bdeee3b2561a2ae46} 
+void \texorpdfstring{$\ast$}{*} ttak\+\_\+mem\+\_\+alloc\+\_\+safe (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{size}{, }\item[{uint64\+\_\+t}]{lifetime\+\_\+ticks}{, }\item[{uint64\+\_\+t}]{now}{, }\item[{\+\_\+\+Bool}]{is\+\_\+const}{, }\item[{\+\_\+\+Bool}]{is\+\_\+volatile}{, }\item[{\+\_\+\+Bool}]{allow\+\_\+direct}{, }\item[{\+\_\+\+Bool}]{is\+\_\+root}{, }\item[{\mbox{\hyperlink{mem_8h_a05020ce7df6068f7d7f515ee4ea9cdad}{ttak\+\_\+mem\+\_\+flags\+\_\+t}}}]{flags}{}\end{DoxyParamCaption})}
+
+
+
+Unified memory allocation with lifecycle management and hardware optimization. 
+
+\Hypertarget{mem_8h_afdcd75479e1ca4dde197214d0430de65}\index{mem.h@{mem.h}!ttak\_mem\_free@{ttak\_mem\_free}}
+\index{ttak\_mem\_free@{ttak\_mem\_free}!mem.h@{mem.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_mem\_free()}{ttak\_mem\_free()}}
+{\footnotesize\ttfamily \label{mem_8h_afdcd75479e1ca4dde197214d0430de65} 
+void ttak\+\_\+mem\+\_\+free (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{ptr}{}\end{DoxyParamCaption})}
+
+
+
+Frees the memory block and removes it from the global shadow map. 
+
+\Hypertarget{mem_8h_a7eec3d633592a863f39155500dd0227a}\index{mem.h@{mem.h}!ttak\_mem\_realloc\_safe@{ttak\_mem\_realloc\_safe}}
+\index{ttak\_mem\_realloc\_safe@{ttak\_mem\_realloc\_safe}!mem.h@{mem.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_mem\_realloc\_safe()}{ttak\_mem\_realloc\_safe()}}
+{\footnotesize\ttfamily \label{mem_8h_a7eec3d633592a863f39155500dd0227a} 
+void \texorpdfstring{$\ast$}{*} ttak\+\_\+mem\+\_\+realloc\+\_\+safe (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{ptr}{, }\item[{size\+\_\+t}]{new\+\_\+size}{, }\item[{uint64\+\_\+t}]{lifetime\+\_\+ticks}{, }\item[{uint64\+\_\+t}]{now}{, }\item[{\+\_\+\+Bool}]{is\+\_\+root}{, }\item[{\mbox{\hyperlink{mem_8h_a05020ce7df6068f7d7f515ee4ea9cdad}{ttak\+\_\+mem\+\_\+flags\+\_\+t}}}]{flags}{}\end{DoxyParamCaption})}
+
+
+
+Reallocates memory with lifecycle management. 
+

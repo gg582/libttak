@@ -1,0 +1,36 @@
+\doxysection{btree.\+h}
+\hypertarget{btree_8h_source}{}\label{btree_8h_source}\index{include/ttak/tree/btree.h@{include/ttak/tree/btree.h}}
+\mbox{\hyperlink{btree_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{btree_8h_source_l00001}00001\ \textcolor{preprocessor}{\#ifndef\ TTAK\_TREE\_BTREE\_H}}
+\DoxyCodeLine{\Hypertarget{btree_8h_source_l00002}00002\ \textcolor{preprocessor}{\#define\ TTAK\_TREE\_BTREE\_H}}
+\DoxyCodeLine{\Hypertarget{btree_8h_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{btree_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <stddef.h>}}
+\DoxyCodeLine{\Hypertarget{btree_8h_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{\Hypertarget{btree_8h_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{\Hypertarget{btree_8h_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{btree_8h_source_l00008}\mbox{\hyperlink{structttak__btree__node}{00008}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structttak__btree__node}{ttak\_btree\_node}}\ \{}
+\DoxyCodeLine{\Hypertarget{btree_8h_source_l00009}\mbox{\hyperlink{structttak__btree__node_a117b5dd0e72f19f42ef55e16c5739751}{00009}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structttak__btree__node_a117b5dd0e72f19f42ef55e16c5739751}{n}};\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Current\ number\ of\ keys}}
+\DoxyCodeLine{\Hypertarget{btree_8h_source_l00010}\mbox{\hyperlink{structttak__btree__node_af4e96bf134e4ac4c19a82a67cc7a63c6}{00010}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structttak__btree__node_af4e96bf134e4ac4c19a82a67cc7a63c6}{leaf}};\ \ \ \ \ \ \textcolor{comment}{//\ Is\ this\ a\ leaf\ node?}}
+\DoxyCodeLine{\Hypertarget{btree_8h_source_l00011}\mbox{\hyperlink{structttak__btree__node_a462968cbd9ee198c4d6e52faff40b3a7}{00011}}\ \ \ \ \ \textcolor{keywordtype}{void}\ **\mbox{\hyperlink{structttak__btree__node_a462968cbd9ee198c4d6e52faff40b3a7}{keys}};\ \ \ \ \textcolor{comment}{//\ Array\ of\ keys}}
+\DoxyCodeLine{\Hypertarget{btree_8h_source_l00012}\mbox{\hyperlink{structttak__btree__node_ada54833dc8736c1c631592965de0042f}{00012}}\ \ \ \ \ \textcolor{keywordtype}{void}\ **\mbox{\hyperlink{structttak__btree__node_ada54833dc8736c1c631592965de0042f}{values}};\ \ \textcolor{comment}{//\ Array\ of\ values}}
+\DoxyCodeLine{\Hypertarget{btree_8h_source_l00013}\mbox{\hyperlink{structttak__btree__node_a0686782a39e47e71ef85a16c3818e0c2}{00013}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structttak__btree__node}{ttak\_btree\_node}}\ **\mbox{\hyperlink{structttak__btree__node_a0686782a39e47e71ef85a16c3818e0c2}{children}};\ \textcolor{comment}{//\ Array\ of\ child\ pointers}}
+\DoxyCodeLine{\Hypertarget{btree_8h_source_l00014}\mbox{\hyperlink{btree_8h_a5f94939042eb0dda439b350b1d82992b}{00014}}\ \}\ \mbox{\hyperlink{btree_8h_a5f94939042eb0dda439b350b1d82992b}{ttak\_btree\_node\_t}};}
+\DoxyCodeLine{\Hypertarget{btree_8h_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{btree_8h_source_l00016}\mbox{\hyperlink{structttak__btree}{00016}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structttak__btree}{ttak\_btree}}\ \{}
+\DoxyCodeLine{\Hypertarget{btree_8h_source_l00017}\mbox{\hyperlink{structttak__btree_a7c3e9cf8f2d3f57e5fed47178202f800}{00017}}\ \ \ \ \ \mbox{\hyperlink{btree_8h_a5f94939042eb0dda439b350b1d82992b}{ttak\_btree\_node\_t}}\ *\mbox{\hyperlink{structttak__btree_a7c3e9cf8f2d3f57e5fed47178202f800}{root}};}
+\DoxyCodeLine{\Hypertarget{btree_8h_source_l00018}\mbox{\hyperlink{structttak__btree_a5b8b480b5cd7d4a1a3cdbc1a487538c5}{00018}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structttak__btree_a5b8b480b5cd7d4a1a3cdbc1a487538c5}{t}};\ \textcolor{comment}{//\ Minimum\ degree\ (defines\ range\ [t-\/1,\ 2t-\/1]\ keys)}}
+\DoxyCodeLine{\Hypertarget{btree_8h_source_l00019}00019\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{btree_8h_source_l00020}\mbox{\hyperlink{structttak__btree_ac4ca3eb61f7f677a2abb28736d97db87}{00020}}\ \ \ \ \ int\ (*\mbox{\hyperlink{structttak__btree_ac4ca3eb61f7f677a2abb28736d97db87}{cmp}})(\textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ *k1,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ *k2);}
+\DoxyCodeLine{\Hypertarget{btree_8h_source_l00021}\mbox{\hyperlink{structttak__btree_a41b2de06225c50610c3449773c3b0eba}{00021}}\ \ \ \ \ void\ (*\mbox{\hyperlink{structttak__btree_a41b2de06225c50610c3449773c3b0eba}{key\_free}})(\textcolor{keywordtype}{void}\ *key);}
+\DoxyCodeLine{\Hypertarget{btree_8h_source_l00022}\mbox{\hyperlink{structttak__btree_ad7f826aaa95bf8101aed70df8bf74a79}{00022}}\ \ \ \ \ void\ (*\mbox{\hyperlink{structttak__btree_ad7f826aaa95bf8101aed70df8bf74a79}{val\_free}})(\textcolor{keywordtype}{void}\ *val);}
+\DoxyCodeLine{\Hypertarget{btree_8h_source_l00023}\mbox{\hyperlink{btree_8h_a97004fc99e5ce4ba125027dd30577544}{00023}}\ \}\ \mbox{\hyperlink{btree_8h_a97004fc99e5ce4ba125027dd30577544}{ttak\_btree\_t}};}
+\DoxyCodeLine{\Hypertarget{btree_8h_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{btree_8h_source_l00025}\mbox{\hyperlink{btree_8h_add5a7980a9183e3891200586a883dcd0}{00025}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{btree_8h_add5a7980a9183e3891200586a883dcd0}{ttak\_btree\_init}}(\mbox{\hyperlink{btree_8h_a97004fc99e5ce4ba125027dd30577544}{ttak\_btree\_t}}\ *tree,\ \textcolor{keywordtype}{int}\ t,\ \textcolor{keywordtype}{int}\ (*cmp)(\textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*),\ \textcolor{keywordtype}{void}\ (*key\_free)(\textcolor{keywordtype}{void}*),\ \textcolor{keywordtype}{void}\ (*val\_free)(\textcolor{keywordtype}{void}*));}
+\DoxyCodeLine{\Hypertarget{btree_8h_source_l00026}\mbox{\hyperlink{btree_8h_a5e0cf134d190b3fbd28f04239d3bbb72}{00026}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{btree_8h_a5e0cf134d190b3fbd28f04239d3bbb72}{ttak\_btree\_insert}}(\mbox{\hyperlink{btree_8h_a97004fc99e5ce4ba125027dd30577544}{ttak\_btree\_t}}\ *tree,\ \textcolor{keywordtype}{void}\ *key,\ \textcolor{keywordtype}{void}\ *value,\ uint64\_t\ now);}
+\DoxyCodeLine{\Hypertarget{btree_8h_source_l00027}\mbox{\hyperlink{btree_8h_aea833018b7b6dffbdf00bc5ec8474332}{00027}}\ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{btree_8h_aea833018b7b6dffbdf00bc5ec8474332}{ttak\_btree\_search}}(\mbox{\hyperlink{btree_8h_a97004fc99e5ce4ba125027dd30577544}{ttak\_btree\_t}}\ *tree,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ *key,\ uint64\_t\ now);}
+\DoxyCodeLine{\Hypertarget{btree_8h_source_l00028}\mbox{\hyperlink{btree_8h_a3fb9aceb407aac9091506d912edbb370}{00028}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{btree_8h_a3fb9aceb407aac9091506d912edbb370}{ttak\_btree\_destroy}}(\mbox{\hyperlink{btree_8h_a97004fc99e5ce4ba125027dd30577544}{ttak\_btree\_t}}\ *tree,\ uint64\_t\ now);}
+\DoxyCodeLine{\Hypertarget{btree_8h_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{btree_8h_source_l00030}00030\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ TTAK\_TREE\_BTREE\_H}}
+
+\end{DoxyCode}

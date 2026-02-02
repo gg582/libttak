@@ -1,0 +1,115 @@
+\doxysection{ttak\+\_\+mem\+\_\+tree Struct Reference}
+\hypertarget{structttak__mem__tree}{}\label{structttak__mem__tree}\index{ttak\_mem\_tree@{ttak\_mem\_tree}}
+
+
+Manages the collection of dynamically allocated memory blocks as a mem tree.  
+
+
+
+
+{\ttfamily \#include $<$mem\+\_\+tree.\+h$>$}
+
+
+
+Collaboration diagram for ttak\+\_\+mem\+\_\+tree\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=221pt]{structttak__mem__tree__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{mem__tree_8h_aa9f7129a1849cc78030b371254a60a77}{ttak\+\_\+mem\+\_\+node\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structttak__mem__tree_a43bbff79cb7fc8772703695aed2989bb}{head}}
+\item 
+pthread\+\_\+mutex\+\_\+t \mbox{\hyperlink{structttak__mem__tree_abc03363062bc93c86d70c60d00812828}{lock}}
+\item 
+\+\_\+\+Atomic uint64\+\_\+t \mbox{\hyperlink{structttak__mem__tree_a73c750f7c5e49d53189686409082a81f}{cleanup\+\_\+interval\+\_\+ns}}
+\item 
+\+\_\+\+Atomic \+\_\+\+Bool \mbox{\hyperlink{structttak__mem__tree_a7bf5a075716a16c6db6f174a8ee85278}{use\+\_\+manual\+\_\+cleanup}}
+\item 
+pthread\+\_\+t \mbox{\hyperlink{structttak__mem__tree_a05f533891d26dee4a3ee9e1997b7b6cc}{cleanup\+\_\+thread}}
+\item 
+\+\_\+\+Atomic \+\_\+\+Bool \mbox{\hyperlink{structttak__mem__tree_ae6e6bee1dd3f2922877d8c96d86275b6}{shutdown\+\_\+requested}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Manages the collection of dynamically allocated memory blocks as a mem tree. 
+
+This structure provides a centralized mechanism for tracking memory allocations, their interdependencies (via reference counts), and their lifetimes. It supports automatic cleanup of expired or unreferenced blocks and allows for manual control over the cleanup process. 
+
+Definition at line \mbox{\hyperlink{mem__tree_8h_source_l00035}{35}} of file \mbox{\hyperlink{mem__tree_8h_source}{mem\+\_\+tree.\+h}}.
+
+
+
+\label{doc-variable-members}
+\Hypertarget{structttak__mem__tree_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{structttak__mem__tree_a73c750f7c5e49d53189686409082a81f}\index{ttak\_mem\_tree@{ttak\_mem\_tree}!cleanup\_interval\_ns@{cleanup\_interval\_ns}}
+\index{cleanup\_interval\_ns@{cleanup\_interval\_ns}!ttak\_mem\_tree@{ttak\_mem\_tree}}
+\doxysubsubsection{\texorpdfstring{cleanup\_interval\_ns}{cleanup\_interval\_ns}}
+{\footnotesize\ttfamily \label{structttak__mem__tree_a73c750f7c5e49d53189686409082a81f} 
+\+\_\+\+Atomic uint64\+\_\+t ttak\+\_\+mem\+\_\+tree\+::cleanup\+\_\+interval\+\_\+ns}
+
+Interval in nanoseconds for automatic cleanup. 
+
+Definition at line \mbox{\hyperlink{mem__tree_8h_source_l00038}{38}} of file \mbox{\hyperlink{mem__tree_8h_source}{mem\+\_\+tree.\+h}}.
+
+\Hypertarget{structttak__mem__tree_a05f533891d26dee4a3ee9e1997b7b6cc}\index{ttak\_mem\_tree@{ttak\_mem\_tree}!cleanup\_thread@{cleanup\_thread}}
+\index{cleanup\_thread@{cleanup\_thread}!ttak\_mem\_tree@{ttak\_mem\_tree}}
+\doxysubsubsection{\texorpdfstring{cleanup\_thread}{cleanup\_thread}}
+{\footnotesize\ttfamily \label{structttak__mem__tree_a05f533891d26dee4a3ee9e1997b7b6cc} 
+pthread\+\_\+t ttak\+\_\+mem\+\_\+tree\+::cleanup\+\_\+thread}
+
+Thread ID for the background automatic cleanup process. 
+
+Definition at line \mbox{\hyperlink{mem__tree_8h_source_l00040}{40}} of file \mbox{\hyperlink{mem__tree_8h_source}{mem\+\_\+tree.\+h}}.
+
+\Hypertarget{structttak__mem__tree_a43bbff79cb7fc8772703695aed2989bb}\index{ttak\_mem\_tree@{ttak\_mem\_tree}!head@{head}}
+\index{head@{head}!ttak\_mem\_tree@{ttak\_mem\_tree}}
+\doxysubsubsection{\texorpdfstring{head}{head}}
+{\footnotesize\ttfamily \label{structttak__mem__tree_a43bbff79cb7fc8772703695aed2989bb} 
+\mbox{\hyperlink{mem__tree_8h_aa9f7129a1849cc78030b371254a60a77}{ttak\+\_\+mem\+\_\+node\+\_\+t}}\texorpdfstring{$\ast$}{*} ttak\+\_\+mem\+\_\+tree\+::head}
+
+Head of the linked list of all tracked mem nodes. 
+
+Definition at line \mbox{\hyperlink{mem__tree_8h_source_l00036}{36}} of file \mbox{\hyperlink{mem__tree_8h_source}{mem\+\_\+tree.\+h}}.
+
+\Hypertarget{structttak__mem__tree_abc03363062bc93c86d70c60d00812828}\index{ttak\_mem\_tree@{ttak\_mem\_tree}!lock@{lock}}
+\index{lock@{lock}!ttak\_mem\_tree@{ttak\_mem\_tree}}
+\doxysubsubsection{\texorpdfstring{lock}{lock}}
+{\footnotesize\ttfamily \label{structttak__mem__tree_abc03363062bc93c86d70c60d00812828} 
+pthread\+\_\+mutex\+\_\+t ttak\+\_\+mem\+\_\+tree\+::lock}
+
+Mutex for thread-\/safe access to the mem tree structure. 
+
+Definition at line \mbox{\hyperlink{mem__tree_8h_source_l00037}{37}} of file \mbox{\hyperlink{mem__tree_8h_source}{mem\+\_\+tree.\+h}}.
+
+\Hypertarget{structttak__mem__tree_ae6e6bee1dd3f2922877d8c96d86275b6}\index{ttak\_mem\_tree@{ttak\_mem\_tree}!shutdown\_requested@{shutdown\_requested}}
+\index{shutdown\_requested@{shutdown\_requested}!ttak\_mem\_tree@{ttak\_mem\_tree}}
+\doxysubsubsection{\texorpdfstring{shutdown\_requested}{shutdown\_requested}}
+{\footnotesize\ttfamily \label{structttak__mem__tree_ae6e6bee1dd3f2922877d8c96d86275b6} 
+\+\_\+\+Atomic \+\_\+\+Bool ttak\+\_\+mem\+\_\+tree\+::shutdown\+\_\+requested}
+
+Flag to signal the cleanup thread to terminate. 
+
+Definition at line \mbox{\hyperlink{mem__tree_8h_source_l00041}{41}} of file \mbox{\hyperlink{mem__tree_8h_source}{mem\+\_\+tree.\+h}}.
+
+\Hypertarget{structttak__mem__tree_a7bf5a075716a16c6db6f174a8ee85278}\index{ttak\_mem\_tree@{ttak\_mem\_tree}!use\_manual\_cleanup@{use\_manual\_cleanup}}
+\index{use\_manual\_cleanup@{use\_manual\_cleanup}!ttak\_mem\_tree@{ttak\_mem\_tree}}
+\doxysubsubsection{\texorpdfstring{use\_manual\_cleanup}{use\_manual\_cleanup}}
+{\footnotesize\ttfamily \label{structttak__mem__tree_a7bf5a075716a16c6db6f174a8ee85278} 
+\+\_\+\+Atomic \+\_\+\+Bool ttak\+\_\+mem\+\_\+tree\+::use\+\_\+manual\+\_\+cleanup}
+
+Flag to disable automatic cleanup (1 for manual, 0 for auto). 
+
+Definition at line \mbox{\hyperlink{mem__tree_8h_source_l00039}{39}} of file \mbox{\hyperlink{mem__tree_8h_source}{mem\+\_\+tree.\+h}}.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/ttak/mem\+\_\+tree/\mbox{\hyperlink{mem__tree_8h}{mem\+\_\+tree.\+h}}\end{DoxyCompactItemize}

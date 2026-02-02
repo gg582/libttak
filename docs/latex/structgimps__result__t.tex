@@ -1,0 +1,93 @@
+\doxysection{gimps\+\_\+result\+\_\+t Struct Reference}
+\hypertarget{structgimps__result__t}{}\label{structgimps__result__t}\index{gimps\_result\_t@{gimps\_result\_t}}
+
+
+GIMPS Result structure for reporting and retry queue.  
+
+
+
+
+{\ttfamily \#include $<$app\+\_\+types.\+h$>$}
+
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{structgimps__result__t_a7482d2276caaac227a694feba9c754cf}{p}}
+\item 
+uint64\+\_\+t \mbox{\hyperlink{structgimps__result__t_ad9af60e85ed442532a6120c7f5db825a}{residue}}
+\item 
+bool \mbox{\hyperlink{structgimps__result__t_a92fb4ed790aa327968aaa0cacbd356d9}{is\+\_\+prime}}
+\item 
+int \mbox{\hyperlink{structgimps__result__t_a3077b7c59ae0dbddc0e3a108588d986e}{status}}
+\item 
+char \mbox{\hyperlink{structgimps__result__t_a2d23b11a81bfc5b0979ba4ca0a6d4aa1}{padding}} \mbox{[}0\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+GIMPS Result structure for reporting and retry queue. 
+
+Memory Layout\+: +-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/---+-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/---+-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/---+ \texorpdfstring{$\vert$}{|} p (uint32\+\_\+t) \texorpdfstring{$\vert$}{|} residue (uint64\+\_\+t)\texorpdfstring{$\vert$}{|} is\+\_\+prime (bool) \texorpdfstring{$\vert$}{|} +-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/---+-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/---+-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/---+ \texorpdfstring{$\vert$}{|} status (int) \texorpdfstring{$\vert$}{|} padding (64b) \texorpdfstring{$\vert$}{|} +-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/---+-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/---+-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/---+ 
+
+Definition at line \mbox{\hyperlink{apps_2mersenne-prime_2internal_2app__types_8h_source_l00019}{19}} of file \mbox{\hyperlink{apps_2mersenne-prime_2internal_2app__types_8h_source}{app\+\_\+types.\+h}}.
+
+
+
+\label{doc-variable-members}
+\Hypertarget{structgimps__result__t_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{structgimps__result__t_a92fb4ed790aa327968aaa0cacbd356d9}\index{gimps\_result\_t@{gimps\_result\_t}!is\_prime@{is\_prime}}
+\index{is\_prime@{is\_prime}!gimps\_result\_t@{gimps\_result\_t}}
+\doxysubsubsection{\texorpdfstring{is\_prime}{is\_prime}}
+{\footnotesize\ttfamily \label{structgimps__result__t_a92fb4ed790aa327968aaa0cacbd356d9} 
+bool gimps\+\_\+result\+\_\+t\+::is\+\_\+prime}
+
+
+
+Definition at line \mbox{\hyperlink{apps_2mersenne-prime_2internal_2app__types_8h_source_l00022}{22}} of file \mbox{\hyperlink{apps_2mersenne-prime_2internal_2app__types_8h_source}{app\+\_\+types.\+h}}.
+
+\Hypertarget{structgimps__result__t_a7482d2276caaac227a694feba9c754cf}\index{gimps\_result\_t@{gimps\_result\_t}!p@{p}}
+\index{p@{p}!gimps\_result\_t@{gimps\_result\_t}}
+\doxysubsubsection{\texorpdfstring{p}{p}}
+{\footnotesize\ttfamily \label{structgimps__result__t_a7482d2276caaac227a694feba9c754cf} 
+uint32\+\_\+t gimps\+\_\+result\+\_\+t\+::p}
+
+
+
+Definition at line \mbox{\hyperlink{apps_2mersenne-prime_2internal_2app__types_8h_source_l00020}{20}} of file \mbox{\hyperlink{apps_2mersenne-prime_2internal_2app__types_8h_source}{app\+\_\+types.\+h}}.
+
+\Hypertarget{structgimps__result__t_a2d23b11a81bfc5b0979ba4ca0a6d4aa1}\index{gimps\_result\_t@{gimps\_result\_t}!padding@{padding}}
+\index{padding@{padding}!gimps\_result\_t@{gimps\_result\_t}}
+\doxysubsubsection{\texorpdfstring{padding}{padding}}
+{\footnotesize\ttfamily \label{structgimps__result__t_a2d23b11a81bfc5b0979ba4ca0a6d4aa1} 
+char gimps\+\_\+result\+\_\+t\+::padding\mbox{[}0\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{apps_2mersenne-prime_2internal_2app__types_8h_source_l00024}{24}} of file \mbox{\hyperlink{apps_2mersenne-prime_2internal_2app__types_8h_source}{app\+\_\+types.\+h}}.
+
+\Hypertarget{structgimps__result__t_ad9af60e85ed442532a6120c7f5db825a}\index{gimps\_result\_t@{gimps\_result\_t}!residue@{residue}}
+\index{residue@{residue}!gimps\_result\_t@{gimps\_result\_t}}
+\doxysubsubsection{\texorpdfstring{residue}{residue}}
+{\footnotesize\ttfamily \label{structgimps__result__t_ad9af60e85ed442532a6120c7f5db825a} 
+uint64\+\_\+t gimps\+\_\+result\+\_\+t\+::residue}
+
+
+
+Definition at line \mbox{\hyperlink{apps_2mersenne-prime_2internal_2app__types_8h_source_l00021}{21}} of file \mbox{\hyperlink{apps_2mersenne-prime_2internal_2app__types_8h_source}{app\+\_\+types.\+h}}.
+
+\Hypertarget{structgimps__result__t_a3077b7c59ae0dbddc0e3a108588d986e}\index{gimps\_result\_t@{gimps\_result\_t}!status@{status}}
+\index{status@{status}!gimps\_result\_t@{gimps\_result\_t}}
+\doxysubsubsection{\texorpdfstring{status}{status}}
+{\footnotesize\ttfamily \label{structgimps__result__t_a3077b7c59ae0dbddc0e3a108588d986e} 
+int gimps\+\_\+result\+\_\+t\+::status}
+
+
+
+Definition at line \mbox{\hyperlink{apps_2mersenne-prime_2internal_2app__types_8h_source_l00023}{23}} of file \mbox{\hyperlink{apps_2mersenne-prime_2internal_2app__types_8h_source}{app\+\_\+types.\+h}}.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+apps/mersenne-\/prime/internal/\mbox{\hyperlink{apps_2mersenne-prime_2internal_2app__types_8h}{app\+\_\+types.\+h}}\end{DoxyCompactItemize}

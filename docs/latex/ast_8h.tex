@@ -1,0 +1,84 @@
+\doxysection{include/ttak/tree/ast.h File Reference}
+\hypertarget{ast_8h}{}\label{ast_8h}\index{include/ttak/tree/ast.h@{include/ttak/tree/ast.h}}
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+Include dependency graph for ast.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=285pt]{ast_8h__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structttak__ast__node}{ttak\+\_\+ast\+\_\+node}}
+\item 
+struct \mbox{\hyperlink{structttak__ast__tree}{ttak\+\_\+ast\+\_\+tree}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{structttak__ast__node}{ttak\+\_\+ast\+\_\+node}} \mbox{\hyperlink{ast_8h_af6f9447fb5efbad1f370e82ba9f329e9}{ttak\+\_\+ast\+\_\+node\+\_\+t}}
+\item 
+typedef struct \mbox{\hyperlink{structttak__ast__tree}{ttak\+\_\+ast\+\_\+tree}} \mbox{\hyperlink{ast_8h_ad44ef89627e87a7c4aad13fc4564f1b1}{ttak\+\_\+ast\+\_\+tree\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{ast_8h_aebbcc071ac34541207ac87f73bbaec1d}{ttak\+\_\+ast\+\_\+tree\+\_\+init}} (\mbox{\hyperlink{ast_8h_ad44ef89627e87a7c4aad13fc4564f1b1}{ttak\+\_\+ast\+\_\+tree\+\_\+t}} \texorpdfstring{$\ast$}{*}tree, void(\texorpdfstring{$\ast$}{*}free\+\_\+value)(void \texorpdfstring{$\ast$}{*}))
+\item 
+\mbox{\hyperlink{ast_8h_af6f9447fb5efbad1f370e82ba9f329e9}{ttak\+\_\+ast\+\_\+node\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{ast_8h_a4e4a3e6e21dc39964e2c689b5b3dee96}{ttak\+\_\+ast\+\_\+create\+\_\+node}} (int type, void \texorpdfstring{$\ast$}{*}value, uint64\+\_\+t now)
+\item 
+void \mbox{\hyperlink{ast_8h_a54984432553ab53fea6a488835597a6b}{ttak\+\_\+ast\+\_\+add\+\_\+child}} (\mbox{\hyperlink{ast_8h_af6f9447fb5efbad1f370e82ba9f329e9}{ttak\+\_\+ast\+\_\+node\+\_\+t}} \texorpdfstring{$\ast$}{*}parent, \mbox{\hyperlink{ast_8h_af6f9447fb5efbad1f370e82ba9f329e9}{ttak\+\_\+ast\+\_\+node\+\_\+t}} \texorpdfstring{$\ast$}{*}child, uint64\+\_\+t now)
+\item 
+void \mbox{\hyperlink{ast_8h_a095479cf7ef707f72ca914ebde1c07d7}{ttak\+\_\+ast\+\_\+tree\+\_\+destroy}} (\mbox{\hyperlink{ast_8h_ad44ef89627e87a7c4aad13fc4564f1b1}{ttak\+\_\+ast\+\_\+tree\+\_\+t}} \texorpdfstring{$\ast$}{*}tree, uint64\+\_\+t now)
+\end{DoxyCompactItemize}
+
+
+\label{doc-typedef-members}
+\Hypertarget{ast_8h_doc-typedef-members}
+\doxysubsection{Typedef Documentation}
+\Hypertarget{ast_8h_af6f9447fb5efbad1f370e82ba9f329e9}\index{ast.h@{ast.h}!ttak\_ast\_node\_t@{ttak\_ast\_node\_t}}
+\index{ttak\_ast\_node\_t@{ttak\_ast\_node\_t}!ast.h@{ast.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_ast\_node\_t}{ttak\_ast\_node\_t}}
+{\footnotesize\ttfamily \label{ast_8h_af6f9447fb5efbad1f370e82ba9f329e9} 
+typedef struct \mbox{\hyperlink{structttak__ast__node}{ttak\+\_\+ast\+\_\+node}} \mbox{\hyperlink{ast_8h_af6f9447fb5efbad1f370e82ba9f329e9}{ttak\+\_\+ast\+\_\+node\+\_\+t}}}
+
+\Hypertarget{ast_8h_ad44ef89627e87a7c4aad13fc4564f1b1}\index{ast.h@{ast.h}!ttak\_ast\_tree\_t@{ttak\_ast\_tree\_t}}
+\index{ttak\_ast\_tree\_t@{ttak\_ast\_tree\_t}!ast.h@{ast.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_ast\_tree\_t}{ttak\_ast\_tree\_t}}
+{\footnotesize\ttfamily \label{ast_8h_ad44ef89627e87a7c4aad13fc4564f1b1} 
+typedef struct \mbox{\hyperlink{structttak__ast__tree}{ttak\+\_\+ast\+\_\+tree}} \mbox{\hyperlink{ast_8h_ad44ef89627e87a7c4aad13fc4564f1b1}{ttak\+\_\+ast\+\_\+tree\+\_\+t}}}
+
+
+
+\label{doc-func-members}
+\Hypertarget{ast_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{ast_8h_a54984432553ab53fea6a488835597a6b}\index{ast.h@{ast.h}!ttak\_ast\_add\_child@{ttak\_ast\_add\_child}}
+\index{ttak\_ast\_add\_child@{ttak\_ast\_add\_child}!ast.h@{ast.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_ast\_add\_child()}{ttak\_ast\_add\_child()}}
+{\footnotesize\ttfamily \label{ast_8h_a54984432553ab53fea6a488835597a6b} 
+void ttak\+\_\+ast\+\_\+add\+\_\+child (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ast_8h_af6f9447fb5efbad1f370e82ba9f329e9}{ttak\+\_\+ast\+\_\+node\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{parent}{, }\item[{\mbox{\hyperlink{ast_8h_af6f9447fb5efbad1f370e82ba9f329e9}{ttak\+\_\+ast\+\_\+node\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{child}{, }\item[{uint64\+\_\+t}]{now}{}\end{DoxyParamCaption})}
+
+\Hypertarget{ast_8h_a4e4a3e6e21dc39964e2c689b5b3dee96}\index{ast.h@{ast.h}!ttak\_ast\_create\_node@{ttak\_ast\_create\_node}}
+\index{ttak\_ast\_create\_node@{ttak\_ast\_create\_node}!ast.h@{ast.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_ast\_create\_node()}{ttak\_ast\_create\_node()}}
+{\footnotesize\ttfamily \label{ast_8h_a4e4a3e6e21dc39964e2c689b5b3dee96} 
+\mbox{\hyperlink{ast_8h_af6f9447fb5efbad1f370e82ba9f329e9}{ttak\+\_\+ast\+\_\+node\+\_\+t}} \texorpdfstring{$\ast$}{*} ttak\+\_\+ast\+\_\+create\+\_\+node (\begin{DoxyParamCaption}\item[{int}]{type}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{value}{, }\item[{uint64\+\_\+t}]{now}{}\end{DoxyParamCaption})}
+
+\Hypertarget{ast_8h_a095479cf7ef707f72ca914ebde1c07d7}\index{ast.h@{ast.h}!ttak\_ast\_tree\_destroy@{ttak\_ast\_tree\_destroy}}
+\index{ttak\_ast\_tree\_destroy@{ttak\_ast\_tree\_destroy}!ast.h@{ast.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_ast\_tree\_destroy()}{ttak\_ast\_tree\_destroy()}}
+{\footnotesize\ttfamily \label{ast_8h_a095479cf7ef707f72ca914ebde1c07d7} 
+void ttak\+\_\+ast\+\_\+tree\+\_\+destroy (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ast_8h_ad44ef89627e87a7c4aad13fc4564f1b1}{ttak\+\_\+ast\+\_\+tree\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{tree}{, }\item[{uint64\+\_\+t}]{now}{}\end{DoxyParamCaption})}
+
+\Hypertarget{ast_8h_aebbcc071ac34541207ac87f73bbaec1d}\index{ast.h@{ast.h}!ttak\_ast\_tree\_init@{ttak\_ast\_tree\_init}}
+\index{ttak\_ast\_tree\_init@{ttak\_ast\_tree\_init}!ast.h@{ast.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_ast\_tree\_init()}{ttak\_ast\_tree\_init()}}
+{\footnotesize\ttfamily \label{ast_8h_aebbcc071ac34541207ac87f73bbaec1d} 
+void ttak\+\_\+ast\+\_\+tree\+\_\+init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ast_8h_ad44ef89627e87a7c4aad13fc4564f1b1}{ttak\+\_\+ast\+\_\+tree\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{tree}{, }\item[{void(\texorpdfstring{$\ast$}{*}}]{free\+\_\+value~}{)(void \texorpdfstring{$\ast$}{*})}\end{DoxyParamCaption})}
+

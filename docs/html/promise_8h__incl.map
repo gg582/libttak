@@ -1,0 +1,34 @@
+<map id="include/ttak/async/promise.h" name="include/ttak/async/promise.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="304,5,445,50"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="170,418,240,445"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="304,32,212,40,163,49,115,63,73,83,39,110,26,126,16,144,10,164,8,186,8,273,12,299,23,323,39,344,60,363,108,392,156,413,154,418,106,397,56,367,35,348,18,326,7,301,3,273,3,186,5,163,11,142,21,123,35,106,70,79,113,58,162,44,212,34,304,26"/>
+<area shape="rect" id="Node000003" href="$future_8h.html" title=" " alt="" coords="544,98,688,126"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="440,48,564,90,562,95,438,53"/>
+<area shape="rect" id="Node000006" href="$pool_8h.html" title=" " alt="" coords="193,98,330,126"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="346,53,293,91,290,86,343,48"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="524,342,607,370"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="616,127,574,327,569,326,611,126"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="654,174,735,201"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="632,124,671,161,668,165,628,128"/>
+<area shape="poly" id="edge7_Node000006_Node000002" title=" " alt="" coords="206,129,164,147,145,160,129,175,103,215,92,252,85,342,82,356,85,368,99,385,116,398,156,417,154,421,114,403,95,389,80,371,77,357,80,342,87,251,98,213,125,172,142,156,162,142,204,124"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="94,342,167,370"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="213,129,176,147,160,160,146,175,130,213,123,254,124,294,128,327,122,328,118,294,118,254,125,211,142,172,156,156,173,142,211,124"/>
+<area shape="rect" id="Node000008" href="$task_8h.html" title=" " alt="" coords="243,342,376,370"/>
+<area shape="poly" id="edge8_Node000006_Node000008" title=" " alt="" coords="283,124,306,145,325,173,335,214,336,256,330,295,321,328,316,326,324,294,330,256,330,214,320,175,302,148,279,128"/>
+<area shape="rect" id="Node000009" href="$worker_8h.html" title=" " alt="" coords="385,174,538,201"/>
+<area shape="poly" id="edge10_Node000006_Node000009" title=" " alt="" coords="298,124,412,165,411,171,296,129"/>
+<area shape="rect" id="Node000011" href="$queue_8h.html" title=" " alt="" coords="156,174,310,201"/>
+<area shape="poly" id="edge15_Node000006_Node000011" title=" " alt="" coords="259,127,246,160,241,158,254,125"/>
+<area shape="poly" id="edge9_Node000008_Node000002" title=" " alt="" coords="292,372,237,411,234,407,289,368"/>
+<area shape="poly" id="edge14_Node000009_Node000001" title=" " alt="" coords="452,174,391,65,396,62,456,172"/>
+<area shape="poly" id="edge13_Node000009_Node000002" title=" " alt="" coords="459,203,421,300,390,371,359,394,325,410,257,428,256,422,323,405,357,389,386,368,416,298,454,201"/>
+<area shape="poly" id="edge11_Node000009_Node000004" title=" " alt="" coords="488,200,517,220,542,248,559,287,566,326,561,327,554,289,538,251,513,224,485,204"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="450,258,528,286"/>
+<area shape="poly" id="edge12_Node000009_Node000010" title=" " alt="" coords="468,201,483,242,478,244,463,203"/>
+<area shape="rect" id="Node000012" href="$internal_2queue_8h.html" title=" " alt="" coords="157,249,310,294"/>
+<area shape="poly" id="edge16_Node000011_Node000012" title=" " alt="" coords="236,202,236,233,231,233,231,202"/>
+<area shape="poly" id="edge19_Node000012_Node000002" title=" " alt="" coords="232,295,213,402,208,402,227,294"/>
+<area shape="poly" id="edge20_Node000012_Node000004" title=" " alt="" coords="311,289,509,338,508,343,309,294"/>
+<area shape="poly" id="edge18_Node000012_Node000007" title=" " alt="" coords="208,297,161,334,158,330,205,292"/>
+<area shape="poly" id="edge17_Node000012_Node000008" title=" " alt="" coords="255,293,289,329,285,332,251,296"/>
+</map>

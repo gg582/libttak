@@ -1,0 +1,22 @@
+\doxysection{future.\+h}
+\hypertarget{future_8h_source}{}\label{future_8h_source}\index{include/ttak/async/future.h@{include/ttak/async/future.h}}
+\mbox{\hyperlink{future_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{future_8h_source_l00001}00001\ \textcolor{preprocessor}{\#ifndef\ TTAK\_ASYNC\_FUTURE\_H}}
+\DoxyCodeLine{\Hypertarget{future_8h_source_l00002}00002\ \textcolor{preprocessor}{\#define\ TTAK\_ASYNC\_FUTURE\_H}}
+\DoxyCodeLine{\Hypertarget{future_8h_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{future_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <pthread.h>}}
+\DoxyCodeLine{\Hypertarget{future_8h_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{\Hypertarget{future_8h_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{future_8h_source_l00007}\mbox{\hyperlink{structttak__future}{00007}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structttak__future}{ttak\_future}}\ \{}
+\DoxyCodeLine{\Hypertarget{future_8h_source_l00008}\mbox{\hyperlink{structttak__future_a486767b89d5b5f842a868f614632cc42}{00008}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ \ *\mbox{\hyperlink{structttak__future_a486767b89d5b5f842a868f614632cc42}{result}};}
+\DoxyCodeLine{\Hypertarget{future_8h_source_l00009}\mbox{\hyperlink{structttak__future_a16a9ed5137851ca5cc7387fed679269a}{00009}}\ \ \ \ \ \_Bool\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structttak__future_a16a9ed5137851ca5cc7387fed679269a}{ready}};}
+\DoxyCodeLine{\Hypertarget{future_8h_source_l00010}\mbox{\hyperlink{structttak__future_a0c6c4437d3e6f0c8d89745dc178c626f}{00010}}\ \ \ \ \ pthread\_mutex\_t\ \mbox{\hyperlink{structttak__future_a0c6c4437d3e6f0c8d89745dc178c626f}{mutex}};}
+\DoxyCodeLine{\Hypertarget{future_8h_source_l00011}\mbox{\hyperlink{structttak__future_a51864bb1d03b06e09cb18262b2bd3675}{00011}}\ \ \ \ \ pthread\_cond\_t\ \ \mbox{\hyperlink{structttak__future_a51864bb1d03b06e09cb18262b2bd3675}{cond}};}
+\DoxyCodeLine{\Hypertarget{future_8h_source_l00012}\mbox{\hyperlink{future_8h_a56ca146ef4be9bd1d67a1250de2ce2c2}{00012}}\ \}\ \mbox{\hyperlink{future_8h_a56ca146ef4be9bd1d67a1250de2ce2c2}{ttak\_future\_t}};}
+\DoxyCodeLine{\Hypertarget{future_8h_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{future_8h_source_l00014}\mbox{\hyperlink{future_8h_a5c44aae0f472071a500c1c6a265ba7d0}{00014}}\ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{future_8h_a5c44aae0f472071a500c1c6a265ba7d0}{ttak\_future\_get}}(\mbox{\hyperlink{future_8h_a56ca146ef4be9bd1d67a1250de2ce2c2}{ttak\_future\_t}}\ *future);}
+\DoxyCodeLine{\Hypertarget{future_8h_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{future_8h_source_l00016}00016\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ TTAK\_ASYNC\_FUTURE\_H}}
+
+\end{DoxyCode}

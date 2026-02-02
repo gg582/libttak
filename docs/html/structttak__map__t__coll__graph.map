@@ -1,0 +1,5 @@
+<map id="ttak_map_t" name="ttak_map_t">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,106,101,134"/>
+<area shape="rect" id="Node000002" href="$struct__node.html" title="Node structure with max_align_t padding for Raspberry Pi compatibility." alt="" coords="23,5,83,33"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="56,49,56,105,50,105,50,49"/>
+</map>

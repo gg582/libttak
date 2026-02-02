@@ -1,0 +1,33 @@
+\doxysection{bigcomplex.\+h}
+\hypertarget{bigcomplex_8h_source}{}\label{bigcomplex_8h_source}\index{include/ttak/math/bigcomplex.h@{include/ttak/math/bigcomplex.h}}
+\mbox{\hyperlink{bigcomplex_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{bigcomplex_8h_source_l00001}00001\ \textcolor{preprocessor}{\#ifndef\ TTAK\_MATH\_BIGCOMPLEX\_H}}
+\DoxyCodeLine{\Hypertarget{bigcomplex_8h_source_l00002}00002\ \textcolor{preprocessor}{\#define\ TTAK\_MATH\_BIGCOMPLEX\_H}}
+\DoxyCodeLine{\Hypertarget{bigcomplex_8h_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{bigcomplex_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{bigreal_8h}{ttak/math/bigreal.h}}>}}
+\DoxyCodeLine{\Hypertarget{bigcomplex_8h_source_l00005}00005\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{bigcomplex_8h_source_l00006}00006\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{bigcomplex_8h_source_l00007}00007\ \textcolor{comment}{\ *\ @brief\ Arbitrary-\/precision\ complex\ number\ engine.}}
+\DoxyCodeLine{\Hypertarget{bigcomplex_8h_source_l00008}00008\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{bigcomplex_8h_source_l00009}\mbox{\hyperlink{structttak__bigcomplex}{00009}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structttak__bigcomplex}{ttak\_bigcomplex}}\ \{}
+\DoxyCodeLine{\Hypertarget{bigcomplex_8h_source_l00010}\mbox{\hyperlink{structttak__bigcomplex_a1d59e97e0dd21673bd94fbc59a911e42}{00010}}\ \ \ \ \ \mbox{\hyperlink{bigreal_8h_ab9368b32d51ca2bce882ba0dbf872b4a}{ttak\_bigreal\_t}}\ \mbox{\hyperlink{structttak__bigcomplex_a1d59e97e0dd21673bd94fbc59a911e42}{real}};}
+\DoxyCodeLine{\Hypertarget{bigcomplex_8h_source_l00011}\mbox{\hyperlink{structttak__bigcomplex_a1b3f7801aec29ba95d31a56b2806a04e}{00011}}\ \ \ \ \ \mbox{\hyperlink{bigreal_8h_ab9368b32d51ca2bce882ba0dbf872b4a}{ttak\_bigreal\_t}}\ \mbox{\hyperlink{structttak__bigcomplex_a1b3f7801aec29ba95d31a56b2806a04e}{imag}};}
+\DoxyCodeLine{\Hypertarget{bigcomplex_8h_source_l00012}\mbox{\hyperlink{structttak__bigcomplex_acbf33dbf892c024cdc6c3b0a2153bb96}{00012}}\ \ \ \ \ \textcolor{keyword}{alignas}(max\_align\_t)\ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{structttak__bigcomplex_acbf33dbf892c024cdc6c3b0a2153bb96}{padding}}[0];}
+\DoxyCodeLine{\Hypertarget{bigcomplex_8h_source_l00013}\mbox{\hyperlink{bigcomplex_8h_a28f8ce3416725c0e855b788cb9d610bb}{00013}}\ \}\ \mbox{\hyperlink{bigcomplex_8h_a28f8ce3416725c0e855b788cb9d610bb}{ttak\_bigcomplex\_t}};}
+\DoxyCodeLine{\Hypertarget{bigcomplex_8h_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{bigcomplex_8h_source_l00015}\mbox{\hyperlink{bigcomplex_8h_a3cd46df0ea0082eae70be67f134c7a97}{00015}}\ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{bigcomplex_8h_a28f8ce3416725c0e855b788cb9d610bb}{ttak\_bigcomplex\_t}}\ \mbox{\hyperlink{bigcomplex_8h_a3cd46df0ea0082eae70be67f134c7a97}{tt\_big\_c\_t}};}
+\DoxyCodeLine{\Hypertarget{bigcomplex_8h_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{bigcomplex_8h_source_l00017}\mbox{\hyperlink{bigcomplex_8h_a9e35515010948f9dd479f83628b30800}{00017}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{bigcomplex_8h_a9e35515010948f9dd479f83628b30800}{ttak\_bigcomplex\_init}}(\mbox{\hyperlink{bigcomplex_8h_a28f8ce3416725c0e855b788cb9d610bb}{ttak\_bigcomplex\_t}}\ *bc,\ uint64\_t\ now);}
+\DoxyCodeLine{\Hypertarget{bigcomplex_8h_source_l00018}\mbox{\hyperlink{bigcomplex_8h_a501c815966bc1dd6cd68857bd9549ea4}{00018}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{bigcomplex_8h_a501c815966bc1dd6cd68857bd9549ea4}{ttak\_bigcomplex\_free}}(\mbox{\hyperlink{bigcomplex_8h_a28f8ce3416725c0e855b788cb9d610bb}{ttak\_bigcomplex\_t}}\ *bc,\ uint64\_t\ now);}
+\DoxyCodeLine{\Hypertarget{bigcomplex_8h_source_l00019}00019\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{bigcomplex_8h_source_l00020}00020\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{bigcomplex_8h_source_l00021}00021\ \textcolor{comment}{\ *\ @brief\ Adds\ two\ complex\ numbers\ component-\/wise.}}
+\DoxyCodeLine{\Hypertarget{bigcomplex_8h_source_l00022}00022\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{bigcomplex_8h_source_l00023}00023\ \textcolor{comment}{\ *\ Returns\ false\ if\ underlying\ real\ additions\ fail.}}
+\DoxyCodeLine{\Hypertarget{bigcomplex_8h_source_l00024}00024\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{bigcomplex_8h_source_l00025}\mbox{\hyperlink{bigcomplex_8h_a0644bb5f597423ca76b80d06386157cf}{00025}}\ \_Bool\ \mbox{\hyperlink{bigcomplex_8h_a0644bb5f597423ca76b80d06386157cf}{ttak\_bigcomplex\_add}}(\mbox{\hyperlink{bigcomplex_8h_a28f8ce3416725c0e855b788cb9d610bb}{ttak\_bigcomplex\_t}}\ *dst,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{bigcomplex_8h_a28f8ce3416725c0e855b788cb9d610bb}{ttak\_bigcomplex\_t}}\ *lhs,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{bigcomplex_8h_a28f8ce3416725c0e855b788cb9d610bb}{ttak\_bigcomplex\_t}}\ *rhs,\ uint64\_t\ now);}
+\DoxyCodeLine{\Hypertarget{bigcomplex_8h_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{bigcomplex_8h_source_l00027}00027\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ TTAK\_MATH\_BIGCOMPLEX\_H}}
+
+\end{DoxyCode}

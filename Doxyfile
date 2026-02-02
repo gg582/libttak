@@ -1,0 +1,63 @@
+# --- Project Information ---
+PROJECT_NAME           = "libttak"
+PROJECT_NUMBER         = "1.0.0"
+PROJECT_BRIEF          = "High-performance Atomic, Threading, and Multi-precision Math Library"
+
+# --- Build Configuration ---
+OUTPUT_DIRECTORY       = "./docs"
+CREATE_SUBDIRECTORIES  = YES
+CREATE_SUBDIRECTORIES  = YES
+OPTIMIZE_OUTPUT_FOR_C  = NO
+GENERATE_TREEVIEW      = YES
+USE_MDFILE_AS_MAINPAGE = README.md
+
+# --- Input Selection ---
+# Include the root, source, headers, and the blueprints directory
+INPUT                  = . ./src ./include ./blueprints
+RECURSIVE              = YES
+# Patterns to capture C++ files, Markdown for docs, and PUML for diagrams
+FILE_PATTERNS          = *.cpp *.h *.hpp *.md *.puml
+EXCLUDE                = ./build ./external ./tests
+
+# --- Documentation Extraction ---
+EXTRACT_ALL            = YES
+EXTRACT_PRIVATE        = YES
+EXTRACT_STATIC         = YES
+
+# --- Source Browsing ---
+SOURCE_BROWSER         = YES
+STRIP_CODE_COMMENTS    = NO
+
+# --- Diagrams and Visualization (Graphviz/DOT) ---
+HAVE_DOT               = YES
+DOT_PATH               = /usr/bin/dot
+CLASS_GRAPH            = YES
+COLLABORATION_GRAPH    = YES
+GROUP_GRAPHS           = YES
+TEMPLATE_RELATIONS     = YES
+INCLUDE_GRAPH          = YES
+INCLUDED_BY_GRAPH      = YES
+CALL_GRAPH             = YES
+CALLER_GRAPH           = YES
+GRAPHICAL_HIERARCHY    = YES
+DIRECTORY_GRAPH        = YES
+DOT_IMAGE_FORMAT       = png
+DOT_GRAPH_MAX_NODES    = 100
+
+# --- PlantUML Integration ---
+# Path to the PlantUML jar. Adjust this path if your installation differs.
+PLANTUML_JAR_PATH      = /usr/share/java/plantuml.jar
+# Search path for images or !include commands in PUML files
+IMAGE_PATH             = ./blueprints
+
+# --- HTML Output Style ---
+GENERATE_HTML          = YES
+HTML_OUTPUT            = html
+HTML_FILE_EXTENSION    = .html
+# Modern navigation style
+HTML_DYNAMIC_MENUS     = YES
+HTML_DYNAMIC_SECTIONS  = YES
+
+# --- Language & Encoding ---
+OUTPUT_LANGUAGE        = English
+DOXYFILE_ENCODING      = UTF-8

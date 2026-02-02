@@ -1,0 +1,5 @@
+<map id="ttak_bigreal" name="ttak_bigreal">
+<area shape="rect" id="Node000001" title="Arbitrary&#45;precision real number engine." alt="" coords="5,106,105,134"/>
+<area shape="rect" id="Node000002" href="$structttak__bigint.html" title="Arbitrary&#45;precision integer engine with Small Stack Optimization (SSO)." alt="" coords="9,5,101,33"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="58,49,58,105,52,105,52,49"/>
+</map>

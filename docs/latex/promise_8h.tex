@@ -1,0 +1,74 @@
+\doxysection{include/ttak/async/promise.h File Reference}
+\hypertarget{promise_8h}{}\label{promise_8h}\index{include/ttak/async/promise.h@{include/ttak/async/promise.h}}
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$ttak/async/future.\+h$>$}\newline
+{\ttfamily \#include $<$ttak/thread/pool.\+h$>$}\newline
+Include dependency graph for promise.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{promise_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=229pt]{promise_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structttak__promise}{ttak\+\_\+promise}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{structttak__promise}{ttak\+\_\+promise}} \mbox{\hyperlink{promise_8h_aa604edbaa7c611ec386757f8db43d1e3}{ttak\+\_\+promise\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{promise_8h_aa604edbaa7c611ec386757f8db43d1e3}{ttak\+\_\+promise\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{promise_8h_aeb1b9a9332785b2e897acf0a04bf4033}{ttak\+\_\+promise\+\_\+create}} (uint64\+\_\+t now)
+\item 
+void \mbox{\hyperlink{promise_8h_ae4d7300d418736b6deb56f8c19d8b52f}{ttak\+\_\+promise\+\_\+set\+\_\+value}} (\mbox{\hyperlink{promise_8h_aa604edbaa7c611ec386757f8db43d1e3}{ttak\+\_\+promise\+\_\+t}} \texorpdfstring{$\ast$}{*}promise, void \texorpdfstring{$\ast$}{*}val, uint64\+\_\+t now)
+\item 
+\mbox{\hyperlink{future_8h_a56ca146ef4be9bd1d67a1250de2ce2c2}{ttak\+\_\+future\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{promise_8h_a44baea2754e16f9017be08a8e94654b2}{ttak\+\_\+promise\+\_\+get\+\_\+future}} (\mbox{\hyperlink{promise_8h_aa604edbaa7c611ec386757f8db43d1e3}{ttak\+\_\+promise\+\_\+t}} \texorpdfstring{$\ast$}{*}promise)
+\end{DoxyCompactItemize}
+
+
+\label{doc-typedef-members}
+\Hypertarget{promise_8h_doc-typedef-members}
+\doxysubsection{Typedef Documentation}
+\Hypertarget{promise_8h_aa604edbaa7c611ec386757f8db43d1e3}\index{promise.h@{promise.h}!ttak\_promise\_t@{ttak\_promise\_t}}
+\index{ttak\_promise\_t@{ttak\_promise\_t}!promise.h@{promise.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_promise\_t}{ttak\_promise\_t}}
+{\footnotesize\ttfamily \label{promise_8h_aa604edbaa7c611ec386757f8db43d1e3} 
+typedef struct \mbox{\hyperlink{structttak__promise}{ttak\+\_\+promise}} \mbox{\hyperlink{promise_8h_aa604edbaa7c611ec386757f8db43d1e3}{ttak\+\_\+promise\+\_\+t}}}
+
+
+
+\label{doc-func-members}
+\Hypertarget{promise_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{promise_8h_aeb1b9a9332785b2e897acf0a04bf4033}\index{promise.h@{promise.h}!ttak\_promise\_create@{ttak\_promise\_create}}
+\index{ttak\_promise\_create@{ttak\_promise\_create}!promise.h@{promise.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_promise\_create()}{ttak\_promise\_create()}}
+{\footnotesize\ttfamily \label{promise_8h_aeb1b9a9332785b2e897acf0a04bf4033} 
+\mbox{\hyperlink{promise_8h_aa604edbaa7c611ec386757f8db43d1e3}{ttak\+\_\+promise\+\_\+t}} \texorpdfstring{$\ast$}{*} ttak\+\_\+promise\+\_\+create (\begin{DoxyParamCaption}\item[{uint64\+\_\+t}]{now}{}\end{DoxyParamCaption})}
+
+\Hypertarget{promise_8h_a44baea2754e16f9017be08a8e94654b2}\index{promise.h@{promise.h}!ttak\_promise\_get\_future@{ttak\_promise\_get\_future}}
+\index{ttak\_promise\_get\_future@{ttak\_promise\_get\_future}!promise.h@{promise.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_promise\_get\_future()}{ttak\_promise\_get\_future()}}
+{\footnotesize\ttfamily \label{promise_8h_a44baea2754e16f9017be08a8e94654b2} 
+\mbox{\hyperlink{future_8h_a56ca146ef4be9bd1d67a1250de2ce2c2}{ttak\+\_\+future\+\_\+t}} \texorpdfstring{$\ast$}{*} ttak\+\_\+promise\+\_\+get\+\_\+future (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{promise_8h_aa604edbaa7c611ec386757f8db43d1e3}{ttak\+\_\+promise\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{promise}{}\end{DoxyParamCaption})}
+
+\Hypertarget{promise_8h_ae4d7300d418736b6deb56f8c19d8b52f}\index{promise.h@{promise.h}!ttak\_promise\_set\_value@{ttak\_promise\_set\_value}}
+\index{ttak\_promise\_set\_value@{ttak\_promise\_set\_value}!promise.h@{promise.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_promise\_set\_value()}{ttak\_promise\_set\_value()}}
+{\footnotesize\ttfamily \label{promise_8h_ae4d7300d418736b6deb56f8c19d8b52f} 
+void ttak\+\_\+promise\+\_\+set\+\_\+value (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{promise_8h_aa604edbaa7c611ec386757f8db43d1e3}{ttak\+\_\+promise\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{promise}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{val}{, }\item[{uint64\+\_\+t}]{now}{}\end{DoxyParamCaption})}
+

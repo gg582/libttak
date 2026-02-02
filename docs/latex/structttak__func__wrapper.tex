@@ -1,0 +1,144 @@
+\doxysection{ttak\+\_\+func\+\_\+wrapper Struct Reference}
+\hypertarget{structttak__func__wrapper}{}\label{structttak__func__wrapper}\index{ttak\_func\_wrapper@{ttak\_func\_wrapper}}
+
+
+{\ttfamily \#include $<$atomic.\+h$>$}
+
+
+
+Collaboration diagram for ttak\+\_\+func\+\_\+wrapper\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=187pt]{structttak__func__wrapper__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{structttak__func__wrapper_ac367c431a12ab652127e98d77e28cda9}{type}}
+\item 
+pthread\+\_\+mutex\+\_\+t \mbox{\hyperlink{structttak__func__wrapper_a6174278b12ab65ccb58bf13276672e60}{mutex}}
+\item 
+uint64\+\_\+t \mbox{\hyperlink{structttak__func__wrapper_a0c002b599deea32162fb5162ea9196fb}{ts}}
+\item 
+\+\_\+\+Bool(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structttak__func__wrapper_aa10d8287d469a27cb185d8e0a5f37ba3}{func\+\_\+has\+\_\+expired}} )(struct \mbox{\hyperlink{structttak__func__wrapper}{ttak\+\_\+func\+\_\+wrapper}} \texorpdfstring{$\ast$}{*}, uint64\+\_\+t)
+\item 
+\+\_\+\+Bool \mbox{\hyperlink{structttak__func__wrapper_a1824b96148678c8c7b980edc41429cf5}{expired}}
+\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structttak__func__wrapper_af0597208068d1204048cfca6f64ece75}{args}}
+\item 
+\mbox{\hyperlink{hash_8h_a1f1a8bb38c53fea315e97508c3d66efd}{tt\+\_\+map\+\_\+t}} \mbox{\hyperlink{structttak__func__wrapper_ab6af31f577a8ffff8f2c0e75f4693129}{tbl}}
+\item 
+\mbox{\hyperlink{atomic_8h_a37a39e5ffd47a8c7afba57d3cdf6f788}{ttak\+\_\+generic\+\_\+func\+\_\+t}} \mbox{\hyperlink{structttak__func__wrapper_a995ca0be7a03cbeee33e41a691ccda88}{fun}}
+\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structttak__func__wrapper_a5782d28386dc058826791e6487bc1ad5}{ret}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{atomic_8h_source_l00028}{28}} of file \mbox{\hyperlink{atomic_8h_source}{atomic.\+h}}.
+
+
+
+\label{doc-variable-members}
+\Hypertarget{structttak__func__wrapper_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{structttak__func__wrapper_af0597208068d1204048cfca6f64ece75}\index{ttak\_func\_wrapper@{ttak\_func\_wrapper}!args@{args}}
+\index{args@{args}!ttak\_func\_wrapper@{ttak\_func\_wrapper}}
+\doxysubsubsection{\texorpdfstring{args}{args}}
+{\footnotesize\ttfamily \label{structttak__func__wrapper_af0597208068d1204048cfca6f64ece75} 
+void\texorpdfstring{$\ast$}{*} ttak\+\_\+func\+\_\+wrapper\+::args}
+
+Pointer to arguments. 
+
+Definition at line \mbox{\hyperlink{atomic_8h_source_l00034}{34}} of file \mbox{\hyperlink{atomic_8h_source}{atomic.\+h}}.
+
+\Hypertarget{structttak__func__wrapper_a1824b96148678c8c7b980edc41429cf5}\index{ttak\_func\_wrapper@{ttak\_func\_wrapper}!expired@{expired}}
+\index{expired@{expired}!ttak\_func\_wrapper@{ttak\_func\_wrapper}}
+\doxysubsubsection{\texorpdfstring{expired}{expired}}
+{\footnotesize\ttfamily \label{structttak__func__wrapper_a1824b96148678c8c7b980edc41429cf5} 
+\+\_\+\+Bool ttak\+\_\+func\+\_\+wrapper\+::expired}
+
+\texorpdfstring{$<$}{<} Function to check if it is expired. 
+
+Definition at line \mbox{\hyperlink{atomic_8h_source_l00033}{33}} of file \mbox{\hyperlink{atomic_8h_source}{atomic.\+h}}.
+
+\Hypertarget{structttak__func__wrapper_a995ca0be7a03cbeee33e41a691ccda88}\index{ttak\_func\_wrapper@{ttak\_func\_wrapper}!fun@{fun}}
+\index{fun@{fun}!ttak\_func\_wrapper@{ttak\_func\_wrapper}}
+\doxysubsubsection{\texorpdfstring{fun}{fun}}
+{\footnotesize\ttfamily \label{structttak__func__wrapper_a995ca0be7a03cbeee33e41a691ccda88} 
+\mbox{\hyperlink{atomic_8h_a37a39e5ffd47a8c7afba57d3cdf6f788}{ttak\+\_\+generic\+\_\+func\+\_\+t}} ttak\+\_\+func\+\_\+wrapper\+::fun}
+
+Function to execute atomically. 
+
+Definition at line \mbox{\hyperlink{atomic_8h_source_l00036}{36}} of file \mbox{\hyperlink{atomic_8h_source}{atomic.\+h}}.
+
+\Hypertarget{structttak__func__wrapper_aa10d8287d469a27cb185d8e0a5f37ba3}\index{ttak\_func\_wrapper@{ttak\_func\_wrapper}!func\_has\_expired@{func\_has\_expired}}
+\index{func\_has\_expired@{func\_has\_expired}!ttak\_func\_wrapper@{ttak\_func\_wrapper}}
+\doxysubsubsection{\texorpdfstring{func\_has\_expired}{func\_has\_expired}}
+{\footnotesize\ttfamily \label{structttak__func__wrapper_aa10d8287d469a27cb185d8e0a5f37ba3} 
+\+\_\+\+Bool(\texorpdfstring{$\ast$}{*} ttak\+\_\+func\+\_\+wrapper\+::func\+\_\+has\+\_\+expired) (struct \mbox{\hyperlink{structttak__func__wrapper}{ttak\+\_\+func\+\_\+wrapper}} \texorpdfstring{$\ast$}{*}, uint64\+\_\+t)}
+
+
+
+Definition at line \mbox{\hyperlink{atomic_8h_source_l00032}{32}} of file \mbox{\hyperlink{atomic_8h_source}{atomic.\+h}}.
+
+\Hypertarget{structttak__func__wrapper_a6174278b12ab65ccb58bf13276672e60}\index{ttak\_func\_wrapper@{ttak\_func\_wrapper}!mutex@{mutex}}
+\index{mutex@{mutex}!ttak\_func\_wrapper@{ttak\_func\_wrapper}}
+\doxysubsubsection{\texorpdfstring{mutex}{mutex}}
+{\footnotesize\ttfamily \label{structttak__func__wrapper_a6174278b12ab65ccb58bf13276672e60} 
+pthread\+\_\+mutex\+\_\+t ttak\+\_\+func\+\_\+wrapper\+::mutex}
+
+ATOMIC/\+ASYNC/\+THREADED Mutex to ensure atomicity. 
+
+Definition at line \mbox{\hyperlink{atomic_8h_source_l00030}{30}} of file \mbox{\hyperlink{atomic_8h_source}{atomic.\+h}}.
+
+\Hypertarget{structttak__func__wrapper_a5782d28386dc058826791e6487bc1ad5}\index{ttak\_func\_wrapper@{ttak\_func\_wrapper}!ret@{ret}}
+\index{ret@{ret}!ttak\_func\_wrapper@{ttak\_func\_wrapper}}
+\doxysubsubsection{\texorpdfstring{ret}{ret}}
+{\footnotesize\ttfamily \label{structttak__func__wrapper_a5782d28386dc058826791e6487bc1ad5} 
+void\texorpdfstring{$\ast$}{*} ttak\+\_\+func\+\_\+wrapper\+::ret}
+
+Storage for return value. 
+
+Definition at line \mbox{\hyperlink{atomic_8h_source_l00037}{37}} of file \mbox{\hyperlink{atomic_8h_source}{atomic.\+h}}.
+
+\Hypertarget{structttak__func__wrapper_ab6af31f577a8ffff8f2c0e75f4693129}\index{ttak\_func\_wrapper@{ttak\_func\_wrapper}!tbl@{tbl}}
+\index{tbl@{tbl}!ttak\_func\_wrapper@{ttak\_func\_wrapper}}
+\doxysubsubsection{\texorpdfstring{tbl}{tbl}}
+{\footnotesize\ttfamily \label{structttak__func__wrapper_ab6af31f577a8ffff8f2c0e75f4693129} 
+\mbox{\hyperlink{hash_8h_a1f1a8bb38c53fea315e97508c3d66efd}{tt\+\_\+map\+\_\+t}} ttak\+\_\+func\+\_\+wrapper\+::tbl}
+
+Table containing \texorpdfstring{$<$}{<}order, size\texorpdfstring{$>$}{>}. 
+
+Definition at line \mbox{\hyperlink{atomic_8h_source_l00035}{35}} of file \mbox{\hyperlink{atomic_8h_source}{atomic.\+h}}.
+
+\Hypertarget{structttak__func__wrapper_a0c002b599deea32162fb5162ea9196fb}\index{ttak\_func\_wrapper@{ttak\_func\_wrapper}!ts@{ts}}
+\index{ts@{ts}!ttak\_func\_wrapper@{ttak\_func\_wrapper}}
+\doxysubsubsection{\texorpdfstring{ts}{ts}}
+{\footnotesize\ttfamily \label{structttak__func__wrapper_a0c002b599deea32162fb5162ea9196fb} 
+uint64\+\_\+t ttak\+\_\+func\+\_\+wrapper\+::ts}
+
+Tick timestamp to check memory life. 
+
+Definition at line \mbox{\hyperlink{atomic_8h_source_l00031}{31}} of file \mbox{\hyperlink{atomic_8h_source}{atomic.\+h}}.
+
+\Hypertarget{structttak__func__wrapper_ac367c431a12ab652127e98d77e28cda9}\index{ttak\_func\_wrapper@{ttak\_func\_wrapper}!type@{type}}
+\index{type@{type}!ttak\_func\_wrapper@{ttak\_func\_wrapper}}
+\doxysubsubsection{\texorpdfstring{type}{type}}
+{\footnotesize\ttfamily \label{structttak__func__wrapper_ac367c431a12ab652127e98d77e28cda9} 
+int ttak\+\_\+func\+\_\+wrapper\+::type}
+
+
+
+Definition at line \mbox{\hyperlink{atomic_8h_source_l00029}{29}} of file \mbox{\hyperlink{atomic_8h_source}{atomic.\+h}}.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/ttak/atomic/\mbox{\hyperlink{atomic_8h}{atomic.\+h}}\end{DoxyCompactItemize}

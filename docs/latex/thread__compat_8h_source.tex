@@ -1,0 +1,49 @@
+\doxysection{thread\+\_\+compat.\+h}
+\hypertarget{thread__compat_8h_source}{}\label{thread__compat_8h_source}\index{examples/mersenne-\/prime/thread\_compat.h@{examples/mersenne-\/prime/thread\_compat.h}}
+\mbox{\hyperlink{thread__compat_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{thread__compat_8h_source_l00001}00001\ \textcolor{preprocessor}{\#ifndef\ TTAK\_THREAD\_COMPAT\_H}}
+\DoxyCodeLine{\Hypertarget{thread__compat_8h_source_l00002}00002\ \textcolor{preprocessor}{\#define\ TTAK\_THREAD\_COMPAT\_H}}
+\DoxyCodeLine{\Hypertarget{thread__compat_8h_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{thread__compat_8h_source_l00004}00004\ \textcolor{preprocessor}{\#ifdef\ \_WIN32}}
+\DoxyCodeLine{\Hypertarget{thread__compat_8h_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <windows.h>}}
+\DoxyCodeLine{\Hypertarget{thread__compat_8h_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <process.h>}}
+\DoxyCodeLine{\Hypertarget{thread__compat_8h_source_l00007}00007\ \textcolor{keyword}{typedef}\ HANDLE\ \mbox{\hyperlink{thread__compat_8h_a5e92380b97dd7511fd0d4a31c43a6e31}{ttak\_thread\_t}};}
+\DoxyCodeLine{\Hypertarget{thread__compat_8h_source_l00008}00008\ \textcolor{keyword}{typedef}\ DWORD\ \ \mbox{\hyperlink{thread__compat_8h_aed0cde1556bd55109429d49799f3a9c8}{ttak\_thread\_id\_t}};}
+\DoxyCodeLine{\Hypertarget{thread__compat_8h_source_l00009}00009\ \textcolor{preprocessor}{\#define\ TTAK\_THREAD\_CALL\ WINAPI}}
+\DoxyCodeLine{\Hypertarget{thread__compat_8h_source_l00010}00010\ \textcolor{preprocessor}{\#define\ ttak\_thread\_yield()\ Sleep(0)}}
+\DoxyCodeLine{\Hypertarget{thread__compat_8h_source_l00011}00011\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{thread__compat_8h_source_l00012}00012\ \textcolor{preprocessor}{\#include\ <pthread.h>}}
+\DoxyCodeLine{\Hypertarget{thread__compat_8h_source_l00013}00013\ \textcolor{preprocessor}{\#include\ <unistd.h>}}
+\DoxyCodeLine{\Hypertarget{thread__compat_8h_source_l00014}00014\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{sched_8h}{sched.h}}>}}
+\DoxyCodeLine{\Hypertarget{thread__compat_8h_source_l00015}\mbox{\hyperlink{thread__compat_8h_a5e92380b97dd7511fd0d4a31c43a6e31}{00015}}\ \textcolor{keyword}{typedef}\ pthread\_t\ \mbox{\hyperlink{thread__compat_8h_a5e92380b97dd7511fd0d4a31c43a6e31}{ttak\_thread\_t}};}
+\DoxyCodeLine{\Hypertarget{thread__compat_8h_source_l00016}\mbox{\hyperlink{thread__compat_8h_aed0cde1556bd55109429d49799f3a9c8}{00016}}\ \textcolor{keyword}{typedef}\ pthread\_t\ \mbox{\hyperlink{thread__compat_8h_aed0cde1556bd55109429d49799f3a9c8}{ttak\_thread\_id\_t}};}
+\DoxyCodeLine{\Hypertarget{thread__compat_8h_source_l00017}\mbox{\hyperlink{thread__compat_8h_a99da1eadff2d3dbed9d01c2e7f00220c}{00017}}\ \textcolor{preprocessor}{\#define\ TTAK\_THREAD\_CALL}}
+\DoxyCodeLine{\Hypertarget{thread__compat_8h_source_l00018}\mbox{\hyperlink{thread__compat_8h_acbece6975db97e6f2a4dde166f5d45db}{00018}}\ \textcolor{preprocessor}{\#define\ ttak\_thread\_yield()\ sched\_yield()}}
+\DoxyCodeLine{\Hypertarget{thread__compat_8h_source_l00019}00019\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{thread__compat_8h_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{thread__compat_8h_source_l00021}\mbox{\hyperlink{thread__compat_8h_af1b8833fa4200b211d5e8decdc446373}{00021}}\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{void}*\ (\mbox{\hyperlink{thread__compat_8h_a99da1eadff2d3dbed9d01c2e7f00220c}{TTAK\_THREAD\_CALL}}\ *\mbox{\hyperlink{thread__compat_8h_af1b8833fa4200b211d5e8decdc446373}{ttak\_thread\_func\_t}})(\textcolor{keywordtype}{void}*);}
+\DoxyCodeLine{\Hypertarget{thread__compat_8h_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{thread__compat_8h_source_l00023}\mbox{\hyperlink{thread__compat_8h_ad3bcc4d911261945c26bb74007d177e0}{00023}}\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{thread__compat_8h_ad3bcc4d911261945c26bb74007d177e0}{ttak\_thread\_create}}(\mbox{\hyperlink{thread__compat_8h_a5e92380b97dd7511fd0d4a31c43a6e31}{ttak\_thread\_t}}\ *thread,\ \mbox{\hyperlink{thread__compat_8h_af1b8833fa4200b211d5e8decdc446373}{ttak\_thread\_func\_t}}\ func,\ \textcolor{keywordtype}{void}\ *arg)\ \{}
+\DoxyCodeLine{\Hypertarget{thread__compat_8h_source_l00024}00024\ \textcolor{preprocessor}{\#ifdef\ \_WIN32}}
+\DoxyCodeLine{\Hypertarget{thread__compat_8h_source_l00025}00025\ \ \ \ \ *thread\ =\ CreateThread(NULL,\ 0,\ (LPTHREAD\_START\_ROUTINE)func,\ arg,\ 0,\ NULL);}
+\DoxyCodeLine{\Hypertarget{thread__compat_8h_source_l00026}00026\ \ \ \ \ \textcolor{keywordflow}{return}\ (*thread\ ==\ NULL)\ ?\ -\/1\ :\ 0;}
+\DoxyCodeLine{\Hypertarget{thread__compat_8h_source_l00027}00027\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{thread__compat_8h_source_l00028}00028\ \ \ \ \ \textcolor{keywordflow}{return}\ pthread\_create(thread,\ NULL,\ func,\ arg);}
+\DoxyCodeLine{\Hypertarget{thread__compat_8h_source_l00029}00029\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{thread__compat_8h_source_l00030}00030\ \}}
+\DoxyCodeLine{\Hypertarget{thread__compat_8h_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{thread__compat_8h_source_l00032}\mbox{\hyperlink{thread__compat_8h_ace9b37e1813eabe490a60c0f6b1c6bb8}{00032}}\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{thread__compat_8h_ace9b37e1813eabe490a60c0f6b1c6bb8}{ttak\_thread\_join}}(\mbox{\hyperlink{thread__compat_8h_a5e92380b97dd7511fd0d4a31c43a6e31}{ttak\_thread\_t}}\ thread,\ \textcolor{keywordtype}{void}\ **retval)\ \{}
+\DoxyCodeLine{\Hypertarget{thread__compat_8h_source_l00033}00033\ \textcolor{preprocessor}{\#ifdef\ \_WIN32}}
+\DoxyCodeLine{\Hypertarget{thread__compat_8h_source_l00034}00034\ \ \ \ \ WaitForSingleObject(thread,\ INFINITE);}
+\DoxyCodeLine{\Hypertarget{thread__compat_8h_source_l00035}00035\ \ \ \ \ \textcolor{keywordflow}{if}\ (retval)\ GetExitCodeThread(thread,\ (LPDWORD)retval);}
+\DoxyCodeLine{\Hypertarget{thread__compat_8h_source_l00036}00036\ \ \ \ \ CloseHandle(thread);}
+\DoxyCodeLine{\Hypertarget{thread__compat_8h_source_l00037}00037\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{thread__compat_8h_source_l00038}00038\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{thread__compat_8h_source_l00039}00039\ \ \ \ \ \textcolor{keywordflow}{return}\ pthread\_join(thread,\ retval);}
+\DoxyCodeLine{\Hypertarget{thread__compat_8h_source_l00040}00040\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{thread__compat_8h_source_l00041}00041\ \}}
+\DoxyCodeLine{\Hypertarget{thread__compat_8h_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{thread__compat_8h_source_l00043}00043\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ TTAK\_THREAD\_COMPAT\_H}}
+
+\end{DoxyCode}

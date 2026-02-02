@@ -1,0 +1,46 @@
+\doxysection{pair.\+h}
+\hypertarget{pair_8h_source}{}\label{pair_8h_source}\index{include/ttak/container/pair.h@{include/ttak/container/pair.h}}
+\mbox{\hyperlink{pair_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{pair_8h_source_l00001}00001\ \textcolor{preprocessor}{\#ifndef\ TTAK\_CONTAINER\_PAIR\_H}}
+\DoxyCodeLine{\Hypertarget{pair_8h_source_l00002}00002\ \textcolor{preprocessor}{\#define\ TTAK\_CONTAINER\_PAIR\_H}}
+\DoxyCodeLine{\Hypertarget{pair_8h_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{pair_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <stddef.h>}}
+\DoxyCodeLine{\Hypertarget{pair_8h_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{\Hypertarget{pair_8h_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{\Hypertarget{pair_8h_source_l00007}00007\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{pair_8h_source_l00008}00008\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{pair_8h_source_l00009}00009\ \textcolor{comment}{\ *\ @brief\ Generic\ Pair/Tuple\ structure.}}
+\DoxyCodeLine{\Hypertarget{pair_8h_source_l00010}00010\ \textcolor{comment}{\ *\ Despite\ the\ name\ "{}Pair"{},\ it\ can\ hold\ 'length'\ number\ of\ generic\ elements.}}
+\DoxyCodeLine{\Hypertarget{pair_8h_source_l00011}00011\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{pair_8h_source_l00012}\mbox{\hyperlink{structttak__pair}{00012}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structttak__pair}{ttak\_pair}}\ \{}
+\DoxyCodeLine{\Hypertarget{pair_8h_source_l00013}\mbox{\hyperlink{structttak__pair_a84382a44c21cd42e0d7c99750a0015b3}{00013}}\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{structttak__pair_a84382a44c21cd42e0d7c99750a0015b3}{length}};}
+\DoxyCodeLine{\Hypertarget{pair_8h_source_l00014}\mbox{\hyperlink{structttak__pair_a78b3c071801b6ef8767665464f80cc9c}{00014}}\ \ \ \ \ \textcolor{keywordtype}{void}\ **\mbox{\hyperlink{structttak__pair_a78b3c071801b6ef8767665464f80cc9c}{elements}};}
+\DoxyCodeLine{\Hypertarget{pair_8h_source_l00015}\mbox{\hyperlink{pair_8h_a304636d57c9d5b6ea2451941355943d7}{00015}}\ \}\ \mbox{\hyperlink{pair_8h_a304636d57c9d5b6ea2451941355943d7}{ttak\_pair\_t}};}
+\DoxyCodeLine{\Hypertarget{pair_8h_source_l00016}00016\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{pair_8h_source_l00017}00017\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{pair_8h_source_l00018}00018\ \textcolor{comment}{\ *\ @brief\ Initialize\ a\ pair\ (tuple)\ with\ a\ fixed\ length.}}
+\DoxyCodeLine{\Hypertarget{pair_8h_source_l00019}00019\ \textcolor{comment}{\ *\ @param\ pair\ Pointer\ to\ the\ pair\ structure.}}
+\DoxyCodeLine{\Hypertarget{pair_8h_source_l00020}00020\ \textcolor{comment}{\ *\ @param\ length\ Number\ of\ elements\ this\ pair\ will\ hold.}}
+\DoxyCodeLine{\Hypertarget{pair_8h_source_l00021}00021\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{pair_8h_source_l00022}\mbox{\hyperlink{pair_8h_aebf9c7cbf6b34b582765ec4402eebb2a}{00022}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{pair_8h_aebf9c7cbf6b34b582765ec4402eebb2a}{ttak\_pair\_init}}(\mbox{\hyperlink{pair_8h_a304636d57c9d5b6ea2451941355943d7}{ttak\_pair\_t}}\ *pair,\ \textcolor{keywordtype}{size\_t}\ length,\ uint64\_t\ now);}
+\DoxyCodeLine{\Hypertarget{pair_8h_source_l00023}00023\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{pair_8h_source_l00024}00024\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{pair_8h_source_l00025}00025\ \textcolor{comment}{\ *\ @brief\ Set\ an\ element\ at\ a\ specific\ index.}}
+\DoxyCodeLine{\Hypertarget{pair_8h_source_l00026}00026\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{pair_8h_source_l00027}\mbox{\hyperlink{pair_8h_a0b4627cc662cfecb967b0931fa0c562a}{00027}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{pair_8h_a0b4627cc662cfecb967b0931fa0c562a}{ttak\_pair\_set}}(\mbox{\hyperlink{pair_8h_a304636d57c9d5b6ea2451941355943d7}{ttak\_pair\_t}}\ *pair,\ \textcolor{keywordtype}{size\_t}\ index,\ \textcolor{keywordtype}{void}\ *element);}
+\DoxyCodeLine{\Hypertarget{pair_8h_source_l00028}00028\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{pair_8h_source_l00029}00029\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{pair_8h_source_l00030}00030\ \textcolor{comment}{\ *\ @brief\ Get\ an\ element\ at\ a\ specific\ index.}}
+\DoxyCodeLine{\Hypertarget{pair_8h_source_l00031}00031\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{pair_8h_source_l00032}\mbox{\hyperlink{pair_8h_a29e03dd74e5583357a3d429ee7a76546}{00032}}\ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{pair_8h_a29e03dd74e5583357a3d429ee7a76546}{ttak\_pair\_get}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{pair_8h_a304636d57c9d5b6ea2451941355943d7}{ttak\_pair\_t}}\ *pair,\ \textcolor{keywordtype}{size\_t}\ index);}
+\DoxyCodeLine{\Hypertarget{pair_8h_source_l00033}00033\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{pair_8h_source_l00034}00034\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{pair_8h_source_l00035}00035\ \textcolor{comment}{\ *\ @brief\ Destroy\ the\ pair\ structure.}}
+\DoxyCodeLine{\Hypertarget{pair_8h_source_l00036}00036\ \textcolor{comment}{\ *\ @param\ free\_elem\ Optional\ function\ to\ free\ elements.}}
+\DoxyCodeLine{\Hypertarget{pair_8h_source_l00037}00037\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{pair_8h_source_l00038}\mbox{\hyperlink{pair_8h_a27b68a5b6316f6955eabb9e777a2159a}{00038}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{pair_8h_a27b68a5b6316f6955eabb9e777a2159a}{ttak\_pair\_destroy}}(\mbox{\hyperlink{pair_8h_a304636d57c9d5b6ea2451941355943d7}{ttak\_pair\_t}}\ *pair,\ \textcolor{keywordtype}{void}\ (*free\_elem)(\textcolor{keywordtype}{void}*),\ uint64\_t\ now);}
+\DoxyCodeLine{\Hypertarget{pair_8h_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{pair_8h_source_l00040}00040\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ TTAK\_CONTAINER\_PAIR\_H}}
+
+\end{DoxyCode}

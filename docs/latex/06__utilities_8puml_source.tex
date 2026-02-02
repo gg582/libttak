@@ -1,0 +1,51 @@
+\doxysection{06\+\_\+utilities.\+puml}
+\hypertarget{06__utilities_8puml_source}{}\label{06__utilities_8puml_source}\index{blueprints/06\_utilities.puml@{blueprints/06\_utilities.puml}}
+\mbox{\hyperlink{06__utilities_8puml}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{06__utilities_8puml_source_l00001}00001\ @startuml\ libttak\_utilities}
+\DoxyCodeLine{\Hypertarget{06__utilities_8puml_source_l00002}00002\ !theme\ vibrant}
+\DoxyCodeLine{\Hypertarget{06__utilities_8puml_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{06__utilities_8puml_source_l00004}00004\ title\ Core\ Utilities}
+\DoxyCodeLine{\Hypertarget{06__utilities_8puml_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{06__utilities_8puml_source_l00006}00006\ package\ "{}Security"{}\ \{}
+\DoxyCodeLine{\Hypertarget{06__utilities_8puml_source_l00007}00007\ \ \ \ \ [SHA256]}
+\DoxyCodeLine{\Hypertarget{06__utilities_8puml_source_l00008}00008\ \}}
+\DoxyCodeLine{\Hypertarget{06__utilities_8puml_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{06__utilities_8puml_source_l00010}00010\ package\ "{}Timing"{}\ \{}
+\DoxyCodeLine{\Hypertarget{06__utilities_8puml_source_l00011}00011\ \ \ \ \ [Timing]}
+\DoxyCodeLine{\Hypertarget{06__utilities_8puml_source_l00012}00012\ \}}
+\DoxyCodeLine{\Hypertarget{06__utilities_8puml_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{06__utilities_8puml_source_l00014}00014\ package\ "{}Low-\/Level\ Primitives"{}\ \{}
+\DoxyCodeLine{\Hypertarget{06__utilities_8puml_source_l00015}00015\ \ \ \ \ [Sync]}
+\DoxyCodeLine{\Hypertarget{06__utilities_8puml_source_l00016}00016\ \ \ \ \ [Atomic]}
+\DoxyCodeLine{\Hypertarget{06__utilities_8puml_source_l00017}00017\ \ \ \ \ [Memory\ Manager]\ as\ Mem}
+\DoxyCodeLine{\Hypertarget{06__utilities_8puml_source_l00018}00018\ \}}
+\DoxyCodeLine{\Hypertarget{06__utilities_8puml_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{06__utilities_8puml_source_l00020}00020\ SHA256\ ..>\ Mem\ :\ For\ context\ allocations}
+\DoxyCodeLine{\Hypertarget{06__utilities_8puml_source_l00021}00021\ Timing\ ..>\ Mem\ :\ For\ logger\ allocations\ (if\ any)}
+\DoxyCodeLine{\Hypertarget{06__utilities_8puml_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{06__utilities_8puml_source_l00023}00023\ note\ right\ of\ SHA256}
+\DoxyCodeLine{\Hypertarget{06__utilities_8puml_source_l00024}00024\ \ \ Provides\ SHA-\/256\ hashing\ functionality.}
+\DoxyCodeLine{\Hypertarget{06__utilities_8puml_source_l00025}00025\ \ \ Depends\ on\ the\ memory\ manager\ for\ its\ context\ structure.}
+\DoxyCodeLine{\Hypertarget{06__utilities_8puml_source_l00026}00026\ end\ note}
+\DoxyCodeLine{\Hypertarget{06__utilities_8puml_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{06__utilities_8puml_source_l00028}00028\ note\ left\ of\ Timing}
+\DoxyCodeLine{\Hypertarget{06__utilities_8puml_source_l00029}00029\ \ \ Provides\ high-\/resolution\ timing}
+\DoxyCodeLine{\Hypertarget{06__utilities_8puml_source_l00030}00030\ \ \ and\ measurement\ tools.}
+\DoxyCodeLine{\Hypertarget{06__utilities_8puml_source_l00031}00031\ end\ note}
+\DoxyCodeLine{\Hypertarget{06__utilities_8puml_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{06__utilities_8puml_source_l00033}00033\ note\ bottom\ of\ Sync}
+\DoxyCodeLine{\Hypertarget{06__utilities_8puml_source_l00034}00034\ \ \ Provides\ fundamental\ synchronization}
+\DoxyCodeLine{\Hypertarget{06__utilities_8puml_source_l00035}00035\ \ \ primitives\ like\ mutexes,\ often\ built}
+\DoxyCodeLine{\Hypertarget{06__utilities_8puml_source_l00036}00036\ \ \ using\ atomic\ operations.}
+\DoxyCodeLine{\Hypertarget{06__utilities_8puml_source_l00037}00037\ end\ note}
+\DoxyCodeLine{\Hypertarget{06__utilities_8puml_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{06__utilities_8puml_source_l00039}00039\ note\ bottom\ of\ Atomic}
+\DoxyCodeLine{\Hypertarget{06__utilities_8puml_source_l00040}00040\ \ \ Provides\ atomic\ operations\ for}
+\DoxyCodeLine{\Hypertarget{06__utilities_8puml_source_l00041}00041\ \ \ thread-\/safe\ manipulations\ of\ variables.}
+\DoxyCodeLine{\Hypertarget{06__utilities_8puml_source_l00042}00042\ \ \ This\ is\ a\ fundamental\ building\ block.}
+\DoxyCodeLine{\Hypertarget{06__utilities_8puml_source_l00043}00043\ end\ note}
+\DoxyCodeLine{\Hypertarget{06__utilities_8puml_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{06__utilities_8puml_source_l00045}00045\ @enduml}
+
+\end{DoxyCode}

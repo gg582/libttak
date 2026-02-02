@@ -1,0 +1,139 @@
+\doxysection{include/ttak/async/task.h File Reference}
+\hypertarget{task_8h}{}\label{task_8h}\index{include/ttak/async/task.h@{include/ttak/async/task.h}}
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+Include dependency graph for task.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=185pt]{task_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{task_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct ttak\+\_\+task \mbox{\hyperlink{task_8h_a6a4c7b4b8f087d53e7b2a92f84db216e}{ttak\+\_\+task\+\_\+t}}
+\item 
+typedef void \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{task_8h_aef94bfb234ab18af239e4a15f8366480}{ttak\+\_\+task\+\_\+func\+\_\+t}}) (void \texorpdfstring{$\ast$}{*}arg)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{task_8h_a6a4c7b4b8f087d53e7b2a92f84db216e}{ttak\+\_\+task\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{task_8h_a1c33c69a8ac4bfcb69301692c5d3ee51}{ttak\+\_\+task\+\_\+create}} (\mbox{\hyperlink{task_8h_aef94bfb234ab18af239e4a15f8366480}{ttak\+\_\+task\+\_\+func\+\_\+t}} func, void \texorpdfstring{$\ast$}{*}arg, \mbox{\hyperlink{promise_8h_aa604edbaa7c611ec386757f8db43d1e3}{ttak\+\_\+promise\+\_\+t}} \texorpdfstring{$\ast$}{*}promise, uint64\+\_\+t now)
+\begin{DoxyCompactList}\small\item\em Creates a new task. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{task_8h_ad2360ffa34e1f6a02e6219f02e03d560}{ttak\+\_\+task\+\_\+execute}} (\mbox{\hyperlink{task_8h_a6a4c7b4b8f087d53e7b2a92f84db216e}{ttak\+\_\+task\+\_\+t}} \texorpdfstring{$\ast$}{*}task, uint64\+\_\+t now)
+\begin{DoxyCompactList}\small\item\em Executes the task. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{task_8h_aa24c4cc8032a794871c61baf42f49486}{ttak\+\_\+task\+\_\+destroy}} (\mbox{\hyperlink{task_8h_a6a4c7b4b8f087d53e7b2a92f84db216e}{ttak\+\_\+task\+\_\+t}} \texorpdfstring{$\ast$}{*}task, uint64\+\_\+t now)
+\begin{DoxyCompactList}\small\item\em Destroys the task and frees resources. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{task_8h_a6a4c7b4b8f087d53e7b2a92f84db216e}{ttak\+\_\+task\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{task_8h_a95071c16c2a8a8982bc55c09845b2cb8}{ttak\+\_\+task\+\_\+clone}} (const \mbox{\hyperlink{task_8h_a6a4c7b4b8f087d53e7b2a92f84db216e}{ttak\+\_\+task\+\_\+t}} \texorpdfstring{$\ast$}{*}task, uint64\+\_\+t now)
+\begin{DoxyCompactList}\small\item\em Creates a duplicate of an existing task. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-typedef-members}
+\Hypertarget{task_8h_doc-typedef-members}
+\doxysubsection{Typedef Documentation}
+\Hypertarget{task_8h_aef94bfb234ab18af239e4a15f8366480}\index{task.h@{task.h}!ttak\_task\_func\_t@{ttak\_task\_func\_t}}
+\index{ttak\_task\_func\_t@{ttak\_task\_func\_t}!task.h@{task.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_task\_func\_t}{ttak\_task\_func\_t}}
+{\footnotesize\ttfamily \label{task_8h_aef94bfb234ab18af239e4a15f8366480} 
+typedef void \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*} ttak\+\_\+task\+\_\+func\+\_\+t) (void \texorpdfstring{$\ast$}{*}arg)}
+
+
+
+Definition at line \mbox{\hyperlink{task_8h_source_l00009}{9}} of file \mbox{\hyperlink{task_8h_source}{task.\+h}}.
+
+\Hypertarget{task_8h_a6a4c7b4b8f087d53e7b2a92f84db216e}\index{task.h@{task.h}!ttak\_task\_t@{ttak\_task\_t}}
+\index{ttak\_task\_t@{ttak\_task\_t}!task.h@{task.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_task\_t}{ttak\_task\_t}}
+{\footnotesize\ttfamily \label{task_8h_a6a4c7b4b8f087d53e7b2a92f84db216e} 
+typedef struct ttak\+\_\+task \mbox{\hyperlink{task_8h_a6a4c7b4b8f087d53e7b2a92f84db216e}{ttak\+\_\+task\+\_\+t}}}
+
+
+
+Definition at line \mbox{\hyperlink{task_8h_source_l00007}{7}} of file \mbox{\hyperlink{task_8h_source}{task.\+h}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{task_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{task_8h_a95071c16c2a8a8982bc55c09845b2cb8}\index{task.h@{task.h}!ttak\_task\_clone@{ttak\_task\_clone}}
+\index{ttak\_task\_clone@{ttak\_task\_clone}!task.h@{task.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_task\_clone()}{ttak\_task\_clone()}}
+{\footnotesize\ttfamily \label{task_8h_a95071c16c2a8a8982bc55c09845b2cb8} 
+\mbox{\hyperlink{task_8h_a6a4c7b4b8f087d53e7b2a92f84db216e}{ttak\+\_\+task\+\_\+t}} \texorpdfstring{$\ast$}{*} ttak\+\_\+task\+\_\+clone (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{task_8h_a6a4c7b4b8f087d53e7b2a92f84db216e}{ttak\+\_\+task\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{task}{, }\item[{uint64\+\_\+t}]{now}{}\end{DoxyParamCaption})}
+
+
+
+Creates a duplicate of an existing task. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em task} & Task to clone. \\
+\hline
+{\em now} & Current timestamp for memory tracking. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the cloned task, or NULL on failure. 
+\end{DoxyReturn}
+\Hypertarget{task_8h_a1c33c69a8ac4bfcb69301692c5d3ee51}\index{task.h@{task.h}!ttak\_task\_create@{ttak\_task\_create}}
+\index{ttak\_task\_create@{ttak\_task\_create}!task.h@{task.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_task\_create()}{ttak\_task\_create()}}
+{\footnotesize\ttfamily \label{task_8h_a1c33c69a8ac4bfcb69301692c5d3ee51} 
+\mbox{\hyperlink{task_8h_a6a4c7b4b8f087d53e7b2a92f84db216e}{ttak\+\_\+task\+\_\+t}} \texorpdfstring{$\ast$}{*} ttak\+\_\+task\+\_\+create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{task_8h_aef94bfb234ab18af239e4a15f8366480}{ttak\+\_\+task\+\_\+func\+\_\+t}}}]{func}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{arg}{, }\item[{\mbox{\hyperlink{promise_8h_aa604edbaa7c611ec386757f8db43d1e3}{ttak\+\_\+promise\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{promise}{, }\item[{uint64\+\_\+t}]{now}{}\end{DoxyParamCaption})}
+
+
+
+Creates a new task. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em func} & Function to execute. \\
+\hline
+{\em arg} & Argument to pass to the function. \\
+\hline
+{\em promise} & Promise to fulfill when the task is complete. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the created task. 
+\end{DoxyReturn}
+\Hypertarget{task_8h_aa24c4cc8032a794871c61baf42f49486}\index{task.h@{task.h}!ttak\_task\_destroy@{ttak\_task\_destroy}}
+\index{ttak\_task\_destroy@{ttak\_task\_destroy}!task.h@{task.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_task\_destroy()}{ttak\_task\_destroy()}}
+{\footnotesize\ttfamily \label{task_8h_aa24c4cc8032a794871c61baf42f49486} 
+void ttak\+\_\+task\+\_\+destroy (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{task_8h_a6a4c7b4b8f087d53e7b2a92f84db216e}{ttak\+\_\+task\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{task}{, }\item[{uint64\+\_\+t}]{now}{}\end{DoxyParamCaption})}
+
+
+
+Destroys the task and frees resources. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em task} & Task to destroy. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{task_8h_ad2360ffa34e1f6a02e6219f02e03d560}\index{task.h@{task.h}!ttak\_task\_execute@{ttak\_task\_execute}}
+\index{ttak\_task\_execute@{ttak\_task\_execute}!task.h@{task.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_task\_execute()}{ttak\_task\_execute()}}
+{\footnotesize\ttfamily \label{task_8h_ad2360ffa34e1f6a02e6219f02e03d560} 
+void ttak\+\_\+task\+\_\+execute (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{task_8h_a6a4c7b4b8f087d53e7b2a92f84db216e}{ttak\+\_\+task\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{task}{, }\item[{uint64\+\_\+t}]{now}{}\end{DoxyParamCaption})}
+
+
+
+Executes the task. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em task} & Task to execute. \\
+\hline
+\end{DoxyParams}

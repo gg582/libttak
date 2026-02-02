@@ -1,0 +1,42 @@
+\doxysection{bplus.\+h}
+\hypertarget{bplus_8h_source}{}\label{bplus_8h_source}\index{include/ttak/tree/bplus.h@{include/ttak/tree/bplus.h}}
+\mbox{\hyperlink{bplus_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{bplus_8h_source_l00001}00001\ \textcolor{preprocessor}{\#ifndef\ TTAK\_TREE\_BPLUS\_H}}
+\DoxyCodeLine{\Hypertarget{bplus_8h_source_l00002}00002\ \textcolor{preprocessor}{\#define\ TTAK\_TREE\_BPLUS\_H}}
+\DoxyCodeLine{\Hypertarget{bplus_8h_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{bplus_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <stddef.h>}}
+\DoxyCodeLine{\Hypertarget{bplus_8h_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{\Hypertarget{bplus_8h_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{\Hypertarget{bplus_8h_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{bplus_8h_source_l00008}\mbox{\hyperlink{structttak__bplus__node}{00008}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structttak__bplus__node}{ttak\_bplus\_node}}\ \{}
+\DoxyCodeLine{\Hypertarget{bplus_8h_source_l00009}\mbox{\hyperlink{structttak__bplus__node_a07589750aab8bea88adbeb529d9f0b35}{00009}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structttak__bplus__node_a07589750aab8bea88adbeb529d9f0b35}{is\_leaf}};}
+\DoxyCodeLine{\Hypertarget{bplus_8h_source_l00010}\mbox{\hyperlink{structttak__bplus__node_aa6a28cdfce9e8a6902870fa2fb6a5654}{00010}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structttak__bplus__node_aa6a28cdfce9e8a6902870fa2fb6a5654}{n}};}
+\DoxyCodeLine{\Hypertarget{bplus_8h_source_l00011}\mbox{\hyperlink{structttak__bplus__node_a0c29781ba999c96855b9a39ef7dc62b7}{00011}}\ \ \ \ \ \textcolor{keywordtype}{void}\ **\mbox{\hyperlink{structttak__bplus__node_a0c29781ba999c96855b9a39ef7dc62b7}{keys}};}
+\DoxyCodeLine{\Hypertarget{bplus_8h_source_l00012}00012\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{bplus_8h_source_l00013}00013\ \ \ \ \ \textcolor{comment}{//\ For\ internal\ nodes}}
+\DoxyCodeLine{\Hypertarget{bplus_8h_source_l00014}\mbox{\hyperlink{structttak__bplus__node_af1224550086173ae1d94743cfce80f1b}{00014}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structttak__bplus__node}{ttak\_bplus\_node}}\ **\mbox{\hyperlink{structttak__bplus__node_af1224550086173ae1d94743cfce80f1b}{children}};\ }
+\DoxyCodeLine{\Hypertarget{bplus_8h_source_l00015}00015\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{bplus_8h_source_l00016}00016\ \ \ \ \ \textcolor{comment}{//\ For\ leaf\ nodes}}
+\DoxyCodeLine{\Hypertarget{bplus_8h_source_l00017}\mbox{\hyperlink{structttak__bplus__node_a8853c261a05733d578900c58ab4cd8f2}{00017}}\ \ \ \ \ \textcolor{keywordtype}{void}\ **\mbox{\hyperlink{structttak__bplus__node_a8853c261a05733d578900c58ab4cd8f2}{values}};}
+\DoxyCodeLine{\Hypertarget{bplus_8h_source_l00018}\mbox{\hyperlink{structttak__bplus__node_a93c05ada3409d34c05f10213d841b5fc}{00018}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structttak__bplus__node}{ttak\_bplus\_node}}\ *\mbox{\hyperlink{structttak__bplus__node_a93c05ada3409d34c05f10213d841b5fc}{next}};}
+\DoxyCodeLine{\Hypertarget{bplus_8h_source_l00019}\mbox{\hyperlink{bplus_8h_a5db614174c9e6efedb184298065fda66}{00019}}\ \}\ \mbox{\hyperlink{bplus_8h_a5db614174c9e6efedb184298065fda66}{ttak\_bplus\_node\_t}};}
+\DoxyCodeLine{\Hypertarget{bplus_8h_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{bplus_8h_source_l00021}\mbox{\hyperlink{structttak__bplus__tree}{00021}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structttak__bplus__tree}{ttak\_bplus\_tree}}\ \{}
+\DoxyCodeLine{\Hypertarget{bplus_8h_source_l00022}\mbox{\hyperlink{structttak__bplus__tree_a19e50a083d9810a1d361fae2b69041f9}{00022}}\ \ \ \ \ \mbox{\hyperlink{bplus_8h_a5db614174c9e6efedb184298065fda66}{ttak\_bplus\_node\_t}}\ *\mbox{\hyperlink{structttak__bplus__tree_a19e50a083d9810a1d361fae2b69041f9}{root}};}
+\DoxyCodeLine{\Hypertarget{bplus_8h_source_l00023}\mbox{\hyperlink{structttak__bplus__tree_ae2be5027a9c0571321a08ea639e8c92d}{00023}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structttak__bplus__tree_ae2be5027a9c0571321a08ea639e8c92d}{order}};\ \textcolor{comment}{//\ Maximum\ number\ of\ keys?\ Or\ degree?\ Let's\ use\ order\ "{}m"{}\ where\ max\ children\ =\ m.}}
+\DoxyCodeLine{\Hypertarget{bplus_8h_source_l00024}00024\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Max\ keys\ =\ m-\/1.}}
+\DoxyCodeLine{\Hypertarget{bplus_8h_source_l00025}00025\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{bplus_8h_source_l00026}\mbox{\hyperlink{structttak__bplus__tree_a224e4a27e60f30836cecb7c4e9d51e2d}{00026}}\ \ \ \ \ int\ (*\mbox{\hyperlink{structttak__bplus__tree_a224e4a27e60f30836cecb7c4e9d51e2d}{cmp}})(\textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ *k1,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ *k2);}
+\DoxyCodeLine{\Hypertarget{bplus_8h_source_l00027}\mbox{\hyperlink{structttak__bplus__tree_a8b968fd906b9f344447f07c7af2de278}{00027}}\ \ \ \ \ void\ (*\mbox{\hyperlink{structttak__bplus__tree_a8b968fd906b9f344447f07c7af2de278}{key\_free}})(\textcolor{keywordtype}{void}\ *key);}
+\DoxyCodeLine{\Hypertarget{bplus_8h_source_l00028}\mbox{\hyperlink{structttak__bplus__tree_a93969fe63ba91fc114484ca959eb4794}{00028}}\ \ \ \ \ void\ (*\mbox{\hyperlink{structttak__bplus__tree_a93969fe63ba91fc114484ca959eb4794}{val\_free}})(\textcolor{keywordtype}{void}\ *val);}
+\DoxyCodeLine{\Hypertarget{bplus_8h_source_l00029}\mbox{\hyperlink{bplus_8h_a7abe789095f6b64023fb6a7ab7182a9c}{00029}}\ \}\ \mbox{\hyperlink{bplus_8h_a7abe789095f6b64023fb6a7ab7182a9c}{ttak\_bplus\_tree\_t}};}
+\DoxyCodeLine{\Hypertarget{bplus_8h_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{bplus_8h_source_l00031}\mbox{\hyperlink{bplus_8h_a7a2082b375881ddf6a6877956b4e3008}{00031}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{bplus_8h_a7a2082b375881ddf6a6877956b4e3008}{ttak\_bplus\_init}}(\mbox{\hyperlink{bplus_8h_a7abe789095f6b64023fb6a7ab7182a9c}{ttak\_bplus\_tree\_t}}\ *tree,\ \textcolor{keywordtype}{int}\ order,\ \textcolor{keywordtype}{int}\ (*cmp)(\textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*),\ \textcolor{keywordtype}{void}\ (*kf)(\textcolor{keywordtype}{void}*),\ \textcolor{keywordtype}{void}\ (*vf)(\textcolor{keywordtype}{void}*));}
+\DoxyCodeLine{\Hypertarget{bplus_8h_source_l00032}\mbox{\hyperlink{bplus_8h_ae07c098dd122ba0b7d489cde69fb207d}{00032}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{bplus_8h_ae07c098dd122ba0b7d489cde69fb207d}{ttak\_bplus\_insert}}(\mbox{\hyperlink{bplus_8h_a7abe789095f6b64023fb6a7ab7182a9c}{ttak\_bplus\_tree\_t}}\ *tree,\ \textcolor{keywordtype}{void}\ *key,\ \textcolor{keywordtype}{void}\ *value,\ uint64\_t\ now);}
+\DoxyCodeLine{\Hypertarget{bplus_8h_source_l00033}\mbox{\hyperlink{bplus_8h_ac26e4de91a3dd828cfe9c7fe73550d4d}{00033}}\ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{bplus_8h_ac26e4de91a3dd828cfe9c7fe73550d4d}{ttak\_bplus\_get}}(\mbox{\hyperlink{bplus_8h_a7abe789095f6b64023fb6a7ab7182a9c}{ttak\_bplus\_tree\_t}}\ *tree,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ *key,\ uint64\_t\ now);}
+\DoxyCodeLine{\Hypertarget{bplus_8h_source_l00034}\mbox{\hyperlink{bplus_8h_ae499dfa20f9a23ac85e9435a5c794c1d}{00034}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{bplus_8h_ae499dfa20f9a23ac85e9435a5c794c1d}{ttak\_bplus\_destroy}}(\mbox{\hyperlink{bplus_8h_a7abe789095f6b64023fb6a7ab7182a9c}{ttak\_bplus\_tree\_t}}\ *tree,\ uint64\_t\ now);}
+\DoxyCodeLine{\Hypertarget{bplus_8h_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{bplus_8h_source_l00036}00036\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ TTAK\_TREE\_BPLUS\_H}}
+
+\end{DoxyCode}

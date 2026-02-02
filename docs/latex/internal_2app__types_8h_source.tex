@@ -1,0 +1,120 @@
+\doxysection{app\+\_\+types.\+h}
+\hypertarget{internal_2app__types_8h_source}{}\label{internal_2app__types_8h_source}\index{internal/app\_types.h@{internal/app\_types.h}}
+\mbox{\hyperlink{internal_2app__types_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00001}00001\ \textcolor{preprocessor}{\#ifndef\ TTAK\_INTERNAL\_APP\_TYPES\_H}}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00002}00002\ \textcolor{preprocessor}{\#define\ TTAK\_INTERNAL\_APP\_TYPES\_H}}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <stddef.h>}}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00007}00007\ \textcolor{preprocessor}{\#include\ <stdalign.h>}}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00008}00008\ \textcolor{preprocessor}{\#include\ <pthread.h>}}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00009}00009\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00010}00010\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00011}00011\ \textcolor{comment}{\ *\ @brief\ "{}Fortress"{}\ Magic\ Number\ for\ header\ validation.}}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00012}00012\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00013}\mbox{\hyperlink{internal_2app__types_8h_a02d61fafa21eadc8010ca9803d77bafb}{00013}}\ \textcolor{preprocessor}{\#define\ TTAK\_MAGIC\_NUMBER\ 0x5454414B}}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00014}00014\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00015}00015\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00016}00016\ \textcolor{comment}{\ *\ @brief\ Safety\ limit\ for\ mathematical\ operations\ to\ prevent\ OOM/Overflow.}}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00017}00017\ \textcolor{comment}{\ *\ 16\ million\ limbs\ (approx.\ 64MB\ per\ bigint).}}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00018}00018\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00019}\mbox{\hyperlink{internal_2app__types_8h_afb038556e0b1b0989b6a6ddf3fa399f2}{00019}}\ \textcolor{preprocessor}{\#define\ TTAK\_MAX\_LIMB\_LIMIT\ 0x1000000\ }}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00020}00020\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00021}00021\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00022}00022\ \textcolor{comment}{\ *\ @brief\ High\ Watermark\ for\ memory\ pressure\ backpressure\ (512MB).}}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00023}00023\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00024}\mbox{\hyperlink{internal_2app__types_8h_a57726742a27442de442d3f964b17136e}{00024}}\ \textcolor{preprocessor}{\#define\ TTAK\_MEM\_HIGH\_WATERMARK\ (512ULL\ *\ 1024ULL\ *\ 1024ULL)}}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00025}00025\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00026}00026\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00027}00027\ \textcolor{comment}{\ *\ @brief\ Internal\ error\ codes\ mapping.}}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00028}00028\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00029}\mbox{\hyperlink{internal_2app__types_8h_a147a8eb4940f2cc5a8e3b1b8dae3ddae}{00029}}\ \textcolor{preprocessor}{\#define\ ERR\_TTAK\_MATH\_ERR\ \ \ -\/206}}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00030}\mbox{\hyperlink{internal_2app__types_8h_a1a83af89a777d8df64b1697e388679d9}{00030}}\ \textcolor{preprocessor}{\#define\ ERR\_TTAK\_INV\_ACC\ \ \ \ -\/205}}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00032}00032\ \textcolor{preprocessor}{\#if\ defined(\_\_GNUC\_\_)\ ||\ defined(\_\_clang\_\_)}}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00033}00033\ \textcolor{preprocessor}{\#define\ TTAK\_HOT\_PATH\ \_\_attribute\_\_((hot))}}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00034}00034\ \textcolor{preprocessor}{\#define\ TTAK\_COLD\_PATH\ \_\_attribute\_\_((cold))}}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00035}00035\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00036}\mbox{\hyperlink{internal_2app__types_8h_a9f804bdef8f3eaa64b7090504f3790d1}{00036}}\ \textcolor{preprocessor}{\#define\ TTAK\_HOT\_PATH}}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00037}\mbox{\hyperlink{internal_2app__types_8h_a5ba4b50baa645717996dbe107641cf43}{00037}}\ \textcolor{preprocessor}{\#define\ TTAK\_COLD\_PATH}}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00038}00038\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00039}00039\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00040}00040\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00041}00041\ \textcolor{comment}{\ *\ @brief\ Time\ unit\ macros\ for\ converting\ to\ nanoseconds.}}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00042}00042\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00043}\mbox{\hyperlink{internal_2app__types_8h_a8f73ed891f186c57f1a72da390592879}{00043}}\ \textcolor{preprocessor}{\#define\ TT\_NANO\_SECOND(n)\ \ \ ((uint64\_t)(n))}}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00044}\mbox{\hyperlink{internal_2app__types_8h_ac02e371a9ce7c79927fcd1250ad5f082}{00044}}\ \textcolor{preprocessor}{\#define\ TT\_MICRO\_SECOND(n)\ \ ((uint64\_t)(n)\ *\ 1000ULL)}}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00045}\mbox{\hyperlink{internal_2app__types_8h_a706d706dd7fd86c64eca603344ecd44d}{00045}}\ \textcolor{preprocessor}{\#define\ TT\_MILLI\_SECOND(n)\ \ ((uint64\_t)(n)\ *\ 1000ULL\ *\ 1000ULL)}}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00046}\mbox{\hyperlink{internal_2app__types_8h_a751dbf1f1d796405a9b2fe2f7ffa945e}{00046}}\ \textcolor{preprocessor}{\#define\ TT\_SECOND(n)\ \ \ \ \ \ \ \ ((uint64\_t)(n)\ *\ 1000ULL\ *\ 1000ULL\ *\ 1000ULL)}}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00047}\mbox{\hyperlink{internal_2app__types_8h_a3209654bf799b3cadd064970c008a32a}{00047}}\ \textcolor{preprocessor}{\#define\ TT\_MINUTE(n)\ \ \ \ \ \ \ \ ((uint64\_t)(n)\ *\ 60ULL\ *\ 1000ULL\ *\ 1000ULL\ *\ 1000ULL)}}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00048}\mbox{\hyperlink{internal_2app__types_8h_a19035333be330bdd7cb30b014a4075fe}{00048}}\ \textcolor{preprocessor}{\#define\ TT\_HOUR(n)\ \ \ \ \ \ \ \ \ \ ((uint64\_t)(n)\ *\ 60ULL\ *\ 60ULL\ *\ 1000ULL\ *\ 1000ULL\ *\ 1000ULL)}}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00049}00049\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00050}00050\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00051}00051\ \textcolor{comment}{\ *\ @brief\ Sentinel\ for\ invalidated\ references.}}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00052}00052\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00053}\mbox{\hyperlink{internal_2app__types_8h_ac5b096c74969e7dbd5e24d44a446c015}{00053}}\ \textcolor{preprocessor}{\#define\ SAFE\_NULL\ NULL}}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00054}00054\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00055}00055\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00056}00056\ \textcolor{comment}{\ *\ @brief\ Recommended\ pattern\ for\ resource-\/managing\ structures:}}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00057}00057\ \textcolor{comment}{\ *\ All\ structures\ that\ manage\ dynamic\ resources\ (e.g.,\ memory,\ threads,\ file\ handles)}}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00058}00058\ \textcolor{comment}{\ *\ should\ follow\ an\ \_init\ and\ \_destroy\ pattern.}}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00059}00059\ \textcolor{comment}{\ *\ -\/\ \`{}void\ ttak\_struct\_init(ttak\_struct\_t\ *s,\ ...)`:\ Initializes\ the\ structure,}}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00060}00060\ \textcolor{comment}{\ *\ \ \ allocating\ necessary\ resources.}}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00061}00061\ \textcolor{comment}{\ *\ -\/\ \`{}void\ ttak\_struct\_destroy(ttak\_struct\_t\ *s,\ ...)`:\ Frees\ all\ resources}}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00062}00062\ \textcolor{comment}{\ *\ \ \ held\ by\ the\ structure.}}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00063}00063\ \textcolor{comment}{\ *\ This\ ensures\ strict\ lifetime\ management\ and\ proper\ cleanup.}}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00064}00064\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00065}00065\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00066}00066\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00067}00067\ \textcolor{comment}{\ *\ @brief\ "{}Fortress"{}\ Memory\ Header.}}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00068}00068\ \textcolor{comment}{\ *\ 64-\/byte\ aligned\ to\ prevent\ False\ Sharing\ and\ ensure\ user\ pointer\ alignment.}}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00069}00069\ \textcolor{comment}{\ *\ Total\ size\ is\ 128\ bytes\ to\ maintain\ 64-\/byte\ alignment\ for\ user\ data.}}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00070}00070\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00071}\mbox{\hyperlink{structttak__mem__header__t}{00071}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00072}\mbox{\hyperlink{structttak__mem__header__t_a63c543d0e2277438790686ca125adadf}{00072}}\ \ \ \ \ \textcolor{keyword}{alignas}(64)\ uint32\_t\ \mbox{\hyperlink{structttak__mem__header__t_a63c543d0e2277438790686ca125adadf}{magic}};\ \ \ \ \ \ \ \ \ \textcolor{comment}{/**<\ 0x5454414B\ */}}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00073}\mbox{\hyperlink{structttak__mem__header__t_a49f32c7dc3f8c633c289870c99841153}{00073}}\ \ \ \ \ uint32\_t\ \mbox{\hyperlink{structttak__mem__header__t_a49f32c7dc3f8c633c289870c99841153}{checksum}};\ \ \ \ \ \ \textcolor{comment}{/**<\ Metadata\ checksum\ */}}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00074}\mbox{\hyperlink{structttak__mem__header__t_aefba5a41d63f62a6de53c3a9a6f0f51b}{00074}}\ \ \ \ \ uint64\_t\ \mbox{\hyperlink{structttak__mem__header__t_aefba5a41d63f62a6de53c3a9a6f0f51b}{created\_tick}};\ \ \textcolor{comment}{/**<\ Creation\ timestamp\ */}}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00075}\mbox{\hyperlink{structttak__mem__header__t_a0362d896df5d92be01157426136ad6b0}{00075}}\ \ \ \ \ uint64\_t\ \mbox{\hyperlink{structttak__mem__header__t_a0362d896df5d92be01157426136ad6b0}{expires\_tick}};\ \ \textcolor{comment}{/**<\ Expiration\ timestamp\ */}}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00076}\mbox{\hyperlink{structttak__mem__header__t_a0318bb3cfda8bb54cf6ec0c43e6b2584}{00076}}\ \ \ \ \ uint64\_t\ \mbox{\hyperlink{structttak__mem__header__t_a0318bb3cfda8bb54cf6ec0c43e6b2584}{access\_count}};\ \ \textcolor{comment}{/**<\ Atomic\ access\ audit\ counter\ */}}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00077}\mbox{\hyperlink{structttak__mem__header__t_a6f56f8247cfdee283312f6d76b0625a1}{00077}}\ \ \ \ \ uint64\_t\ \mbox{\hyperlink{structttak__mem__header__t_a6f56f8247cfdee283312f6d76b0625a1}{pin\_count}};\ \ \ \ \ \textcolor{comment}{/**<\ Atomic\ reference\ count\ for\ pinning\ */}}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00078}\mbox{\hyperlink{structttak__mem__header__t_a576f96336f81e4af314e70b911232dda}{00078}}\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \ \ \mbox{\hyperlink{structttak__mem__header__t_a576f96336f81e4af314e70b911232dda}{size}};\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/**<\ User-\/requested\ size\ */}}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00079}\mbox{\hyperlink{structttak__mem__header__t_a5c63e95556a7b6528834155059dae312}{00079}}\ \ \ \ \ pthread\_mutex\_t\ \mbox{\hyperlink{structttak__mem__header__t_a5c63e95556a7b6528834155059dae312}{lock}};\ \ \ \textcolor{comment}{/**<\ Per-\/header\ synchronization\ */}}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00080}\mbox{\hyperlink{structttak__mem__header__t_a86b5bea8ae5d34192969173c8ea7ef88}{00080}}\ \ \ \ \ \_Bool\ \ \ \ \mbox{\hyperlink{structttak__mem__header__t_a86b5bea8ae5d34192969173c8ea7ef88}{freed}};\ \ \ \ \ \ \ \ \ \textcolor{comment}{/**<\ Allocation\ status\ */}}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00081}\mbox{\hyperlink{structttak__mem__header__t_a5bf1a1bf467c6b8f9df7c13ff72ee660}{00081}}\ \ \ \ \ \_Bool\ \ \ \ \mbox{\hyperlink{structttak__mem__header__t_a5bf1a1bf467c6b8f9df7c13ff72ee660}{is\_const}};\ \ \ \ \ \ \textcolor{comment}{/**<\ Immutability\ hint\ */}}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00082}\mbox{\hyperlink{structttak__mem__header__t_a69a6983e3aa59121684422c82714b3c9}{00082}}\ \ \ \ \ \_Bool\ \ \ \ \mbox{\hyperlink{structttak__mem__header__t_a69a6983e3aa59121684422c82714b3c9}{is\_volatile}};\ \ \ \textcolor{comment}{/**<\ Volatility\ hint\ */}}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00083}\mbox{\hyperlink{structttak__mem__header__t_afebc4673ac816dd1ca85e2368dee4694}{00083}}\ \ \ \ \ \_Bool\ \ \ \ \mbox{\hyperlink{structttak__mem__header__t_afebc4673ac816dd1ca85e2368dee4694}{allow\_direct\_access}};\ \textcolor{comment}{/**<\ Safety\ bypass\ flag\ */}}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00084}\mbox{\hyperlink{structttak__mem__header__t_aec81dfe0c2ad6a934ac1daae25d1c823}{00084}}\ \ \ \ \ \_Bool\ \ \ \ \mbox{\hyperlink{structttak__mem__header__t_aec81dfe0c2ad6a934ac1daae25d1c823}{is\_huge}};\ \ \ \ \ \ \ \textcolor{comment}{/**<\ Mapped\ via\ hugepages\ */}}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00085}\mbox{\hyperlink{structttak__mem__header__t_a8430c7b034f0da69e2fe16ae2a999e2d}{00085}}\ \ \ \ \ \_Bool\ \ \ \ \mbox{\hyperlink{structttak__mem__header__t_a8430c7b034f0da69e2fe16ae2a999e2d}{should\_join}};\ \ \ \textcolor{comment}{/**<\ Indicates\ if\ associated\ resource\ needs\ joining\ */}}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00086}\mbox{\hyperlink{structttak__mem__header__t_a4de6b9462e84fa2602c694e3e9633b9e}{00086}}\ \ \ \ \ \_Bool\ \ \ \ \mbox{\hyperlink{structttak__mem__header__t_a4de6b9462e84fa2602c694e3e9633b9e}{strict\_check}};\ \ \textcolor{comment}{/**<\ Enable\ strict\ memory\ boundary\ checks\ */}}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00087}\mbox{\hyperlink{structttak__mem__header__t_aeb69c52bed0292761ce4ff581eae37df}{00087}}\ \ \ \ \ uint64\_t\ \mbox{\hyperlink{structttak__mem__header__t_aeb69c52bed0292761ce4ff581eae37df}{canary\_start}};\ \ \textcolor{comment}{/**<\ Magic\ number\ for\ start\ of\ user\ data\ */}}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00088}\mbox{\hyperlink{structttak__mem__header__t_a9bc5cff0708537fe474f41e356e69284}{00088}}\ \ \ \ \ uint64\_t\ \mbox{\hyperlink{structttak__mem__header__t_a9bc5cff0708537fe474f41e356e69284}{canary\_end}};\ \ \ \ \textcolor{comment}{/**<\ Magic\ number\ for\ end\ of\ user\ data\ */}}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00089}\mbox{\hyperlink{structttak__mem__header__t_acc4f1b34d6e7f6d2e71755779a88ffa3}{00089}}\ \ \ \ \ \textcolor{keywordtype}{char}\ \ \ \ \ \mbox{\hyperlink{structttak__mem__header__t_acc4f1b34d6e7f6d2e71755779a88ffa3}{reserved}}[11];\ \ \textcolor{comment}{/**<\ Explicit\ padding\ for\ 128-\/byte\ header\ on\ x64\ */}}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00090}00090\ \}\ \mbox{\hyperlink{structttak__mem__header__t}{ttak\_mem\_header\_t}};}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00091}00091\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00092}00092\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00093}00093\ \textcolor{comment}{\ *\ @brief\ Calculates\ a\ 32-\/bit\ checksum\ of\ the\ header\ metadata.}}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00094}00094\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00095}\mbox{\hyperlink{internal_2app__types_8h_ad663cf355d411491ef16fbaba940be07}{00095}}\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ uint32\_t\ \mbox{\hyperlink{internal_2app__types_8h_ad663cf355d411491ef16fbaba940be07}{ttak\_calc\_header\_checksum}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structttak__mem__header__t}{ttak\_mem\_header\_t}}\ *h)\ \{}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00096}00096\ \ \ \ \ uint32\_t\ sum\ =\ h-\/>\mbox{\hyperlink{structttak__mem__header__t_a63c543d0e2277438790686ca125adadf}{magic}};}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00097}00097\ \ \ \ \ sum\ \string^=\ (uint32\_t)h-\/>\mbox{\hyperlink{structttak__mem__header__t_aefba5a41d63f62a6de53c3a9a6f0f51b}{created\_tick}};}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00098}00098\ \ \ \ \ sum\ \string^=\ (uint32\_t)(h-\/>\mbox{\hyperlink{structttak__mem__header__t_aefba5a41d63f62a6de53c3a9a6f0f51b}{created\_tick}}\ >>\ 32);}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00099}00099\ \ \ \ \ sum\ \string^=\ (uint32\_t)h-\/>\mbox{\hyperlink{structttak__mem__header__t_a0362d896df5d92be01157426136ad6b0}{expires\_tick}};}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00100}00100\ \ \ \ \ sum\ \string^=\ (uint32\_t)(h-\/>\mbox{\hyperlink{structttak__mem__header__t_a0362d896df5d92be01157426136ad6b0}{expires\_tick}}\ >>\ 32);}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00101}00101\ \ \ \ \ sum\ \string^=\ (uint32\_t)h-\/>\mbox{\hyperlink{structttak__mem__header__t_a576f96336f81e4af314e70b911232dda}{size}};}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00102}00102\ \textcolor{preprocessor}{\#if\ defined(\_\_LP64\_\_)\ ||\ defined(\_WIN64)}}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00103}00103\ \ \ \ \ sum\ \string^=\ (uint32\_t)(h-\/>\mbox{\hyperlink{structttak__mem__header__t_a576f96336f81e4af314e70b911232dda}{size}}\ >>\ 32);}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00104}00104\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00105}00105\ \ \ \ \ sum\ \string^=\ (uint32\_t)h-\/>\mbox{\hyperlink{structttak__mem__header__t_a8430c7b034f0da69e2fe16ae2a999e2d}{should\_join}};}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00106}00106\ \ \ \ \ sum\ \string^=\ (uint32\_t)h-\/>\mbox{\hyperlink{structttak__mem__header__t_a4de6b9462e84fa2602c694e3e9633b9e}{strict\_check}};}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00107}00107\ \ \ \ \ sum\ \string^=\ (uint32\_t)h-\/>\mbox{\hyperlink{structttak__mem__header__t_aeb69c52bed0292761ce4ff581eae37df}{canary\_start}};}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00108}00108\ \ \ \ \ sum\ \string^=\ (uint32\_t)(h-\/>\mbox{\hyperlink{structttak__mem__header__t_aeb69c52bed0292761ce4ff581eae37df}{canary\_start}}\ >>\ 32);}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00109}00109\ \ \ \ \ sum\ \string^=\ (uint32\_t)h-\/>\mbox{\hyperlink{structttak__mem__header__t_a9bc5cff0708537fe474f41e356e69284}{canary\_end}};}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00110}00110\ \ \ \ \ sum\ \string^=\ (uint32\_t)(h-\/>\mbox{\hyperlink{structttak__mem__header__t_a9bc5cff0708537fe474f41e356e69284}{canary\_end}}\ >>\ 32);}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00111}00111\ \ \ \ \ \textcolor{keywordflow}{return}\ sum;}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00112}00112\ \}}
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00113}00113\ }
+\DoxyCodeLine{\Hypertarget{internal_2app__types_8h_source_l00114}00114\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ TTAK\_INTERNAL\_APP\_TYPES\_H}}
+
+\end{DoxyCode}

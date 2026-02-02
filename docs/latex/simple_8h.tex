@@ -1,0 +1,288 @@
+\doxysection{include/ttak/priority/simple.h File Reference}
+\hypertarget{simple_8h}{}\label{simple_8h}\index{include/ttak/priority/simple.h@{include/ttak/priority/simple.h}}
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+Include dependency graph for simple.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=285pt]{simple_8h__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structttak__simple__node}{ttak\+\_\+simple\+\_\+node}}
+\begin{DoxyCompactList}\small\item\em Generic singly linked list node used by simple stacks and queues. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structttak__simple__queue__t}{ttak\+\_\+simple\+\_\+queue\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Generic FIFO queue implemented with linked nodes. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structttak__simple__stack__t}{ttak\+\_\+simple\+\_\+stack\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Generic LIFO stack implemented with linked nodes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{structttak__simple__node}{ttak\+\_\+simple\+\_\+node}} \mbox{\hyperlink{simple_8h_aa66a8b50461258fc56184e64a99033ca}{ttak\+\_\+simple\+\_\+node\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Generic singly linked list node used by simple stacks and queues. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{simple_8h_a7b567319dcc36d0121cdb53eee620211}{ttak\+\_\+simple\+\_\+queue\+\_\+init}} (\mbox{\hyperlink{structttak__simple__queue__t}{ttak\+\_\+simple\+\_\+queue\+\_\+t}} \texorpdfstring{$\ast$}{*}q)
+\begin{DoxyCompactList}\small\item\em Initialize a queue before first use. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{simple_8h_a3fdf06e59e28de8b2c3f287cabe4dc81}{ttak\+\_\+simple\+\_\+queue\+\_\+push}} (\mbox{\hyperlink{structttak__simple__queue__t}{ttak\+\_\+simple\+\_\+queue\+\_\+t}} \texorpdfstring{$\ast$}{*}q, void \texorpdfstring{$\ast$}{*}data, uint64\+\_\+t now)
+\begin{DoxyCompactList}\small\item\em Enqueue an element at the tail. \end{DoxyCompactList}\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{simple_8h_aa492385fc54809b436b23b8c03950f08}{ttak\+\_\+simple\+\_\+queue\+\_\+pop}} (\mbox{\hyperlink{structttak__simple__queue__t}{ttak\+\_\+simple\+\_\+queue\+\_\+t}} \texorpdfstring{$\ast$}{*}q, uint64\+\_\+t now)
+\begin{DoxyCompactList}\small\item\em Remove and return the head element. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{simple_8h_a73b36bdb42e2ce0b4b928297eb133b5b}{ttak\+\_\+simple\+\_\+queue\+\_\+is\+\_\+empty}} (const \mbox{\hyperlink{structttak__simple__queue__t}{ttak\+\_\+simple\+\_\+queue\+\_\+t}} \texorpdfstring{$\ast$}{*}q)
+\begin{DoxyCompactList}\small\item\em Check whether the queue has no elements. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{simple_8h_a1ae15f1da40e5f2b706723bc8176f47d}{ttak\+\_\+simple\+\_\+queue\+\_\+size}} (const \mbox{\hyperlink{structttak__simple__queue__t}{ttak\+\_\+simple\+\_\+queue\+\_\+t}} \texorpdfstring{$\ast$}{*}q)
+\begin{DoxyCompactList}\small\item\em Return the number of enqueued elements. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{simple_8h_a79bced9835125232d684854747eb3a25}{ttak\+\_\+simple\+\_\+queue\+\_\+destroy}} (\mbox{\hyperlink{structttak__simple__queue__t}{ttak\+\_\+simple\+\_\+queue\+\_\+t}} \texorpdfstring{$\ast$}{*}q, uint64\+\_\+t now)
+\begin{DoxyCompactList}\small\item\em Release any resources associated with the queue. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{simple_8h_ab2d66e0d98a28e2398353ec3380d1286}{ttak\+\_\+simple\+\_\+stack\+\_\+init}} (\mbox{\hyperlink{structttak__simple__stack__t}{ttak\+\_\+simple\+\_\+stack\+\_\+t}} \texorpdfstring{$\ast$}{*}s)
+\begin{DoxyCompactList}\small\item\em Initialize a stack before first use. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{simple_8h_a6da07f999e9f47eb800e93b1134db2a2}{ttak\+\_\+simple\+\_\+stack\+\_\+push}} (\mbox{\hyperlink{structttak__simple__stack__t}{ttak\+\_\+simple\+\_\+stack\+\_\+t}} \texorpdfstring{$\ast$}{*}s, void \texorpdfstring{$\ast$}{*}data, uint64\+\_\+t now)
+\begin{DoxyCompactList}\small\item\em Push an element onto the stack. \end{DoxyCompactList}\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{simple_8h_ac4138f0df2770cfec56294dd367c2010}{ttak\+\_\+simple\+\_\+stack\+\_\+pop}} (\mbox{\hyperlink{structttak__simple__stack__t}{ttak\+\_\+simple\+\_\+stack\+\_\+t}} \texorpdfstring{$\ast$}{*}s, uint64\+\_\+t now)
+\begin{DoxyCompactList}\small\item\em Pop the top element from the stack. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{simple_8h_a679c27fa92239761b7f879401b012973}{ttak\+\_\+simple\+\_\+stack\+\_\+is\+\_\+empty}} (const \mbox{\hyperlink{structttak__simple__stack__t}{ttak\+\_\+simple\+\_\+stack\+\_\+t}} \texorpdfstring{$\ast$}{*}s)
+\begin{DoxyCompactList}\small\item\em Check whether the stack is empty. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{simple_8h_a40512cdb9a5ac240457e3fb26c900860}{ttak\+\_\+simple\+\_\+stack\+\_\+size}} (const \mbox{\hyperlink{structttak__simple__stack__t}{ttak\+\_\+simple\+\_\+stack\+\_\+t}} \texorpdfstring{$\ast$}{*}s)
+\begin{DoxyCompactList}\small\item\em Return the number of elements stored in the stack. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{simple_8h_a7e84bd90a7cbeeab74176494c454dacf}{ttak\+\_\+simple\+\_\+stack\+\_\+destroy}} (\mbox{\hyperlink{structttak__simple__stack__t}{ttak\+\_\+simple\+\_\+stack\+\_\+t}} \texorpdfstring{$\ast$}{*}s, uint64\+\_\+t now)
+\begin{DoxyCompactList}\small\item\em Release any resources associated with the stack. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-typedef-members}
+\Hypertarget{simple_8h_doc-typedef-members}
+\doxysubsection{Typedef Documentation}
+\Hypertarget{simple_8h_aa66a8b50461258fc56184e64a99033ca}\index{simple.h@{simple.h}!ttak\_simple\_node\_t@{ttak\_simple\_node\_t}}
+\index{ttak\_simple\_node\_t@{ttak\_simple\_node\_t}!simple.h@{simple.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_simple\_node\_t}{ttak\_simple\_node\_t}}
+{\footnotesize\ttfamily \label{simple_8h_aa66a8b50461258fc56184e64a99033ca} 
+typedef struct \mbox{\hyperlink{structttak__simple__node}{ttak\+\_\+simple\+\_\+node}} \mbox{\hyperlink{simple_8h_aa66a8b50461258fc56184e64a99033ca}{ttak\+\_\+simple\+\_\+node\+\_\+t}}}
+
+
+
+Generic singly linked list node used by simple stacks and queues. 
+
+
+
+\label{doc-func-members}
+\Hypertarget{simple_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{simple_8h_a79bced9835125232d684854747eb3a25}\index{simple.h@{simple.h}!ttak\_simple\_queue\_destroy@{ttak\_simple\_queue\_destroy}}
+\index{ttak\_simple\_queue\_destroy@{ttak\_simple\_queue\_destroy}!simple.h@{simple.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_simple\_queue\_destroy()}{ttak\_simple\_queue\_destroy()}}
+{\footnotesize\ttfamily \label{simple_8h_a79bced9835125232d684854747eb3a25} 
+void ttak\+\_\+simple\+\_\+queue\+\_\+destroy (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structttak__simple__queue__t}{ttak\+\_\+simple\+\_\+queue\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{q}{, }\item[{uint64\+\_\+t}]{now}{}\end{DoxyParamCaption})}
+
+
+
+Release any resources associated with the queue. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em q} & Queue to destroy. \\
+\hline
+{\em now} & Timestamp/epoch forwarded to profiling hooks. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{simple_8h_a7b567319dcc36d0121cdb53eee620211}\index{simple.h@{simple.h}!ttak\_simple\_queue\_init@{ttak\_simple\_queue\_init}}
+\index{ttak\_simple\_queue\_init@{ttak\_simple\_queue\_init}!simple.h@{simple.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_simple\_queue\_init()}{ttak\_simple\_queue\_init()}}
+{\footnotesize\ttfamily \label{simple_8h_a7b567319dcc36d0121cdb53eee620211} 
+void ttak\+\_\+simple\+\_\+queue\+\_\+init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structttak__simple__queue__t}{ttak\+\_\+simple\+\_\+queue\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{q}{}\end{DoxyParamCaption})}
+
+
+
+Initialize a queue before first use. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em q} & Queue instance to initialize. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{simple_8h_a73b36bdb42e2ce0b4b928297eb133b5b}\index{simple.h@{simple.h}!ttak\_simple\_queue\_is\_empty@{ttak\_simple\_queue\_is\_empty}}
+\index{ttak\_simple\_queue\_is\_empty@{ttak\_simple\_queue\_is\_empty}!simple.h@{simple.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_simple\_queue\_is\_empty()}{ttak\_simple\_queue\_is\_empty()}}
+{\footnotesize\ttfamily \label{simple_8h_a73b36bdb42e2ce0b4b928297eb133b5b} 
+bool ttak\+\_\+simple\+\_\+queue\+\_\+is\+\_\+empty (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structttak__simple__queue__t}{ttak\+\_\+simple\+\_\+queue\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{q}{}\end{DoxyParamCaption})}
+
+
+
+Check whether the queue has no elements. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em q} & Queue to inspect. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true when the queue is empty, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{simple_8h_aa492385fc54809b436b23b8c03950f08}\index{simple.h@{simple.h}!ttak\_simple\_queue\_pop@{ttak\_simple\_queue\_pop}}
+\index{ttak\_simple\_queue\_pop@{ttak\_simple\_queue\_pop}!simple.h@{simple.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_simple\_queue\_pop()}{ttak\_simple\_queue\_pop()}}
+{\footnotesize\ttfamily \label{simple_8h_aa492385fc54809b436b23b8c03950f08} 
+void \texorpdfstring{$\ast$}{*} ttak\+\_\+simple\+\_\+queue\+\_\+pop (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structttak__simple__queue__t}{ttak\+\_\+simple\+\_\+queue\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{q}{, }\item[{uint64\+\_\+t}]{now}{}\end{DoxyParamCaption})}
+
+
+
+Remove and return the head element. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em q} & Target queue. \\
+\hline
+{\em now} & Timestamp/epoch forwarded to profiling hooks. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Stored pointer or NULL when empty. 
+\end{DoxyReturn}
+\Hypertarget{simple_8h_a3fdf06e59e28de8b2c3f287cabe4dc81}\index{simple.h@{simple.h}!ttak\_simple\_queue\_push@{ttak\_simple\_queue\_push}}
+\index{ttak\_simple\_queue\_push@{ttak\_simple\_queue\_push}!simple.h@{simple.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_simple\_queue\_push()}{ttak\_simple\_queue\_push()}}
+{\footnotesize\ttfamily \label{simple_8h_a3fdf06e59e28de8b2c3f287cabe4dc81} 
+void ttak\+\_\+simple\+\_\+queue\+\_\+push (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structttak__simple__queue__t}{ttak\+\_\+simple\+\_\+queue\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{q}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{data}{, }\item[{uint64\+\_\+t}]{now}{}\end{DoxyParamCaption})}
+
+
+
+Enqueue an element at the tail. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em q} & Target queue. \\
+\hline
+{\em data} & Pointer to store. \\
+\hline
+{\em now} & Timestamp/epoch forwarded to profiling hooks. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{simple_8h_a1ae15f1da40e5f2b706723bc8176f47d}\index{simple.h@{simple.h}!ttak\_simple\_queue\_size@{ttak\_simple\_queue\_size}}
+\index{ttak\_simple\_queue\_size@{ttak\_simple\_queue\_size}!simple.h@{simple.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_simple\_queue\_size()}{ttak\_simple\_queue\_size()}}
+{\footnotesize\ttfamily \label{simple_8h_a1ae15f1da40e5f2b706723bc8176f47d} 
+size\+\_\+t ttak\+\_\+simple\+\_\+queue\+\_\+size (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structttak__simple__queue__t}{ttak\+\_\+simple\+\_\+queue\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{q}{}\end{DoxyParamCaption})}
+
+
+
+Return the number of enqueued elements. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em q} & Queue to inspect. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Element count. 
+\end{DoxyReturn}
+\Hypertarget{simple_8h_a7e84bd90a7cbeeab74176494c454dacf}\index{simple.h@{simple.h}!ttak\_simple\_stack\_destroy@{ttak\_simple\_stack\_destroy}}
+\index{ttak\_simple\_stack\_destroy@{ttak\_simple\_stack\_destroy}!simple.h@{simple.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_simple\_stack\_destroy()}{ttak\_simple\_stack\_destroy()}}
+{\footnotesize\ttfamily \label{simple_8h_a7e84bd90a7cbeeab74176494c454dacf} 
+void ttak\+\_\+simple\+\_\+stack\+\_\+destroy (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structttak__simple__stack__t}{ttak\+\_\+simple\+\_\+stack\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{s}{, }\item[{uint64\+\_\+t}]{now}{}\end{DoxyParamCaption})}
+
+
+
+Release any resources associated with the stack. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & Stack to destroy. \\
+\hline
+{\em now} & Timestamp/epoch forwarded to profiling hooks. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{simple_8h_ab2d66e0d98a28e2398353ec3380d1286}\index{simple.h@{simple.h}!ttak\_simple\_stack\_init@{ttak\_simple\_stack\_init}}
+\index{ttak\_simple\_stack\_init@{ttak\_simple\_stack\_init}!simple.h@{simple.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_simple\_stack\_init()}{ttak\_simple\_stack\_init()}}
+{\footnotesize\ttfamily \label{simple_8h_ab2d66e0d98a28e2398353ec3380d1286} 
+void ttak\+\_\+simple\+\_\+stack\+\_\+init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structttak__simple__stack__t}{ttak\+\_\+simple\+\_\+stack\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{s}{}\end{DoxyParamCaption})}
+
+
+
+Initialize a stack before first use. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & Stack instance to initialize. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{simple_8h_a679c27fa92239761b7f879401b012973}\index{simple.h@{simple.h}!ttak\_simple\_stack\_is\_empty@{ttak\_simple\_stack\_is\_empty}}
+\index{ttak\_simple\_stack\_is\_empty@{ttak\_simple\_stack\_is\_empty}!simple.h@{simple.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_simple\_stack\_is\_empty()}{ttak\_simple\_stack\_is\_empty()}}
+{\footnotesize\ttfamily \label{simple_8h_a679c27fa92239761b7f879401b012973} 
+bool ttak\+\_\+simple\+\_\+stack\+\_\+is\+\_\+empty (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structttak__simple__stack__t}{ttak\+\_\+simple\+\_\+stack\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{s}{}\end{DoxyParamCaption})}
+
+
+
+Check whether the stack is empty. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & Stack to inspect. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true when the stack is empty, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{simple_8h_ac4138f0df2770cfec56294dd367c2010}\index{simple.h@{simple.h}!ttak\_simple\_stack\_pop@{ttak\_simple\_stack\_pop}}
+\index{ttak\_simple\_stack\_pop@{ttak\_simple\_stack\_pop}!simple.h@{simple.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_simple\_stack\_pop()}{ttak\_simple\_stack\_pop()}}
+{\footnotesize\ttfamily \label{simple_8h_ac4138f0df2770cfec56294dd367c2010} 
+void \texorpdfstring{$\ast$}{*} ttak\+\_\+simple\+\_\+stack\+\_\+pop (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structttak__simple__stack__t}{ttak\+\_\+simple\+\_\+stack\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{s}{, }\item[{uint64\+\_\+t}]{now}{}\end{DoxyParamCaption})}
+
+
+
+Pop the top element from the stack. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & Target stack. \\
+\hline
+{\em now} & Timestamp/epoch forwarded to profiling hooks. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Stored pointer or NULL when empty. 
+\end{DoxyReturn}
+\Hypertarget{simple_8h_a6da07f999e9f47eb800e93b1134db2a2}\index{simple.h@{simple.h}!ttak\_simple\_stack\_push@{ttak\_simple\_stack\_push}}
+\index{ttak\_simple\_stack\_push@{ttak\_simple\_stack\_push}!simple.h@{simple.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_simple\_stack\_push()}{ttak\_simple\_stack\_push()}}
+{\footnotesize\ttfamily \label{simple_8h_a6da07f999e9f47eb800e93b1134db2a2} 
+void ttak\+\_\+simple\+\_\+stack\+\_\+push (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structttak__simple__stack__t}{ttak\+\_\+simple\+\_\+stack\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{s}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{data}{, }\item[{uint64\+\_\+t}]{now}{}\end{DoxyParamCaption})}
+
+
+
+Push an element onto the stack. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & Target stack. \\
+\hline
+{\em data} & Pointer to store. \\
+\hline
+{\em now} & Timestamp/epoch forwarded to profiling hooks. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{simple_8h_a40512cdb9a5ac240457e3fb26c900860}\index{simple.h@{simple.h}!ttak\_simple\_stack\_size@{ttak\_simple\_stack\_size}}
+\index{ttak\_simple\_stack\_size@{ttak\_simple\_stack\_size}!simple.h@{simple.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_simple\_stack\_size()}{ttak\_simple\_stack\_size()}}
+{\footnotesize\ttfamily \label{simple_8h_a40512cdb9a5ac240457e3fb26c900860} 
+size\+\_\+t ttak\+\_\+simple\+\_\+stack\+\_\+size (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structttak__simple__stack__t}{ttak\+\_\+simple\+\_\+stack\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{s}{}\end{DoxyParamCaption})}
+
+
+
+Return the number of elements stored in the stack. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & Stack to inspect. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Element count. 
+\end{DoxyReturn}

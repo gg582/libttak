@@ -1,0 +1,55 @@
+\doxysection{heap.\+h}
+\hypertarget{heap_8h_source}{}\label{heap_8h_source}\index{include/ttak/priority/heap.h@{include/ttak/priority/heap.h}}
+\mbox{\hyperlink{heap_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{heap_8h_source_l00001}00001\ \textcolor{preprocessor}{\#ifndef\ TTAK\_PRIORITY\_HEAP\_H}}
+\DoxyCodeLine{\Hypertarget{heap_8h_source_l00002}00002\ \textcolor{preprocessor}{\#define\ TTAK\_PRIORITY\_HEAP\_H}}
+\DoxyCodeLine{\Hypertarget{heap_8h_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{heap_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <stddef.h>}}
+\DoxyCodeLine{\Hypertarget{heap_8h_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{\Hypertarget{heap_8h_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{\Hypertarget{heap_8h_source_l00007}00007\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{heap_8h_source_l00008}00008\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{heap_8h_source_l00009}00009\ \textcolor{comment}{\ *\ @brief\ Generic\ Binary\ Heap\ (Tree).}}
+\DoxyCodeLine{\Hypertarget{heap_8h_source_l00010}00010\ \textcolor{comment}{\ *\ Implemented\ as\ a\ dynamic\ array.}}
+\DoxyCodeLine{\Hypertarget{heap_8h_source_l00011}00011\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{heap_8h_source_l00012}\mbox{\hyperlink{structttak__heap__tree}{00012}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structttak__heap__tree}{ttak\_heap\_tree}}\ \{}
+\DoxyCodeLine{\Hypertarget{heap_8h_source_l00013}\mbox{\hyperlink{structttak__heap__tree_a12623385798b62e4723e0a25e4aafeff}{00013}}\ \ \ \ \ \textcolor{keywordtype}{void}\ **\mbox{\hyperlink{structttak__heap__tree_a12623385798b62e4723e0a25e4aafeff}{data}};}
+\DoxyCodeLine{\Hypertarget{heap_8h_source_l00014}\mbox{\hyperlink{structttak__heap__tree_a267ec866d85008725c043e11770e11a9}{00014}}\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{structttak__heap__tree_a267ec866d85008725c043e11770e11a9}{size}};}
+\DoxyCodeLine{\Hypertarget{heap_8h_source_l00015}\mbox{\hyperlink{structttak__heap__tree_ada340f8d3200684ac87f085bb6a7218f}{00015}}\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{structttak__heap__tree_ada340f8d3200684ac87f085bb6a7218f}{capacity}};}
+\DoxyCodeLine{\Hypertarget{heap_8h_source_l00016}00016\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{heap_8h_source_l00017}00017\ \ \ \ \ \textcolor{comment}{//\ Comparator:\ returns\ <\ 0\ if\ a\ <\ b,\ >\ 0\ if\ a\ >\ b,\ 0\ if\ equal.}}
+\DoxyCodeLine{\Hypertarget{heap_8h_source_l00018}00018\ \ \ \ \ \textcolor{comment}{//\ Max-\/heap:\ a\ >\ b\ -\/>\ parent\ >\ child.}}
+\DoxyCodeLine{\Hypertarget{heap_8h_source_l00019}\mbox{\hyperlink{structttak__heap__tree_af2ca80a7e0420f1a674963f9f12c41eb}{00019}}\ \ \ \ \ int\ (*\mbox{\hyperlink{structttak__heap__tree_af2ca80a7e0420f1a674963f9f12c41eb}{cmp}})(\textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ *a,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ *b);}
+\DoxyCodeLine{\Hypertarget{heap_8h_source_l00020}\mbox{\hyperlink{heap_8h_acaf2c89557215ad5abded52af431e6bf}{00020}}\ \}\ \mbox{\hyperlink{heap_8h_acaf2c89557215ad5abded52af431e6bf}{ttak\_heap\_tree\_t}};}
+\DoxyCodeLine{\Hypertarget{heap_8h_source_l00021}00021\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{heap_8h_source_l00022}00022\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{heap_8h_source_l00023}00023\ \textcolor{comment}{\ *\ @brief\ Initialize\ the\ heap.}}
+\DoxyCodeLine{\Hypertarget{heap_8h_source_l00024}00024\ \textcolor{comment}{\ *\ @param\ initial\_cap\ Initial\ capacity.}}
+\DoxyCodeLine{\Hypertarget{heap_8h_source_l00025}00025\ \textcolor{comment}{\ *\ @param\ cmp\ Comparator\ function.}}
+\DoxyCodeLine{\Hypertarget{heap_8h_source_l00026}00026\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{heap_8h_source_l00027}\mbox{\hyperlink{heap_8h_aa6e8d0be11b933fbbbd9b2bb7b149534}{00027}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{heap_8h_aa6e8d0be11b933fbbbd9b2bb7b149534}{ttak\_heap\_tree\_init}}(\mbox{\hyperlink{heap_8h_acaf2c89557215ad5abded52af431e6bf}{ttak\_heap\_tree\_t}}\ *heap,\ \textcolor{keywordtype}{size\_t}\ initial\_cap,\ \textcolor{keywordtype}{int}\ (*cmp)(\textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*));}
+\DoxyCodeLine{\Hypertarget{heap_8h_source_l00028}00028\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{heap_8h_source_l00029}00029\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{heap_8h_source_l00030}00030\ \textcolor{comment}{\ *\ @brief\ Push\ an\ element\ into\ the\ heap.}}
+\DoxyCodeLine{\Hypertarget{heap_8h_source_l00031}00031\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{heap_8h_source_l00032}\mbox{\hyperlink{heap_8h_a9dffa0e9b3d7131d6d542ac09b4af48e}{00032}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{heap_8h_a9dffa0e9b3d7131d6d542ac09b4af48e}{ttak\_heap\_tree\_push}}(\mbox{\hyperlink{heap_8h_acaf2c89557215ad5abded52af431e6bf}{ttak\_heap\_tree\_t}}\ *heap,\ \textcolor{keywordtype}{void}\ *element,\ uint64\_t\ now);}
+\DoxyCodeLine{\Hypertarget{heap_8h_source_l00033}00033\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{heap_8h_source_l00034}00034\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{heap_8h_source_l00035}00035\ \textcolor{comment}{\ *\ @brief\ Pop\ the\ root\ element\ (min\ or\ max\ depending\ on\ comparator).}}
+\DoxyCodeLine{\Hypertarget{heap_8h_source_l00036}00036\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{heap_8h_source_l00037}\mbox{\hyperlink{heap_8h_a02b1486e5be8d4b69b1cc1d976392baf}{00037}}\ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{heap_8h_a02b1486e5be8d4b69b1cc1d976392baf}{ttak\_heap\_tree\_pop}}(\mbox{\hyperlink{heap_8h_acaf2c89557215ad5abded52af431e6bf}{ttak\_heap\_tree\_t}}\ *heap,\ uint64\_t\ now);}
+\DoxyCodeLine{\Hypertarget{heap_8h_source_l00038}00038\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{heap_8h_source_l00039}00039\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{heap_8h_source_l00040}00040\ \textcolor{comment}{\ *\ @brief\ Peek\ at\ the\ root\ element.}}
+\DoxyCodeLine{\Hypertarget{heap_8h_source_l00041}00041\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{heap_8h_source_l00042}\mbox{\hyperlink{heap_8h_af0aa24955197a77e33371833ad7ff0d6}{00042}}\ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{heap_8h_af0aa24955197a77e33371833ad7ff0d6}{ttak\_heap\_tree\_peek}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{heap_8h_acaf2c89557215ad5abded52af431e6bf}{ttak\_heap\_tree\_t}}\ *heap);}
+\DoxyCodeLine{\Hypertarget{heap_8h_source_l00043}00043\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{heap_8h_source_l00044}00044\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{heap_8h_source_l00045}00045\ \textcolor{comment}{\ *\ @brief\ Destroy\ the\ heap\ internal\ storage.\ Does\ not\ free\ the\ elements\ themselves.}}
+\DoxyCodeLine{\Hypertarget{heap_8h_source_l00046}00046\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{heap_8h_source_l00047}\mbox{\hyperlink{heap_8h_aada8f29275c04f316ebe1fb751ddd89c}{00047}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{heap_8h_aada8f29275c04f316ebe1fb751ddd89c}{ttak\_heap\_tree\_destroy}}(\mbox{\hyperlink{heap_8h_acaf2c89557215ad5abded52af431e6bf}{ttak\_heap\_tree\_t}}\ *heap,\ uint64\_t\ now);}
+\DoxyCodeLine{\Hypertarget{heap_8h_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{heap_8h_source_l00049}00049\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ TTAK\_PRIORITY\_HEAP\_H}}
+
+\end{DoxyCode}

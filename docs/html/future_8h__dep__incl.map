@@ -1,0 +1,10 @@
+<map id="include/ttak/async/future.h" name="include/ttak/async/future.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="62,5,202,50"/>
+<area shape="rect" id="Node000002" href="$promise_8h.html" title=" " alt="" coords="62,98,202,143"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="135,66,135,98,130,98,130,66"/>
+<area shape="rect" id="Node000003" href="$worker_8h.html" title=" " alt="" coords="5,191,150,235"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="114,157,93,192,88,189,109,155"/>
+<area shape="rect" id="Node000004" href="$pool_8h.html" title=" " alt="" coords="60,283,204,328"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="101,247,122,282,117,285,96,250"/>
+<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="148,268,159,235,162,213,159,191,142,144,147,142,164,190,167,213,164,236,153,270"/>
+</map>

@@ -1,0 +1,222 @@
+\doxysection{include/ttak/math/ntt.h File Reference}
+\hypertarget{include_2ttak_2math_2ntt_8h}{}\label{include_2ttak_2math_2ntt_8h}\index{include/ttak/math/ntt.h@{include/ttak/math/ntt.h}}
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+Include dependency graph for ntt.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=285pt]{include_2ttak_2math_2ntt_8h__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structttak__ntt__prime}{ttak\+\_\+ntt\+\_\+prime}}
+\begin{DoxyCompactList}\small\item\em Predefined prime information for NTT operations. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structttak__u128}{ttak\+\_\+u128}}
+\begin{DoxyCompactList}\small\item\em Portable 128-\/bit container for CRT outputs. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structttak__crt__term}{ttak\+\_\+crt\+\_\+term}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{include_2ttak_2math_2ntt_8h_a3d17fcf4b6668cff2d6f9a3e2efd8cfe}{TTAK\+\_\+\+NTT\+\_\+\+PRIME\+\_\+\+COUNT}}~3
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef unsigned \+\_\+\+\_\+int128 \mbox{\hyperlink{include_2ttak_2math_2ntt_8h_a67323f7c611937893a2237faa187b351}{ttak\+\_\+uint128\+\_\+native\+\_\+t}}
+\item 
+typedef struct \mbox{\hyperlink{structttak__ntt__prime}{ttak\+\_\+ntt\+\_\+prime}} \mbox{\hyperlink{include_2ttak_2math_2ntt_8h_ae62e3373c925615a3883c0c6c0ad4ed2}{ttak\+\_\+ntt\+\_\+prime\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Predefined prime information for NTT operations. \end{DoxyCompactList}\item 
+typedef struct \mbox{\hyperlink{structttak__u128}{ttak\+\_\+u128}} \mbox{\hyperlink{include_2ttak_2math_2ntt_8h_abfeb90537e89e74c3a5e0ac335194187}{ttak\+\_\+u128\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Portable 128-\/bit container for CRT outputs. \end{DoxyCompactList}\item 
+typedef struct \mbox{\hyperlink{structttak__crt__term}{ttak\+\_\+crt\+\_\+term}} \mbox{\hyperlink{include_2ttak_2math_2ntt_8h_a1dc73a007834c1254aa8d4cb6f4eb296}{ttak\+\_\+crt\+\_\+term\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint64\+\_\+t \mbox{\hyperlink{include_2ttak_2math_2ntt_8h_a721347613fb78eea89d768eccb29d145}{ttak\+\_\+mod\+\_\+add}} (uint64\+\_\+t a, uint64\+\_\+t b, uint64\+\_\+t mod)
+\item 
+uint64\+\_\+t \mbox{\hyperlink{include_2ttak_2math_2ntt_8h_aa690100cd8ebb7050f44abf055cfb678}{ttak\+\_\+mod\+\_\+sub}} (uint64\+\_\+t a, uint64\+\_\+t b, uint64\+\_\+t mod)
+\item 
+uint64\+\_\+t \mbox{\hyperlink{include_2ttak_2math_2ntt_8h_a3d692168f7bd0997d122ba2cefe19261}{ttak\+\_\+mod\+\_\+mul}} (uint64\+\_\+t a, uint64\+\_\+t b, uint64\+\_\+t mod)
+\item 
+uint64\+\_\+t \mbox{\hyperlink{include_2ttak_2math_2ntt_8h_afb422eba69e737d6bc6f63b62c83d570}{ttak\+\_\+mod\+\_\+pow}} (uint64\+\_\+t base, uint64\+\_\+t exp, uint64\+\_\+t mod)
+\item 
+uint64\+\_\+t \mbox{\hyperlink{include_2ttak_2math_2ntt_8h_a2dbe59bb30c472b256471090bbb1e1da}{ttak\+\_\+mod\+\_\+inverse}} (uint64\+\_\+t value, uint64\+\_\+t mod)
+\item 
+uint64\+\_\+t \mbox{\hyperlink{include_2ttak_2math_2ntt_8h_a3eacfaf694bbfb771b99ac41bd23a894}{ttak\+\_\+montgomery\+\_\+reduce}} (\mbox{\hyperlink{include_2ttak_2math_2ntt_8h_a67323f7c611937893a2237faa187b351}{ttak\+\_\+uint128\+\_\+native\+\_\+t}} value, const \mbox{\hyperlink{include_2ttak_2math_2ntt_8h_ae62e3373c925615a3883c0c6c0ad4ed2}{ttak\+\_\+ntt\+\_\+prime\+\_\+t}} \texorpdfstring{$\ast$}{*}prime)
+\item 
+uint64\+\_\+t \mbox{\hyperlink{include_2ttak_2math_2ntt_8h_ac3dac3e8b60b32bfde3360432a71318e}{ttak\+\_\+montgomery\+\_\+mul}} (uint64\+\_\+t lhs, uint64\+\_\+t rhs, const \mbox{\hyperlink{include_2ttak_2math_2ntt_8h_ae62e3373c925615a3883c0c6c0ad4ed2}{ttak\+\_\+ntt\+\_\+prime\+\_\+t}} \texorpdfstring{$\ast$}{*}prime)
+\item 
+uint64\+\_\+t \mbox{\hyperlink{include_2ttak_2math_2ntt_8h_ae3dc9c710e3c7c90784df382a1502795}{ttak\+\_\+montgomery\+\_\+convert}} (uint64\+\_\+t value, const \mbox{\hyperlink{include_2ttak_2math_2ntt_8h_ae62e3373c925615a3883c0c6c0ad4ed2}{ttak\+\_\+ntt\+\_\+prime\+\_\+t}} \texorpdfstring{$\ast$}{*}prime)
+\item 
+\+\_\+\+Bool \mbox{\hyperlink{include_2ttak_2math_2ntt_8h_a3372a84ab2ae3592b9f69d2389320880}{ttak\+\_\+ntt\+\_\+transform}} (uint64\+\_\+t \texorpdfstring{$\ast$}{*}data, size\+\_\+t n, const \mbox{\hyperlink{include_2ttak_2math_2ntt_8h_ae62e3373c925615a3883c0c6c0ad4ed2}{ttak\+\_\+ntt\+\_\+prime\+\_\+t}} \texorpdfstring{$\ast$}{*}prime, \+\_\+\+Bool inverse)
+\item 
+void \mbox{\hyperlink{include_2ttak_2math_2ntt_8h_aca4e392874373caf51b01fe0bd52a04f}{ttak\+\_\+ntt\+\_\+pointwise\+\_\+mul}} (uint64\+\_\+t \texorpdfstring{$\ast$}{*}dst, const uint64\+\_\+t \texorpdfstring{$\ast$}{*}lhs, const uint64\+\_\+t \texorpdfstring{$\ast$}{*}rhs, size\+\_\+t n, const \mbox{\hyperlink{include_2ttak_2math_2ntt_8h_ae62e3373c925615a3883c0c6c0ad4ed2}{ttak\+\_\+ntt\+\_\+prime\+\_\+t}} \texorpdfstring{$\ast$}{*}prime)
+\item 
+void \mbox{\hyperlink{include_2ttak_2math_2ntt_8h_a5987151d8bbc95394224bfdf2ea2b0a9}{ttak\+\_\+ntt\+\_\+pointwise\+\_\+square}} (uint64\+\_\+t \texorpdfstring{$\ast$}{*}dst, const uint64\+\_\+t \texorpdfstring{$\ast$}{*}src, size\+\_\+t n, const \mbox{\hyperlink{include_2ttak_2math_2ntt_8h_ae62e3373c925615a3883c0c6c0ad4ed2}{ttak\+\_\+ntt\+\_\+prime\+\_\+t}} \texorpdfstring{$\ast$}{*}prime)
+\item 
+size\+\_\+t \mbox{\hyperlink{include_2ttak_2math_2ntt_8h_a26f3bdf570043a69c628318d3ff96117}{ttak\+\_\+next\+\_\+power\+\_\+of\+\_\+two}} (size\+\_\+t value)
+\item 
+\+\_\+\+Bool \mbox{\hyperlink{include_2ttak_2math_2ntt_8h_a5c01d8cc3142495ce988b8539d6a4d6b}{ttak\+\_\+crt\+\_\+combine}} (const \mbox{\hyperlink{include_2ttak_2math_2ntt_8h_a1dc73a007834c1254aa8d4cb6f4eb296}{ttak\+\_\+crt\+\_\+term\+\_\+t}} \texorpdfstring{$\ast$}{*}terms, size\+\_\+t count, \mbox{\hyperlink{include_2ttak_2math_2ntt_8h_abfeb90537e89e74c3a5e0ac335194187}{ttak\+\_\+u128\+\_\+t}} \texorpdfstring{$\ast$}{*}residue\+\_\+out, \mbox{\hyperlink{include_2ttak_2math_2ntt_8h_abfeb90537e89e74c3a5e0ac335194187}{ttak\+\_\+u128\+\_\+t}} \texorpdfstring{$\ast$}{*}modulus\+\_\+out)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{include_2ttak_2math_2ntt_8h_ae62e3373c925615a3883c0c6c0ad4ed2}{ttak\+\_\+ntt\+\_\+prime\+\_\+t}} \mbox{\hyperlink{include_2ttak_2math_2ntt_8h_a08d9004f7979851e9e96fa6dc2ec982b}{ttak\+\_\+ntt\+\_\+primes}} \mbox{[}\mbox{\hyperlink{include_2ttak_2math_2ntt_8h_a3d17fcf4b6668cff2d6f9a3e2efd8cfe}{TTAK\+\_\+\+NTT\+\_\+\+PRIME\+\_\+\+COUNT}}\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\label{doc-define-members}
+\Hypertarget{include_2ttak_2math_2ntt_8h_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{include_2ttak_2math_2ntt_8h_a3d17fcf4b6668cff2d6f9a3e2efd8cfe}\index{ntt.h@{ntt.h}!TTAK\_NTT\_PRIME\_COUNT@{TTAK\_NTT\_PRIME\_COUNT}}
+\index{TTAK\_NTT\_PRIME\_COUNT@{TTAK\_NTT\_PRIME\_COUNT}!ntt.h@{ntt.h}}
+\doxysubsubsection{\texorpdfstring{TTAK\_NTT\_PRIME\_COUNT}{TTAK\_NTT\_PRIME\_COUNT}}
+{\footnotesize\ttfamily \label{include_2ttak_2math_2ntt_8h_a3d17fcf4b6668cff2d6f9a3e2efd8cfe} 
+\#define TTAK\+\_\+\+NTT\+\_\+\+PRIME\+\_\+\+COUNT~3}
+
+
+
+Definition at line \mbox{\hyperlink{include_2ttak_2math_2ntt_8h_source_l00025}{25}} of file \mbox{\hyperlink{include_2ttak_2math_2ntt_8h_source}{ntt.\+h}}.
+
+
+
+\label{doc-typedef-members}
+\Hypertarget{include_2ttak_2math_2ntt_8h_doc-typedef-members}
+\doxysubsection{Typedef Documentation}
+\Hypertarget{include_2ttak_2math_2ntt_8h_a1dc73a007834c1254aa8d4cb6f4eb296}\index{ntt.h@{ntt.h}!ttak\_crt\_term\_t@{ttak\_crt\_term\_t}}
+\index{ttak\_crt\_term\_t@{ttak\_crt\_term\_t}!ntt.h@{ntt.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_crt\_term\_t}{ttak\_crt\_term\_t}}
+{\footnotesize\ttfamily \label{include_2ttak_2math_2ntt_8h_a1dc73a007834c1254aa8d4cb6f4eb296} 
+typedef struct \mbox{\hyperlink{structttak__crt__term}{ttak\+\_\+crt\+\_\+term}} \mbox{\hyperlink{include_2ttak_2math_2ntt_8h_a1dc73a007834c1254aa8d4cb6f4eb296}{ttak\+\_\+crt\+\_\+term\+\_\+t}}}
+
+\Hypertarget{include_2ttak_2math_2ntt_8h_ae62e3373c925615a3883c0c6c0ad4ed2}\index{ntt.h@{ntt.h}!ttak\_ntt\_prime\_t@{ttak\_ntt\_prime\_t}}
+\index{ttak\_ntt\_prime\_t@{ttak\_ntt\_prime\_t}!ntt.h@{ntt.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_ntt\_prime\_t}{ttak\_ntt\_prime\_t}}
+{\footnotesize\ttfamily \label{include_2ttak_2math_2ntt_8h_ae62e3373c925615a3883c0c6c0ad4ed2} 
+typedef struct \mbox{\hyperlink{structttak__ntt__prime}{ttak\+\_\+ntt\+\_\+prime}} \mbox{\hyperlink{include_2ttak_2math_2ntt_8h_ae62e3373c925615a3883c0c6c0ad4ed2}{ttak\+\_\+ntt\+\_\+prime\+\_\+t}}}
+
+
+
+Predefined prime information for NTT operations. 
+
+\Hypertarget{include_2ttak_2math_2ntt_8h_abfeb90537e89e74c3a5e0ac335194187}\index{ntt.h@{ntt.h}!ttak\_u128\_t@{ttak\_u128\_t}}
+\index{ttak\_u128\_t@{ttak\_u128\_t}!ntt.h@{ntt.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_u128\_t}{ttak\_u128\_t}}
+{\footnotesize\ttfamily \label{include_2ttak_2math_2ntt_8h_abfeb90537e89e74c3a5e0ac335194187} 
+typedef struct \mbox{\hyperlink{structttak__u128}{ttak\+\_\+u128}} \mbox{\hyperlink{include_2ttak_2math_2ntt_8h_abfeb90537e89e74c3a5e0ac335194187}{ttak\+\_\+u128\+\_\+t}}}
+
+
+
+Portable 128-\/bit container for CRT outputs. 
+
+\Hypertarget{include_2ttak_2math_2ntt_8h_a67323f7c611937893a2237faa187b351}\index{ntt.h@{ntt.h}!ttak\_uint128\_native\_t@{ttak\_uint128\_native\_t}}
+\index{ttak\_uint128\_native\_t@{ttak\_uint128\_native\_t}!ntt.h@{ntt.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_uint128\_native\_t}{ttak\_uint128\_native\_t}}
+{\footnotesize\ttfamily \label{include_2ttak_2math_2ntt_8h_a67323f7c611937893a2237faa187b351} 
+typedef unsigned \+\_\+\+\_\+int128 \mbox{\hyperlink{include_2ttak_2math_2ntt_8h_a67323f7c611937893a2237faa187b351}{ttak\+\_\+uint128\+\_\+native\+\_\+t}}}
+
+
+
+Definition at line \mbox{\hyperlink{include_2ttak_2math_2ntt_8h_source_l00012}{12}} of file \mbox{\hyperlink{include_2ttak_2math_2ntt_8h_source}{ntt.\+h}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{include_2ttak_2math_2ntt_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{include_2ttak_2math_2ntt_8h_a5c01d8cc3142495ce988b8539d6a4d6b}\index{ntt.h@{ntt.h}!ttak\_crt\_combine@{ttak\_crt\_combine}}
+\index{ttak\_crt\_combine@{ttak\_crt\_combine}!ntt.h@{ntt.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_crt\_combine()}{ttak\_crt\_combine()}}
+{\footnotesize\ttfamily \label{include_2ttak_2math_2ntt_8h_a5c01d8cc3142495ce988b8539d6a4d6b} 
+\+\_\+\+Bool ttak\+\_\+crt\+\_\+combine (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{include_2ttak_2math_2ntt_8h_a1dc73a007834c1254aa8d4cb6f4eb296}{ttak\+\_\+crt\+\_\+term\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{terms}{, }\item[{size\+\_\+t}]{count}{, }\item[{\mbox{\hyperlink{include_2ttak_2math_2ntt_8h_abfeb90537e89e74c3a5e0ac335194187}{ttak\+\_\+u128\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{residue\+\_\+out}{, }\item[{\mbox{\hyperlink{include_2ttak_2math_2ntt_8h_abfeb90537e89e74c3a5e0ac335194187}{ttak\+\_\+u128\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{modulus\+\_\+out}{}\end{DoxyParamCaption})}
+
+\Hypertarget{include_2ttak_2math_2ntt_8h_a721347613fb78eea89d768eccb29d145}\index{ntt.h@{ntt.h}!ttak\_mod\_add@{ttak\_mod\_add}}
+\index{ttak\_mod\_add@{ttak\_mod\_add}!ntt.h@{ntt.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_mod\_add()}{ttak\_mod\_add()}}
+{\footnotesize\ttfamily \label{include_2ttak_2math_2ntt_8h_a721347613fb78eea89d768eccb29d145} 
+uint64\+\_\+t ttak\+\_\+mod\+\_\+add (\begin{DoxyParamCaption}\item[{uint64\+\_\+t}]{a}{, }\item[{uint64\+\_\+t}]{b}{, }\item[{uint64\+\_\+t}]{mod}{}\end{DoxyParamCaption})}
+
+\Hypertarget{include_2ttak_2math_2ntt_8h_a2dbe59bb30c472b256471090bbb1e1da}\index{ntt.h@{ntt.h}!ttak\_mod\_inverse@{ttak\_mod\_inverse}}
+\index{ttak\_mod\_inverse@{ttak\_mod\_inverse}!ntt.h@{ntt.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_mod\_inverse()}{ttak\_mod\_inverse()}}
+{\footnotesize\ttfamily \label{include_2ttak_2math_2ntt_8h_a2dbe59bb30c472b256471090bbb1e1da} 
+uint64\+\_\+t ttak\+\_\+mod\+\_\+inverse (\begin{DoxyParamCaption}\item[{uint64\+\_\+t}]{value}{, }\item[{uint64\+\_\+t}]{mod}{}\end{DoxyParamCaption})}
+
+\Hypertarget{include_2ttak_2math_2ntt_8h_a3d692168f7bd0997d122ba2cefe19261}\index{ntt.h@{ntt.h}!ttak\_mod\_mul@{ttak\_mod\_mul}}
+\index{ttak\_mod\_mul@{ttak\_mod\_mul}!ntt.h@{ntt.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_mod\_mul()}{ttak\_mod\_mul()}}
+{\footnotesize\ttfamily \label{include_2ttak_2math_2ntt_8h_a3d692168f7bd0997d122ba2cefe19261} 
+uint64\+\_\+t ttak\+\_\+mod\+\_\+mul (\begin{DoxyParamCaption}\item[{uint64\+\_\+t}]{a}{, }\item[{uint64\+\_\+t}]{b}{, }\item[{uint64\+\_\+t}]{mod}{}\end{DoxyParamCaption})}
+
+\Hypertarget{include_2ttak_2math_2ntt_8h_afb422eba69e737d6bc6f63b62c83d570}\index{ntt.h@{ntt.h}!ttak\_mod\_pow@{ttak\_mod\_pow}}
+\index{ttak\_mod\_pow@{ttak\_mod\_pow}!ntt.h@{ntt.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_mod\_pow()}{ttak\_mod\_pow()}}
+{\footnotesize\ttfamily \label{include_2ttak_2math_2ntt_8h_afb422eba69e737d6bc6f63b62c83d570} 
+uint64\+\_\+t ttak\+\_\+mod\+\_\+pow (\begin{DoxyParamCaption}\item[{uint64\+\_\+t}]{base}{, }\item[{uint64\+\_\+t}]{exp}{, }\item[{uint64\+\_\+t}]{mod}{}\end{DoxyParamCaption})}
+
+\Hypertarget{include_2ttak_2math_2ntt_8h_aa690100cd8ebb7050f44abf055cfb678}\index{ntt.h@{ntt.h}!ttak\_mod\_sub@{ttak\_mod\_sub}}
+\index{ttak\_mod\_sub@{ttak\_mod\_sub}!ntt.h@{ntt.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_mod\_sub()}{ttak\_mod\_sub()}}
+{\footnotesize\ttfamily \label{include_2ttak_2math_2ntt_8h_aa690100cd8ebb7050f44abf055cfb678} 
+uint64\+\_\+t ttak\+\_\+mod\+\_\+sub (\begin{DoxyParamCaption}\item[{uint64\+\_\+t}]{a}{, }\item[{uint64\+\_\+t}]{b}{, }\item[{uint64\+\_\+t}]{mod}{}\end{DoxyParamCaption})}
+
+\Hypertarget{include_2ttak_2math_2ntt_8h_ae3dc9c710e3c7c90784df382a1502795}\index{ntt.h@{ntt.h}!ttak\_montgomery\_convert@{ttak\_montgomery\_convert}}
+\index{ttak\_montgomery\_convert@{ttak\_montgomery\_convert}!ntt.h@{ntt.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_montgomery\_convert()}{ttak\_montgomery\_convert()}}
+{\footnotesize\ttfamily \label{include_2ttak_2math_2ntt_8h_ae3dc9c710e3c7c90784df382a1502795} 
+uint64\+\_\+t ttak\+\_\+montgomery\+\_\+convert (\begin{DoxyParamCaption}\item[{uint64\+\_\+t}]{value}{, }\item[{const \mbox{\hyperlink{include_2ttak_2math_2ntt_8h_ae62e3373c925615a3883c0c6c0ad4ed2}{ttak\+\_\+ntt\+\_\+prime\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{prime}{}\end{DoxyParamCaption})}
+
+\Hypertarget{include_2ttak_2math_2ntt_8h_ac3dac3e8b60b32bfde3360432a71318e}\index{ntt.h@{ntt.h}!ttak\_montgomery\_mul@{ttak\_montgomery\_mul}}
+\index{ttak\_montgomery\_mul@{ttak\_montgomery\_mul}!ntt.h@{ntt.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_montgomery\_mul()}{ttak\_montgomery\_mul()}}
+{\footnotesize\ttfamily \label{include_2ttak_2math_2ntt_8h_ac3dac3e8b60b32bfde3360432a71318e} 
+uint64\+\_\+t ttak\+\_\+montgomery\+\_\+mul (\begin{DoxyParamCaption}\item[{uint64\+\_\+t}]{lhs}{, }\item[{uint64\+\_\+t}]{rhs}{, }\item[{const \mbox{\hyperlink{include_2ttak_2math_2ntt_8h_ae62e3373c925615a3883c0c6c0ad4ed2}{ttak\+\_\+ntt\+\_\+prime\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{prime}{}\end{DoxyParamCaption})}
+
+\Hypertarget{include_2ttak_2math_2ntt_8h_a3eacfaf694bbfb771b99ac41bd23a894}\index{ntt.h@{ntt.h}!ttak\_montgomery\_reduce@{ttak\_montgomery\_reduce}}
+\index{ttak\_montgomery\_reduce@{ttak\_montgomery\_reduce}!ntt.h@{ntt.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_montgomery\_reduce()}{ttak\_montgomery\_reduce()}}
+{\footnotesize\ttfamily \label{include_2ttak_2math_2ntt_8h_a3eacfaf694bbfb771b99ac41bd23a894} 
+uint64\+\_\+t ttak\+\_\+montgomery\+\_\+reduce (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{include_2ttak_2math_2ntt_8h_a67323f7c611937893a2237faa187b351}{ttak\+\_\+uint128\+\_\+native\+\_\+t}}}]{value}{, }\item[{const \mbox{\hyperlink{include_2ttak_2math_2ntt_8h_ae62e3373c925615a3883c0c6c0ad4ed2}{ttak\+\_\+ntt\+\_\+prime\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{prime}{}\end{DoxyParamCaption})}
+
+\Hypertarget{include_2ttak_2math_2ntt_8h_a26f3bdf570043a69c628318d3ff96117}\index{ntt.h@{ntt.h}!ttak\_next\_power\_of\_two@{ttak\_next\_power\_of\_two}}
+\index{ttak\_next\_power\_of\_two@{ttak\_next\_power\_of\_two}!ntt.h@{ntt.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_next\_power\_of\_two()}{ttak\_next\_power\_of\_two()}}
+{\footnotesize\ttfamily \label{include_2ttak_2math_2ntt_8h_a26f3bdf570043a69c628318d3ff96117} 
+size\+\_\+t ttak\+\_\+next\+\_\+power\+\_\+of\+\_\+two (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{value}{}\end{DoxyParamCaption})}
+
+\Hypertarget{include_2ttak_2math_2ntt_8h_aca4e392874373caf51b01fe0bd52a04f}\index{ntt.h@{ntt.h}!ttak\_ntt\_pointwise\_mul@{ttak\_ntt\_pointwise\_mul}}
+\index{ttak\_ntt\_pointwise\_mul@{ttak\_ntt\_pointwise\_mul}!ntt.h@{ntt.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_ntt\_pointwise\_mul()}{ttak\_ntt\_pointwise\_mul()}}
+{\footnotesize\ttfamily \label{include_2ttak_2math_2ntt_8h_aca4e392874373caf51b01fe0bd52a04f} 
+void ttak\+\_\+ntt\+\_\+pointwise\+\_\+mul (\begin{DoxyParamCaption}\item[{uint64\+\_\+t \texorpdfstring{$\ast$}{*}}]{dst}{, }\item[{const uint64\+\_\+t \texorpdfstring{$\ast$}{*}}]{lhs}{, }\item[{const uint64\+\_\+t \texorpdfstring{$\ast$}{*}}]{rhs}{, }\item[{size\+\_\+t}]{n}{, }\item[{const \mbox{\hyperlink{include_2ttak_2math_2ntt_8h_ae62e3373c925615a3883c0c6c0ad4ed2}{ttak\+\_\+ntt\+\_\+prime\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{prime}{}\end{DoxyParamCaption})}
+
+\Hypertarget{include_2ttak_2math_2ntt_8h_a5987151d8bbc95394224bfdf2ea2b0a9}\index{ntt.h@{ntt.h}!ttak\_ntt\_pointwise\_square@{ttak\_ntt\_pointwise\_square}}
+\index{ttak\_ntt\_pointwise\_square@{ttak\_ntt\_pointwise\_square}!ntt.h@{ntt.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_ntt\_pointwise\_square()}{ttak\_ntt\_pointwise\_square()}}
+{\footnotesize\ttfamily \label{include_2ttak_2math_2ntt_8h_a5987151d8bbc95394224bfdf2ea2b0a9} 
+void ttak\+\_\+ntt\+\_\+pointwise\+\_\+square (\begin{DoxyParamCaption}\item[{uint64\+\_\+t \texorpdfstring{$\ast$}{*}}]{dst}{, }\item[{const uint64\+\_\+t \texorpdfstring{$\ast$}{*}}]{src}{, }\item[{size\+\_\+t}]{n}{, }\item[{const \mbox{\hyperlink{include_2ttak_2math_2ntt_8h_ae62e3373c925615a3883c0c6c0ad4ed2}{ttak\+\_\+ntt\+\_\+prime\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{prime}{}\end{DoxyParamCaption})}
+
+\Hypertarget{include_2ttak_2math_2ntt_8h_a3372a84ab2ae3592b9f69d2389320880}\index{ntt.h@{ntt.h}!ttak\_ntt\_transform@{ttak\_ntt\_transform}}
+\index{ttak\_ntt\_transform@{ttak\_ntt\_transform}!ntt.h@{ntt.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_ntt\_transform()}{ttak\_ntt\_transform()}}
+{\footnotesize\ttfamily \label{include_2ttak_2math_2ntt_8h_a3372a84ab2ae3592b9f69d2389320880} 
+\+\_\+\+Bool ttak\+\_\+ntt\+\_\+transform (\begin{DoxyParamCaption}\item[{uint64\+\_\+t \texorpdfstring{$\ast$}{*}}]{data}{, }\item[{size\+\_\+t}]{n}{, }\item[{const \mbox{\hyperlink{include_2ttak_2math_2ntt_8h_ae62e3373c925615a3883c0c6c0ad4ed2}{ttak\+\_\+ntt\+\_\+prime\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{prime}{, }\item[{\+\_\+\+Bool}]{inverse}{}\end{DoxyParamCaption})}
+
+
+
+\label{doc-var-members}
+\Hypertarget{include_2ttak_2math_2ntt_8h_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{include_2ttak_2math_2ntt_8h_a08d9004f7979851e9e96fa6dc2ec982b}\index{ntt.h@{ntt.h}!ttak\_ntt\_primes@{ttak\_ntt\_primes}}
+\index{ttak\_ntt\_primes@{ttak\_ntt\_primes}!ntt.h@{ntt.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_ntt\_primes}{ttak\_ntt\_primes}}
+{\footnotesize\ttfamily \label{include_2ttak_2math_2ntt_8h_a08d9004f7979851e9e96fa6dc2ec982b} 
+const \mbox{\hyperlink{include_2ttak_2math_2ntt_8h_ae62e3373c925615a3883c0c6c0ad4ed2}{ttak\+\_\+ntt\+\_\+prime\+\_\+t}} ttak\+\_\+ntt\+\_\+primes\mbox{[}\mbox{\hyperlink{include_2ttak_2math_2ntt_8h_a3d17fcf4b6668cff2d6f9a3e2efd8cfe}{TTAK\+\_\+\+NTT\+\_\+\+PRIME\+\_\+\+COUNT}}\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
+

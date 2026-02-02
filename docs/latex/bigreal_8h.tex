@@ -1,0 +1,92 @@
+\doxysection{include/ttak/math/bigreal.h File Reference}
+\hypertarget{bigreal_8h}{}\label{bigreal_8h}\index{include/ttak/math/bigreal.h@{include/ttak/math/bigreal.h}}
+{\ttfamily \#include $<$ttak/math/bigint.\+h$>$}\newline
+Include dependency graph for bigreal.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{bigreal_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=251pt]{bigreal_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structttak__bigreal}{ttak\+\_\+bigreal}}
+\begin{DoxyCompactList}\small\item\em Arbitrary-\/precision real number engine. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{structttak__bigreal}{ttak\+\_\+bigreal}} \mbox{\hyperlink{bigreal_8h_ab9368b32d51ca2bce882ba0dbf872b4a}{ttak\+\_\+bigreal\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Arbitrary-\/precision real number engine. \end{DoxyCompactList}\item 
+typedef \mbox{\hyperlink{bigreal_8h_ab9368b32d51ca2bce882ba0dbf872b4a}{ttak\+\_\+bigreal\+\_\+t}} \mbox{\hyperlink{bigreal_8h_a0ebfa0d15fd75ec78a69e3042901081c}{tt\+\_\+big\+\_\+r\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{bigreal_8h_a280b4b2ff365c2619ca4085afca86abf}{ttak\+\_\+bigreal\+\_\+init}} (\mbox{\hyperlink{bigreal_8h_ab9368b32d51ca2bce882ba0dbf872b4a}{ttak\+\_\+bigreal\+\_\+t}} \texorpdfstring{$\ast$}{*}br, uint64\+\_\+t now)
+\item 
+void \mbox{\hyperlink{bigreal_8h_a679ac569471c7b5607e83ef7bc1295fd}{ttak\+\_\+bigreal\+\_\+free}} (\mbox{\hyperlink{bigreal_8h_ab9368b32d51ca2bce882ba0dbf872b4a}{ttak\+\_\+bigreal\+\_\+t}} \texorpdfstring{$\ast$}{*}br, uint64\+\_\+t now)
+\item 
+\+\_\+\+Bool \mbox{\hyperlink{bigreal_8h_a9312bd3775b65fba8aed793fdf9ae6f5}{ttak\+\_\+bigreal\+\_\+add}} (\mbox{\hyperlink{bigreal_8h_ab9368b32d51ca2bce882ba0dbf872b4a}{ttak\+\_\+bigreal\+\_\+t}} \texorpdfstring{$\ast$}{*}dst, const \mbox{\hyperlink{bigreal_8h_ab9368b32d51ca2bce882ba0dbf872b4a}{ttak\+\_\+bigreal\+\_\+t}} \texorpdfstring{$\ast$}{*}lhs, const \mbox{\hyperlink{bigreal_8h_ab9368b32d51ca2bce882ba0dbf872b4a}{ttak\+\_\+bigreal\+\_\+t}} \texorpdfstring{$\ast$}{*}rhs, uint64\+\_\+t now)
+\begin{DoxyCompactList}\small\item\em Adds two bigreal numbers with matching exponents. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-typedef-members}
+\Hypertarget{bigreal_8h_doc-typedef-members}
+\doxysubsection{Typedef Documentation}
+\Hypertarget{bigreal_8h_a0ebfa0d15fd75ec78a69e3042901081c}\index{bigreal.h@{bigreal.h}!tt\_big\_r\_t@{tt\_big\_r\_t}}
+\index{tt\_big\_r\_t@{tt\_big\_r\_t}!bigreal.h@{bigreal.h}}
+\doxysubsubsection{\texorpdfstring{tt\_big\_r\_t}{tt\_big\_r\_t}}
+{\footnotesize\ttfamily \label{bigreal_8h_a0ebfa0d15fd75ec78a69e3042901081c} 
+typedef \mbox{\hyperlink{bigreal_8h_ab9368b32d51ca2bce882ba0dbf872b4a}{ttak\+\_\+bigreal\+\_\+t}} \mbox{\hyperlink{bigreal_8h_a0ebfa0d15fd75ec78a69e3042901081c}{tt\+\_\+big\+\_\+r\+\_\+t}}}
+
+
+
+Definition at line \mbox{\hyperlink{bigreal_8h_source_l00015}{15}} of file \mbox{\hyperlink{bigreal_8h_source}{bigreal.\+h}}.
+
+\Hypertarget{bigreal_8h_ab9368b32d51ca2bce882ba0dbf872b4a}\index{bigreal.h@{bigreal.h}!ttak\_bigreal\_t@{ttak\_bigreal\_t}}
+\index{ttak\_bigreal\_t@{ttak\_bigreal\_t}!bigreal.h@{bigreal.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_bigreal\_t}{ttak\_bigreal\_t}}
+{\footnotesize\ttfamily \label{bigreal_8h_ab9368b32d51ca2bce882ba0dbf872b4a} 
+typedef struct \mbox{\hyperlink{structttak__bigreal}{ttak\+\_\+bigreal}} \mbox{\hyperlink{bigreal_8h_ab9368b32d51ca2bce882ba0dbf872b4a}{ttak\+\_\+bigreal\+\_\+t}}}
+
+
+
+Arbitrary-\/precision real number engine. 
+
+
+
+\label{doc-func-members}
+\Hypertarget{bigreal_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{bigreal_8h_a9312bd3775b65fba8aed793fdf9ae6f5}\index{bigreal.h@{bigreal.h}!ttak\_bigreal\_add@{ttak\_bigreal\_add}}
+\index{ttak\_bigreal\_add@{ttak\_bigreal\_add}!bigreal.h@{bigreal.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_bigreal\_add()}{ttak\_bigreal\_add()}}
+{\footnotesize\ttfamily \label{bigreal_8h_a9312bd3775b65fba8aed793fdf9ae6f5} 
+\+\_\+\+Bool ttak\+\_\+bigreal\+\_\+add (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{bigreal_8h_ab9368b32d51ca2bce882ba0dbf872b4a}{ttak\+\_\+bigreal\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{dst}{, }\item[{const \mbox{\hyperlink{bigreal_8h_ab9368b32d51ca2bce882ba0dbf872b4a}{ttak\+\_\+bigreal\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{lhs}{, }\item[{const \mbox{\hyperlink{bigreal_8h_ab9368b32d51ca2bce882ba0dbf872b4a}{ttak\+\_\+bigreal\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{rhs}{, }\item[{uint64\+\_\+t}]{now}{}\end{DoxyParamCaption})}
+
+
+
+Adds two bigreal numbers with matching exponents. 
+
+Returns false if exponents differ or on allocation failure. \Hypertarget{bigreal_8h_a679ac569471c7b5607e83ef7bc1295fd}\index{bigreal.h@{bigreal.h}!ttak\_bigreal\_free@{ttak\_bigreal\_free}}
+\index{ttak\_bigreal\_free@{ttak\_bigreal\_free}!bigreal.h@{bigreal.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_bigreal\_free()}{ttak\_bigreal\_free()}}
+{\footnotesize\ttfamily \label{bigreal_8h_a679ac569471c7b5607e83ef7bc1295fd} 
+void ttak\+\_\+bigreal\+\_\+free (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{bigreal_8h_ab9368b32d51ca2bce882ba0dbf872b4a}{ttak\+\_\+bigreal\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{br}{, }\item[{uint64\+\_\+t}]{now}{}\end{DoxyParamCaption})}
+
+\Hypertarget{bigreal_8h_a280b4b2ff365c2619ca4085afca86abf}\index{bigreal.h@{bigreal.h}!ttak\_bigreal\_init@{ttak\_bigreal\_init}}
+\index{ttak\_bigreal\_init@{ttak\_bigreal\_init}!bigreal.h@{bigreal.h}}
+\doxysubsubsection{\texorpdfstring{ttak\_bigreal\_init()}{ttak\_bigreal\_init()}}
+{\footnotesize\ttfamily \label{bigreal_8h_a280b4b2ff365c2619ca4085afca86abf} 
+void ttak\+\_\+bigreal\+\_\+init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{bigreal_8h_ab9368b32d51ca2bce882ba0dbf872b4a}{ttak\+\_\+bigreal\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{br}{, }\item[{uint64\+\_\+t}]{now}{}\end{DoxyParamCaption})}
+
