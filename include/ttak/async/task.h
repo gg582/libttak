@@ -45,4 +45,24 @@ void ttak_task_destroy(ttak_task_t *task, uint64_t now);
  */
 ttak_task_t *ttak_task_clone(const ttak_task_t *task, uint64_t now);
 
+/**
+ * @brief Sets the hash for the task (used for history/prediction).
+ */
+void ttak_task_set_hash(ttak_task_t *task, uint64_t hash);
+
+/**
+ * @brief Gets the task hash.
+ */
+uint64_t ttak_task_get_hash(const ttak_task_t *task);
+
+/**
+ * @brief Sets the start timestamp.
+ */
+void ttak_task_set_start_ts(ttak_task_t *task, uint64_t ts);
+
+/**
+ * @brief Gets the start timestamp.
+ */
+uint64_t ttak_task_get_start_ts(const ttak_task_t *task);
+
 #endif // TTAK_ASYNC_TASK_H

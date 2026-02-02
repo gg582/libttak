@@ -7,6 +7,8 @@
 #include <signal.h>
 #include <errno.h>
 
+#include <ttak/priority/scheduler.h>
+
 /**
  * @brief Stop all workers and signal shutdown.
  *
@@ -34,6 +36,9 @@ static void pool_force_shutdown(ttak_thread_pool_t *pool) {
  * @return Pointer to the created pool or NULL on failure.
  */
 ttak_thread_pool_t *ttak_thread_pool_create(size_t num_threads, int default_nice, uint64_t now) {
+    // Ensure smart scheduler is ready
+    ttak_scheduler_init();
+
     ttak_thread_pool_t *pool = (ttak_thread_pool_t *)ttak_mem_alloc(sizeof(ttak_thread_pool_t), __TTAK_UNSAFE_MEM_FOREVER__, now);
     if (!pool) return NULL;
 
@@ -87,7 +92,10 @@ ttak_future_t *ttak_thread_pool_submit_task(ttak_thread_pool_t *pool, void *(*fu
         return NULL; 
     }
 
-    if (!ttak_thread_pool_schedule_task(pool, task, priority, now)) {
+    // Apply smart scheduling adjustment
+    int adjusted_priority = ttak_scheduler_get_adjusted_priority(task, priority);
+
+    if (!ttak_thread_pool_schedule_task(pool, task, adjusted_priority, now)) {
         ttak_task_destroy(task, now);
         ttak_mem_free(promise->future);
         ttak_mem_free(promise);

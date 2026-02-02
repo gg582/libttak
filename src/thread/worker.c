@@ -2,6 +2,7 @@
 #include <ttak/thread/pool.h>
 #include <ttak/mem/mem.h>
 #include <ttak/timing/timing.h>
+#include <ttak/priority/scheduler.h>
 #include <sys/resource.h>
 #include <unistd.h>
 #include <stdlib.h>
@@ -24,7 +25,15 @@ static void threaded_function_wrapper(ttak_worker_t *worker, ttak_task_t *task) 
     }
 
     if (task) {
+        uint64_t start_time = ttak_get_tick_count();
+        ttak_task_set_start_ts(task, start_time);
+        
         ttak_task_execute(task, now);
+        
+        uint64_t end_time = ttak_get_tick_count();
+        uint64_t duration = (end_time >= start_time) ? (end_time - start_time) : 0;
+        
+        ttak_scheduler_record_execution(task, duration);
     }
 }
 
