@@ -54,12 +54,19 @@ static uint64_t default_siphash(const void *key, size_t len, uint64_t k0, uint64
     const uint8_t *left = data;
     uint64_t b = ((uint64_t)len) << 56;
     switch (len % 8) {
+        /* fall through */
         case 7: b |= ((uint64_t)left[6]) << 48;
+        /* fall through */
         case 6: b |= ((uint64_t)left[5]) << 40;
+        /* fall through */
         case 5: b |= ((uint64_t)left[4]) << 32;
+        /* fall through */
         case 4: b |= ((uint64_t)left[3]) << 24;
+        /* fall through */
         case 3: b |= ((uint64_t)left[2]) << 16;
+        /* fall through */
         case 2: b |= ((uint64_t)left[1]) << 8;
+        /* fall through */
         case 1: b |= ((uint64_t)left[0]); break;
         case 0: break;
     }
