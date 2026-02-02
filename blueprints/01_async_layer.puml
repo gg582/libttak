@@ -1,0 +1,43 @@
+@startuml libttak_async_layer
+!theme vibrant
+
+title Async Layer
+
+package "Async" {
+    component [Task]
+    component [Promise]
+    component [Future]
+    component [Scheduler] as Sched
+}
+
+package "Threading" {
+    [Thread Pool]
+}
+
+[Promise] -> [Future] : Creates
+[Task] --> [Promise] : Fulfills or Rejects
+[Sched] --> [Task] : Manages and Executes
+[Sched] --> [Thread Pool] : Dispatches work to
+
+note right of [Task]
+  Represents a unit of work
+  to be executed asynchronously.
+end note
+
+note left of [Promise]
+  Represents the eventual
+  completion (or failure) of an
+  asynchronous operation, and its
+  resulting value.
+end note
+
+note right of [Future]
+  Represents a proxy for a value not
+  necessarily known at the time of creation.
+  Allows for handling the result of a Promise.
+end note
+
+note "The Scheduler is responsible for\nrunning tasks, potentially on a thread pool." as sched_note
+[Sched] .. sched_note
+
+@enduml

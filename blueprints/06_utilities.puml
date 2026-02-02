@@ -1,0 +1,45 @@
+@startuml libttak_utilities
+!theme vibrant
+
+title Core Utilities
+
+package "Security" {
+    [SHA256]
+}
+
+package "Timing" {
+    [Timing]
+}
+
+package "Low-Level Primitives" {
+    [Sync]
+    [Atomic]
+    [Memory Manager] as Mem
+}
+
+SHA256 ..> Mem : For context allocations
+Timing ..> Mem : For logger allocations (if any)
+
+note right of SHA256
+  Provides SHA-256 hashing functionality.
+  Depends on the memory manager for its context structure.
+end note
+
+note left of Timing
+  Provides high-resolution timing
+  and measurement tools.
+end note
+
+note bottom of Sync
+  Provides fundamental synchronization
+  primitives like mutexes, often built
+  using atomic operations.
+end note
+
+note bottom of Atomic
+  Provides atomic operations for
+  thread-safe manipulations of variables.
+  This is a fundamental building block.
+end note
+
+@enduml

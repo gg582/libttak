@@ -1,0 +1,56 @@
+@startuml libttak_memory_and_threads
+!theme vibrant
+
+title Memory and Threading Layer
+
+package "Threading" {
+    [Thread Pool]
+    [Worker]
+}
+
+package "Synchronization" {
+    [Sync Primitives] as Sync
+}
+
+package "Atomics" {
+    [Atomic Operations] as Atomic
+}
+
+package "Memory" {
+    [Memory Manager] as Mem
+    [Memory Tree] as MemTree
+}
+
+' Relationships
+[Thread Pool] --> [Worker] : Manages a pool of
+[Worker] --> [Sync] : Uses for task synchronization
+[Worker] --> [Atomic] : Uses for thread-safe operations
+
+[Sync] --> [Atomic] : Built upon
+
+[Thread Pool] ..> Mem : For allocating worker contexts
+[Worker] ..> Mem : For allocating task data
+
+Mem <--> MemTree : Manages memory blocks using the tree
+
+note right of [Worker]
+  A single worker thread that
+  can execute tasks.
+end note
+
+note left of [Thread Pool]
+  A collection of worker threads
+  to execute tasks in parallel.
+end note
+
+note bottom of [Sync]
+  Provides synchronization mechanisms
+  like mutexes and condition variables.
+end note
+
+note bottom of Mem
+  Provides custom memory
+  allocation strategies.
+end note
+
+@enduml

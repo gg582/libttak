@@ -1,0 +1,44 @@
+@startuml libttak_math_library
+!theme vibrant
+
+title Math Library
+
+package "High-Level Math" {
+    [BigComplex]
+    [BigReal]
+    [Factor]
+    [Sum Divisors]
+}
+
+package "Core Math" {
+    [BigInt]
+    [BigMul]
+    [NTT]
+}
+
+package "Memory" {
+    [Memory Manager] as Mem
+}
+
+' Relationships
+[BigComplex] --> [BigReal]
+[BigReal] --> [BigInt]
+[Factor] --> [BigInt]
+[Sum Divisors] --> [BigInt]
+
+[BigInt] --> [BigMul] : For large multiplications
+[BigInt] ..> Mem : For number storage
+[BigMul] ..> [NTT] : Uses Number Theoretic Transform for performance
+[BigMul] ..> Mem : For temporary allocations
+
+note "BigInt is the foundation for\nmost other math components." as BigIntNote
+[BigInt] .. BigIntNote
+
+note right of [NTT]
+  Number Theoretic Transform,
+  used for efficient polynomial
+  multiplication, which is the
+  basis for BigMul.
+end note
+
+@enduml

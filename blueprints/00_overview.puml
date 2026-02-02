@@ -1,0 +1,34 @@
+@startuml libttak_overview
+!theme vibrant
+
+title libttak High-Level Architecture
+
+package "libttak Core" {
+    component "Async" as Async
+    component "Data Structures" as DS
+    component "Memory" as Mem
+    component "Threading" as Thread
+    component "Math" as Math
+    component "Security" as Security
+    component "Scheduling" as Priority
+}
+
+package "Low-Level Primitives" {
+    component "Atomics" as Atomic
+    component "Sync" as Sync
+    component "Timing" as Timing
+}
+
+' Relationships
+Thread ..> Sync
+Thread ..> Atomic
+Async ..> Thread
+Async ..> Timing
+
+Priority ..> DS
+DS ..> Mem
+
+Math ..> Mem
+Security ..> Mem
+
+@enduml

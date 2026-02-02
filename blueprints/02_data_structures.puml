@@ -1,0 +1,49 @@
+@startuml libttak_data_structures
+!theme vibrant
+
+title Data Structures
+
+package "Generic Containers" {
+    [Pair]
+    [Set]
+}
+
+package "Hash Tables" {
+    [Hash]
+    [Map]
+    [Table]
+}
+
+package "Trees" {
+    [B+ Tree] as BPlusTree
+    [B-Tree] as BTree
+    [AST]
+}
+
+package "Memory Management" {
+    [Memory Manager] as Mem
+}
+
+' Relationships
+[Set] ..> [Table] : Uses
+[Map] ..> [Table] : Uses
+[Table] ..> [Hash] : Uses for hashing keys
+[Table] ..> Mem : For allocations
+
+[BPlusTree] ..> Mem : For node allocations
+[BTree] ..> Mem : For node allocations
+[AST] ..> Mem : For node allocations
+
+note right of [Table]
+  A generic hash table implementation.
+end note
+
+note left of [Map]
+  Key-value map built on top of the Table.
+end note
+
+note top of [Set]
+  A collection of unique items.
+end note
+
+@enduml

@@ -1,0 +1,45 @@
+@startuml libttak_priority_scheduling
+!theme vibrant
+
+title Priority Scheduling
+
+package "Scheduler" {
+    [Scheduler] as Sched
+    [Nice]
+}
+
+package "Priority Queues" {
+    [Priority Queue] as PQueue
+    [Simple Queue] as SQueue
+    [Heap]
+}
+
+package "Internal" {
+    [Internal Queue] as IQueue
+}
+
+' Relationships
+Sched --> PQueue : Uses to manage tasks by priority
+Nice --> Sched : Adjusts task priorities
+
+PQueue --> Heap : Implemented using a binary heap
+PQueue --> IQueue : Wraps internal queue logic
+
+SQueue ..> IQueue : A simpler queue implementation
+
+note right of Sched
+  A scheduler that executes tasks
+  based on their assigned priority.
+end note
+
+note left of PQueue
+  A classic priority queue data structure.
+end note
+
+note bottom of Nice
+  Provides a mechanism to manage
+  "niceness" values, which can be
+  mapped to priorities in the scheduler.
+end note
+
+@enduml
