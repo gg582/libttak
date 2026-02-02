@@ -1,29 +1,15 @@
-#include <stdio.h>
+/**
+ * @file sha256.c
+ * @brief Portable SHA-256 implementation used across the library.
+ *
+ * Only the hot loops are left comment-free to keep the listing compact; everything
+ * else calls out the reasoning so future call sites can be confident about the endian
+ * handling and padding steps.
+ */
 #include <ttak/security/sha256.h>
 #include <string.h>
 
 #include <stdint.h>
-
-// Helper function for byte swapping
-static inline uint32_t bswap_32(uint32_t val) {
-#if defined(__GNUC__) || defined(__clang__)
-    return __builtin_bswap32(val);
-#else
-    return (((val & 0x000000FF) << 24) |
-            ((val & 0x0000FF00) << 8)  |
-            ((val & 0x00FF0000) >> 8)  |
-            ((val & 0xFF000000) >> 24));
-#endif
-}
-
-#if defined(__BYTE_ORDER__) && __BYTE_ORDER__ == __ORDER_BIG_ENDIAN__
-    #define BYTESWAP32(x) (x)
-#else
-    #define BYTESWAP32(x) bswap_32(x)
-#endif
-
-
-
 
 #define ROTLEFT(a, b) (((a) << (b)) | ((a) >> (32 - (b))))
 #define ROTRIGHT(a, b) (((a) >> (b)) | ((a) << (32 - (b))))
@@ -49,9 +35,21 @@ static const uint32_t k[64] = {
 static void sha256_transform(SHA256_CTX *ctx, const uint8_t data[]) {
     uint32_t a, b, c, d, e, f, g, h;
     uint32_t w[64];
-    uint32_t i;
+    uint32_t i, j;
 
-    // Load initial hash values (already big-endian from ctx->state)
+    /* Load the chunk as big-endian words regardless of host order. */
+    for (i = 0, j = 0; i < 16; ++i, j += 4) {
+        w[i] = (uint32_t)data[j] << 24 |
+               (uint32_t)data[j + 1] << 16 |
+               (uint32_t)data[j + 2] << 8 |
+               (uint32_t)data[j + 3];
+    }
+
+    /* Extend the schedule with the standard sigma functions. */
+    for (; i < 64; ++i) {
+        w[i] = SIG1(w[i - 2]) + w[i - 7] + SIG0(w[i - 15]) + w[i - 16];
+    }
+
     a = ctx->state[0];
     b = ctx->state[1];
     c = ctx->state[2];
@@ -60,16 +58,6 @@ static void sha256_transform(SHA256_CTX *ctx, const uint8_t data[]) {
     f = ctx->state[5];
     g = ctx->state[6];
     h = ctx->state[7];
-
-    for(int i = 0; i < 16; i++) {
-        uint32_t temp;
-        memcpy(&temp, &data[i * 4], 4);
-        w[i] = BYTESWAP32(temp); // Ensure message words are big-endian
-    }
-
-    for (i = 16; i < 64; ++i) {
-        w[i] = SIG1(w[i - 2]) + w[i - 7] + SIG0(w[i - 15]) + w[i - 16];
-    }
 
     for (i = 0; i < 64; ++i) {
         uint32_t t1 = h + EP1(e) + CH(e, f, g) + k[i] + w[i];
@@ -84,40 +72,40 @@ static void sha256_transform(SHA256_CTX *ctx, const uint8_t data[]) {
         a = t1 + t2;
     }
 
-    // Update ctx->state, ensuring values are stored in big-endian format
-    ctx->state[0] = BYTESWAP32(BYTESWAP32(ctx->state[0]) + a);
-    ctx->state[1] = BYTESWAP32(BYTESWAP32(ctx->state[1]) + b);
-    ctx->state[2] = BYTESWAP32(BYTESWAP32(ctx->state[2]) + c);
-    ctx->state[3] = BYTESWAP32(BYTESWAP32(ctx->state[3]) + d);
-    ctx->state[4] = BYTESWAP32(BYTESWAP32(ctx->state[4]) + e);
-    ctx->state[5] = BYTESWAP32(BYTESWAP32(ctx->state[5]) + f);
-    ctx->state[6] = BYTESWAP32(BYTESWAP32(ctx->state[6]) + g);
-    ctx->state[7] = BYTESWAP32(BYTESWAP32(ctx->state[7]) + h);
+    /* State words stay in host order; finalization handles the final swap out. */
+    ctx->state[0] += a;
+    ctx->state[1] += b;
+    ctx->state[2] += c;
+    ctx->state[3] += d;
+    ctx->state[4] += e;
+    ctx->state[5] += f;
+    ctx->state[6] += g;
+    ctx->state[7] += h;
 }
 
 void sha256_init(SHA256_CTX *ctx) {
     ctx->datalen = 0;
     ctx->bitlen = 0;
-    ctx->state[0] = BYTESWAP32(0x6a09e667);
-    ctx->state[1] = BYTESWAP32(0xbb67ae85);
-    ctx->state[2] = BYTESWAP32(0x3c6ef372);
-    ctx->state[3] = BYTESWAP32(0xa54ff53a);
-    ctx->state[4] = BYTESWAP32(0x510e527f);
-    ctx->state[5] = BYTESWAP32(0x9b05688c);
-    ctx->state[6] = BYTESWAP32(0x1f83d9ab);
-    ctx->state[7] = BYTESWAP32(0x5be0cd19);
+    ctx->state[0] = 0x6a09e667;
+    ctx->state[1] = 0xbb67ae85;
+    ctx->state[2] = 0x3c6ef372;
+    ctx->state[3] = 0xa54ff53a;
+    ctx->state[4] = 0x510e527f;
+    ctx->state[5] = 0x9b05688c;
+    ctx->state[6] = 0x1f83d9ab;
+    ctx->state[7] = 0x5be0cd19;
 }
 
 void sha256_update(SHA256_CTX *ctx, const uint8_t data[], size_t len) {
-    uint32_t i;
+    size_t i;
 
     for (i = 0; i < len; ++i) {
         ctx->data[ctx->datalen] = data[i];
         ctx->datalen++;
-        ctx->bitlen += 8;
 
         if (ctx->datalen == 64) {
             sha256_transform(ctx, ctx->data);
+            ctx->bitlen += 512;
             ctx->datalen = 0;
         }
     }
@@ -128,7 +116,7 @@ void sha256_final(SHA256_CTX *ctx, uint8_t hash[]) {
 
     i = ctx->datalen;
 
-    ctx->data[i++] = 0x80;
+    ctx->data[i++] = 0x80; /* Append the 1 bit and pad with zeros. */
 
     if (i > 56) {
         while(i < 64) ctx->data[i++] = 0x00;
@@ -139,9 +127,16 @@ void sha256_final(SHA256_CTX *ctx, uint8_t hash[]) {
 
     while(i < 56) ctx->data[i++] = 0x00;
 
-    for(int j = 0; j < 8; j++) {
-        ctx->data[56 + j] = (uint8_t)(ctx->bitlen >> (56 - j * 8));
-    }
+    ctx->bitlen += ctx->datalen * 8;
+    /* Store the message length in the final eight bytes (big-endian). */
+    ctx->data[63] = ctx->bitlen;
+    ctx->data[62] = ctx->bitlen >> 8;
+    ctx->data[61] = ctx->bitlen >> 16;
+    ctx->data[60] = ctx->bitlen >> 24;
+    ctx->data[59] = ctx->bitlen >> 32;
+    ctx->data[58] = ctx->bitlen >> 40;
+    ctx->data[57] = ctx->bitlen >> 48;
+    ctx->data[56] = ctx->bitlen >> 56;
 
     sha256_transform(ctx, ctx->data);
 

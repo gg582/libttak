@@ -1,3 +1,11 @@
+/**
+ * @file main.c
+ * @brief Standalone aliquot tracker that seeds exploratory jobs, schedules work,
+ *        and records interesting findings to disk.
+ *
+ * The file is lengthy because it keeps the scheduling, persistence, and arithmetic
+ * glue in one place; concise comments mark the pieces that tend to trip maintainers.
+ */
 #define _GNU_SOURCE
 #include <stdio.h>
 #include <stdlib.h>
@@ -55,6 +63,7 @@
 #define TRACK_DEEP_BUDGET_MS (2ULL * 60ULL * 60ULL * 1000ULL)
 #define CATALOG_MAX_EXACT    512
 #define CATALOG_MAX_MOD_RULE 256
+#define SEED_REGISTRY_BUCKETS 65536
 
 typedef struct {
     uint64_t seed;
@@ -156,7 +165,120 @@ typedef struct {
     bool preview_overflow;
 } aliquot_job_t;
 
+typedef struct seed_entry {
+    uint64_t seed;
+    struct seed_entry *next;
+} seed_entry_t;
 
+typedef struct {
+    uint64_t seeds[JOB_QUEUE_CAP];
+    size_t count;
+} pending_queue_t;
+
+static atomic_bool shutdown_requested;
+static atomic_uint_fast64_t g_rng_state;
+
+static char g_state_dir[PATH_MAX];
+static char g_found_log_path[PATH_MAX];
+static char g_jump_log_path[PATH_MAX];
+static char g_track_log_path[PATH_MAX];
+static char g_queue_state_path[PATH_MAX];
+
+static seed_entry_t *g_seed_buckets[SEED_REGISTRY_BUCKETS];
+static ttak_mutex_t g_seed_lock = PTHREAD_MUTEX_INITIALIZER;
+
+static uint64_t g_catalog_exact[CATALOG_MAX_EXACT];
+static size_t g_catalog_exact_count;
+static catalog_mod_rule_t g_catalog_mod_rules[CATALOG_MAX_MOD_RULE];
+static size_t g_catalog_mod_rule_count;
+
+/* Seeds that are already well documented elsewhere; we short-circuit them early. */
+static const uint64_t g_catalog_seeds[] = {
+    1, 2, 3, 4, 5, 6, 28, 496, 8128, 33550336,
+    8589869056ULL, 137438691328ULL,
+    1184, 1210, 2620, 2924, 5020, 5564, 6232, 6368,
+    10744, 10856, 12285, 14595, 17296, 18416,
+    24608, 27664, 45872, 45946, 66928, 66992,
+    67095, 71145, 69615, 87633, 100485, 124155,
+    122265, 139815, 141664, 153176, 142310, 168730,
+    171856, 176336, 180848, 185368, 196724, 202444,
+    280540, 365084, 308620, 389924, 418904, 748210,
+    823816, 876960, 998104, 1154450, 1189800, 1866152,
+    2082464, 2236570, 2652728, 2723792, 5224050, 5947064,
+    6086552, 6175984
+};
+
+static found_record_t *g_found_records;
+static size_t g_found_count;
+static size_t g_found_cap;
+static size_t g_persisted_found_count;
+
+static jump_record_t *g_jump_records;
+static size_t g_jump_count;
+static size_t g_jump_cap;
+static size_t g_persisted_jump_count;
+
+static track_record_t *g_track_records;
+static size_t g_track_count;
+static size_t g_track_cap;
+static size_t g_persisted_track_count;
+
+static pending_queue_t g_pending_queue;
+static ttak_mutex_t g_pending_lock = PTHREAD_MUTEX_INITIALIZER;
+
+static ttak_mutex_t g_disk_lock = PTHREAD_MUTEX_INITIALIZER;
+static uint64_t g_last_persist_ms;
+static uint64_t g_total_sequences;
+static uint64_t g_total_probes;
+
+static ttak_thread_pool_t *g_thread_pool;
+
+static double compute_overflow_pressure(const aliquot_outcome_t *out);
+static void *worker_process_job_wrapper(void *arg);
+static void process_job(const aliquot_job_t *job);
+static bool enqueue_job(aliquot_job_t *job, const char *source_tag);
+static uint32_t bit_length_u64(uint64_t value);
+
+static bool pending_queue_add(uint64_t seed) {
+    ttak_mutex_lock(&g_pending_lock);
+    if (g_pending_queue.count >= JOB_QUEUE_CAP) {
+        ttak_mutex_unlock(&g_pending_lock);
+        return false;
+    }
+    g_pending_queue.seeds[g_pending_queue.count++] = seed;
+    ttak_mutex_unlock(&g_pending_lock);
+    return true;
+}
+
+static void pending_queue_remove(uint64_t seed) {
+    ttak_mutex_lock(&g_pending_lock);
+    for (size_t i = 0; i < g_pending_queue.count; ++i) {
+        if (g_pending_queue.seeds[i] == seed) {
+            /* O(1) removal keeps snapshots cheap; ordering is irrelevant. */
+            g_pending_queue.seeds[i] = g_pending_queue.seeds[g_pending_queue.count - 1];
+            g_pending_queue.count--;
+            break;
+        }
+    }
+    ttak_mutex_unlock(&g_pending_lock);
+}
+
+static size_t pending_queue_snapshot(uint64_t *dest, size_t cap) {
+    if (!dest || cap == 0) return 0;
+    ttak_mutex_lock(&g_pending_lock);
+    size_t count = g_pending_queue.count;
+    if (count > cap) count = cap;
+    memcpy(dest, g_pending_queue.seeds, count * sizeof(uint64_t));
+    ttak_mutex_unlock(&g_pending_lock);
+    return count;
+}
+
+static size_t pending_queue_depth(void) {
+    ttak_mutex_lock(&g_pending_lock);
+    size_t count = g_pending_queue.count;
+    ttak_mutex_unlock(&g_pending_lock);
+    return count;
+}
 
 static void handle_signal(int sig) {
     (void)sig;
@@ -222,6 +344,20 @@ static uint64_t random_seed_between(uint64_t lo, uint64_t hi) {
     return lo + (next_random64() % span);
 }
 
+static uint32_t bit_length_u64(uint64_t value) {
+    if (value == 0) return 0;
+#if defined(__GNUC__) || defined(__clang__)
+    return 64U - (uint32_t)__builtin_clzll(value);
+#else
+    uint32_t bits = 0;
+    while (value) {
+        bits++;
+        value >>= 1;
+    }
+    return bits;
+#endif
+}
+
 static void ensure_state_dir(void) {
     struct stat st;
     if (stat(g_state_dir, &st) == 0 && S_ISDIR(st.st_mode)) return;
@@ -270,6 +406,7 @@ static bool history_contains(history_table_t *t, uint64_t value, uint32_t *step_
 static void history_insert(history_table_t *t, uint64_t value, uint32_t step) {
     size_t idx = value % HISTORY_BUCKETS;
     uint64_t now = monotonic_millis();
+    /* These nodes live for the duration of the run, so the FOREVER tag is fine. */
     history_entry_t *node = ttak_mem_alloc(sizeof(*node), __TTAK_UNSAFE_MEM_FOREVER__, now);
     if (!node) return;
     node->value = value;
@@ -278,6 +415,7 @@ static void history_insert(history_table_t *t, uint64_t value, uint32_t step) {
     t->buckets[idx] = node;
 }
 
+/* Avoid rescheduling the same seed by tracking it in a coarse hash table. */
 static bool seed_registry_try_add(uint64_t seed) {
     size_t idx = seed % SEED_REGISTRY_BUCKETS;
     ttak_mutex_lock(&g_seed_lock);
@@ -569,12 +707,14 @@ static void run_aliquot_sequence_big(ttak_bigint_t *start_val, uint32_t start_st
     history_big_destroy(&hist);
 }
 
-static void run_aliquot_sequence(uint64_t seed, uint32_t max_steps, uint64_t time_budget_ms, aliquot_outcome_t *out) {
+/* Lightweight walker that stays in u64 lane until overflow forces a bigint detour. */
+static void run_aliquot_sequence(uint64_t seed, uint32_t max_steps, uint64_t time_budget_ms, bool allow_bigints, aliquot_outcome_t *out) {
     if (!out) return;
     memset(out, 0, sizeof(*out));
     out->seed = seed;
     out->max_value = seed;
     out->final_value = seed;
+    out->max_bits = bit_length_u64(seed);
     uint64_t start_ms = monotonic_millis();
 
     history_table_t hist;
@@ -611,17 +751,25 @@ static void run_aliquot_sequence(uint64_t seed, uint32_t max_steps, uint64_t tim
         }
 
         ttak_atomic_inc64(&g_total_probes);
-        if (next > out->max_value) out->max_value = next;
+        if (next > out->max_value) {
+            out->max_value = next;
+            uint32_t bits = bit_length_u64(next);
+            if (bits > out->max_bits) out->max_bits = bits;
+        }
         steps++;
         if (next == UINT64_MAX) {
-            // Overflow, switch to big integers
+            // Overflow, only fall back to big integers when explicitly allowed.
+            out->overflow = true;
+            if (!allow_bigints) {
+                break;
+            }
             uint64_t now = monotonic_millis();
             ttak_bigint_t big_current;
             ttak_bigint_init(&big_current, now);
             ttak_bigint_set_u64(&big_current, current, now);
-            
+
             run_aliquot_sequence_big(&big_current, steps, max_steps, time_budget_ms, out, start_ms);
-            
+
             ttak_bigint_free(&big_current, now);
             break;
         }
@@ -942,33 +1090,22 @@ static void persist_track_records(void) {
     g_persisted_track_count = g_track_count;
 }
 
+/* The JSON snapshot is intentionally simple so operators can inspect it by hand. */
 static void persist_queue_state(void) {
-    ttak_task_t **snapshot_tasks = NULL;
-    size_t count = 0;
-    uint64_t now = monotonic_millis();
-
-    snapshot_tasks = ttak_mem_alloc(JOB_QUEUE_CAP * sizeof(ttak_task_t *), __TTAK_UNSAFE_MEM_FOREVER__, now);
-    if (!snapshot_tasks) {
-        fprintf(stderr, "[ALIQUOT] Failed to allocate memory for queue snapshot.\n");
-        return;
-    }
-    count = ttak_priority_queue_snapshot(&g_thread_pool->task_queue, snapshot_tasks, JOB_QUEUE_CAP);
+    uint64_t pending[JOB_QUEUE_CAP];
+    size_t count = pending_queue_snapshot(pending, JOB_QUEUE_CAP);
 
     FILE *fp = fopen(g_queue_state_path, "w");
     if (!fp) {
         fprintf(stderr, "[ALIQUOT] Failed to write %s: %s\n", g_queue_state_path, strerror(errno));
-        ttak_mem_free(snapshot_tasks);
         return;
     }
     fprintf(fp, "{\"pending\":[");
     for (size_t i = 0; i < count; ++i) {
-        aliquot_job_t *job = (aliquot_job_t *)snapshot_tasks[i]->arg;
-        fprintf(fp, "%s%" PRIu64, (i == 0) ? "" : ",", job->seed);
+        fprintf(fp, "%s%" PRIu64, (i == 0) ? "" : ",", pending[i]);
     }
     fprintf(fp, "],\"ts\":%" PRIu64 "}\n", monotonic_millis());
     fclose(fp);
-
-    ttak_mem_free(snapshot_tasks);
 }
 
 static void flush_ledgers(void) {
@@ -1061,7 +1198,32 @@ static void load_track_records(void) {
     g_persisted_track_count = g_track_count;
 }
 
+static bool enqueue_job(aliquot_job_t *job, const char *source_tag) {
+    if (!job || !g_thread_pool) {
+        return false;
+    }
+    /* The pending queue mirrors the work handed to the pool so disk snapshots stay honest. */
+    if (!pending_queue_add(job->seed)) {
+        fprintf(stderr, "[ALIQUOT] Job queue saturated; dropping seed %" PRIu64 " (%s)\n",
+                job->seed, source_tag ? source_tag : "unknown");
+        return false;
+    }
+    uint64_t now = monotonic_millis();
+    ttak_future_t *future = ttak_thread_pool_submit_task(
+        g_thread_pool, worker_process_job_wrapper, job, job->priority, now);
+    if (!future) {
+        pending_queue_remove(job->seed);
+        fprintf(stderr, "[ALIQUOT] Thread pool rejected seed %" PRIu64 " (%s)\n",
+                job->seed, source_tag ? source_tag : "unknown");
+        return false;
+    }
+    (void)future;
+    return true;
+}
+
+/* Recreate outstanding work that was captured during the previous persistence pass. */
 static void load_queue_checkpoint(void) {
+    if (!g_thread_pool) return;
     FILE *fp = fopen(g_queue_state_path, "r");
     if (!fp) return;
     fseek(fp, 0, SEEK_END);
@@ -1089,23 +1251,19 @@ static void load_queue_checkpoint(void) {
             if (ptr >= end) break;
             uint64_t seed = strtoull(ptr, &ptr, 10);
             if (seed > 1 && seed_registry_try_add(seed)) {
-                // Dynamically allocate job and submit to thread pool
-                aliquot_job_t *job_ptr = ttak_mem_alloc(sizeof(aliquot_job_t), __TTAK_UNSAFE_MEM_FOREVER__, now);
-                if (job_ptr) {
-                    memset(job_ptr, 0, sizeof(aliquot_job_t));
-                    job_ptr->seed = seed;
-                    job_ptr->priority = 1;
-                    job_ptr->scout_score = 0.0;
-                    snprintf(job_ptr->provenance, sizeof(job_ptr->provenance), "checkpoint");
-                    ttak_future_t *future = ttak_thread_pool_submit_task(g_thread_pool, worker_process_job_wrapper, job_ptr, job_ptr->priority, now);
-                    if (!future) {
-                        fprintf(stderr, "[ALIQUOT] Failed to submit checkpoint job for seed %" PRIu64 "\n", seed);
-                        ttak_mem_free(job_ptr);
-                    } else {
-                        ttak_future_destroy(future);
-                    }
-                } else {
+                uint64_t alloc_now = monotonic_millis();
+                aliquot_job_t *job_ptr = ttak_mem_alloc(sizeof(aliquot_job_t), __TTAK_UNSAFE_MEM_FOREVER__, alloc_now);
+                if (!job_ptr) {
                     fprintf(stderr, "[ALIQUOT] Failed to allocate memory for checkpoint job for seed %" PRIu64 "\n", seed);
+                    continue;
+                }
+                memset(job_ptr, 0, sizeof(aliquot_job_t));
+                job_ptr->seed = seed;
+                job_ptr->priority = 1;
+                job_ptr->scout_score = 0.0;
+                snprintf(job_ptr->provenance, sizeof(job_ptr->provenance), "%s", "checkpoint");
+                if (!enqueue_job(job_ptr, "checkpoint")) {
+                    ttak_mem_free(job_ptr);
                 }
             }
         }
@@ -1115,6 +1273,7 @@ static void load_queue_checkpoint(void) {
 
 static void *worker_process_job_wrapper(void *arg) {
     aliquot_job_t *job = (aliquot_job_t *)arg;
+    pending_queue_remove(job->seed);
     process_job(job);
     ttak_mem_free(job); // Free the job allocated by scout_main
     return NULL;
@@ -1124,30 +1283,17 @@ static void process_job(const aliquot_job_t *job) {
     if (!job) return;
     aliquot_outcome_t outcome;
     uint64_t budget_ms = determine_time_budget(job);
-    run_aliquot_sequence(job->seed, LONG_RUN_MAX_STEPS, budget_ms, &outcome);
+    run_aliquot_sequence(job->seed, LONG_RUN_MAX_STEPS, budget_ms, true, &outcome);
     append_found_record(&outcome, job->provenance);
     append_track_record(&outcome, job, budget_ms);
     maybe_flush_ledgers();
 }
 
-static void *worker_main(void *arg) {
-    worker_ctx_t *ctx = (worker_ctx_t *)arg;
-    while (!atomic_load_explicit(&shutdown_requested, memory_order_relaxed)) {
-        aliquot_job_t job;
-        if (!job_queue_pop(&g_job_queue, &job)) {
-            if (atomic_load_explicit(&shutdown_requested, memory_order_relaxed)) break;
-            continue;
-        }
-        process_job(&job);
-        atomic_fetch_add(&ctx->op_count, 1);
-    }
-    return NULL;
-}
-
+/* Background sampler that looks for promising seeds and promotes them to the pool. */
 static void *scout_main(void *arg) {
     (void)arg;
     while (!atomic_load_explicit(&shutdown_requested, memory_order_relaxed)) {
-        size_t depth = ttak_priority_queue_count(&g_thread_pool->task_queue);
+        size_t depth = pending_queue_depth();
         if (depth > JOB_QUEUE_CAP - 8) {
             responsive_sleep(SCOUT_SLEEP_MS);
             continue;
@@ -1167,7 +1313,7 @@ static void *scout_main(void *arg) {
             continue;
         }
         aliquot_outcome_t probe;
-        run_aliquot_sequence(seed, SCOUT_PREVIEW_STEPS, 0, &probe);
+        run_aliquot_sequence(seed, SCOUT_PREVIEW_STEPS, 0, false, &probe);
         double score = 0.0;
         double overflow_pressure = compute_overflow_pressure(&probe);
         if (looks_long(&probe, &score)) {
@@ -1188,15 +1334,11 @@ static void *scout_main(void *arg) {
             job_ptr->preview_overflow = probe.overflow || (overflow_pressure >= 45.0);
             job_ptr->scout_score = score;
             snprintf(job_ptr->provenance, sizeof(job_ptr->provenance), "%s", "scout");
-            
-            ttak_future_t *future = ttak_thread_pool_submit_task(g_thread_pool, worker_process_job_wrapper, job_ptr, job_ptr->priority, now);
-            if (!future) {
-                fprintf(stderr, "[SCOUT] Thread pool rejected seed %" PRIu64 "\n", seed);
+            if (!enqueue_job(job_ptr, "scout")) {
                 ttak_mem_free(job_ptr);
             } else {
-                ttak_future_destroy(future);
+                maybe_flush_ledgers();
             }
-            maybe_flush_ledgers();
         }
         responsive_sleep(SCOUT_SLEEP_MS);
     }
@@ -1221,7 +1363,6 @@ int main(void) {
     load_found_records();
     load_jump_records();
     load_track_records();
-    load_queue_checkpoint();
 
     long cpus = sysconf(_SC_NPROCESSORS_ONLN);
     if (cpus < 1) cpus = 1;
@@ -1234,13 +1375,15 @@ int main(void) {
         return 1;
     }
 
+    load_queue_checkpoint();
+
     pthread_t scout_thread;
     pthread_create(&scout_thread, NULL, scout_main, NULL);
 
     while (!atomic_load_explicit(&shutdown_requested, memory_order_relaxed)) {
         responsive_sleep(1000);
         maybe_flush_ledgers();
-        size_t queue_depth = ttak_priority_queue_count(&g_thread_pool->task_queue);
+        size_t queue_depth = pending_queue_depth();
         uint64_t completed = ttak_atomic_read64(&g_total_sequences);
         printf("[ALIQUOT] queue=%zu completed=%" PRIu64 " probes=%" PRIu64 "\n",
                queue_depth, completed, ttak_atomic_read64(&g_total_probes));
@@ -1249,8 +1392,8 @@ int main(void) {
     printf("[ALIQUOT] Shutdown requested. Waiting for threads to exit...\n");
     fflush(stdout);
 
-    ttak_thread_pool_destroy(g_thread_pool);
     pthread_join(scout_thread, NULL);
+    ttak_thread_pool_destroy(g_thread_pool);
 
     flush_ledgers();
     printf("[ALIQUOT] Shutdown complete.\n");
