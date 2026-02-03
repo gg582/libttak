@@ -34,7 +34,7 @@ at a well-defined point.
 LibTTAK prioritizes safety over performance.
 
 It does not claim to be faster than plain C.
-Its performance characteristics are closer to C++/Rust/Zig,
+Its performance characteristics are closer to modern systems languages,
 but without C++ language features.
 
 The library follows C-style programming.
