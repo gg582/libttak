@@ -1,5 +1,5 @@
 CC = gcc
-CFLAGS = -Wall -pthread -MMD -MP -Iinclude
+CFLAGS = -Wall -pthread -MMD -MP -Iinclude -O3 -g
 LDFLAGS = -pthread -lm
 
 PREFIX ?= /usr/local

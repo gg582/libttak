@@ -2,7 +2,7 @@ CC = gcc
 # Build the aliqout tracker against the in-tree libttak to avoid system-wide installs.
 ROOT = ../..
 LIBTTK = $(ROOT)/lib/libttak.a
-CFLAGS = -Wall -Wextra -Werror -O3 -pthread -I$(ROOT)/include -march=native
+CFLAGS = -Wall -Wextra -Werror -O3 -pthread -I$(ROOT)/include -march=native -g
 LDFLAGS = $(LIBTTK) -pthread -lm
 
 BIN_DIR = bin
