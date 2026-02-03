@@ -9,7 +9,6 @@
 #include <time.h>
 #include <getopt.h>
 #include <stdatomic.h>
-#include <errno.h>
 
 // libttak includes
 #include <ttak/mem/mem.h>
