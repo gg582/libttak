@@ -49,7 +49,7 @@
 #define MAX_WORKERS         8
 #define JOB_QUEUE_CAP       512
 #define HISTORY_BUCKETS     4096
-#define LONG_RUN_MAX_STEPS  25000
+#define LONG_RUN_MAX_STEPS  100000
 #define SCOUT_PREVIEW_STEPS 256
 #define FLUSH_INTERVAL_MS   4000
 #define SCOUT_SLEEP_MS      200
@@ -1330,7 +1330,39 @@ static void process_job(const aliquot_job_t *job) {
     if (!job) return;
     aliquot_outcome_t outcome;
     uint64_t budget_ms = determine_time_budget(job);
-    run_aliquot_sequence(job->seed, LONG_RUN_MAX_STEPS, budget_ms, true, &outcome);
+
+    /* For high priority jobs, we disable the step limit to ensure persistent tracking. */
+    uint32_t max_steps = (job->priority >= 3) ? 0 : LONG_RUN_MAX_STEPS;
+
+    run_aliquot_sequence(job->seed, max_steps, budget_ms, true, &outcome);
+
+    /* If we hit a limit on a big integer, do not log as 'found'. Instead, re-queue with higher priority. */
+    if (outcome.max_bits > 64 && outcome.hit_limit) {
+        printf("[ALIQUOT] seed=%" PRIu64 " hit big-open-limit. Re-queuing with high priority.\n", job->seed);
+
+        uint64_t now = monotonic_millis();
+        aliquot_job_t *retry_job = ttak_mem_alloc(sizeof(aliquot_job_t), __TTAK_UNSAFE_MEM_FOREVER__, now);
+        if (retry_job) {
+            memset(retry_job, 0, sizeof(*retry_job));
+            retry_job->seed = job->seed;
+            retry_job->priority = 10; /* Max priority */
+            retry_job->scout_score = job->scout_score;
+            snprintf(retry_job->provenance, sizeof(retry_job->provenance), "retry-big");
+
+            if (enqueue_job(retry_job, "retry-limit")) {
+                /* Successfully re-queued. Only log to track, not found. */
+                append_track_record(&outcome, job, budget_ms);
+                maybe_flush_ledgers();
+                return;
+            } else {
+                ttak_mem_free(retry_job);
+                fprintf(stderr, "[ALIQUOT] Failed to re-queue seed %" PRIu64 " (queue full). Logging as found fallback.\n", job->seed);
+            }
+        } else {
+            fprintf(stderr, "[ALIQUOT] Failed to allocate retry job for seed %" PRIu64 "\n", job->seed);
+        }
+    }
+
     append_found_record(&outcome, job->provenance);
     append_track_record(&outcome, job, budget_ms);
     maybe_flush_ledgers();
