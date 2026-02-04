@@ -11,6 +11,8 @@ Predictable.
 Explicit.
 **
 
+[Docs](https://gg582.github.io/libttak)
+
 A small and friendly C systems collection for safer memory
 and enjoyable programming.
 
