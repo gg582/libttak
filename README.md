@@ -31,14 +31,7 @@ No memory is freed unless explicitly requested by the user.
 
 LibTTAK exists because defensive patterns appear even in languages that promise safety when engineers need deterministic cleanup, staged shutdowns, or externally imposed invariants. The library makes those guard rails explicit and mechanical in C so that the same discipline does not need to be reinvented per project.
 
-<table>
-  <tr>
-    <th>Rust stays on alert</th>
-    <th>C++ never unclenches</th>
-    <th>LibTTAK just clocks lifetimes</th>
-  </tr>
-  <tr>
-    <td>
+**Rust stays on alert**
 
 ```rust
 fn guarded_session(repo: &Repo, cfg: Config) -> Result<Session, Error> {
@@ -62,8 +55,8 @@ fn guarded_session(repo: &Repo, cfg: Config) -> Result<Session, Error> {
     Ok(Session::armed(session, guard))
 }
 ```
-    </td>
-    <td>
+
+**C++ never unclenches**
 
 ```cpp
 auto guarded_session(Repo& repo, const Config& cfg) -> Result<Session> {
@@ -99,8 +92,8 @@ auto guarded_session(Repo& repo, const Config& cfg) -> Result<Session> {
     return Session::Armed(std::move(session.value()), std::move(*guard));
 }
 ```
-    </td>
-    <td>
+
+**LibTTAK just clocks lifetimes**
 
 ```c
 #include <inttypes.h>
@@ -134,10 +127,6 @@ for (size_t i = 0; i < sizeof(checkpoints) / sizeof(checkpoints[0]); ++i) {
 
 ttak_mem_free(message);
 ```
-
-    </td>
-  </tr>
-</table>
 
 Two languages, same instinct: repeat every guard, manually couple every cleanup, never assume success. LibTTAK pushes that mindset into the runtime itself so C authors can keep the discipline while trading copy-pasted sentry code for an explicit lifetime model—the lifetime bookkeeping and cleanup coupling is part of the runtime, not handwritten ceremony.
 
