@@ -3,6 +3,7 @@
 ![Mascot](./mascot.png)
 
 *LibTTAK's Mascot, Memuh the sea rabbit*
+
 *Memuh consumes the memory leftovers when the lifetime expires.*
 
 **Gentle.
