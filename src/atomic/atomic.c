@@ -8,9 +8,7 @@
 #include <string.h>
 #include <stdint.h>
 
-#if defined(__TINYC__)
 pthread_mutex_t __ttak_atomic_global_lock = PTHREAD_MUTEX_INITIALIZER;
-#endif
 
 /**
  * @brief Atomic operations for uint64_t using GCC builtins.

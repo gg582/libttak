@@ -1,5 +1,3 @@
-#if defined(__TINYC__) || defined(TTAK_FORCE_PORTABLE_FLOATUNDIDF)
-
 #include <stdint.h>
 
 #if defined(__TINYC__) && defined(__attribute__)
@@ -73,9 +71,3 @@ TTAK_FLOATUNDIDF_WEAK double __floatundidf(uint64_t value) {
 }
 
 #undef TTAK_FLOATUNDIDF_WEAK
-
-#else
-/* Translation unit intentionally left blank for toolchains that
- * already ship a native __floatundidf helper. */
-typedef int ttak_floatundidf_placeholder;
-#endif

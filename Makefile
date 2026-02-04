@@ -1,18 +1,37 @@
-override CC = tcc
+CC ?= tcc
+AR ?= ar
 
-# Standard flags for core modules
-CFLAGS = -Wall -std=c11 -pthread -Iinclude -O0 -g \
-         -fno-inline -fno-omit-frame-pointer \
-         -fno-optimize-sibling-calls \
-         -fno-jump-tables -fno-builtin \
-         -fno-strict-aliasing -fno-common \
-         -fno-stack-protector -fno-asynchronous-unwind-tables \
-         -fno-exceptions -fno-tree-vectorize -fno-strict-overflow \
-         -ffunction-sections -fdata-sections
-
+COMMON_WARNINGS = -Wall -std=c17 -pthread -Iinclude -D_GNU_SOURCE -D_XOPEN_SOURCE=700
 DEPFLAGS = -MD -MF $(@:.o=.d)
+LDFLAGS_BASE = -pthread -lm
 
-LDFLAGS = -pthread -lm
+# Detect which compiler family we are using.
+BUILD_PROFILE = perf
+ifneq (,$(findstring tcc,$(notdir $(CC))))
+BUILD_PROFILE = tcc
+endif
+
+TCC_STACK_FLAGS = -O3 -g \
+                  -fno-inline \
+                  -fno-omit-frame-pointer \
+                  -fno-optimize-sibling-calls
+
+PERF_WARNINGS = -Wextra -Wshadow -Wstrict-prototypes -Wswitch-enum
+PERF_STACK_FLAGS = -O3 -march=native -mtune=native -pipe -flto -ffat-lto-objects \
+                   -fomit-frame-pointer -funroll-loops \
+                   -fstrict-aliasing -ffunction-sections -fdata-sections \
+                   -fvisibility=hidden -DNDEBUG
+
+ifeq ($(BUILD_PROFILE),tcc)
+CFLAGS = $(COMMON_WARNINGS) $(TCC_STACK_FLAGS)
+LDFLAGS = $(LDFLAGS_BASE)
+else
+CFLAGS = $(COMMON_WARNINGS) $(PERF_WARNINGS) $(PERF_STACK_FLAGS)
+LDFLAGS = $(LDFLAGS_BASE) -flto -Wl,--gc-sections
+endif
+
+CFLAGS += $(EXTRA_CFLAGS)
+LDFLAGS += $(EXTRA_LDFLAGS)
 
 PREFIX ?= /usr/local
 LIBDIR = $(PREFIX)/lib
@@ -37,7 +56,7 @@ all: directories $(LIB)
 
 $(LIB): $(OBJS)
 	@mkdir -p lib
-	ar rcs $@ $(OBJS)
+	$(AR) rcs $@ $(OBJS)
 
 asm: directories $(ASMS)
 

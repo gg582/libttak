@@ -1,6 +1,10 @@
 #ifndef TTAK_SYNC_H
 #define TTAK_SYNC_H
 
+#ifndef _XOPEN_SOURCE
+#define _XOPEN_SOURCE 700
+#endif
+
 #include <pthread.h>
 #include <stdint.h>
 

@@ -1,17 +1,16 @@
+#if defined(__has_include_next) && !defined(__TINYC__)
+#  if __has_include_next(<stdatomic.h>)
+#    include_next <stdatomic.h>
+#    define __TTAK_STDATOMIC_SYSTEM_INCLUDED
+#  endif
+#endif
+
 #ifndef TTAK_PORTABLE_STDATOMIC_H
 #define TTAK_PORTABLE_STDATOMIC_H
 
-#if defined(__TINYC__)
+#if defined(__TINYC__) || !defined(__TTAK_STDATOMIC_SYSTEM_INCLUDED)
 #define __TTAK_NEEDS_PORTABLE_STDATOMIC__ 1
-#elif defined(__has_include_next)
-#if __has_include_next(<stdatomic.h>)
-#include_next <stdatomic.h>
-#define __TTAK_NEEDS_PORTABLE_STDATOMIC__ 0
 #else
-#define __TTAK_NEEDS_PORTABLE_STDATOMIC__ 1
-#endif
-#else
-#include_next <stdatomic.h>
 #define __TTAK_NEEDS_PORTABLE_STDATOMIC__ 0
 #endif
 
@@ -65,7 +64,7 @@ extern pthread_mutex_t __ttak_atomic_global_lock;
     ({ __TT_ATOMIC_LOCK(); __typeof__(*(obj)) __val = *(obj); (void)(order); __TT_ATOMIC_UNLOCK(); __val; })
 
 #define atomic_load(obj) \
-    atomic_load_explicit((obj), memory_order_seq_cst)
+    atomic_load_explicit((obj) , memory_order_seq_cst)
 
 #define atomic_fetch_add_explicit(obj, operand, order) \
     ({ __TT_ATOMIC_LOCK(); __typeof__(*(obj)) __old = *(obj); *(obj) = __old + (operand); (void)(order); __TT_ATOMIC_UNLOCK(); __old; })
@@ -88,7 +87,7 @@ extern pthread_mutex_t __ttak_atomic_global_lock;
 #define atomic_compare_exchange_weak(obj, expected, desired) \
     atomic_compare_exchange_weak_explicit((obj), (expected), (desired), memory_order_seq_cst, memory_order_seq_cst)
 
-static inline bool atomic_flag_test_and_set_explicit(atomic_flag *obj, memory_order order) {
+static inline bool atomic_flag_test_and_set_explicit(volatile atomic_flag *obj, memory_order order) {
     (void)order;
     __TT_ATOMIC_LOCK();
     bool prev = obj->_value != 0;
@@ -97,7 +96,7 @@ static inline bool atomic_flag_test_and_set_explicit(atomic_flag *obj, memory_or
     return prev;
 }
 
-static inline void atomic_flag_clear_explicit(atomic_flag *obj, memory_order order) {
+static inline void atomic_flag_clear_explicit(volatile atomic_flag *obj, memory_order order) {
     (void)order;
     __TT_ATOMIC_LOCK();
     obj->_value = 0;
