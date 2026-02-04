@@ -3,6 +3,7 @@ var annotated_dup =
     [ "__internal_ttak_proc_priority_queue_t", "struct____internal__ttak__proc__priority__queue__t.html", "struct____internal__ttak__proc__priority__queue__t" ],
     [ "__internal_ttak_qnode_t", "struct____internal__ttak__qnode__t.html", "struct____internal__ttak__qnode__t" ],
     [ "_node", "struct__node.html", "struct__node" ],
+    [ "atomic_flag", "structatomic__flag.html", "structatomic__flag" ],
     [ "SHA256_CTX", "structSHA256__CTX.html", "structSHA256__CTX" ],
     [ "tt_type_shared", "structtt__type__shared.html", "structtt__type__shared" ],
     [ "ttak_ast_node", "structttak__ast__node.html", "structttak__ast__node" ],

@@ -98,123 +98,173 @@ $(document).ready(function(){initNavTree('include_2stdatomic_8h_source.html','')
   <div class="headertitle"><div class="title">stdatomic.h</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="include_2stdatomic_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef TTAK_PORTABLE_STDATOMIC_H</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define TTAK_PORTABLE_STDATOMIC_H</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#if defined(__TINYC__)</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#define __TTAK_NEEDS_PORTABLE_STDATOMIC__ 1</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#elif defined(__has_include_next)</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#if __has_include_next(&lt;stdatomic.h&gt;)</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include_next &lt;stdatomic.h&gt;</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#define __TTAK_NEEDS_PORTABLE_STDATOMIC__ 0</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#else</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#define __TTAK_NEEDS_PORTABLE_STDATOMIC__ 1</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#endif</span></div>
+<a href="include_2stdatomic_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#if defined(__has_include_next) &amp;&amp; !defined(__TINYC__)</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#  if __has_include_next(&lt;stdatomic.h&gt;)</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#    include_next &lt;stdatomic.h&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#    define __TTAK_STDATOMIC_SYSTEM_INCLUDED</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#  endif</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#ifndef TTAK_PORTABLE_STDATOMIC_H</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="include_2stdatomic_8h.html#a7f4e925ad8ccb259c41cda0e797dd7a6">    9</a></span><span class="preprocessor">#define TTAK_PORTABLE_STDATOMIC_H</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#if defined(__TINYC__) || !defined(__TTAK_STDATOMIC_SYSTEM_INCLUDED)</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="include_2stdatomic_8h.html#a58014a490f8aa8f5dd78cd9203229cdf">   12</a></span><span class="preprocessor">#define __TTAK_NEEDS_PORTABLE_STDATOMIC__ 1</span></div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#else</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include_next &lt;stdatomic.h&gt;</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="include_2stdatomic_8h.html#a58014a490f8aa8f5dd78cd9203229cdf">   15</a></span><span class="preprocessor">#define __TTAK_NEEDS_PORTABLE_STDATOMIC__ 0</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#if __TTAK_NEEDS_PORTABLE_STDATOMIC__</span></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &lt;stdbool.h&gt;</span></div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#include &lt;stddef.h&gt;</span></div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &lt;pthread.h&gt;</span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#ifndef _Atomic</span></div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#define _Atomic volatile</span></div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="keyword">typedef</span> <span class="keyword">enum</span> {</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    memory_order_relaxed,</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    memory_order_consume,</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    memory_order_acquire,</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    memory_order_release,</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    memory_order_acq_rel,</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    memory_order_seq_cst</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>} memory_order;</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="keyword">typedef</span> <span class="keyword">volatile</span> <span class="keywordtype">bool</span> atomic_bool;</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="keyword">typedef</span> <span class="keyword">volatile</span> <span class="keywordtype">size_t</span> atomic_size_t;</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="keyword">typedef</span> <span class="keyword">volatile</span> uint_fast64_t atomic_uint_fast64_t;</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <span class="keyword">volatile</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> _value;</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>} atomic_flag;</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="keyword">extern</span> pthread_mutex_t __ttak_atomic_global_lock;</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="preprocessor">#define ATOMIC_FLAG_INIT {0}</span></div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="preprocessor">#define __TT_ATOMIC_LOCK() pthread_mutex_lock(&amp;__ttak_atomic_global_lock)</span></div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="preprocessor">#define __TT_ATOMIC_UNLOCK() pthread_mutex_unlock(&amp;__ttak_atomic_global_lock)</span></div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="preprocessor">#define atomic_thread_fence(order) do { (void)(order); __TT_ATOMIC_LOCK(); __TT_ATOMIC_UNLOCK(); } while (0)</span></div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="preprocessor">#define atomic_init(obj, value) \</span></div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="preprocessor">    do { atomic_store_explicit((obj), (value), memory_order_seq_cst); } while (0)</span></div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="preprocessor">#define atomic_store_explicit(obj, desired, order) \</span></div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="preprocessor">    do { (void)(order); __TT_ATOMIC_LOCK(); *(obj) = (desired); __TT_ATOMIC_UNLOCK(); } while (0)</span></div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="preprocessor">#define atomic_store(obj, desired) \</span></div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="preprocessor">    atomic_store_explicit((obj), (desired), memory_order_seq_cst)</span></div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="preprocessor">#define atomic_load_explicit(obj, order) \</span></div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="preprocessor">    ({ __TT_ATOMIC_LOCK(); __typeof__(*(obj)) __val = *(obj); (void)(order); __TT_ATOMIC_UNLOCK(); __val; })</span></div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="preprocessor">#define atomic_load(obj) \</span></div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="preprocessor">    atomic_load_explicit((obj), memory_order_seq_cst)</span></div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="preprocessor">#define atomic_fetch_add_explicit(obj, operand, order) \</span></div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="preprocessor">    ({ __TT_ATOMIC_LOCK(); __typeof__(*(obj)) __old = *(obj); *(obj) = __old + (operand); (void)(order); __TT_ATOMIC_UNLOCK(); __old; })</span></div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="preprocessor">#define atomic_fetch_add(obj, operand) \</span></div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="preprocessor">    atomic_fetch_add_explicit((obj), (operand), memory_order_seq_cst)</span></div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="preprocessor">#define atomic_fetch_sub_explicit(obj, operand, order) \</span></div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="preprocessor">    ({ __TT_ATOMIC_LOCK(); __typeof__(*(obj)) __old = *(obj); *(obj) = __old - (operand); (void)(order); __TT_ATOMIC_UNLOCK(); __old; })</span></div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="preprocessor">#define atomic_fetch_sub(obj, operand) \</span></div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="preprocessor">    atomic_fetch_sub_explicit((obj), (operand), memory_order_seq_cst)</span></div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="preprocessor">#define atomic_compare_exchange_weak_explicit(obj, expected, desired, success, failure) \</span></div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="preprocessor">    ({ bool __ok; (void)(success); (void)(failure); __TT_ATOMIC_LOCK(); \</span></div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="preprocessor">       if (*(obj) == *(expected)) { *(obj) = (desired); __ok = true; } \</span></div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="preprocessor">       else { *(expected) = *(obj); __ok = false; } \</span></div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="preprocessor">       __TT_ATOMIC_UNLOCK(); __ok; })</span></div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="preprocessor">#define atomic_compare_exchange_weak(obj, expected, desired) \</span></div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span><span class="preprocessor">    atomic_compare_exchange_weak_explicit((obj), (expected), (desired), memory_order_seq_cst, memory_order_seq_cst)</span></div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span><span class="keyword">static</span> <span class="keyword">inline</span> <span class="keywordtype">bool</span> atomic_flag_test_and_set_explicit(atomic_flag *obj, memory_order order) {</div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    (void)order;</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    __TT_ATOMIC_LOCK();</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    <span class="keywordtype">bool</span> prev = obj-&gt;_value != 0;</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    obj-&gt;_value = 1;</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    __TT_ATOMIC_UNLOCK();</div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    <span class="keywordflow">return</span> prev;</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>}</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="keyword">static</span> <span class="keyword">inline</span> <span class="keywordtype">void</span> atomic_flag_clear_explicit(atomic_flag *obj, memory_order order) {</div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    (void)order;</div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    __TT_ATOMIC_LOCK();</div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    obj-&gt;_value = 0;</div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    __TT_ATOMIC_UNLOCK();</div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>}</div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span><span class="preprocessor">#define atomic_flag_test_and_set(obj) \</span></div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span><span class="preprocessor">    atomic_flag_test_and_set_explicit((obj), memory_order_seq_cst)</span></div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span><span class="preprocessor">#define atomic_flag_clear(obj) \</span></div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span><span class="preprocessor">    atomic_flag_clear_explicit((obj), memory_order_seq_cst)</span></div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span><span class="preprocessor">#endif </span><span class="comment">/* __TTAK_NEEDS_PORTABLE_STDATOMIC__ */</span><span class="preprocessor"></span></div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span> </div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span><span class="preprocessor">#undef __TTAK_NEEDS_PORTABLE_STDATOMIC__</span></div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span> </div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span><span class="preprocessor">#endif </span><span class="comment">/* TTAK_PORTABLE_STDATOMIC_H */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#define __TTAK_NEEDS_PORTABLE_STDATOMIC__ 0</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#if __TTAK_NEEDS_PORTABLE_STDATOMIC__</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &lt;stdbool.h&gt;</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &lt;stddef.h&gt;</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#include &lt;pthread.h&gt;</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#ifndef _Atomic</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="include_2stdatomic_8h.html#a94674db2fe3c7496dfdcaa9b81486e79">   25</a></span><span class="preprocessor">#define _Atomic volatile</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="foldopen" id="foldopen00028" data-start="{" data-end="};">
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="include_2stdatomic_8h.html#a17c2de5ae768960284c047a320f17d1b">   28</a></span><span class="keyword">typedef</span> <span class="keyword">enum</span> {</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="include_2stdatomic_8h.html#a17c2de5ae768960284c047a320f17d1bac6489d0374e297a776f6a3db7ea5654a">   29</a></span>    <a class="code hl_enumvalue" href="include_2stdatomic_8h.html#a17c2de5ae768960284c047a320f17d1bac6489d0374e297a776f6a3db7ea5654a">memory_order_relaxed</a>,</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="include_2stdatomic_8h.html#a17c2de5ae768960284c047a320f17d1ba0745f54882bc00251a719e42969db110">   30</a></span>    <a class="code hl_enumvalue" href="include_2stdatomic_8h.html#a17c2de5ae768960284c047a320f17d1ba0745f54882bc00251a719e42969db110">memory_order_consume</a>,</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="include_2stdatomic_8h.html#a17c2de5ae768960284c047a320f17d1bafb313754331704b978e9a80a933b3da7">   31</a></span>    <a class="code hl_enumvalue" href="include_2stdatomic_8h.html#a17c2de5ae768960284c047a320f17d1bafb313754331704b978e9a80a933b3da7">memory_order_acquire</a>,</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="include_2stdatomic_8h.html#a17c2de5ae768960284c047a320f17d1ba685a90c8fc516895354973c3918a5f7b">   32</a></span>    <a class="code hl_enumvalue" href="include_2stdatomic_8h.html#a17c2de5ae768960284c047a320f17d1ba685a90c8fc516895354973c3918a5f7b">memory_order_release</a>,</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="include_2stdatomic_8h.html#a17c2de5ae768960284c047a320f17d1bae17e60cbfd766a7f165872c36e2f7bc5">   33</a></span>    <a class="code hl_enumvalue" href="include_2stdatomic_8h.html#a17c2de5ae768960284c047a320f17d1bae17e60cbfd766a7f165872c36e2f7bc5">memory_order_acq_rel</a>,</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <a class="code hl_enumvalue" href="include_2stdatomic_8h.html#a17c2de5ae768960284c047a320f17d1ba2d21914d1edd227a890107e7878a3752">memory_order_seq_cst</a></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="include_2stdatomic_8h.html#a17c2de5ae768960284c047a320f17d1ba2d21914d1edd227a890107e7878a3752">   35</a></span>} <a class="code hl_enumeration" href="include_2stdatomic_8h.html#a17c2de5ae768960284c047a320f17d1b">memory_order</a>;</div>
+</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="include_2stdatomic_8h.html#aef4aec84224d1f46d0ba87f52ca08f69">   37</a></span><span class="keyword">typedef</span> <span class="keyword">volatile</span> <span class="keywordtype">bool</span> <a class="code hl_typedef" href="include_2stdatomic_8h.html#aef4aec84224d1f46d0ba87f52ca08f69">atomic_bool</a>;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="include_2stdatomic_8h.html#a579c826aec0f3d9971c22c3629abcbfe">   38</a></span><span class="keyword">typedef</span> <span class="keyword">volatile</span> <span class="keywordtype">size_t</span> <a class="code hl_typedef" href="include_2stdatomic_8h.html#a579c826aec0f3d9971c22c3629abcbfe">atomic_size_t</a>;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="include_2stdatomic_8h.html#acc9ed8d56c5c645e7d5503aa72d1da49">   39</a></span><span class="keyword">typedef</span> <span class="keyword">volatile</span> uint_fast64_t <a class="code hl_typedef" href="include_2stdatomic_8h.html#acc9ed8d56c5c645e7d5503aa72d1da49">atomic_uint_fast64_t</a>;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="foldopen" id="foldopen00041" data-start="{" data-end="};">
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="structatomic__flag.html">   41</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="structatomic__flag.html#a1e78a66d91bdb267b55596d71d6dcd79">   42</a></span>    <span class="keyword">volatile</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> <a class="code hl_variable" href="structatomic__flag.html#a1e78a66d91bdb267b55596d71d6dcd79">_value</a>;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>} <a class="code hl_struct" href="structatomic__flag.html">atomic_flag</a>;</div>
+</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="keyword">extern</span> pthread_mutex_t <a class="code hl_variable" href="include_2stdatomic_8h.html#a7082a0c612e692d1d2182aea6fcecb26">__ttak_atomic_global_lock</a>;</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="include_2stdatomic_8h.html#a3cf6ded3b463faf0cedce1718caaa695">   47</a></span><span class="preprocessor">#define ATOMIC_FLAG_INIT {0}</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="include_2stdatomic_8h.html#a7b82615cb418a296137e2abcff7db14e">   49</a></span><span class="preprocessor">#define __TT_ATOMIC_LOCK() pthread_mutex_lock(&amp;__ttak_atomic_global_lock)</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="include_2stdatomic_8h.html#a078ff22b16930edd2268d1cb679445a5">   50</a></span><span class="preprocessor">#define __TT_ATOMIC_UNLOCK() pthread_mutex_unlock(&amp;__ttak_atomic_global_lock)</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="include_2stdatomic_8h.html#a817535e09bf9c427a1cbee66d06e7030">   52</a></span><span class="preprocessor">#define atomic_thread_fence(order) do { (void)(order); __TT_ATOMIC_LOCK(); __TT_ATOMIC_UNLOCK(); } while (0)</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="foldopen" id="foldopen00054" data-start="" data-end="">
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="include_2stdatomic_8h.html#af8a9cbe9495fcafaa892b24b383acf96">   54</a></span><span class="preprocessor">#define atomic_init(obj, value) \</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="preprocessor">    do { atomic_store_explicit((obj), (value), memory_order_seq_cst); } while (0)</span></div>
+</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="foldopen" id="foldopen00057" data-start="" data-end="">
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="include_2stdatomic_8h.html#a9f712e57179afb1b855da84b14ed670c">   57</a></span><span class="preprocessor">#define atomic_store_explicit(obj, desired, order) \</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="preprocessor">    do { (void)(order); __TT_ATOMIC_LOCK(); *(obj) = (desired); __TT_ATOMIC_UNLOCK(); } while (0)</span></div>
+</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="foldopen" id="foldopen00060" data-start="" data-end="">
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="include_2stdatomic_8h.html#a87fbed10bf5d77e3b80f356e5246f102">   60</a></span><span class="preprocessor">#define atomic_store(obj, desired) \</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="preprocessor">    atomic_store_explicit((obj), (desired), memory_order_seq_cst)</span></div>
+</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="foldopen" id="foldopen00063" data-start="" data-end="">
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="include_2stdatomic_8h.html#abcbf72e31b4b3100152d409e9637441a">   63</a></span><span class="preprocessor">#define atomic_load_explicit(obj, order) \</span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="preprocessor">    ({ __TT_ATOMIC_LOCK(); __typeof__(*(obj)) __val = *(obj); (void)(order); __TT_ATOMIC_UNLOCK(); __val; })</span></div>
+</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="foldopen" id="foldopen00066" data-start="" data-end="">
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="include_2stdatomic_8h.html#afb8e12dba0aa6280b29e3d403e4ce384">   66</a></span><span class="preprocessor">#define atomic_load(obj) \</span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="preprocessor">    atomic_load_explicit((obj) , memory_order_seq_cst)</span></div>
+</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="foldopen" id="foldopen00069" data-start="" data-end="">
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno"><a class="line" href="include_2stdatomic_8h.html#ace8ab452db03f62569b8d4dbedf8ff09">   69</a></span><span class="preprocessor">#define atomic_fetch_add_explicit(obj, operand, order) \</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="preprocessor">    ({ __TT_ATOMIC_LOCK(); __typeof__(*(obj)) __old = *(obj); *(obj) = __old + (operand); (void)(order); __TT_ATOMIC_UNLOCK(); __old; })</span></div>
+</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
+<div class="foldopen" id="foldopen00072" data-start="" data-end="">
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="include_2stdatomic_8h.html#ac0a4bfbcb6b982cae35b44fc104a09b6">   72</a></span><span class="preprocessor">#define atomic_fetch_add(obj, operand) \</span></div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="preprocessor">    atomic_fetch_add_explicit((obj), (operand), memory_order_seq_cst)</span></div>
+</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="foldopen" id="foldopen00075" data-start="" data-end="">
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="include_2stdatomic_8h.html#af4371ce6237310eedf5a1036178ada1f">   75</a></span><span class="preprocessor">#define atomic_fetch_sub_explicit(obj, operand, order) \</span></div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="preprocessor">    ({ __TT_ATOMIC_LOCK(); __typeof__(*(obj)) __old = *(obj); *(obj) = __old - (operand); (void)(order); __TT_ATOMIC_UNLOCK(); __old; })</span></div>
+</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="foldopen" id="foldopen00078" data-start="" data-end="">
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno"><a class="line" href="include_2stdatomic_8h.html#a5911a234da3c1fce86bbebea7650e562">   78</a></span><span class="preprocessor">#define atomic_fetch_sub(obj, operand) \</span></div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="preprocessor">    atomic_fetch_sub_explicit((obj), (operand), memory_order_seq_cst)</span></div>
+</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
+<div class="foldopen" id="foldopen00081" data-start="" data-end="">
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno"><a class="line" href="include_2stdatomic_8h.html#a97a5f3e6f5f733e94b1ddeff904d3bc0">   81</a></span><span class="preprocessor">#define atomic_compare_exchange_weak_explicit(obj, expected, desired, success, failure) \</span></div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="preprocessor">    ({ bool __ok; (void)(success); (void)(failure); __TT_ATOMIC_LOCK(); \</span></div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="preprocessor">       if (*(obj) == *(expected)) { *(obj) = (desired); __ok = true; } \</span></div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="preprocessor">       else { *(expected) = *(obj); __ok = false; } \</span></div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="preprocessor">       __TT_ATOMIC_UNLOCK(); __ok; })</span></div>
+</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="foldopen" id="foldopen00087" data-start="" data-end="">
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno"><a class="line" href="include_2stdatomic_8h.html#a55257ac5977e775b87563bb8cc955863">   87</a></span><span class="preprocessor">#define atomic_compare_exchange_weak(obj, expected, desired) \</span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="preprocessor">    atomic_compare_exchange_weak_explicit((obj), (expected), (desired), memory_order_seq_cst, memory_order_seq_cst)</span></div>
+</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+<div class="foldopen" id="foldopen00090" data-start="{" data-end="}">
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno"><a class="line" href="include_2stdatomic_8h.html#aeca7c45606fc2b5e0c8dca53a76f40ac">   90</a></span><span class="keyword">static</span> <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="include_2stdatomic_8h.html#aeca7c45606fc2b5e0c8dca53a76f40ac">atomic_flag_test_and_set_explicit</a>(<span class="keyword">volatile</span> <a class="code hl_struct" href="structatomic__flag.html">atomic_flag</a> *obj, <a class="code hl_enumeration" href="include_2stdatomic_8h.html#a17c2de5ae768960284c047a320f17d1b">memory_order</a> order) {</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    (void)order;</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    <a class="code hl_define" href="include_2stdatomic_8h.html#a7b82615cb418a296137e2abcff7db14e">__TT_ATOMIC_LOCK</a>();</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    <span class="keywordtype">bool</span> prev = obj-&gt;<a class="code hl_variable" href="structatomic__flag.html#a1e78a66d91bdb267b55596d71d6dcd79">_value</a> != 0;</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    obj-&gt;<a class="code hl_variable" href="structatomic__flag.html#a1e78a66d91bdb267b55596d71d6dcd79">_value</a> = 1;</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    <a class="code hl_define" href="include_2stdatomic_8h.html#a078ff22b16930edd2268d1cb679445a5">__TT_ATOMIC_UNLOCK</a>();</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    <span class="keywordflow">return</span> prev;</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>}</div>
+</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
+<div class="foldopen" id="foldopen00099" data-start="{" data-end="}">
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno"><a class="line" href="include_2stdatomic_8h.html#a4154e94db39d792afa138536ccaa0d7e">   99</a></span><span class="keyword">static</span> <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="include_2stdatomic_8h.html#a4154e94db39d792afa138536ccaa0d7e">atomic_flag_clear_explicit</a>(<span class="keyword">volatile</span> <a class="code hl_struct" href="structatomic__flag.html">atomic_flag</a> *obj, <a class="code hl_enumeration" href="include_2stdatomic_8h.html#a17c2de5ae768960284c047a320f17d1b">memory_order</a> order) {</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    (void)order;</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    <a class="code hl_define" href="include_2stdatomic_8h.html#a7b82615cb418a296137e2abcff7db14e">__TT_ATOMIC_LOCK</a>();</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    obj-&gt;<a class="code hl_variable" href="structatomic__flag.html#a1e78a66d91bdb267b55596d71d6dcd79">_value</a> = 0;</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    <a class="code hl_define" href="include_2stdatomic_8h.html#a078ff22b16930edd2268d1cb679445a5">__TT_ATOMIC_UNLOCK</a>();</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>}</div>
+</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
+<div class="foldopen" id="foldopen00106" data-start="" data-end="">
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno"><a class="line" href="include_2stdatomic_8h.html#ac207cf1efb51bc53fc9078301afa391f">  106</a></span><span class="preprocessor">#define atomic_flag_test_and_set(obj) \</span></div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span><span class="preprocessor">    atomic_flag_test_and_set_explicit((obj), memory_order_seq_cst)</span></div>
+</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
+<div class="foldopen" id="foldopen00109" data-start="" data-end="">
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno"><a class="line" href="include_2stdatomic_8h.html#ae8e62cb9801fedb40ccaca61f60d8617">  109</a></span><span class="preprocessor">#define atomic_flag_clear(obj) \</span></div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span><span class="preprocessor">    atomic_flag_clear_explicit((obj), memory_order_seq_cst)</span></div>
+</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span> </div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span><span class="preprocessor">#endif </span><span class="comment">/* __TTAK_NEEDS_PORTABLE_STDATOMIC__ */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span><span class="preprocessor">#undef __TTAK_NEEDS_PORTABLE_STDATOMIC__</span></div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span><span class="preprocessor">#endif </span><span class="comment">/* TTAK_PORTABLE_STDATOMIC_H */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="ainclude_2stdatomic_8h_html_a078ff22b16930edd2268d1cb679445a5"><div class="ttname"><a href="include_2stdatomic_8h.html#a078ff22b16930edd2268d1cb679445a5">__TT_ATOMIC_UNLOCK</a></div><div class="ttdeci">#define __TT_ATOMIC_UNLOCK()</div><div class="ttdef"><b>Definition</b> <a href="include_2stdatomic_8h_source.html#l00050">stdatomic.h:50</a></div></div>
+<div class="ttc" id="ainclude_2stdatomic_8h_html_a17c2de5ae768960284c047a320f17d1b"><div class="ttname"><a href="include_2stdatomic_8h.html#a17c2de5ae768960284c047a320f17d1b">memory_order</a></div><div class="ttdeci">memory_order</div><div class="ttdef"><b>Definition</b> <a href="include_2stdatomic_8h_source.html#l00028">stdatomic.h:28</a></div></div>
+<div class="ttc" id="ainclude_2stdatomic_8h_html_a17c2de5ae768960284c047a320f17d1ba0745f54882bc00251a719e42969db110"><div class="ttname"><a href="include_2stdatomic_8h.html#a17c2de5ae768960284c047a320f17d1ba0745f54882bc00251a719e42969db110">memory_order_consume</a></div><div class="ttdeci">@ memory_order_consume</div><div class="ttdef"><b>Definition</b> <a href="include_2stdatomic_8h_source.html#l00030">stdatomic.h:30</a></div></div>
+<div class="ttc" id="ainclude_2stdatomic_8h_html_a17c2de5ae768960284c047a320f17d1ba2d21914d1edd227a890107e7878a3752"><div class="ttname"><a href="include_2stdatomic_8h.html#a17c2de5ae768960284c047a320f17d1ba2d21914d1edd227a890107e7878a3752">memory_order_seq_cst</a></div><div class="ttdeci">@ memory_order_seq_cst</div><div class="ttdef"><b>Definition</b> <a href="include_2stdatomic_8h_source.html#l00035">stdatomic.h:34</a></div></div>
+<div class="ttc" id="ainclude_2stdatomic_8h_html_a17c2de5ae768960284c047a320f17d1ba685a90c8fc516895354973c3918a5f7b"><div class="ttname"><a href="include_2stdatomic_8h.html#a17c2de5ae768960284c047a320f17d1ba685a90c8fc516895354973c3918a5f7b">memory_order_release</a></div><div class="ttdeci">@ memory_order_release</div><div class="ttdef"><b>Definition</b> <a href="include_2stdatomic_8h_source.html#l00032">stdatomic.h:32</a></div></div>
+<div class="ttc" id="ainclude_2stdatomic_8h_html_a17c2de5ae768960284c047a320f17d1bac6489d0374e297a776f6a3db7ea5654a"><div class="ttname"><a href="include_2stdatomic_8h.html#a17c2de5ae768960284c047a320f17d1bac6489d0374e297a776f6a3db7ea5654a">memory_order_relaxed</a></div><div class="ttdeci">@ memory_order_relaxed</div><div class="ttdef"><b>Definition</b> <a href="include_2stdatomic_8h_source.html#l00029">stdatomic.h:29</a></div></div>
+<div class="ttc" id="ainclude_2stdatomic_8h_html_a17c2de5ae768960284c047a320f17d1bae17e60cbfd766a7f165872c36e2f7bc5"><div class="ttname"><a href="include_2stdatomic_8h.html#a17c2de5ae768960284c047a320f17d1bae17e60cbfd766a7f165872c36e2f7bc5">memory_order_acq_rel</a></div><div class="ttdeci">@ memory_order_acq_rel</div><div class="ttdef"><b>Definition</b> <a href="include_2stdatomic_8h_source.html#l00033">stdatomic.h:33</a></div></div>
+<div class="ttc" id="ainclude_2stdatomic_8h_html_a17c2de5ae768960284c047a320f17d1bafb313754331704b978e9a80a933b3da7"><div class="ttname"><a href="include_2stdatomic_8h.html#a17c2de5ae768960284c047a320f17d1bafb313754331704b978e9a80a933b3da7">memory_order_acquire</a></div><div class="ttdeci">@ memory_order_acquire</div><div class="ttdef"><b>Definition</b> <a href="include_2stdatomic_8h_source.html#l00031">stdatomic.h:31</a></div></div>
+<div class="ttc" id="ainclude_2stdatomic_8h_html_a4154e94db39d792afa138536ccaa0d7e"><div class="ttname"><a href="include_2stdatomic_8h.html#a4154e94db39d792afa138536ccaa0d7e">atomic_flag_clear_explicit</a></div><div class="ttdeci">static void atomic_flag_clear_explicit(volatile atomic_flag *obj, memory_order order)</div><div class="ttdef"><b>Definition</b> <a href="include_2stdatomic_8h_source.html#l00099">stdatomic.h:99</a></div></div>
+<div class="ttc" id="ainclude_2stdatomic_8h_html_a579c826aec0f3d9971c22c3629abcbfe"><div class="ttname"><a href="include_2stdatomic_8h.html#a579c826aec0f3d9971c22c3629abcbfe">atomic_size_t</a></div><div class="ttdeci">volatile size_t atomic_size_t</div><div class="ttdef"><b>Definition</b> <a href="include_2stdatomic_8h_source.html#l00038">stdatomic.h:38</a></div></div>
+<div class="ttc" id="ainclude_2stdatomic_8h_html_a7082a0c612e692d1d2182aea6fcecb26"><div class="ttname"><a href="include_2stdatomic_8h.html#a7082a0c612e692d1d2182aea6fcecb26">__ttak_atomic_global_lock</a></div><div class="ttdeci">pthread_mutex_t __ttak_atomic_global_lock</div></div>
+<div class="ttc" id="ainclude_2stdatomic_8h_html_a7b82615cb418a296137e2abcff7db14e"><div class="ttname"><a href="include_2stdatomic_8h.html#a7b82615cb418a296137e2abcff7db14e">__TT_ATOMIC_LOCK</a></div><div class="ttdeci">#define __TT_ATOMIC_LOCK()</div><div class="ttdef"><b>Definition</b> <a href="include_2stdatomic_8h_source.html#l00049">stdatomic.h:49</a></div></div>
+<div class="ttc" id="ainclude_2stdatomic_8h_html_acc9ed8d56c5c645e7d5503aa72d1da49"><div class="ttname"><a href="include_2stdatomic_8h.html#acc9ed8d56c5c645e7d5503aa72d1da49">atomic_uint_fast64_t</a></div><div class="ttdeci">volatile uint_fast64_t atomic_uint_fast64_t</div><div class="ttdef"><b>Definition</b> <a href="include_2stdatomic_8h_source.html#l00039">stdatomic.h:39</a></div></div>
+<div class="ttc" id="ainclude_2stdatomic_8h_html_aeca7c45606fc2b5e0c8dca53a76f40ac"><div class="ttname"><a href="include_2stdatomic_8h.html#aeca7c45606fc2b5e0c8dca53a76f40ac">atomic_flag_test_and_set_explicit</a></div><div class="ttdeci">static bool atomic_flag_test_and_set_explicit(volatile atomic_flag *obj, memory_order order)</div><div class="ttdef"><b>Definition</b> <a href="include_2stdatomic_8h_source.html#l00090">stdatomic.h:90</a></div></div>
+<div class="ttc" id="ainclude_2stdatomic_8h_html_aef4aec84224d1f46d0ba87f52ca08f69"><div class="ttname"><a href="include_2stdatomic_8h.html#aef4aec84224d1f46d0ba87f52ca08f69">atomic_bool</a></div><div class="ttdeci">volatile bool atomic_bool</div><div class="ttdef"><b>Definition</b> <a href="include_2stdatomic_8h_source.html#l00037">stdatomic.h:37</a></div></div>
+<div class="ttc" id="astructatomic__flag_html"><div class="ttname"><a href="structatomic__flag.html">atomic_flag</a></div><div class="ttdef"><b>Definition</b> <a href="include_2stdatomic_8h_source.html#l00041">stdatomic.h:41</a></div></div>
+<div class="ttc" id="astructatomic__flag_html_a1e78a66d91bdb267b55596d71d6dcd79"><div class="ttname"><a href="structatomic__flag.html#a1e78a66d91bdb267b55596d71d6dcd79">atomic_flag::_value</a></div><div class="ttdeci">volatile unsigned char _value</div><div class="ttdef"><b>Definition</b> <a href="include_2stdatomic_8h_source.html#l00042">stdatomic.h:42</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

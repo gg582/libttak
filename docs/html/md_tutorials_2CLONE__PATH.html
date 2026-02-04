@@ -93,71 +93,87 @@ $(document).ready(function(){initNavTree('md_tutorials_2CLONE__PATH.html',''); i
   <div class="headertitle"><div class="title">Clone Coding Path</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="autotoc_md30"></a> Follow these stages sequentially. Each block references the original sources you should imitate and the verification goal you should reach before moving on.</p>
-<h2><a class="anchor" id="autotoc_md31"></a>
+<div class="textblock"><p><a class="anchor" id="autotoc_md108"></a> Follow these stages sequentially. Each block references the original sources you should imitate, the lesson files to open inside <code>tutorials/modules</code>, and the verification goal you should reach before moving on.</p>
+<h2><a class="anchor" id="autotoc_md109"></a>
+Orientation – Setup + Helper</h2>
+<ul>
+<li><b>Lessons:</b> 01–02</li>
+<li><b>Goal:</b> prepare your workspace, branch, and helper tool.</li>
+<li><b>Checklist:</b> helper builds cleanly; you have a log ready for “What I learned” notes.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md110"></a>
 Stage 1 – Core Data + Logging</h2>
 <ul>
+<li><b>Lessons:</b> 03–08</li>
 <li><b>Goal:</b> understand hash tables, containers, and logging.</li>
 <li><b>Clone:</b> <code>src/ht/{hash.c,map.c,table.c}</code>, <code>src/container/{pool.c,ringbuf.c,set.c}</code>, <code>src/log/logger.c</code>.</li>
 <li><b>Checklist:</b> re-implement map insert/find/remove; rebuild ring buffer push/pop; ensure <code>ttak_logger_log</code> prints to stderr.</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md32"></a>
+<h2><a class="anchor" id="autotoc_md111"></a>
 Stage 2 – Concurrency Primitives</h2>
 <ul>
+<li><b>Lessons:</b> 09–11</li>
 <li><b>Goal:</b> rebuild sync + atomic basics.</li>
 <li><b>Clone:</b> <code>src/sync/{sync.c,spinlock.c}</code>, <code>src/atomic/atomic.c</code>, <code>include/stdatomic.h</code>.</li>
 <li><b>Checklist:</b> mutexes map directly onto pthreads; spinlock warning-free build; portable stdatomic fallback compiles on TCC.</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md33"></a>
+<h2><a class="anchor" id="autotoc_md112"></a>
 Stage 3 – Thread Pool &amp; Async</h2>
 <ul>
+<li><b>Lessons:</b> 12–16</li>
 <li><b>Goal:</b> stitch together workers, futures, schedulers.</li>
 <li><b>Clone:</b> <code>src/thread/{pool.c,worker.c}</code>, <code>src/async/{task.c,promise.c,future.c,sched.c}</code>, <code>src/priority/{queue.c,heap.c,scheduler.c}</code>.</li>
 <li><b>Checklist:</b> submit jobs, complete them in order; understand <code>ttak_owner_t</code> callback usage.</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md34"></a>
+<h2><a class="anchor" id="autotoc_md113"></a>
 Stage 4 – Timing + Limiters + Stats</h2>
 <ul>
+<li><b>Lessons:</b> 17–19</li>
 <li><b>Goal:</b> manage timers, rate limits, metrics.</li>
 <li><b>Clone:</b> <code>src/timing/{timing.c,deadline.c}</code>, <code>src/limit/limit.c</code>, <code>src/stats/stats.c</code>.</li>
 <li><b>Checklist:</b> <code>ttak_get_tick_count</code> millisecond + nanosecond paths; token-bucket refill math; stats aggregator resets correctly.</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md35"></a>
+<h2><a class="anchor" id="autotoc_md114"></a>
 Stage 5 – Memory Systems</h2>
 <ul>
+<li><b>Lessons:</b> 20–22</li>
 <li><b>Goal:</b> re-create allocation, owners, mem-tree GC.</li>
 <li><b>Clone:</b> <code>src/mem/{mem.c,owner.c,epoch_gc.c}</code>, <code>src/mem_tree/mem_tree.c</code>.</li>
 <li><b>Checklist:</b> owner resource register/execute flows; epoch GC rotates safely; <code>_Thread_local</code> guards compile.</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md36"></a>
+<h2><a class="anchor" id="autotoc_md115"></a>
 Stage 6 – Math &amp; Security</h2>
 <ul>
+<li><b>Lessons:</b> 23–28</li>
 <li><b>Goal:</b> handle big integers, divisors, crypto helpers.</li>
 <li><b>Clone:</b> <code>src/math/{bigint.c,bigmul.c,bigreal.c,sum_divisors.c,factor.c,ntt.c}</code>, <code>src/security/sha256.c</code>.</li>
 <li><b>Checklist:</b> big-int SSO path, safe-mode policy for divisor sums, SHA-256 test vectors.</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md37"></a>
+<h2><a class="anchor" id="autotoc_md116"></a>
 Stage 7 – Trees + AST</h2>
 <ul>
+<li><b>Lessons:</b> 29–31</li>
 <li><b>Goal:</b> practise recursive data structures.</li>
 <li><b>Clone:</b> <code>src/tree/{ast.c,bplus.c,btree.c}</code>.</li>
 <li><b>Checklist:</b> b+tree split/merge; AST visitor evaluation.</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md38"></a>
+<h2><a class="anchor" id="autotoc_md117"></a>
 Stage 8 – Application Layer</h2>
 <ul>
+<li><b>Lessons:</b> 32–33</li>
 <li><b>Goal:</b> connect everything inside <code>apps/aliquot-tracker</code>.</li>
 <li><b>Clone:</b> <code>apps/aliquot-tracker/src/main.c</code> (selected subsystems per section), <code>apps/bench</code> as optional exercises.</li>
 <li><b>Checklist:</b> job queue, ledger persistence, bigint auto-heal logging.</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md39"></a>
+<h2><a class="anchor" id="autotoc_md118"></a>
 Stage 9 – DANGEROUS (Unsafe)</h2>
 <ul>
+<li><b>Lessons:</b> 34–35</li>
 <li><b>Goal:</b> opt-in study of shared-memory bridges.</li>
 <li><b>Clone:</b> <code>src/unsafe/context.c</code>, <code><a class="el" href="context_8h.html">include/ttak/unsafe/context.h</a></code>, macros in <code>include/stdatomic.h</code>, and review <code>temp_include</code>.</li>
 <li><b>Checklist:</b> read <code><a class="el" href="tutorials_2DANGEROUS_2README_8md.html">tutorials/DANGEROUS/README.md</a></code>, use <code>libttak_unsafe.hlp</code>, verify helper program with the unsafe file, and document your understanding of ownership inheritance.</li>
 </ul>
-<p>After each stage, summarize what you rebuilt and link to the commit/diff. By the end you will have cloned every module in the project. </p>
+<p>After each stage, summarize what you rebuilt and link to the commit/diff. By the end you will have cloned every module in the project (the flow is also captured visually in <code>blueprints/09_tutorial_curriculum.puml</code>). </p>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->

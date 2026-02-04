@@ -97,6 +97,7 @@ $(document).ready(function(){initNavTree('sched_8h.html',''); initResizable(); }
 <div class="contents">
 <div class="textblock"><code>#include &lt;<a class="el" href="task_8h_source.html">ttak/async/task.h</a>&gt;</code><br />
 <code>#include &lt;stdint.h&gt;</code><br />
+<code>#include &lt;<a class="el" href="sched_8h_source.html">sched.h</a>&gt;</code><br />
 </div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Include dependency graph for sched.h:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
@@ -104,12 +105,13 @@ $(document).ready(function(){initNavTree('sched_8h.html',''); initResizable(); }
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="sched_8h__incl.png" border="0" usemap="#ainclude_2ttak_2async_2sched_8h" alt=""/></div>
 <map name="ainclude_2ttak_2async_2sched_8h" id="ainclude_2ttak_2async_2sched_8h">
-<area shape="rect" title=" " alt="" coords="54,5,194,50"/>
-<area shape="rect" href="task_8h.html" title=" " alt="" coords="5,98,139,126"/>
-<area shape="poly" title=" " alt="" coords="113,52,91,86,86,83,108,49"/>
-<area shape="rect" title=" " alt="" coords="89,174,159,201"/>
-<area shape="poly" title=" " alt="" coords="138,49,152,85,155,105,153,126,141,161,136,159,148,125,149,106,146,86,133,51"/>
-<area shape="poly" title=" " alt="" coords="83,125,108,159,104,163,79,128"/>
+<area shape="rect" title=" " alt="" coords="54,5,195,45"/>
+<area shape="poly" title=" " alt="" coords="196,8,214,14,222,25,219,34,210,39,207,34,214,30,217,26,211,18,195,14"/>
+<area shape="rect" href="task_8h.html" title=" " alt="" coords="5,93,140,119"/>
+<area shape="poly" title=" " alt="" coords="114,47,90,83,86,80,110,44"/>
+<area shape="rect" title=" " alt="" coords="89,167,160,192"/>
+<area shape="poly" title=" " alt="" coords="139,44,153,79,157,99,155,119,141,155,136,153,150,118,151,99,148,80,134,46"/>
+<area shape="poly" title=" " alt="" coords="83,117,110,154,106,157,79,121"/>
 </map>
 </div>
 </div><div class="textblock"><div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -119,9 +121,10 @@ $(document).ready(function(){initNavTree('sched_8h.html',''); initResizable(); }
 <div id="dynsection-1-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="sched_8h__dep__incl.png" border="0" usemap="#ainclude_2ttak_2async_2sched_8hdep" alt=""/></div>
 <map name="ainclude_2ttak_2async_2sched_8hdep" id="ainclude_2ttak_2async_2sched_8hdep">
-<area shape="rect" title=" " alt="" coords="34,5,174,50"/>
-<area shape="rect" href="thread__compat_8h.html" title=" " alt="" coords="5,98,203,143"/>
-<area shape="poly" title=" " alt="" coords="107,66,107,98,101,98,101,66"/>
+<area shape="rect" title=" " alt="" coords="34,5,175,45"/>
+<area shape="poly" title=" " alt="" coords="190,11,199,16,202,26,194,38,176,44,175,39,191,34,197,25,194,20,187,15"/>
+<area shape="rect" href="thread__compat_8h.html" title=" " alt="" coords="5,93,204,133"/>
+<area shape="poly" title=" " alt="" coords="107,59,107,93,102,93,102,59"/>
 </map>
 </div>
 </div>
@@ -135,8 +138,8 @@ Functions</h2></td></tr>
 <tr class="separator:a112263ef2013767bdf9edbc34c6672cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae9db49a4788b2930a8d34216adbe2125" id="r_ae9db49a4788b2930a8d34216adbe2125"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sched_8h.html#ae9db49a4788b2930a8d34216adbe2125">ttak_async_schedule</a> (<a class="el" href="task_8h.html#a6a4c7b4b8f087d53e7b2a92f84db216e">ttak_task_t</a> *task, uint64_t now, int priority)</td></tr>
 <tr class="separator:ae9db49a4788b2930a8d34216adbe2125"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6c3b4f4dee2a56f70fdce79d4b50660f" id="r_a6c3b4f4dee2a56f70fdce79d4b50660f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sched_8h.html#a6c3b4f4dee2a56f70fdce79d4b50660f">ttak_async_yield</a> (void)</td></tr>
-<tr class="separator:a6c3b4f4dee2a56f70fdce79d4b50660f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af9ea1811867a03dbfda35683aeb7d997" id="r_af9ea1811867a03dbfda35683aeb7d997"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sched_8h.html#af9ea1811867a03dbfda35683aeb7d997">ttak_async_yield</a> (void)</td></tr>
+<tr class="separator:af9ea1811867a03dbfda35683aeb7d997"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="a64e1e6f9cf8075c88f2a649f3536646b" name="a64e1e6f9cf8075c88f2a649f3536646b"></a>
@@ -209,21 +212,31 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a6c3b4f4dee2a56f70fdce79d4b50660f" name="a6c3b4f4dee2a56f70fdce79d4b50660f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6c3b4f4dee2a56f70fdce79d4b50660f">&#9670;&#160;</a></span>ttak_async_yield()</h2>
+<a id="af9ea1811867a03dbfda35683aeb7d997" name="af9ea1811867a03dbfda35683aeb7d997"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af9ea1811867a03dbfda35683aeb7d997">&#9670;&#160;</a></span>ttak_async_yield()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void ttak_async_yield </td>
+          <td class="memname">static void ttak_async_yield </td>
           <td>(</td>
           <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="sched_8h_source.html#l00011">11</a> of file <a class="el" href="sched_8h_source.html">sched.h</a>.</p>
 
 </div>
 </div>

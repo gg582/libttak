@@ -1,8 +1,9 @@
 <map id="include/ttak/async/sched.h" name="include/ttak/async/sched.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="54,5,194,50"/>
-<area shape="rect" id="Node000002" href="$task_8h.html" title=" " alt="" coords="5,98,139,126"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="113,52,91,86,86,83,108,49"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="89,174,159,201"/>
-<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="138,49,152,85,155,105,153,126,141,161,136,159,148,125,149,106,146,86,133,51"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="83,125,108,159,104,163,79,128"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="54,5,195,45"/>
+<area shape="poly" id="edge4_Node000001_Node000001" title=" " alt="" coords="196,8,214,14,222,25,219,34,210,39,207,34,214,30,217,26,211,18,195,14"/>
+<area shape="rect" id="Node000002" href="$task_8h.html" title=" " alt="" coords="5,93,140,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="114,47,90,83,86,80,110,44"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="89,167,160,192"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="139,44,153,79,157,99,155,119,141,155,136,153,150,118,151,99,148,80,134,46"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="83,117,110,154,106,157,79,121"/>
 </map>

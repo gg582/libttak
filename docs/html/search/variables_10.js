@@ -1,16 +1,14 @@
 var searchData=
 [
-  ['second_0',['second',['../structttak__context.html#a488521bd3dbc61887322c7051d0e0678',1,'ttak_context']]],
-  ['set_5fpriority_5foverride_1',['set_priority_override',['../structttak__scheduler.html#a92aea68756d5941841d07f0240d5781c',1,'ttak_scheduler']]],
-  ['shared_5fmem_2',['shared_mem',['../structttak__context.html#a226a6aed28d87eb6c3adda9d94c8cbf1',1,'ttak_context']]],
-  ['shared_5fsize_3',['shared_size',['../structttak__context.html#a5fb9e55311e83fb384b089af712f7087',1,'ttak_context']]],
-  ['should_5fjoin_4',['should_join',['../structttak__mem__header__t.html#a8430c7b034f0da69e2fe16ae2a999e2d',1,'ttak_mem_header_t']]],
-  ['should_5fstop_5',['should_stop',['../structttak__worker.html#a94f3f60243a1d3031730716de32b3229',1,'ttak_worker']]],
-  ['shutdown_5frequested_6',['shutdown_requested',['../structttak__mem__tree.html#ae6e6bee1dd3f2922877d8c96d86275b6',1,'ttak_mem_tree']]],
-  ['size_7',['size',['../struct____internal__ttak__proc__priority__queue__t.html#aa5a80a180a7add7734a612bcdabbe153',1,'__internal_ttak_proc_priority_queue_t::size'],['../structttak__mem__header__t.html#a576f96336f81e4af314e70b911232dda',1,'ttak_mem_header_t::size'],['../structttak__unsafe__region.html#a0d5b35f159195f7aed840fd68890572a',1,'ttak_unsafe_region::size'],['../structtt__type__shared.html#a18f3abb508490cc4119a57a177553289',1,'tt_type_shared::size'],['../structttak__simple__stack__t.html#ad288f00b1d7ede0325e476fdff45a253',1,'ttak_simple_stack_t::size'],['../structttak__simple__queue__t.html#ac0e017e5009f20388d72c68218239848',1,'ttak_simple_queue_t::size'],['../structttak__heap__tree.html#a267ec866d85008725c043e11770e11a9',1,'ttak_heap_tree::size'],['../structttak__mem__node.html#adeba8cfc20ec3186ab1f360d7eaf098a',1,'ttak_mem_node::size'],['../structttak__table.html#aec32d1eeaa4f691e5268462b2a95e444',1,'ttak_table::size'],['../structttak__map__t.html#a8c1be4e04db13c3236fc25ac26d95821',1,'ttak_map_t::size']]],
-  ['sso_5fbuf_8',['sso_buf',['../structttak__bigint.html#ad4f0ae085a821e2f308ddec33b58c18e',1,'ttak_bigint']]],
-  ['start_5fts_9',['start_ts',['../structttak__deadline.html#ac8ee85b5fbf0014328ad1e3498bd447a',1,'ttak_deadline']]],
-  ['state_10',['state',['../structSHA256__CTX.html#a4824db6fff77d15d5c8579b45d3f9b22',1,'SHA256_CTX']]],
-  ['strict_5fcheck_11',['strict_check',['../structttak__mem__header__t.html#a4de6b9462e84fa2602c694e3e9633b9e',1,'ttak_mem_header_t']]],
-  ['sum_12',['sum',['../structttak__stats.html#afa34d3d46d6cac02fd808df9e9ef5130',1,'ttak_stats']]]
+  ['ready_0',['ready',['../structttak__future.html#a16a9ed5137851ca5cc7387fed679269a',1,'ttak_future']]],
+  ['real_1',['real',['../structttak__bigcomplex.html#a1d59e97e0dd21673bd94fbc59a911e42',1,'ttak_bigcomplex']]],
+  ['ref_5fcount_2',['ref_count',['../structttak__mem__node.html#ad60fe6cfc7abe4d4d1ec4f79c120899f',1,'ttak_mem_node']]],
+  ['refill_5frate_3',['refill_rate',['../structttak__token__bucket.html#a775a12f2e1843a18a47516e07acc3332',1,'ttak_token_bucket']]],
+  ['reserved_4',['reserved',['../structttak__mem__header__t.html#acc4f1b34d6e7f6d2e71755779a88ffa3',1,'ttak_mem_header_t']]],
+  ['residue_5',['residue',['../structttak__crt__term.html#a9df836d7d457731f3fd60cb4503350bc',1,'ttak_crt_term']]],
+  ['resources_6',['resources',['../structttak__owner.html#af8f1a51f68b2d8255dff9d232d2c7435',1,'ttak_owner']]],
+  ['result_7',['result',['../structttak__future.html#a486767b89d5b5f842a868f614632cc42',1,'ttak_future']]],
+  ['ret_8',['ret',['../structttak__func__wrapper.html#a5782d28386dc058826791e6487bc1ad5',1,'ttak_func_wrapper']]],
+  ['rhs_9',['rhs',['../structttak__bigmul.html#a6d94d3dc6b060068cbd58807a652c8cc',1,'ttak_bigmul']]],
+  ['root_10',['root',['../structttak__ast__tree.html#a7efbb896fdcb6a33156b41e725b57ec7',1,'ttak_ast_tree::root'],['../structttak__bplus__tree.html#a19e50a083d9810a1d361fae2b69041f9',1,'ttak_bplus_tree::root'],['../structttak__btree.html#a7c3e9cf8f2d3f57e5fed47178202f800',1,'ttak_btree::root']]]
 ];

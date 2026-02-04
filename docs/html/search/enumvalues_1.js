@@ -1,0 +1,21 @@
+var searchData=
+[
+  ['ttak_5flog_5fdebug_0',['TTAK_LOG_DEBUG',['../logger_8h.html#a13b7cbf4245d32959202870c26bbd3e4aaa15a233cf59ffb44ff5bb284e26232e',1,'logger.h']]],
+  ['ttak_5flog_5ferror_1',['TTAK_LOG_ERROR',['../logger_8h.html#a13b7cbf4245d32959202870c26bbd3e4a3c15d82ae51223aa509051b77801dbc5',1,'logger.h']]],
+  ['ttak_5flog_5finfo_2',['TTAK_LOG_INFO',['../logger_8h.html#a13b7cbf4245d32959202870c26bbd3e4acb352e0c20de60006f58c68a466840b4',1,'logger.h']]],
+  ['ttak_5flog_5fwarn_3',['TTAK_LOG_WARN',['../logger_8h.html#a13b7cbf4245d32959202870c26bbd3e4a516688026ec77907cc3b03993542c097',1,'logger.h']]],
+  ['ttak_5fmem_5fcache_5faligned_4',['TTAK_MEM_CACHE_ALIGNED',['../mem_8h.html#a05020ce7df6068f7d7f515ee4ea9cdada85fc84c07c8164ea4cd8048365cc3e2d',1,'mem.h']]],
+  ['ttak_5fmem_5fdefault_5',['TTAK_MEM_DEFAULT',['../mem_8h.html#a05020ce7df6068f7d7f515ee4ea9cdadab57ac5f60f1170e17ecfe853611ac80a',1,'mem.h']]],
+  ['ttak_5fmem_5fhuge_5fpages_6',['TTAK_MEM_HUGE_PAGES',['../mem_8h.html#a05020ce7df6068f7d7f515ee4ea9cdadaa4cff10407296a029dba423e1ac75551',1,'mem.h']]],
+  ['ttak_5fmem_5fstrict_5fcheck_7',['TTAK_MEM_STRICT_CHECK',['../mem_8h.html#a05020ce7df6068f7d7f515ee4ea9cdada0b16ffc2f709ae7e7a5439e0ca8d7d86',1,'mem.h']]],
+  ['ttak_5fowner_5fdeny_5fdangerous_5fmem_8',['TTAK_OWNER_DENY_DANGEROUS_MEM',['../owner_8h.html#a6c47e6a1c635efb2ad989e927612e94aa55791aa9e8301d023a68a58576bc2291',1,'owner.h']]],
+  ['ttak_5fowner_5fdeny_5fthreading_9',['TTAK_OWNER_DENY_THREADING',['../owner_8h.html#a6c47e6a1c635efb2ad989e927612e94aa5fc9f432296d5885fa5bb9d64a949197',1,'owner.h']]],
+  ['ttak_5fowner_5fsafe_5fdefault_10',['TTAK_OWNER_SAFE_DEFAULT',['../owner_8h.html#a6c47e6a1c635efb2ad989e927612e94aaf926995f7102aa5b23a6e4af4f5d6303',1,'owner.h']]],
+  ['ttak_5fowner_5fstrict_5fisolation_11',['TTAK_OWNER_STRICT_ISOLATION',['../owner_8h.html#a6c47e6a1c635efb2ad989e927612e94aa161c7bdbf7ab13fa527d7dd726d0357b',1,'owner.h']]],
+  ['ttak_5fsumdiv_5fbig_5ferror_5farithmetic_12',['TTAK_SUMDIV_BIG_ERROR_ARITHMETIC',['../sum__divisors_8h.html#ad263c33f5701435721532071341d20d9a39c532b65da642cc44d3babcb253695d',1,'sum_divisors.h']]],
+  ['ttak_5fsumdiv_5fbig_5ferror_5fexport_13',['TTAK_SUMDIV_BIG_ERROR_EXPORT',['../sum__divisors_8h.html#ad263c33f5701435721532071341d20d9aa1b5e495b3bcb2aba382c684b812a634',1,'sum_divisors.h']]],
+  ['ttak_5fsumdiv_5fbig_5ferror_5ffactor_14',['TTAK_SUMDIV_BIG_ERROR_FACTOR',['../sum__divisors_8h.html#ad263c33f5701435721532071341d20d9aef5113bbca5642163c5c68655c472e61',1,'sum_divisors.h']]],
+  ['ttak_5fsumdiv_5fbig_5ferror_5fgeneric_15',['TTAK_SUMDIV_BIG_ERROR_GENERIC',['../sum__divisors_8h.html#ad263c33f5701435721532071341d20d9a0a52efb9ed7fb52f27495b78e1772a44',1,'sum_divisors.h']]],
+  ['ttak_5fsumdiv_5fbig_5ferror_5fnone_16',['TTAK_SUMDIV_BIG_ERROR_NONE',['../sum__divisors_8h.html#ad263c33f5701435721532071341d20d9a7eed2367085355b363b6af9a78845087',1,'sum_divisors.h']]],
+  ['ttak_5fsumdiv_5fbig_5ferror_5fset_5fvalue_17',['TTAK_SUMDIV_BIG_ERROR_SET_VALUE',['../sum__divisors_8h.html#ad263c33f5701435721532071341d20d9add6b1409f5a3d8817090aa25c92b1849',1,'sum_divisors.h']]]
+];

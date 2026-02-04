@@ -36,9 +36,9 @@ void \mbox{\hyperlink{limit_8h_ab7b4f398fc841de28b2863657169952e}{ttak\+\_\+toke
 \begin{DoxyCompactList}\small\item\em Initializes a token bucket. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{limit_8h_a3deddce4c8bded9bce6e0fe704d9c332}{ttak\+\_\+token\+\_\+bucket\+\_\+consume}} (\mbox{\hyperlink{limit_8h_aa93e8c31cd330170d3b7640faba120cc}{ttak\+\_\+token\+\_\+bucket\+\_\+t}} \texorpdfstring{$\ast$}{*}tb, double tokens)
 \begin{DoxyCompactList}\small\item\em Attempts to consume tokens from the bucket. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{limit_8h_afa1836ac0cc88aff9138135b731e61fa}{ttak\+\_\+ratelimit\+\_\+init}} (\mbox{\hyperlink{limit_8h_a8af4cfe974109d7dd4137f6cdeea1818}{ttak\+\_\+ratelimit\+\_\+t}} \texorpdfstring{$\ast$}{*}rl, double rate, double burst)
+static void \mbox{\hyperlink{limit_8h_a9997109b249960027af0beb3da425654}{ttak\+\_\+ratelimit\+\_\+init}} (\mbox{\hyperlink{limit_8h_a8af4cfe974109d7dd4137f6cdeea1818}{ttak\+\_\+ratelimit\+\_\+t}} \texorpdfstring{$\ast$}{*}rl, double rate, double burst)
 \begin{DoxyCompactList}\small\item\em Initializes a rate limiter. \end{DoxyCompactList}\item 
-bool \mbox{\hyperlink{limit_8h_a684abae6debf25661db4c6a36d10cd9e}{ttak\+\_\+ratelimit\+\_\+allow}} (\mbox{\hyperlink{limit_8h_a8af4cfe974109d7dd4137f6cdeea1818}{ttak\+\_\+ratelimit\+\_\+t}} \texorpdfstring{$\ast$}{*}rl)
+static bool \mbox{\hyperlink{limit_8h_a2718e32b916e1223b36e096a6ba26fc7}{ttak\+\_\+ratelimit\+\_\+allow}} (\mbox{\hyperlink{limit_8h_a8af4cfe974109d7dd4137f6cdeea1818}{ttak\+\_\+ratelimit\+\_\+t}} \texorpdfstring{$\ast$}{*}rl)
 \begin{DoxyCompactList}\small\item\em Checks if an action is allowed by the rate limiter. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -86,11 +86,11 @@ Token Bucket structure for rate limiting.
 Implements the standard token bucket algorithm. Thread-\/safe using a spinlock. 
 
 \doxysubsection{Function Documentation}
-\Hypertarget{limit_8h_a684abae6debf25661db4c6a36d10cd9e}\label{limit_8h_a684abae6debf25661db4c6a36d10cd9e} 
+\Hypertarget{limit_8h_a2718e32b916e1223b36e096a6ba26fc7}\label{limit_8h_a2718e32b916e1223b36e096a6ba26fc7} 
 \index{limit.h@{limit.h}!ttak\_ratelimit\_allow@{ttak\_ratelimit\_allow}}
 \index{ttak\_ratelimit\_allow@{ttak\_ratelimit\_allow}!limit.h@{limit.h}}
 \doxysubsubsection{\texorpdfstring{ttak\_ratelimit\_allow()}{ttak\_ratelimit\_allow()}}
-{\footnotesize\ttfamily bool ttak\+\_\+ratelimit\+\_\+allow (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{limit_8h_a8af4cfe974109d7dd4137f6cdeea1818}{ttak\+\_\+ratelimit\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{rl }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily static bool ttak\+\_\+ratelimit\+\_\+allow (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{limit_8h_a8af4cfe974109d7dd4137f6cdeea1818}{ttak\+\_\+ratelimit\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{rl }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
 
 
 
@@ -106,11 +106,23 @@ Consumes 1.\+0 token.
 \begin{DoxyReturn}{Returns}
 true if allowed, false otherwise. 
 \end{DoxyReturn}
-\Hypertarget{limit_8h_afa1836ac0cc88aff9138135b731e61fa}\label{limit_8h_afa1836ac0cc88aff9138135b731e61fa} 
+
+
+Definition at line \mbox{\hyperlink{limit_8h_source_l00074}{74}} of file \mbox{\hyperlink{limit_8h_source}{limit.\+h}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{limit_8h_a2718e32b916e1223b36e096a6ba26fc7_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{limit_8h_a9997109b249960027af0beb3da425654}\label{limit_8h_a9997109b249960027af0beb3da425654} 
 \index{limit.h@{limit.h}!ttak\_ratelimit\_init@{ttak\_ratelimit\_init}}
 \index{ttak\_ratelimit\_init@{ttak\_ratelimit\_init}!limit.h@{limit.h}}
 \doxysubsubsection{\texorpdfstring{ttak\_ratelimit\_init()}{ttak\_ratelimit\_init()}}
-{\footnotesize\ttfamily void ttak\+\_\+ratelimit\+\_\+init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{limit_8h_a8af4cfe974109d7dd4137f6cdeea1818}{ttak\+\_\+ratelimit\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{rl,  }\item[{double}]{rate,  }\item[{double}]{burst }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily static void ttak\+\_\+ratelimit\+\_\+init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{limit_8h_a8af4cfe974109d7dd4137f6cdeea1818}{ttak\+\_\+ratelimit\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{rl,  }\item[{double}]{rate,  }\item[{double}]{burst }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
 
 
 
@@ -125,6 +137,18 @@ Initializes a rate limiter.
 {\em burst} & Maximum burst size. \\
 \hline
 \end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{limit_8h_source_l00062}{62}} of file \mbox{\hyperlink{limit_8h_source}{limit.\+h}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=347pt]{limit_8h_a9997109b249960027af0beb3da425654_cgraph}
+\end{center}
+\end{figure}
 \Hypertarget{limit_8h_a3deddce4c8bded9bce6e0fe704d9c332}\label{limit_8h_a3deddce4c8bded9bce6e0fe704d9c332} 
 \index{limit.h@{limit.h}!ttak\_token\_bucket\_consume@{ttak\_token\_bucket\_consume}}
 \index{ttak\_token\_bucket\_consume@{ttak\_token\_bucket\_consume}!limit.h@{limit.h}}
@@ -147,6 +171,14 @@ true if tokens were available and consumed.
 
 false if there were insufficient tokens. 
 \end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{limit_8h_a3deddce4c8bded9bce6e0fe704d9c332_icgraph}
+\end{center}
+\end{figure}
 \Hypertarget{limit_8h_ab7b4f398fc841de28b2863657169952e}\label{limit_8h_ab7b4f398fc841de28b2863657169952e} 
 \index{limit.h@{limit.h}!ttak\_token\_bucket\_init@{ttak\_token\_bucket\_init}}
 \index{ttak\_token\_bucket\_init@{ttak\_token\_bucket\_init}!limit.h@{limit.h}}
@@ -166,3 +198,11 @@ Initializes a token bucket.
 {\em burst} & Maximum burst size (capacity). \\
 \hline
 \end{DoxyParams}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=347pt]{limit_8h_ab7b4f398fc841de28b2863657169952e_icgraph}
+\end{center}
+\end{figure}

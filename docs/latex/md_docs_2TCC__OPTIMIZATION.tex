@@ -1,14 +1,14 @@
 \chapter{TCC-\/\+Oriented Build and Math Tuning}
 \hypertarget{md_docs_2TCC__OPTIMIZATION}{}\label{md_docs_2TCC__OPTIMIZATION}\index{TCC-\/Oriented Build and Math Tuning@{TCC-\/Oriented Build and Math Tuning}}
-\label{md_docs_2TCC__OPTIMIZATION_autotoc_md11}%
-\Hypertarget{md_docs_2TCC__OPTIMIZATION_autotoc_md11}%
- {\ttfamily libttak} can now be compiled entirely with {\bfseries{Tiny C Compiler (TCC)}} at {\ttfamily -\/O0}. The project builds without relying on compiler-\/driven vectorization or loop transformations, so correctness is identical between development and production. High throughput is recovered through carefully scheduled C and portable-\/inline-\/assembly idioms that map cleanly to every major 64-\/bit ISA.\hypertarget{md_docs_2TCC__OPTIMIZATION_autotoc_md12}{}\doxysection{\texorpdfstring{Build Expectations}{Build Expectations}}\label{md_docs_2TCC__OPTIMIZATION_autotoc_md12}
+\label{md_docs_2TCC__OPTIMIZATION_autotoc_md12}%
+\Hypertarget{md_docs_2TCC__OPTIMIZATION_autotoc_md12}%
+ {\ttfamily libttak} can now be compiled entirely with {\bfseries{Tiny C Compiler (TCC)}} at {\ttfamily -\/O0}. The project builds without relying on compiler-\/driven vectorization or loop transformations, so correctness is identical between development and production. High throughput is recovered through carefully scheduled C and portable-\/inline-\/assembly idioms that map cleanly to every major 64-\/bit ISA.\hypertarget{md_docs_2TCC__OPTIMIZATION_autotoc_md13}{}\doxysection{\texorpdfstring{Build Expectations}{Build Expectations}}\label{md_docs_2TCC__OPTIMIZATION_autotoc_md13}
 
 \begin{DoxyItemize}
 \item {\ttfamily make} defaults to {\ttfamily tcc} for every object in the library.
 \item Dependency files are emitted via {\ttfamily -\/MD/-\/\+MF} so incremental builds keep working even though TCC lacks {\ttfamily -\/MMD}.
 \item There is no optimization flag separation for math modules anymore; every translation unit is compiled with the same transparent flag set.
-\end{DoxyItemize}\hypertarget{md_docs_2TCC__OPTIMIZATION_autotoc_md13}{}\doxysection{\texorpdfstring{Hardcore C Tricks}{Hardcore C Tricks}}\label{md_docs_2TCC__OPTIMIZATION_autotoc_md13}
+\end{DoxyItemize}\hypertarget{md_docs_2TCC__OPTIMIZATION_autotoc_md14}{}\doxysection{\texorpdfstring{Hardcore C Tricks}{Hardcore C Tricks}}\label{md_docs_2TCC__OPTIMIZATION_autotoc_md14}
 The helper header {\ttfamily \doxylink{fixed_8h}{ttak/types/fixed.\+h}} packages the manual patterns that bridge the gap between “no optimization” and “high throughput”\+:
 
 
@@ -25,8 +25,8 @@ The guiding rules stay intact\+:
 \item Decompose work into ALU-\/ready primitives on the limb helpers ({\ttfamily ttak\+\_\+u128\+\_\+add}, {\ttfamily ttak\+\_\+u128\+\_\+mul\+\_\+u64}, etc.).
 \item Keep independent data streams alive so MUL latency is hidden explicitly by the call sequence (even though TCC preserves source order).
 \item Cache pointer dereferences into locals before entering tight loops; the new helpers follow the same pattern so the compiler has predictable access paths.
-\end{DoxyItemize}\hypertarget{md_docs_2TCC__OPTIMIZATION_autotoc_md14}{}\doxysection{\texorpdfstring{Portable Assembly Strategy}{Portable Assembly Strategy}}\label{md_docs_2TCC__OPTIMIZATION_autotoc_md14}
-Inline assembly is kept ISA-\/neutral by guarding each block with architecture checks and providing a pure-\/C fallback. Most math code now relies on the limb helpers instead, keeping the exported APIs ISA-\/neutral even on Tiny\+CC builds.\hypertarget{md_docs_2TCC__OPTIMIZATION_autotoc_md15}{}\doxysection{\texorpdfstring{Applying the Tricks Elsewhere}{Applying the Tricks Elsewhere}}\label{md_docs_2TCC__OPTIMIZATION_autotoc_md15}
+\end{DoxyItemize}\hypertarget{md_docs_2TCC__OPTIMIZATION_autotoc_md15}{}\doxysection{\texorpdfstring{Portable Assembly Strategy}{Portable Assembly Strategy}}\label{md_docs_2TCC__OPTIMIZATION_autotoc_md15}
+Inline assembly is kept ISA-\/neutral by guarding each block with architecture checks and providing a pure-\/C fallback. Most math code now relies on the limb helpers instead, keeping the exported APIs ISA-\/neutral even on Tiny\+CC builds.\hypertarget{md_docs_2TCC__OPTIMIZATION_autotoc_md16}{}\doxysection{\texorpdfstring{Applying the Tricks Elsewhere}{Applying the Tricks Elsewhere}}\label{md_docs_2TCC__OPTIMIZATION_autotoc_md16}
 
 \begin{DoxyItemize}
 \item Use {\ttfamily ttak\+\_\+branchless\+\_\+select\+\_\+\texorpdfstring{$\ast$}{*}} instead of {\ttfamily if/else} whenever the predicate is derived from a simple comparison. This keeps pipelines warm and side-\/steps branch predictors that TCC never learns to micro-\/optimize for us.

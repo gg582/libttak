@@ -101,17 +101,29 @@ $(document).ready(function(){initNavTree('structttak__spin.html',''); initResiza
  <a href="structttak__spin.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="spinlock_8h_source.html">spinlock.h</a>&gt;</code></p>
+<div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for ttak_spin:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="structttak__spin__coll__graph.png" border="0" usemap="#attak__spin_coll__map" alt="Collaboration graph"/></div>
+<map name="attak__spin_coll__map" id="attak__spin_coll__map">
+<area shape="rect" title="Spinlock structure." alt="" coords="13,93,96,119"/>
+<area shape="rect" href="structatomic__flag.html" title=" " alt="" coords="5,5,104,31"/>
+<area shape="poly" title=" " alt="" coords="57,45,57,93,52,93,52,45"/>
+</map>
+<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a33d3c246a2db2f9c8bee949d6cdf07b7" id="r_a33d3c246a2db2f9c8bee949d6cdf07b7"><td class="memItemLeft" align="right" valign="top">volatile atomic_flag&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structttak__spin.html#a33d3c246a2db2f9c8bee949d6cdf07b7">flag</a></td></tr>
+<tr class="memitem:a33d3c246a2db2f9c8bee949d6cdf07b7" id="r_a33d3c246a2db2f9c8bee949d6cdf07b7"><td class="memItemLeft" align="right" valign="top">volatile <a class="el" href="structatomic__flag.html">atomic_flag</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structttak__spin.html#a33d3c246a2db2f9c8bee949d6cdf07b7">flag</a></td></tr>
 <tr class="separator:a33d3c246a2db2f9c8bee949d6cdf07b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Spinlock structure. </p>
 <p>Uses an atomic flag for mutual exclusion. Prefer this over mutexes for very short critical sections. </p>
 
-<p class="definition">Definition at line <a class="el" href="spinlock_8h_source.html#l00043">43</a> of file <a class="el" href="spinlock_8h_source.html">spinlock.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="spinlock_8h_source.html#l00046">46</a> of file <a class="el" href="spinlock_8h_source.html">spinlock.h</a>.</p>
 </div><h2 class="groupheader">Member Data Documentation</h2>
 <a id="a33d3c246a2db2f9c8bee949d6cdf07b7" name="a33d3c246a2db2f9c8bee949d6cdf07b7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a33d3c246a2db2f9c8bee949d6cdf07b7">&#9670;&#160;</a></span>flag</h2>
@@ -120,13 +132,13 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">volatile atomic_flag ttak_spin::flag</td>
+          <td class="memname">volatile <a class="el" href="structatomic__flag.html">atomic_flag</a> ttak_spin::flag</td>
         </tr>
       </table>
 </div><div class="memdoc">
 <p>Atomic flag (TAS). </p>
 
-<p class="definition">Definition at line <a class="el" href="spinlock_8h_source.html#l00044">44</a> of file <a class="el" href="spinlock_8h_source.html">spinlock.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="spinlock_8h_source.html#l00047">47</a> of file <a class="el" href="spinlock_8h_source.html">spinlock.h</a>.</p>
 
 </div>
 </div>

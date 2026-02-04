@@ -1,7 +1,9 @@
 <map id="ttak_ratelimit" name="ttak_ratelimit">
-<area shape="rect" id="Node000001" title="Rate Limiter structure (wrapper around Token Bucket)." alt="" coords="21,181,131,207"/>
-<area shape="rect" id="Node000002" href="$structttak__token__bucket.html" title="Token Bucket structure for rate limiting." alt="" coords="5,93,147,119"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="79,133,79,181,73,181,73,133"/>
-<area shape="rect" id="Node000003" href="$structttak__spin.html" title="Spinlock structure." alt="" coords="35,5,117,31"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="79,45,79,93,73,93,73,45"/>
+<area shape="rect" id="Node000001" title="Rate Limiter structure (wrapper around Token Bucket)." alt="" coords="21,269,131,295"/>
+<area shape="rect" id="Node000002" href="$structttak__token__bucket.html" title="Token Bucket structure for rate limiting." alt="" coords="5,181,147,207"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="79,221,79,269,73,269,73,221"/>
+<area shape="rect" id="Node000003" href="$structttak__spin.html" title="Spinlock structure." alt="" coords="35,93,117,119"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="79,133,79,181,73,181,73,133"/>
+<area shape="rect" id="Node000004" href="$structatomic__flag.html" title=" " alt="" coords="27,5,125,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="79,45,79,93,73,93,73,45"/>
 </map>

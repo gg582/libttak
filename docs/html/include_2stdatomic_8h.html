@@ -91,19 +91,162 @@ $(document).ready(function(){initNavTree('include_2stdatomic_8h.html',''); initR
 
 <div class="header">
   <div class="summary">
-<a href="#define-members">Macros</a>  </div>
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#define-members">Macros</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
+<a href="#enum-members">Enumerations</a> &#124;
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle"><div class="title">stdatomic.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-
+<div class="textblock"><code>#include &lt;stdbool.h&gt;</code><br />
+<code>#include &lt;stddef.h&gt;</code><br />
+<code>#include &lt;stdint.h&gt;</code><br />
+<code>#include &lt;pthread.h&gt;</code><br />
+</div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Include dependency graph for stdatomic.h:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="include_2stdatomic_8h__incl.png" border="0" usemap="#ainclude_2stdatomic_8h" alt=""/></div>
+<map name="ainclude_2stdatomic_8h" id="ainclude_2stdatomic_8h">
+<area shape="rect" title=" " alt="" coords="122,5,273,31"/>
+<area shape="rect" title=" " alt="" coords="5,79,88,104"/>
+<area shape="poly" title=" " alt="" coords="174,33,85,75,83,70,172,28"/>
+<area shape="rect" title=" " alt="" coords="112,79,187,104"/>
+<area shape="poly" title=" " alt="" coords="192,33,167,69,162,66,187,30"/>
+<area shape="rect" title=" " alt="" coords="211,79,282,104"/>
+<area shape="poly" title=" " alt="" coords="208,29,233,66,229,69,203,33"/>
+<area shape="rect" title=" " alt="" coords="306,79,390,104"/>
+<area shape="poly" title=" " alt="" coords="223,28,312,70,310,75,220,33"/>
+</map>
+</div>
+</div>
 <p><a href="include_2stdatomic_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structatomic__flag.html">atomic_flag</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:a58014a490f8aa8f5dd78cd9203229cdf" id="r_a58014a490f8aa8f5dd78cd9203229cdf"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="include_2stdatomic_8h.html#a58014a490f8aa8f5dd78cd9203229cdf">__TTAK_NEEDS_PORTABLE_STDATOMIC__</a>&#160;&#160;&#160;0</td></tr>
+<tr class="memitem:a7f4e925ad8ccb259c41cda0e797dd7a6" id="r_a7f4e925ad8ccb259c41cda0e797dd7a6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="include_2stdatomic_8h.html#a7f4e925ad8ccb259c41cda0e797dd7a6">TTAK_PORTABLE_STDATOMIC_H</a></td></tr>
+<tr class="separator:a7f4e925ad8ccb259c41cda0e797dd7a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a58014a490f8aa8f5dd78cd9203229cdf" id="r_a58014a490f8aa8f5dd78cd9203229cdf"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="include_2stdatomic_8h.html#a58014a490f8aa8f5dd78cd9203229cdf">__TTAK_NEEDS_PORTABLE_STDATOMIC__</a>&#160;&#160;&#160;1</td></tr>
 <tr class="separator:a58014a490f8aa8f5dd78cd9203229cdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a94674db2fe3c7496dfdcaa9b81486e79" id="r_a94674db2fe3c7496dfdcaa9b81486e79"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="include_2stdatomic_8h.html#a94674db2fe3c7496dfdcaa9b81486e79">_Atomic</a>&#160;&#160;&#160;volatile</td></tr>
+<tr class="separator:a94674db2fe3c7496dfdcaa9b81486e79"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3cf6ded3b463faf0cedce1718caaa695" id="r_a3cf6ded3b463faf0cedce1718caaa695"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="include_2stdatomic_8h.html#a3cf6ded3b463faf0cedce1718caaa695">ATOMIC_FLAG_INIT</a>&#160;&#160;&#160;{0}</td></tr>
+<tr class="separator:a3cf6ded3b463faf0cedce1718caaa695"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b82615cb418a296137e2abcff7db14e" id="r_a7b82615cb418a296137e2abcff7db14e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="include_2stdatomic_8h.html#a7b82615cb418a296137e2abcff7db14e">__TT_ATOMIC_LOCK</a>()&#160;&#160;&#160;pthread_mutex_lock(&amp;<a class="el" href="include_2stdatomic_8h.html#a7082a0c612e692d1d2182aea6fcecb26">__ttak_atomic_global_lock</a>)</td></tr>
+<tr class="separator:a7b82615cb418a296137e2abcff7db14e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a078ff22b16930edd2268d1cb679445a5" id="r_a078ff22b16930edd2268d1cb679445a5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="include_2stdatomic_8h.html#a078ff22b16930edd2268d1cb679445a5">__TT_ATOMIC_UNLOCK</a>()&#160;&#160;&#160;pthread_mutex_unlock(&amp;<a class="el" href="include_2stdatomic_8h.html#a7082a0c612e692d1d2182aea6fcecb26">__ttak_atomic_global_lock</a>)</td></tr>
+<tr class="separator:a078ff22b16930edd2268d1cb679445a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a817535e09bf9c427a1cbee66d06e7030" id="r_a817535e09bf9c427a1cbee66d06e7030"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="include_2stdatomic_8h.html#a817535e09bf9c427a1cbee66d06e7030">atomic_thread_fence</a>(order)&#160;&#160;&#160;do { (void)(order); <a class="el" href="include_2stdatomic_8h.html#a7b82615cb418a296137e2abcff7db14e">__TT_ATOMIC_LOCK</a>(); <a class="el" href="include_2stdatomic_8h.html#a078ff22b16930edd2268d1cb679445a5">__TT_ATOMIC_UNLOCK</a>(); } while (0)</td></tr>
+<tr class="separator:a817535e09bf9c427a1cbee66d06e7030"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af8a9cbe9495fcafaa892b24b383acf96" id="r_af8a9cbe9495fcafaa892b24b383acf96"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="include_2stdatomic_8h.html#af8a9cbe9495fcafaa892b24b383acf96">atomic_init</a>(obj,  value)&#160;&#160;&#160;    do { <a class="el" href="include_2stdatomic_8h.html#a9f712e57179afb1b855da84b14ed670c">atomic_store_explicit</a>((obj), (value), <a class="el" href="include_2stdatomic_8h.html#a17c2de5ae768960284c047a320f17d1ba2d21914d1edd227a890107e7878a3752">memory_order_seq_cst</a>); } while (0)</td></tr>
+<tr class="separator:af8a9cbe9495fcafaa892b24b383acf96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f712e57179afb1b855da84b14ed670c" id="r_a9f712e57179afb1b855da84b14ed670c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="include_2stdatomic_8h.html#a9f712e57179afb1b855da84b14ed670c">atomic_store_explicit</a>(obj,  desired,  order)&#160;&#160;&#160;    do { (void)(order); <a class="el" href="include_2stdatomic_8h.html#a7b82615cb418a296137e2abcff7db14e">__TT_ATOMIC_LOCK</a>(); *(obj) = (desired); <a class="el" href="include_2stdatomic_8h.html#a078ff22b16930edd2268d1cb679445a5">__TT_ATOMIC_UNLOCK</a>(); } while (0)</td></tr>
+<tr class="separator:a9f712e57179afb1b855da84b14ed670c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a87fbed10bf5d77e3b80f356e5246f102" id="r_a87fbed10bf5d77e3b80f356e5246f102"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="include_2stdatomic_8h.html#a87fbed10bf5d77e3b80f356e5246f102">atomic_store</a>(obj,  desired)&#160;&#160;&#160;    <a class="el" href="include_2stdatomic_8h.html#a9f712e57179afb1b855da84b14ed670c">atomic_store_explicit</a>((obj), (desired), <a class="el" href="include_2stdatomic_8h.html#a17c2de5ae768960284c047a320f17d1ba2d21914d1edd227a890107e7878a3752">memory_order_seq_cst</a>)</td></tr>
+<tr class="separator:a87fbed10bf5d77e3b80f356e5246f102"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abcbf72e31b4b3100152d409e9637441a" id="r_abcbf72e31b4b3100152d409e9637441a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="include_2stdatomic_8h.html#abcbf72e31b4b3100152d409e9637441a">atomic_load_explicit</a>(obj,  order)&#160;&#160;&#160;    ({ <a class="el" href="include_2stdatomic_8h.html#a7b82615cb418a296137e2abcff7db14e">__TT_ATOMIC_LOCK</a>(); __typeof__(*(obj)) __val = *(obj); (void)(order); <a class="el" href="include_2stdatomic_8h.html#a078ff22b16930edd2268d1cb679445a5">__TT_ATOMIC_UNLOCK</a>(); __val; })</td></tr>
+<tr class="separator:abcbf72e31b4b3100152d409e9637441a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb8e12dba0aa6280b29e3d403e4ce384" id="r_afb8e12dba0aa6280b29e3d403e4ce384"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="include_2stdatomic_8h.html#afb8e12dba0aa6280b29e3d403e4ce384">atomic_load</a>(obj)&#160;&#160;&#160;    <a class="el" href="include_2stdatomic_8h.html#abcbf72e31b4b3100152d409e9637441a">atomic_load_explicit</a>((obj) , <a class="el" href="include_2stdatomic_8h.html#a17c2de5ae768960284c047a320f17d1ba2d21914d1edd227a890107e7878a3752">memory_order_seq_cst</a>)</td></tr>
+<tr class="separator:afb8e12dba0aa6280b29e3d403e4ce384"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace8ab452db03f62569b8d4dbedf8ff09" id="r_ace8ab452db03f62569b8d4dbedf8ff09"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="include_2stdatomic_8h.html#ace8ab452db03f62569b8d4dbedf8ff09">atomic_fetch_add_explicit</a>(obj,  operand,  order)&#160;&#160;&#160;    ({ <a class="el" href="include_2stdatomic_8h.html#a7b82615cb418a296137e2abcff7db14e">__TT_ATOMIC_LOCK</a>(); __typeof__(*(obj)) __old = *(obj); *(obj) = __old + (operand); (void)(order); <a class="el" href="include_2stdatomic_8h.html#a078ff22b16930edd2268d1cb679445a5">__TT_ATOMIC_UNLOCK</a>(); __old; })</td></tr>
+<tr class="separator:ace8ab452db03f62569b8d4dbedf8ff09"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac0a4bfbcb6b982cae35b44fc104a09b6" id="r_ac0a4bfbcb6b982cae35b44fc104a09b6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="include_2stdatomic_8h.html#ac0a4bfbcb6b982cae35b44fc104a09b6">atomic_fetch_add</a>(obj,  operand)&#160;&#160;&#160;    <a class="el" href="include_2stdatomic_8h.html#ace8ab452db03f62569b8d4dbedf8ff09">atomic_fetch_add_explicit</a>((obj), (operand), <a class="el" href="include_2stdatomic_8h.html#a17c2de5ae768960284c047a320f17d1ba2d21914d1edd227a890107e7878a3752">memory_order_seq_cst</a>)</td></tr>
+<tr class="separator:ac0a4bfbcb6b982cae35b44fc104a09b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4371ce6237310eedf5a1036178ada1f" id="r_af4371ce6237310eedf5a1036178ada1f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="include_2stdatomic_8h.html#af4371ce6237310eedf5a1036178ada1f">atomic_fetch_sub_explicit</a>(obj,  operand,  order)&#160;&#160;&#160;    ({ <a class="el" href="include_2stdatomic_8h.html#a7b82615cb418a296137e2abcff7db14e">__TT_ATOMIC_LOCK</a>(); __typeof__(*(obj)) __old = *(obj); *(obj) = __old - (operand); (void)(order); <a class="el" href="include_2stdatomic_8h.html#a078ff22b16930edd2268d1cb679445a5">__TT_ATOMIC_UNLOCK</a>(); __old; })</td></tr>
+<tr class="separator:af4371ce6237310eedf5a1036178ada1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5911a234da3c1fce86bbebea7650e562" id="r_a5911a234da3c1fce86bbebea7650e562"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="include_2stdatomic_8h.html#a5911a234da3c1fce86bbebea7650e562">atomic_fetch_sub</a>(obj,  operand)&#160;&#160;&#160;    <a class="el" href="include_2stdatomic_8h.html#af4371ce6237310eedf5a1036178ada1f">atomic_fetch_sub_explicit</a>((obj), (operand), <a class="el" href="include_2stdatomic_8h.html#a17c2de5ae768960284c047a320f17d1ba2d21914d1edd227a890107e7878a3752">memory_order_seq_cst</a>)</td></tr>
+<tr class="separator:a5911a234da3c1fce86bbebea7650e562"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a97a5f3e6f5f733e94b1ddeff904d3bc0" id="r_a97a5f3e6f5f733e94b1ddeff904d3bc0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="include_2stdatomic_8h.html#a97a5f3e6f5f733e94b1ddeff904d3bc0">atomic_compare_exchange_weak_explicit</a>(obj,  expected,  desired,  success,  failure)</td></tr>
+<tr class="separator:a97a5f3e6f5f733e94b1ddeff904d3bc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a55257ac5977e775b87563bb8cc955863" id="r_a55257ac5977e775b87563bb8cc955863"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="include_2stdatomic_8h.html#a55257ac5977e775b87563bb8cc955863">atomic_compare_exchange_weak</a>(obj,  expected,  desired)&#160;&#160;&#160;    <a class="el" href="include_2stdatomic_8h.html#a97a5f3e6f5f733e94b1ddeff904d3bc0">atomic_compare_exchange_weak_explicit</a>((obj), (expected), (desired), <a class="el" href="include_2stdatomic_8h.html#a17c2de5ae768960284c047a320f17d1ba2d21914d1edd227a890107e7878a3752">memory_order_seq_cst</a>, <a class="el" href="include_2stdatomic_8h.html#a17c2de5ae768960284c047a320f17d1ba2d21914d1edd227a890107e7878a3752">memory_order_seq_cst</a>)</td></tr>
+<tr class="separator:a55257ac5977e775b87563bb8cc955863"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac207cf1efb51bc53fc9078301afa391f" id="r_ac207cf1efb51bc53fc9078301afa391f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="include_2stdatomic_8h.html#ac207cf1efb51bc53fc9078301afa391f">atomic_flag_test_and_set</a>(obj)&#160;&#160;&#160;    <a class="el" href="include_2stdatomic_8h.html#aeca7c45606fc2b5e0c8dca53a76f40ac">atomic_flag_test_and_set_explicit</a>((obj), <a class="el" href="include_2stdatomic_8h.html#a17c2de5ae768960284c047a320f17d1ba2d21914d1edd227a890107e7878a3752">memory_order_seq_cst</a>)</td></tr>
+<tr class="separator:ac207cf1efb51bc53fc9078301afa391f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae8e62cb9801fedb40ccaca61f60d8617" id="r_ae8e62cb9801fedb40ccaca61f60d8617"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="include_2stdatomic_8h.html#ae8e62cb9801fedb40ccaca61f60d8617">atomic_flag_clear</a>(obj)&#160;&#160;&#160;    <a class="el" href="include_2stdatomic_8h.html#a4154e94db39d792afa138536ccaa0d7e">atomic_flag_clear_explicit</a>((obj), <a class="el" href="include_2stdatomic_8h.html#a17c2de5ae768960284c047a320f17d1ba2d21914d1edd227a890107e7878a3752">memory_order_seq_cst</a>)</td></tr>
+<tr class="separator:ae8e62cb9801fedb40ccaca61f60d8617"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:aef4aec84224d1f46d0ba87f52ca08f69" id="r_aef4aec84224d1f46d0ba87f52ca08f69"><td class="memItemLeft" align="right" valign="top">typedef volatile bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="include_2stdatomic_8h.html#aef4aec84224d1f46d0ba87f52ca08f69">atomic_bool</a></td></tr>
+<tr class="separator:aef4aec84224d1f46d0ba87f52ca08f69"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a579c826aec0f3d9971c22c3629abcbfe" id="r_a579c826aec0f3d9971c22c3629abcbfe"><td class="memItemLeft" align="right" valign="top">typedef volatile size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="include_2stdatomic_8h.html#a579c826aec0f3d9971c22c3629abcbfe">atomic_size_t</a></td></tr>
+<tr class="separator:a579c826aec0f3d9971c22c3629abcbfe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc9ed8d56c5c645e7d5503aa72d1da49" id="r_acc9ed8d56c5c645e7d5503aa72d1da49"><td class="memItemLeft" align="right" valign="top">typedef volatile uint_fast64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="include_2stdatomic_8h.html#acc9ed8d56c5c645e7d5503aa72d1da49">atomic_uint_fast64_t</a></td></tr>
+<tr class="separator:acc9ed8d56c5c645e7d5503aa72d1da49"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:a17c2de5ae768960284c047a320f17d1b" id="r_a17c2de5ae768960284c047a320f17d1b"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="include_2stdatomic_8h.html#a17c2de5ae768960284c047a320f17d1b">memory_order</a> { <br />
+&#160;&#160;<a class="el" href="include_2stdatomic_8h.html#a17c2de5ae768960284c047a320f17d1bac6489d0374e297a776f6a3db7ea5654a">memory_order_relaxed</a>
+, <a class="el" href="include_2stdatomic_8h.html#a17c2de5ae768960284c047a320f17d1ba0745f54882bc00251a719e42969db110">memory_order_consume</a>
+, <a class="el" href="include_2stdatomic_8h.html#a17c2de5ae768960284c047a320f17d1bafb313754331704b978e9a80a933b3da7">memory_order_acquire</a>
+, <a class="el" href="include_2stdatomic_8h.html#a17c2de5ae768960284c047a320f17d1ba685a90c8fc516895354973c3918a5f7b">memory_order_release</a>
+, <br />
+&#160;&#160;<a class="el" href="include_2stdatomic_8h.html#a17c2de5ae768960284c047a320f17d1bae17e60cbfd766a7f165872c36e2f7bc5">memory_order_acq_rel</a>
+, <a class="el" href="include_2stdatomic_8h.html#a17c2de5ae768960284c047a320f17d1ba2d21914d1edd227a890107e7878a3752">memory_order_seq_cst</a>
+<br />
+ }</td></tr>
+<tr class="separator:a17c2de5ae768960284c047a320f17d1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:aeca7c45606fc2b5e0c8dca53a76f40ac" id="r_aeca7c45606fc2b5e0c8dca53a76f40ac"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="include_2stdatomic_8h.html#aeca7c45606fc2b5e0c8dca53a76f40ac">atomic_flag_test_and_set_explicit</a> (volatile <a class="el" href="structatomic__flag.html">atomic_flag</a> *obj, <a class="el" href="include_2stdatomic_8h.html#a17c2de5ae768960284c047a320f17d1b">memory_order</a> order)</td></tr>
+<tr class="separator:aeca7c45606fc2b5e0c8dca53a76f40ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4154e94db39d792afa138536ccaa0d7e" id="r_a4154e94db39d792afa138536ccaa0d7e"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="include_2stdatomic_8h.html#a4154e94db39d792afa138536ccaa0d7e">atomic_flag_clear_explicit</a> (volatile <a class="el" href="structatomic__flag.html">atomic_flag</a> *obj, <a class="el" href="include_2stdatomic_8h.html#a17c2de5ae768960284c047a320f17d1b">memory_order</a> order)</td></tr>
+<tr class="separator:a4154e94db39d792afa138536ccaa0d7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a7082a0c612e692d1d2182aea6fcecb26" id="r_a7082a0c612e692d1d2182aea6fcecb26"><td class="memItemLeft" align="right" valign="top">pthread_mutex_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="include_2stdatomic_8h.html#a7082a0c612e692d1d2182aea6fcecb26">__ttak_atomic_global_lock</a></td></tr>
+<tr class="separator:a7082a0c612e692d1d2182aea6fcecb26"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="a7b82615cb418a296137e2abcff7db14e" name="a7b82615cb418a296137e2abcff7db14e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b82615cb418a296137e2abcff7db14e">&#9670;&#160;</a></span>__TT_ATOMIC_LOCK</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define __TT_ATOMIC_LOCK</td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td>&#160;&#160;&#160;pthread_mutex_lock(&amp;<a class="el" href="include_2stdatomic_8h.html#a7082a0c612e692d1d2182aea6fcecb26">__ttak_atomic_global_lock</a>)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="include_2stdatomic_8h_source.html#l00049">49</a> of file <a class="el" href="include_2stdatomic_8h_source.html">stdatomic.h</a>.</p>
+
+</div>
+</div>
+<a id="a078ff22b16930edd2268d1cb679445a5" name="a078ff22b16930edd2268d1cb679445a5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a078ff22b16930edd2268d1cb679445a5">&#9670;&#160;</a></span>__TT_ATOMIC_UNLOCK</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define __TT_ATOMIC_UNLOCK</td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td>&#160;&#160;&#160;pthread_mutex_unlock(&amp;<a class="el" href="include_2stdatomic_8h.html#a7082a0c612e692d1d2182aea6fcecb26">__ttak_atomic_global_lock</a>)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="include_2stdatomic_8h_source.html#l00050">50</a> of file <a class="el" href="include_2stdatomic_8h_source.html">stdatomic.h</a>.</p>
+
+</div>
+</div>
 <a id="a58014a490f8aa8f5dd78cd9203229cdf" name="a58014a490f8aa8f5dd78cd9203229cdf"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a58014a490f8aa8f5dd78cd9203229cdf">&#9670;&#160;</a></span>__TTAK_NEEDS_PORTABLE_STDATOMIC__</h2>
 
@@ -111,12 +254,685 @@ Macros</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define __TTAK_NEEDS_PORTABLE_STDATOMIC__&#160;&#160;&#160;0</td>
+          <td class="memname">#define __TTAK_NEEDS_PORTABLE_STDATOMIC__&#160;&#160;&#160;1</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="include_2stdatomic_8h_source.html#l00015">15</a> of file <a class="el" href="include_2stdatomic_8h_source.html">stdatomic.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="include_2stdatomic_8h_source.html#l00012">12</a> of file <a class="el" href="include_2stdatomic_8h_source.html">stdatomic.h</a>.</p>
+
+</div>
+</div>
+<a id="a94674db2fe3c7496dfdcaa9b81486e79" name="a94674db2fe3c7496dfdcaa9b81486e79"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a94674db2fe3c7496dfdcaa9b81486e79">&#9670;&#160;</a></span>_Atomic</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define _Atomic&#160;&#160;&#160;volatile</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="include_2stdatomic_8h_source.html#l00025">25</a> of file <a class="el" href="include_2stdatomic_8h_source.html">stdatomic.h</a>.</p>
+
+</div>
+</div>
+<a id="a55257ac5977e775b87563bb8cc955863" name="a55257ac5977e775b87563bb8cc955863"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a55257ac5977e775b87563bb8cc955863">&#9670;&#160;</a></span>atomic_compare_exchange_weak</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define atomic_compare_exchange_weak</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">obj, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">expected, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">desired&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;    <a class="el" href="include_2stdatomic_8h.html#a97a5f3e6f5f733e94b1ddeff904d3bc0">atomic_compare_exchange_weak_explicit</a>((obj), (expected), (desired), <a class="el" href="include_2stdatomic_8h.html#a17c2de5ae768960284c047a320f17d1ba2d21914d1edd227a890107e7878a3752">memory_order_seq_cst</a>, <a class="el" href="include_2stdatomic_8h.html#a17c2de5ae768960284c047a320f17d1ba2d21914d1edd227a890107e7878a3752">memory_order_seq_cst</a>)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="include_2stdatomic_8h_source.html#l00087">87</a> of file <a class="el" href="include_2stdatomic_8h_source.html">stdatomic.h</a>.</p>
+
+</div>
+</div>
+<a id="a97a5f3e6f5f733e94b1ddeff904d3bc0" name="a97a5f3e6f5f733e94b1ddeff904d3bc0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a97a5f3e6f5f733e94b1ddeff904d3bc0">&#9670;&#160;</a></span>atomic_compare_exchange_weak_explicit</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define atomic_compare_exchange_weak_explicit</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">obj, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">expected, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">desired, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">success, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">failure&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">    ({ <span class="keywordtype">bool</span> __ok; (void)(success); (void)(failure); <a class="code hl_define" href="include_2stdatomic_8h.html#a7b82615cb418a296137e2abcff7db14e">__TT_ATOMIC_LOCK</a>(); \</div>
+<div class="line">       if (*(obj) == *(expected)) { *(obj) = (desired); __ok = <span class="keyword">true</span>; } \</div>
+<div class="line">       <span class="keywordflow">else</span> { *(expected) = *(obj); __ok = <span class="keyword">false</span>; } \</div>
+<div class="line">       __TT_ATOMIC_UNLOCK(); __ok; })</div>
+<div class="ttc" id="ainclude_2stdatomic_8h_html_a7b82615cb418a296137e2abcff7db14e"><div class="ttname"><a href="include_2stdatomic_8h.html#a7b82615cb418a296137e2abcff7db14e">__TT_ATOMIC_LOCK</a></div><div class="ttdeci">#define __TT_ATOMIC_LOCK()</div><div class="ttdef"><b>Definition</b> <a href="include_2stdatomic_8h_source.html#l00049">stdatomic.h:49</a></div></div>
+</div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="include_2stdatomic_8h_source.html#l00081">81</a> of file <a class="el" href="include_2stdatomic_8h_source.html">stdatomic.h</a>.</p>
+
+</div>
+</div>
+<a id="ac0a4bfbcb6b982cae35b44fc104a09b6" name="ac0a4bfbcb6b982cae35b44fc104a09b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0a4bfbcb6b982cae35b44fc104a09b6">&#9670;&#160;</a></span>atomic_fetch_add</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define atomic_fetch_add</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">obj, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">operand&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;    <a class="el" href="include_2stdatomic_8h.html#ace8ab452db03f62569b8d4dbedf8ff09">atomic_fetch_add_explicit</a>((obj), (operand), <a class="el" href="include_2stdatomic_8h.html#a17c2de5ae768960284c047a320f17d1ba2d21914d1edd227a890107e7878a3752">memory_order_seq_cst</a>)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="include_2stdatomic_8h_source.html#l00072">72</a> of file <a class="el" href="include_2stdatomic_8h_source.html">stdatomic.h</a>.</p>
+
+</div>
+</div>
+<a id="ace8ab452db03f62569b8d4dbedf8ff09" name="ace8ab452db03f62569b8d4dbedf8ff09"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ace8ab452db03f62569b8d4dbedf8ff09">&#9670;&#160;</a></span>atomic_fetch_add_explicit</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define atomic_fetch_add_explicit</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">obj, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">operand, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">order&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;    ({ <a class="el" href="include_2stdatomic_8h.html#a7b82615cb418a296137e2abcff7db14e">__TT_ATOMIC_LOCK</a>(); __typeof__(*(obj)) __old = *(obj); *(obj) = __old + (operand); (void)(order); <a class="el" href="include_2stdatomic_8h.html#a078ff22b16930edd2268d1cb679445a5">__TT_ATOMIC_UNLOCK</a>(); __old; })</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="include_2stdatomic_8h_source.html#l00069">69</a> of file <a class="el" href="include_2stdatomic_8h_source.html">stdatomic.h</a>.</p>
+
+</div>
+</div>
+<a id="a5911a234da3c1fce86bbebea7650e562" name="a5911a234da3c1fce86bbebea7650e562"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5911a234da3c1fce86bbebea7650e562">&#9670;&#160;</a></span>atomic_fetch_sub</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define atomic_fetch_sub</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">obj, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">operand&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;    <a class="el" href="include_2stdatomic_8h.html#af4371ce6237310eedf5a1036178ada1f">atomic_fetch_sub_explicit</a>((obj), (operand), <a class="el" href="include_2stdatomic_8h.html#a17c2de5ae768960284c047a320f17d1ba2d21914d1edd227a890107e7878a3752">memory_order_seq_cst</a>)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="include_2stdatomic_8h_source.html#l00078">78</a> of file <a class="el" href="include_2stdatomic_8h_source.html">stdatomic.h</a>.</p>
+
+</div>
+</div>
+<a id="af4371ce6237310eedf5a1036178ada1f" name="af4371ce6237310eedf5a1036178ada1f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af4371ce6237310eedf5a1036178ada1f">&#9670;&#160;</a></span>atomic_fetch_sub_explicit</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define atomic_fetch_sub_explicit</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">obj, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">operand, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">order&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;    ({ <a class="el" href="include_2stdatomic_8h.html#a7b82615cb418a296137e2abcff7db14e">__TT_ATOMIC_LOCK</a>(); __typeof__(*(obj)) __old = *(obj); *(obj) = __old - (operand); (void)(order); <a class="el" href="include_2stdatomic_8h.html#a078ff22b16930edd2268d1cb679445a5">__TT_ATOMIC_UNLOCK</a>(); __old; })</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="include_2stdatomic_8h_source.html#l00075">75</a> of file <a class="el" href="include_2stdatomic_8h_source.html">stdatomic.h</a>.</p>
+
+</div>
+</div>
+<a id="ae8e62cb9801fedb40ccaca61f60d8617" name="ae8e62cb9801fedb40ccaca61f60d8617"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae8e62cb9801fedb40ccaca61f60d8617">&#9670;&#160;</a></span>atomic_flag_clear</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define atomic_flag_clear</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">obj</td><td>)</td>
+          <td>&#160;&#160;&#160;    <a class="el" href="include_2stdatomic_8h.html#a4154e94db39d792afa138536ccaa0d7e">atomic_flag_clear_explicit</a>((obj), <a class="el" href="include_2stdatomic_8h.html#a17c2de5ae768960284c047a320f17d1ba2d21914d1edd227a890107e7878a3752">memory_order_seq_cst</a>)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="include_2stdatomic_8h_source.html#l00109">109</a> of file <a class="el" href="include_2stdatomic_8h_source.html">stdatomic.h</a>.</p>
+
+</div>
+</div>
+<a id="a3cf6ded3b463faf0cedce1718caaa695" name="a3cf6ded3b463faf0cedce1718caaa695"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3cf6ded3b463faf0cedce1718caaa695">&#9670;&#160;</a></span>ATOMIC_FLAG_INIT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ATOMIC_FLAG_INIT&#160;&#160;&#160;{0}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="include_2stdatomic_8h_source.html#l00047">47</a> of file <a class="el" href="include_2stdatomic_8h_source.html">stdatomic.h</a>.</p>
+
+</div>
+</div>
+<a id="ac207cf1efb51bc53fc9078301afa391f" name="ac207cf1efb51bc53fc9078301afa391f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac207cf1efb51bc53fc9078301afa391f">&#9670;&#160;</a></span>atomic_flag_test_and_set</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define atomic_flag_test_and_set</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">obj</td><td>)</td>
+          <td>&#160;&#160;&#160;    <a class="el" href="include_2stdatomic_8h.html#aeca7c45606fc2b5e0c8dca53a76f40ac">atomic_flag_test_and_set_explicit</a>((obj), <a class="el" href="include_2stdatomic_8h.html#a17c2de5ae768960284c047a320f17d1ba2d21914d1edd227a890107e7878a3752">memory_order_seq_cst</a>)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="include_2stdatomic_8h_source.html#l00106">106</a> of file <a class="el" href="include_2stdatomic_8h_source.html">stdatomic.h</a>.</p>
+
+</div>
+</div>
+<a id="af8a9cbe9495fcafaa892b24b383acf96" name="af8a9cbe9495fcafaa892b24b383acf96"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af8a9cbe9495fcafaa892b24b383acf96">&#9670;&#160;</a></span>atomic_init</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define atomic_init</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">obj, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">value&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;    do { <a class="el" href="include_2stdatomic_8h.html#a9f712e57179afb1b855da84b14ed670c">atomic_store_explicit</a>((obj), (value), <a class="el" href="include_2stdatomic_8h.html#a17c2de5ae768960284c047a320f17d1ba2d21914d1edd227a890107e7878a3752">memory_order_seq_cst</a>); } while (0)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="include_2stdatomic_8h_source.html#l00054">54</a> of file <a class="el" href="include_2stdatomic_8h_source.html">stdatomic.h</a>.</p>
+
+</div>
+</div>
+<a id="afb8e12dba0aa6280b29e3d403e4ce384" name="afb8e12dba0aa6280b29e3d403e4ce384"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb8e12dba0aa6280b29e3d403e4ce384">&#9670;&#160;</a></span>atomic_load</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define atomic_load</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">obj</td><td>)</td>
+          <td>&#160;&#160;&#160;    <a class="el" href="include_2stdatomic_8h.html#abcbf72e31b4b3100152d409e9637441a">atomic_load_explicit</a>((obj) , <a class="el" href="include_2stdatomic_8h.html#a17c2de5ae768960284c047a320f17d1ba2d21914d1edd227a890107e7878a3752">memory_order_seq_cst</a>)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="include_2stdatomic_8h_source.html#l00066">66</a> of file <a class="el" href="include_2stdatomic_8h_source.html">stdatomic.h</a>.</p>
+
+</div>
+</div>
+<a id="abcbf72e31b4b3100152d409e9637441a" name="abcbf72e31b4b3100152d409e9637441a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abcbf72e31b4b3100152d409e9637441a">&#9670;&#160;</a></span>atomic_load_explicit</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define atomic_load_explicit</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">obj, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">order&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;    ({ <a class="el" href="include_2stdatomic_8h.html#a7b82615cb418a296137e2abcff7db14e">__TT_ATOMIC_LOCK</a>(); __typeof__(*(obj)) __val = *(obj); (void)(order); <a class="el" href="include_2stdatomic_8h.html#a078ff22b16930edd2268d1cb679445a5">__TT_ATOMIC_UNLOCK</a>(); __val; })</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="include_2stdatomic_8h_source.html#l00063">63</a> of file <a class="el" href="include_2stdatomic_8h_source.html">stdatomic.h</a>.</p>
+
+</div>
+</div>
+<a id="a87fbed10bf5d77e3b80f356e5246f102" name="a87fbed10bf5d77e3b80f356e5246f102"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a87fbed10bf5d77e3b80f356e5246f102">&#9670;&#160;</a></span>atomic_store</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define atomic_store</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">obj, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">desired&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;    <a class="el" href="include_2stdatomic_8h.html#a9f712e57179afb1b855da84b14ed670c">atomic_store_explicit</a>((obj), (desired), <a class="el" href="include_2stdatomic_8h.html#a17c2de5ae768960284c047a320f17d1ba2d21914d1edd227a890107e7878a3752">memory_order_seq_cst</a>)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="include_2stdatomic_8h_source.html#l00060">60</a> of file <a class="el" href="include_2stdatomic_8h_source.html">stdatomic.h</a>.</p>
+
+</div>
+</div>
+<a id="a9f712e57179afb1b855da84b14ed670c" name="a9f712e57179afb1b855da84b14ed670c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f712e57179afb1b855da84b14ed670c">&#9670;&#160;</a></span>atomic_store_explicit</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define atomic_store_explicit</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">obj, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">desired, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">order&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;    do { (void)(order); <a class="el" href="include_2stdatomic_8h.html#a7b82615cb418a296137e2abcff7db14e">__TT_ATOMIC_LOCK</a>(); *(obj) = (desired); <a class="el" href="include_2stdatomic_8h.html#a078ff22b16930edd2268d1cb679445a5">__TT_ATOMIC_UNLOCK</a>(); } while (0)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="include_2stdatomic_8h_source.html#l00057">57</a> of file <a class="el" href="include_2stdatomic_8h_source.html">stdatomic.h</a>.</p>
+
+</div>
+</div>
+<a id="a817535e09bf9c427a1cbee66d06e7030" name="a817535e09bf9c427a1cbee66d06e7030"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a817535e09bf9c427a1cbee66d06e7030">&#9670;&#160;</a></span>atomic_thread_fence</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define atomic_thread_fence</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">order</td><td>)</td>
+          <td>&#160;&#160;&#160;do { (void)(order); <a class="el" href="include_2stdatomic_8h.html#a7b82615cb418a296137e2abcff7db14e">__TT_ATOMIC_LOCK</a>(); <a class="el" href="include_2stdatomic_8h.html#a078ff22b16930edd2268d1cb679445a5">__TT_ATOMIC_UNLOCK</a>(); } while (0)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="include_2stdatomic_8h_source.html#l00052">52</a> of file <a class="el" href="include_2stdatomic_8h_source.html">stdatomic.h</a>.</p>
+
+</div>
+</div>
+<a id="a7f4e925ad8ccb259c41cda0e797dd7a6" name="a7f4e925ad8ccb259c41cda0e797dd7a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f4e925ad8ccb259c41cda0e797dd7a6">&#9670;&#160;</a></span>TTAK_PORTABLE_STDATOMIC_H</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TTAK_PORTABLE_STDATOMIC_H</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="include_2stdatomic_8h_source.html#l00009">9</a> of file <a class="el" href="include_2stdatomic_8h_source.html">stdatomic.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Typedef Documentation</h2>
+<a id="aef4aec84224d1f46d0ba87f52ca08f69" name="aef4aec84224d1f46d0ba87f52ca08f69"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef4aec84224d1f46d0ba87f52ca08f69">&#9670;&#160;</a></span>atomic_bool</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef volatile bool <a class="el" href="include_2stdatomic_8h.html#aef4aec84224d1f46d0ba87f52ca08f69">atomic_bool</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="include_2stdatomic_8h_source.html#l00037">37</a> of file <a class="el" href="include_2stdatomic_8h_source.html">stdatomic.h</a>.</p>
+
+</div>
+</div>
+<a id="a579c826aec0f3d9971c22c3629abcbfe" name="a579c826aec0f3d9971c22c3629abcbfe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a579c826aec0f3d9971c22c3629abcbfe">&#9670;&#160;</a></span>atomic_size_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef volatile size_t <a class="el" href="include_2stdatomic_8h.html#a579c826aec0f3d9971c22c3629abcbfe">atomic_size_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="include_2stdatomic_8h_source.html#l00038">38</a> of file <a class="el" href="include_2stdatomic_8h_source.html">stdatomic.h</a>.</p>
+
+</div>
+</div>
+<a id="acc9ed8d56c5c645e7d5503aa72d1da49" name="acc9ed8d56c5c645e7d5503aa72d1da49"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc9ed8d56c5c645e7d5503aa72d1da49">&#9670;&#160;</a></span>atomic_uint_fast64_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef volatile uint_fast64_t <a class="el" href="include_2stdatomic_8h.html#acc9ed8d56c5c645e7d5503aa72d1da49">atomic_uint_fast64_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="include_2stdatomic_8h_source.html#l00039">39</a> of file <a class="el" href="include_2stdatomic_8h_source.html">stdatomic.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Enumeration Type Documentation</h2>
+<a id="a17c2de5ae768960284c047a320f17d1b" name="a17c2de5ae768960284c047a320f17d1b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a17c2de5ae768960284c047a320f17d1b">&#9670;&#160;</a></span>memory_order</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="include_2stdatomic_8h.html#a17c2de5ae768960284c047a320f17d1b">memory_order</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a17c2de5ae768960284c047a320f17d1bac6489d0374e297a776f6a3db7ea5654a" name="a17c2de5ae768960284c047a320f17d1bac6489d0374e297a776f6a3db7ea5654a"></a>memory_order_relaxed&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a17c2de5ae768960284c047a320f17d1ba0745f54882bc00251a719e42969db110" name="a17c2de5ae768960284c047a320f17d1ba0745f54882bc00251a719e42969db110"></a>memory_order_consume&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a17c2de5ae768960284c047a320f17d1bafb313754331704b978e9a80a933b3da7" name="a17c2de5ae768960284c047a320f17d1bafb313754331704b978e9a80a933b3da7"></a>memory_order_acquire&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a17c2de5ae768960284c047a320f17d1ba685a90c8fc516895354973c3918a5f7b" name="a17c2de5ae768960284c047a320f17d1ba685a90c8fc516895354973c3918a5f7b"></a>memory_order_release&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a17c2de5ae768960284c047a320f17d1bae17e60cbfd766a7f165872c36e2f7bc5" name="a17c2de5ae768960284c047a320f17d1bae17e60cbfd766a7f165872c36e2f7bc5"></a>memory_order_acq_rel&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a17c2de5ae768960284c047a320f17d1ba2d21914d1edd227a890107e7878a3752" name="a17c2de5ae768960284c047a320f17d1ba2d21914d1edd227a890107e7878a3752"></a>memory_order_seq_cst&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+<p class="definition">Definition at line <a class="el" href="include_2stdatomic_8h_source.html#l00028">28</a> of file <a class="el" href="include_2stdatomic_8h_source.html">stdatomic.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="a4154e94db39d792afa138536ccaa0d7e" name="a4154e94db39d792afa138536ccaa0d7e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4154e94db39d792afa138536ccaa0d7e">&#9670;&#160;</a></span>atomic_flag_clear_explicit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void atomic_flag_clear_explicit </td>
+          <td>(</td>
+          <td class="paramtype">volatile <a class="el" href="structatomic__flag.html">atomic_flag</a> *&#160;</td>
+          <td class="paramname"><em>obj</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="include_2stdatomic_8h.html#a17c2de5ae768960284c047a320f17d1b">memory_order</a>&#160;</td>
+          <td class="paramname"><em>order</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="include_2stdatomic_8h_source.html#l00099">99</a> of file <a class="el" href="include_2stdatomic_8h_source.html">stdatomic.h</a>.</p>
+<div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="include_2stdatomic_8h_a4154e94db39d792afa138536ccaa0d7e_icgraph.png" border="0" usemap="#ainclude_2stdatomic_8h_a4154e94db39d792afa138536ccaa0d7e_icgraph" alt=""/></div>
+<map name="ainclude_2stdatomic_8h_a4154e94db39d792afa138536ccaa0d7e_icgraph" id="ainclude_2stdatomic_8h_a4154e94db39d792afa138536ccaa0d7e_icgraph">
+<area shape="rect" title=" " alt="" coords="185,5,377,31"/>
+<area shape="rect" href="spinlock_8h.html#a18d11351bc312b1de79977c33e5ecb28" title="Releases the spinlock." alt="" coords="5,5,137,31"/>
+<area shape="poly" title=" " alt="" coords="171,21,138,21,138,15,171,15"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="aeca7c45606fc2b5e0c8dca53a76f40ac" name="aeca7c45606fc2b5e0c8dca53a76f40ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeca7c45606fc2b5e0c8dca53a76f40ac">&#9670;&#160;</a></span>atomic_flag_test_and_set_explicit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static bool atomic_flag_test_and_set_explicit </td>
+          <td>(</td>
+          <td class="paramtype">volatile <a class="el" href="structatomic__flag.html">atomic_flag</a> *&#160;</td>
+          <td class="paramname"><em>obj</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="include_2stdatomic_8h.html#a17c2de5ae768960284c047a320f17d1b">memory_order</a>&#160;</td>
+          <td class="paramname"><em>order</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="include_2stdatomic_8h_source.html#l00090">90</a> of file <a class="el" href="include_2stdatomic_8h_source.html">stdatomic.h</a>.</p>
+<div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-2-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="include_2stdatomic_8h_aeca7c45606fc2b5e0c8dca53a76f40ac_icgraph.png" border="0" usemap="#ainclude_2stdatomic_8h_aeca7c45606fc2b5e0c8dca53a76f40ac_icgraph" alt=""/></div>
+<map name="ainclude_2stdatomic_8h_aeca7c45606fc2b5e0c8dca53a76f40ac_icgraph" id="ainclude_2stdatomic_8h_aeca7c45606fc2b5e0c8dca53a76f40ac_icgraph">
+<area shape="rect" title=" " alt="" coords="188,5,349,45"/>
+<area shape="rect" href="spinlock_8h.html#a1d8bc2a3d70c40ddea51a71127bbbd91" title="Tries to acquire the spinlock without waiting." alt="" coords="5,13,140,38"/>
+<area shape="poly" title=" " alt="" coords="174,28,140,28,140,23,174,23"/>
+</map>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="a7082a0c612e692d1d2182aea6fcecb26" name="a7082a0c612e692d1d2182aea6fcecb26"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7082a0c612e692d1d2182aea6fcecb26">&#9670;&#160;</a></span>__ttak_atomic_global_lock</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">pthread_mutex_t __ttak_atomic_global_lock</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>

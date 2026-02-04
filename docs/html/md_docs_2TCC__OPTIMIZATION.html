@@ -93,15 +93,15 @@ $(document).ready(function(){initNavTree('md_docs_2TCC__OPTIMIZATION.html',''); 
   <div class="headertitle"><div class="title">TCC-Oriented Build and Math Tuning</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="autotoc_md11"></a> <code>libttak</code> can now be compiled entirely with <b>Tiny C Compiler (TCC)</b> at <code>-O0</code>. The project builds without relying on compiler-driven vectorization or loop transformations, so correctness is identical between development and production. High throughput is recovered through carefully scheduled C and portable-inline-assembly idioms that map cleanly to every major 64-bit ISA.</p>
-<h1><a class="anchor" id="autotoc_md12"></a>
+<div class="textblock"><p><a class="anchor" id="autotoc_md12"></a> <code>libttak</code> can now be compiled entirely with <b>Tiny C Compiler (TCC)</b> at <code>-O0</code>. The project builds without relying on compiler-driven vectorization or loop transformations, so correctness is identical between development and production. High throughput is recovered through carefully scheduled C and portable-inline-assembly idioms that map cleanly to every major 64-bit ISA.</p>
+<h1><a class="anchor" id="autotoc_md13"></a>
 Build Expectations</h1>
 <ul>
 <li><code>make</code> defaults to <code>tcc</code> for every object in the library.</li>
 <li>Dependency files are emitted via <code>-MD/-MF</code> so incremental builds keep working even though TCC lacks <code>-MMD</code>.</li>
 <li>There is no optimization flag separation for math modules anymore; every translation unit is compiled with the same transparent flag set.</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md13"></a>
+<h1><a class="anchor" id="autotoc_md14"></a>
 Hardcore C Tricks</h1>
 <p>The helper header <code><a class="el" href="fixed_8h.html">ttak/types/fixed.h</a></code> packages the manual patterns that bridge the gap between “no optimization” and “high throughput”:</p>
 <ol type="1">
@@ -115,10 +115,10 @@ Hardcore C Tricks</h1>
 <li>Keep independent data streams alive so MUL latency is hidden explicitly by the call sequence (even though TCC preserves source order).</li>
 <li>Cache pointer dereferences into locals before entering tight loops; the new helpers follow the same pattern so the compiler has predictable access paths.</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md14"></a>
+<h1><a class="anchor" id="autotoc_md15"></a>
 Portable Assembly Strategy</h1>
 <p>Inline assembly is kept ISA-neutral by guarding each block with architecture checks and providing a pure-C fallback. Most math code now relies on the limb helpers instead, keeping the exported APIs ISA-neutral even on TinyCC builds.</p>
-<h1><a class="anchor" id="autotoc_md15"></a>
+<h1><a class="anchor" id="autotoc_md16"></a>
 Applying the Tricks Elsewhere</h1>
 <ul>
 <li>Use <code>ttak_branchless_select_*</code> instead of <code>if/else</code> whenever the predicate is derived from a simple comparison. This keeps pipelines warm and side-steps branch predictors that TCC never learns to micro-optimize for us.</li>

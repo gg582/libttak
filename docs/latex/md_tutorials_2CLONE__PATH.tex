@@ -1,61 +1,76 @@
 \chapter{Clone Coding Path}
 \hypertarget{md_tutorials_2CLONE__PATH}{}\label{md_tutorials_2CLONE__PATH}\index{Clone Coding Path@{Clone Coding Path}}
-\label{md_tutorials_2CLONE__PATH_autotoc_md30}%
-\Hypertarget{md_tutorials_2CLONE__PATH_autotoc_md30}%
- Follow these stages sequentially. Each block references the original sources you should imitate and the verification goal you should reach before moving on.\hypertarget{md_tutorials_2CLONE__PATH_autotoc_md31}{}\doxysubsection{\texorpdfstring{Stage 1 – Core Data + Logging}{Stage 1 – Core Data + Logging}}\label{md_tutorials_2CLONE__PATH_autotoc_md31}
+\label{md_tutorials_2CLONE__PATH_autotoc_md108}%
+\Hypertarget{md_tutorials_2CLONE__PATH_autotoc_md108}%
+ Follow these stages sequentially. Each block references the original sources you should imitate, the lesson files to open inside {\ttfamily tutorials/modules}, and the verification goal you should reach before moving on.\hypertarget{md_tutorials_2CLONE__PATH_autotoc_md109}{}\doxysubsection{\texorpdfstring{Orientation – Setup + Helper}{Orientation – Setup + Helper}}\label{md_tutorials_2CLONE__PATH_autotoc_md109}
 
 \begin{DoxyItemize}
+\item {\bfseries{Lessons\+:}} 01–02
+\item {\bfseries{Goal\+:}} prepare your workspace, branch, and helper tool.
+\item {\bfseries{Checklist\+:}} helper builds cleanly; you have a log ready for “\+What I learned” notes.
+\end{DoxyItemize}\hypertarget{md_tutorials_2CLONE__PATH_autotoc_md110}{}\doxysubsection{\texorpdfstring{Stage 1 – Core Data + Logging}{Stage 1 – Core Data + Logging}}\label{md_tutorials_2CLONE__PATH_autotoc_md110}
+
+\begin{DoxyItemize}
+\item {\bfseries{Lessons\+:}} 03–08
 \item {\bfseries{Goal\+:}} understand hash tables, containers, and logging.
 \item {\bfseries{Clone\+:}} {\ttfamily src/ht/\{hash.\+c,map.\+c,table.\+c\}}, {\ttfamily src/container/\{pool.\+c,ringbuf.\+c,set.\+c\}}, {\ttfamily src/log/logger.\+c}.
 \item {\bfseries{Checklist\+:}} re-\/implement map insert/find/remove; rebuild ring buffer push/pop; ensure {\ttfamily ttak\+\_\+logger\+\_\+log} prints to stderr.
-\end{DoxyItemize}\hypertarget{md_tutorials_2CLONE__PATH_autotoc_md32}{}\doxysubsection{\texorpdfstring{Stage 2 – Concurrency Primitives}{Stage 2 – Concurrency Primitives}}\label{md_tutorials_2CLONE__PATH_autotoc_md32}
+\end{DoxyItemize}\hypertarget{md_tutorials_2CLONE__PATH_autotoc_md111}{}\doxysubsection{\texorpdfstring{Stage 2 – Concurrency Primitives}{Stage 2 – Concurrency Primitives}}\label{md_tutorials_2CLONE__PATH_autotoc_md111}
 
 \begin{DoxyItemize}
+\item {\bfseries{Lessons\+:}} 09–11
 \item {\bfseries{Goal\+:}} rebuild sync + atomic basics.
 \item {\bfseries{Clone\+:}} {\ttfamily src/sync/\{sync.\+c,spinlock.\+c\}}, {\ttfamily src/atomic/atomic.\+c}, {\ttfamily include/stdatomic.\+h}.
 \item {\bfseries{Checklist\+:}} mutexes map directly onto pthreads; spinlock warning-\/free build; portable stdatomic fallback compiles on TCC.
-\end{DoxyItemize}\hypertarget{md_tutorials_2CLONE__PATH_autotoc_md33}{}\doxysubsection{\texorpdfstring{Stage 3 – Thread Pool \& Async}{Stage 3 – Thread Pool \& Async}}\label{md_tutorials_2CLONE__PATH_autotoc_md33}
+\end{DoxyItemize}\hypertarget{md_tutorials_2CLONE__PATH_autotoc_md112}{}\doxysubsection{\texorpdfstring{Stage 3 – Thread Pool \& Async}{Stage 3 – Thread Pool \& Async}}\label{md_tutorials_2CLONE__PATH_autotoc_md112}
 
 \begin{DoxyItemize}
+\item {\bfseries{Lessons\+:}} 12–16
 \item {\bfseries{Goal\+:}} stitch together workers, futures, schedulers.
 \item {\bfseries{Clone\+:}} {\ttfamily src/thread/\{pool.\+c,worker.\+c\}}, {\ttfamily src/async/\{task.\+c,promise.\+c,future.\+c,sched.\+c\}}, {\ttfamily src/priority/\{queue.\+c,heap.\+c,scheduler.\+c\}}.
 \item {\bfseries{Checklist\+:}} submit jobs, complete them in order; understand {\ttfamily ttak\+\_\+owner\+\_\+t} callback usage.
-\end{DoxyItemize}\hypertarget{md_tutorials_2CLONE__PATH_autotoc_md34}{}\doxysubsection{\texorpdfstring{Stage 4 – Timing + Limiters + Stats}{Stage 4 – Timing + Limiters + Stats}}\label{md_tutorials_2CLONE__PATH_autotoc_md34}
+\end{DoxyItemize}\hypertarget{md_tutorials_2CLONE__PATH_autotoc_md113}{}\doxysubsection{\texorpdfstring{Stage 4 – Timing + Limiters + Stats}{Stage 4 – Timing + Limiters + Stats}}\label{md_tutorials_2CLONE__PATH_autotoc_md113}
 
 \begin{DoxyItemize}
+\item {\bfseries{Lessons\+:}} 17–19
 \item {\bfseries{Goal\+:}} manage timers, rate limits, metrics.
 \item {\bfseries{Clone\+:}} {\ttfamily src/timing/\{timing.\+c,deadline.\+c\}}, {\ttfamily src/limit/limit.\+c}, {\ttfamily src/stats/stats.\+c}.
 \item {\bfseries{Checklist\+:}} {\ttfamily ttak\+\_\+get\+\_\+tick\+\_\+count} millisecond + nanosecond paths; token-\/bucket refill math; stats aggregator resets correctly.
-\end{DoxyItemize}\hypertarget{md_tutorials_2CLONE__PATH_autotoc_md35}{}\doxysubsection{\texorpdfstring{Stage 5 – Memory Systems}{Stage 5 – Memory Systems}}\label{md_tutorials_2CLONE__PATH_autotoc_md35}
+\end{DoxyItemize}\hypertarget{md_tutorials_2CLONE__PATH_autotoc_md114}{}\doxysubsection{\texorpdfstring{Stage 5 – Memory Systems}{Stage 5 – Memory Systems}}\label{md_tutorials_2CLONE__PATH_autotoc_md114}
 
 \begin{DoxyItemize}
+\item {\bfseries{Lessons\+:}} 20–22
 \item {\bfseries{Goal\+:}} re-\/create allocation, owners, mem-\/tree GC.
 \item {\bfseries{Clone\+:}} {\ttfamily src/mem/\{mem.\+c,owner.\+c,epoch\+\_\+gc.\+c\}}, {\ttfamily src/mem\+\_\+tree/mem\+\_\+tree.\+c}.
 \item {\bfseries{Checklist\+:}} owner resource register/execute flows; epoch GC rotates safely; {\ttfamily \+\_\+\+Thread\+\_\+local} guards compile.
-\end{DoxyItemize}\hypertarget{md_tutorials_2CLONE__PATH_autotoc_md36}{}\doxysubsection{\texorpdfstring{Stage 6 – Math \& Security}{Stage 6 – Math \& Security}}\label{md_tutorials_2CLONE__PATH_autotoc_md36}
+\end{DoxyItemize}\hypertarget{md_tutorials_2CLONE__PATH_autotoc_md115}{}\doxysubsection{\texorpdfstring{Stage 6 – Math \& Security}{Stage 6 – Math \& Security}}\label{md_tutorials_2CLONE__PATH_autotoc_md115}
 
 \begin{DoxyItemize}
+\item {\bfseries{Lessons\+:}} 23–28
 \item {\bfseries{Goal\+:}} handle big integers, divisors, crypto helpers.
 \item {\bfseries{Clone\+:}} {\ttfamily src/math/\{bigint.\+c,bigmul.\+c,bigreal.\+c,sum\+\_\+divisors.\+c,factor.\+c,ntt.\+c\}}, {\ttfamily src/security/sha256.\+c}.
 \item {\bfseries{Checklist\+:}} big-\/int SSO path, safe-\/mode policy for divisor sums, SHA-\/256 test vectors.
-\end{DoxyItemize}\hypertarget{md_tutorials_2CLONE__PATH_autotoc_md37}{}\doxysubsection{\texorpdfstring{Stage 7 – Trees + AST}{Stage 7 – Trees + AST}}\label{md_tutorials_2CLONE__PATH_autotoc_md37}
+\end{DoxyItemize}\hypertarget{md_tutorials_2CLONE__PATH_autotoc_md116}{}\doxysubsection{\texorpdfstring{Stage 7 – Trees + AST}{Stage 7 – Trees + AST}}\label{md_tutorials_2CLONE__PATH_autotoc_md116}
 
 \begin{DoxyItemize}
+\item {\bfseries{Lessons\+:}} 29–31
 \item {\bfseries{Goal\+:}} practise recursive data structures.
 \item {\bfseries{Clone\+:}} {\ttfamily src/tree/\{ast.\+c,bplus.\+c,btree.\+c\}}.
 \item {\bfseries{Checklist\+:}} b+tree split/merge; AST visitor evaluation.
-\end{DoxyItemize}\hypertarget{md_tutorials_2CLONE__PATH_autotoc_md38}{}\doxysubsection{\texorpdfstring{Stage 8 – Application Layer}{Stage 8 – Application Layer}}\label{md_tutorials_2CLONE__PATH_autotoc_md38}
+\end{DoxyItemize}\hypertarget{md_tutorials_2CLONE__PATH_autotoc_md117}{}\doxysubsection{\texorpdfstring{Stage 8 – Application Layer}{Stage 8 – Application Layer}}\label{md_tutorials_2CLONE__PATH_autotoc_md117}
 
 \begin{DoxyItemize}
+\item {\bfseries{Lessons\+:}} 32–33
 \item {\bfseries{Goal\+:}} connect everything inside {\ttfamily apps/aliquot-\/tracker}.
 \item {\bfseries{Clone\+:}} {\ttfamily apps/aliquot-\/tracker/src/main.\+c} (selected subsystems per section), {\ttfamily apps/bench} as optional exercises.
 \item {\bfseries{Checklist\+:}} job queue, ledger persistence, bigint auto-\/heal logging.
-\end{DoxyItemize}\hypertarget{md_tutorials_2CLONE__PATH_autotoc_md39}{}\doxysubsection{\texorpdfstring{Stage 9 – DANGEROUS (\+Unsafe)}{Stage 9 – DANGEROUS (Unsafe)}}\label{md_tutorials_2CLONE__PATH_autotoc_md39}
+\end{DoxyItemize}\hypertarget{md_tutorials_2CLONE__PATH_autotoc_md118}{}\doxysubsection{\texorpdfstring{Stage 9 – DANGEROUS (\+Unsafe)}{Stage 9 – DANGEROUS (Unsafe)}}\label{md_tutorials_2CLONE__PATH_autotoc_md118}
 
 \begin{DoxyItemize}
+\item {\bfseries{Lessons\+:}} 34–35
 \item {\bfseries{Goal\+:}} opt-\/in study of shared-\/memory bridges.
 \item {\bfseries{Clone\+:}} {\ttfamily src/unsafe/context.\+c}, {\ttfamily \doxylink{context_8h}{include/ttak/unsafe/context.\+h}}, macros in {\ttfamily include/stdatomic.\+h}, and review {\ttfamily temp\+\_\+include}.
 \item {\bfseries{Checklist\+:}} read {\ttfamily \doxylink{tutorials_2DANGEROUS_2README_8md}{tutorials/\+DANGEROUS/\+README.\+md}}, use {\ttfamily libttak\+\_\+unsafe.\+hlp}, verify helper program with the unsafe file, and document your understanding of ownership inheritance.
 \end{DoxyItemize}
 
-After each stage, summarize what you rebuilt and link to the commit/diff. By the end you will have cloned every module in the project. 
+After each stage, summarize what you rebuilt and link to the commit/diff. By the end you will have cloned every module in the project (the flow is also captured visually in {\ttfamily blueprints/09\+\_\+tutorial\+\_\+curriculum.\+puml}). 

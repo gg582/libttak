@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['notes_0',['Stage Notes',['../md_tutorials_2modules_2notes.html',1,'']]]
+  ['oriented_20build_20and_20math_20tuning_0',['TCC-Oriented Build and Math Tuning',['../md_docs_2TCC__OPTIMIZATION.html',1,'']]]
 ];

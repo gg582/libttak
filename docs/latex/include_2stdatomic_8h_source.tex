@@ -2,122 +2,121 @@
 \hypertarget{include_2stdatomic_8h_source}{}\label{include_2stdatomic_8h_source}\index{include/stdatomic.h@{include/stdatomic.h}}
 \mbox{\hyperlink{include_2stdatomic_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00001}00001\ \textcolor{preprocessor}{\#ifndef\ TTAK\_PORTABLE\_STDATOMIC\_H}}
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00002}00002\ \textcolor{preprocessor}{\#define\ TTAK\_PORTABLE\_STDATOMIC\_H}}
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00003}00003\ }
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00004}00004\ \textcolor{preprocessor}{\#if\ defined(\_\_TINYC\_\_)}}
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00005}00005\ \textcolor{preprocessor}{\#define\ \_\_TTAK\_NEEDS\_PORTABLE\_STDATOMIC\_\_\ 1}}
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00006}00006\ \textcolor{preprocessor}{\#elif\ defined(\_\_has\_include\_next)}}
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00007}00007\ \textcolor{preprocessor}{\#if\ \_\_has\_include\_next(<stdatomic.h>)}}
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00008}00008\ \textcolor{preprocessor}{\#include\_next\ <stdatomic.h>}}
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00009}00009\ \textcolor{preprocessor}{\#define\ \_\_TTAK\_NEEDS\_PORTABLE\_STDATOMIC\_\_\ 0}}
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00010}00010\ \textcolor{preprocessor}{\#else}}
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00011}00011\ \textcolor{preprocessor}{\#define\ \_\_TTAK\_NEEDS\_PORTABLE\_STDATOMIC\_\_\ 1}}
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00012}00012\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00001}00001\ \textcolor{preprocessor}{\#if\ defined(\_\_has\_include\_next)\ \&\&\ !defined(\_\_TINYC\_\_)}}
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00002}00002\ \textcolor{preprocessor}{\#\ \ if\ \_\_has\_include\_next(<stdatomic.h>)}}
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00003}00003\ \textcolor{preprocessor}{\#\ \ \ \ include\_next\ <stdatomic.h>}}
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00004}00004\ \textcolor{preprocessor}{\#\ \ \ \ define\ \_\_TTAK\_STDATOMIC\_SYSTEM\_INCLUDED}}
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00005}00005\ \textcolor{preprocessor}{\#\ \ endif}}
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00006}00006\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00008}00008\ \textcolor{preprocessor}{\#ifndef\ TTAK\_PORTABLE\_STDATOMIC\_H}}
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00009}\mbox{\hyperlink{include_2stdatomic_8h_a7f4e925ad8ccb259c41cda0e797dd7a6}{00009}}\ \textcolor{preprocessor}{\#define\ TTAK\_PORTABLE\_STDATOMIC\_H}}
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00011}00011\ \textcolor{preprocessor}{\#if\ defined(\_\_TINYC\_\_)\ ||\ !defined(\_\_TTAK\_STDATOMIC\_SYSTEM\_INCLUDED)}}
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00012}\mbox{\hyperlink{include_2stdatomic_8h_a58014a490f8aa8f5dd78cd9203229cdf}{00012}}\ \textcolor{preprocessor}{\#define\ \_\_TTAK\_NEEDS\_PORTABLE\_STDATOMIC\_\_\ 1}}
 \DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00013}00013\ \textcolor{preprocessor}{\#else}}
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00014}00014\ \textcolor{preprocessor}{\#include\_next\ <stdatomic.h>}}
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00015}\mbox{\hyperlink{include_2stdatomic_8h_a58014a490f8aa8f5dd78cd9203229cdf}{00015}}\ \textcolor{preprocessor}{\#define\ \_\_TTAK\_NEEDS\_PORTABLE\_STDATOMIC\_\_\ 0}}
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00016}00016\ \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00017}00017\ }
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00018}00018\ \textcolor{preprocessor}{\#if\ \_\_TTAK\_NEEDS\_PORTABLE\_STDATOMIC\_\_}}
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00019}00019\ }
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00020}00020\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00021}00021\ \textcolor{preprocessor}{\#include\ <stddef.h>}}
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00022}00022\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00023}00023\ \textcolor{preprocessor}{\#include\ <pthread.h>}}
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00024}00024\ }
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00025}00025\ \textcolor{preprocessor}{\#ifndef\ \_Atomic}}
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00026}00026\ \textcolor{preprocessor}{\#define\ \_Atomic\ volatile}}
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00027}00027\ \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00028}00028\ }
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00029}00029\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00030}00030\ \ \ \ \ memory\_order\_relaxed,}
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00031}00031\ \ \ \ \ memory\_order\_consume,}
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00032}00032\ \ \ \ \ memory\_order\_acquire,}
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00033}00033\ \ \ \ \ memory\_order\_release,}
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00034}00034\ \ \ \ \ memory\_order\_acq\_rel,}
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00035}00035\ \ \ \ \ memory\_order\_seq\_cst}
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00036}00036\ \}\ memory\_order;}
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00037}00037\ }
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00038}00038\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{volatile}\ \textcolor{keywordtype}{bool}\ atomic\_bool;}
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00039}00039\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{volatile}\ \textcolor{keywordtype}{size\_t}\ atomic\_size\_t;}
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00040}00040\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{volatile}\ uint\_fast64\_t\ atomic\_uint\_fast64\_t;}
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00041}00041\ }
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00042}00042\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00043}00043\ \ \ \ \ \textcolor{keyword}{volatile}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ \_value;}
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00044}00044\ \}\ atomic\_flag;}
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00045}00045\ }
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00046}00046\ \textcolor{keyword}{extern}\ pthread\_mutex\_t\ \_\_ttak\_atomic\_global\_lock;}
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00047}00047\ }
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00048}00048\ \textcolor{preprocessor}{\#define\ ATOMIC\_FLAG\_INIT\ \{0\}}}
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00049}00049\ }
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00050}00050\ \textcolor{preprocessor}{\#define\ \_\_TT\_ATOMIC\_LOCK()\ pthread\_mutex\_lock(\&\_\_ttak\_atomic\_global\_lock)}}
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00051}00051\ \textcolor{preprocessor}{\#define\ \_\_TT\_ATOMIC\_UNLOCK()\ pthread\_mutex\_unlock(\&\_\_ttak\_atomic\_global\_lock)}}
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00052}00052\ }
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00053}00053\ \textcolor{preprocessor}{\#define\ atomic\_thread\_fence(order)\ do\ \{\ (void)(order);\ \_\_TT\_ATOMIC\_LOCK();\ \_\_TT\_ATOMIC\_UNLOCK();\ \}\ while\ (0)}}
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00054}00054\ }
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00055}00055\ \textcolor{preprocessor}{\#define\ atomic\_init(obj,\ value)\ \(\backslash\)}}
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00056}00056\ \textcolor{preprocessor}{\ \ \ \ do\ \{\ atomic\_store\_explicit((obj),\ (value),\ memory\_order\_seq\_cst);\ \}\ while\ (0)}}
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00057}00057\ }
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00058}00058\ \textcolor{preprocessor}{\#define\ atomic\_store\_explicit(obj,\ desired,\ order)\ \(\backslash\)}}
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00059}00059\ \textcolor{preprocessor}{\ \ \ \ do\ \{\ (void)(order);\ \_\_TT\_ATOMIC\_LOCK();\ *(obj)\ =\ (desired);\ \_\_TT\_ATOMIC\_UNLOCK();\ \}\ while\ (0)}}
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00060}00060\ }
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00061}00061\ \textcolor{preprocessor}{\#define\ atomic\_store(obj,\ desired)\ \(\backslash\)}}
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00062}00062\ \textcolor{preprocessor}{\ \ \ \ atomic\_store\_explicit((obj),\ (desired),\ memory\_order\_seq\_cst)}}
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00063}00063\ }
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00064}00064\ \textcolor{preprocessor}{\#define\ atomic\_load\_explicit(obj,\ order)\ \(\backslash\)}}
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00065}00065\ \textcolor{preprocessor}{\ \ \ \ (\{\ \_\_TT\_ATOMIC\_LOCK();\ \_\_typeof\_\_(*(obj))\ \_\_val\ =\ *(obj);\ (void)(order);\ \_\_TT\_ATOMIC\_UNLOCK();\ \_\_val;\ \})}}
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00066}00066\ }
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00067}00067\ \textcolor{preprocessor}{\#define\ atomic\_load(obj)\ \(\backslash\)}}
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00068}00068\ \textcolor{preprocessor}{\ \ \ \ atomic\_load\_explicit((obj),\ memory\_order\_seq\_cst)}}
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00069}00069\ }
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00070}00070\ \textcolor{preprocessor}{\#define\ atomic\_fetch\_add\_explicit(obj,\ operand,\ order)\ \(\backslash\)}}
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00071}00071\ \textcolor{preprocessor}{\ \ \ \ (\{\ \_\_TT\_ATOMIC\_LOCK();\ \_\_typeof\_\_(*(obj))\ \_\_old\ =\ *(obj);\ *(obj)\ =\ \_\_old\ +\ (operand);\ (void)(order);\ \_\_TT\_ATOMIC\_UNLOCK();\ \_\_old;\ \})}}
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00072}00072\ }
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00073}00073\ \textcolor{preprocessor}{\#define\ atomic\_fetch\_add(obj,\ operand)\ \(\backslash\)}}
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00074}00074\ \textcolor{preprocessor}{\ \ \ \ atomic\_fetch\_add\_explicit((obj),\ (operand),\ memory\_order\_seq\_cst)}}
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00075}00075\ }
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00076}00076\ \textcolor{preprocessor}{\#define\ atomic\_fetch\_sub\_explicit(obj,\ operand,\ order)\ \(\backslash\)}}
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00077}00077\ \textcolor{preprocessor}{\ \ \ \ (\{\ \_\_TT\_ATOMIC\_LOCK();\ \_\_typeof\_\_(*(obj))\ \_\_old\ =\ *(obj);\ *(obj)\ =\ \_\_old\ -\/\ (operand);\ (void)(order);\ \_\_TT\_ATOMIC\_UNLOCK();\ \_\_old;\ \})}}
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00078}00078\ }
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00079}00079\ \textcolor{preprocessor}{\#define\ atomic\_fetch\_sub(obj,\ operand)\ \(\backslash\)}}
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00080}00080\ \textcolor{preprocessor}{\ \ \ \ atomic\_fetch\_sub\_explicit((obj),\ (operand),\ memory\_order\_seq\_cst)}}
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00081}00081\ }
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00082}00082\ \textcolor{preprocessor}{\#define\ atomic\_compare\_exchange\_weak\_explicit(obj,\ expected,\ desired,\ success,\ failure)\ \(\backslash\)}}
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00083}00083\ \textcolor{preprocessor}{\ \ \ \ (\{\ bool\ \_\_ok;\ (void)(success);\ (void)(failure);\ \_\_TT\_ATOMIC\_LOCK();\ \(\backslash\)}}
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00084}00084\ \textcolor{preprocessor}{\ \ \ \ \ \ \ if\ (*(obj)\ ==\ *(expected))\ \{\ *(obj)\ =\ (desired);\ \_\_ok\ =\ true;\ \}\ \(\backslash\)}}
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00085}00085\ \textcolor{preprocessor}{\ \ \ \ \ \ \ else\ \{\ *(expected)\ =\ *(obj);\ \_\_ok\ =\ false;\ \}\ \(\backslash\)}}
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00086}00086\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \_\_TT\_ATOMIC\_UNLOCK();\ \_\_ok;\ \})}}
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00087}00087\ }
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00088}00088\ \textcolor{preprocessor}{\#define\ atomic\_compare\_exchange\_weak(obj,\ expected,\ desired)\ \(\backslash\)}}
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00089}00089\ \textcolor{preprocessor}{\ \ \ \ atomic\_compare\_exchange\_weak\_explicit((obj),\ (expected),\ (desired),\ memory\_order\_seq\_cst,\ memory\_order\_seq\_cst)}}
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00090}00090\ }
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00091}00091\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ atomic\_flag\_test\_and\_set\_explicit(atomic\_flag\ *obj,\ memory\_order\ order)\ \{}
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00092}00092\ \ \ \ \ (void)order;}
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00093}00093\ \ \ \ \ \_\_TT\_ATOMIC\_LOCK();}
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00094}00094\ \ \ \ \ \textcolor{keywordtype}{bool}\ prev\ =\ obj-\/>\_value\ !=\ 0;}
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00095}00095\ \ \ \ \ obj-\/>\_value\ =\ 1;}
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00096}00096\ \ \ \ \ \_\_TT\_ATOMIC\_UNLOCK();}
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00097}00097\ \ \ \ \ \textcolor{keywordflow}{return}\ prev;}
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00098}00098\ \}}
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00099}00099\ }
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00100}00100\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ atomic\_flag\_clear\_explicit(atomic\_flag\ *obj,\ memory\_order\ order)\ \{}
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00101}00101\ \ \ \ \ (void)order;}
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00102}00102\ \ \ \ \ \_\_TT\_ATOMIC\_LOCK();}
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00103}00103\ \ \ \ \ obj-\/>\_value\ =\ 0;}
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00104}00104\ \ \ \ \ \_\_TT\_ATOMIC\_UNLOCK();}
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00105}00105\ \}}
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00106}00106\ }
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00107}00107\ \textcolor{preprocessor}{\#define\ atomic\_flag\_test\_and\_set(obj)\ \(\backslash\)}}
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00108}00108\ \textcolor{preprocessor}{\ \ \ \ atomic\_flag\_test\_and\_set\_explicit((obj),\ memory\_order\_seq\_cst)}}
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00109}00109\ }
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00110}00110\ \textcolor{preprocessor}{\#define\ atomic\_flag\_clear(obj)\ \(\backslash\)}}
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00111}00111\ \textcolor{preprocessor}{\ \ \ \ atomic\_flag\_clear\_explicit((obj),\ memory\_order\_seq\_cst)}}
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00112}00112\ }
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00113}00113\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_\_TTAK\_NEEDS\_PORTABLE\_STDATOMIC\_\_\ */}\textcolor{preprocessor}{}}
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00114}00114\ }
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00115}00115\ \textcolor{preprocessor}{\#undef\ \_\_TTAK\_NEEDS\_PORTABLE\_STDATOMIC\_\_}}
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00116}00116\ }
-\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00117}00117\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ TTAK\_PORTABLE\_STDATOMIC\_H\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00014}00014\ \textcolor{preprocessor}{\#define\ \_\_TTAK\_NEEDS\_PORTABLE\_STDATOMIC\_\_\ 0}}
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00015}00015\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00017}00017\ \textcolor{preprocessor}{\#if\ \_\_TTAK\_NEEDS\_PORTABLE\_STDATOMIC\_\_}}
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00019}00019\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00020}00020\ \textcolor{preprocessor}{\#include\ <stddef.h>}}
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00021}00021\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00022}00022\ \textcolor{preprocessor}{\#include\ <pthread.h>}}
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00024}00024\ \textcolor{preprocessor}{\#ifndef\ \_Atomic}}
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00025}\mbox{\hyperlink{include_2stdatomic_8h_a94674db2fe3c7496dfdcaa9b81486e79}{00025}}\ \textcolor{preprocessor}{\#define\ \_Atomic\ volatile}}
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00026}00026\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00028}\mbox{\hyperlink{include_2stdatomic_8h_a17c2de5ae768960284c047a320f17d1b}{00028}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00029}\mbox{\hyperlink{include_2stdatomic_8h_a17c2de5ae768960284c047a320f17d1bac6489d0374e297a776f6a3db7ea5654a}{00029}}\ \ \ \ \ \mbox{\hyperlink{include_2stdatomic_8h_a17c2de5ae768960284c047a320f17d1bac6489d0374e297a776f6a3db7ea5654a}{memory\_order\_relaxed}},}
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00030}\mbox{\hyperlink{include_2stdatomic_8h_a17c2de5ae768960284c047a320f17d1ba0745f54882bc00251a719e42969db110}{00030}}\ \ \ \ \ \mbox{\hyperlink{include_2stdatomic_8h_a17c2de5ae768960284c047a320f17d1ba0745f54882bc00251a719e42969db110}{memory\_order\_consume}},}
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00031}\mbox{\hyperlink{include_2stdatomic_8h_a17c2de5ae768960284c047a320f17d1bafb313754331704b978e9a80a933b3da7}{00031}}\ \ \ \ \ \mbox{\hyperlink{include_2stdatomic_8h_a17c2de5ae768960284c047a320f17d1bafb313754331704b978e9a80a933b3da7}{memory\_order\_acquire}},}
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00032}\mbox{\hyperlink{include_2stdatomic_8h_a17c2de5ae768960284c047a320f17d1ba685a90c8fc516895354973c3918a5f7b}{00032}}\ \ \ \ \ \mbox{\hyperlink{include_2stdatomic_8h_a17c2de5ae768960284c047a320f17d1ba685a90c8fc516895354973c3918a5f7b}{memory\_order\_release}},}
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00033}\mbox{\hyperlink{include_2stdatomic_8h_a17c2de5ae768960284c047a320f17d1bae17e60cbfd766a7f165872c36e2f7bc5}{00033}}\ \ \ \ \ \mbox{\hyperlink{include_2stdatomic_8h_a17c2de5ae768960284c047a320f17d1bae17e60cbfd766a7f165872c36e2f7bc5}{memory\_order\_acq\_rel}},}
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00034}00034\ \ \ \ \ \mbox{\hyperlink{include_2stdatomic_8h_a17c2de5ae768960284c047a320f17d1ba2d21914d1edd227a890107e7878a3752}{memory\_order\_seq\_cst}}}
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00035}\mbox{\hyperlink{include_2stdatomic_8h_a17c2de5ae768960284c047a320f17d1ba2d21914d1edd227a890107e7878a3752}{00035}}\ \}\ \mbox{\hyperlink{include_2stdatomic_8h_a17c2de5ae768960284c047a320f17d1b}{memory\_order}};}
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00037}\mbox{\hyperlink{include_2stdatomic_8h_aef4aec84224d1f46d0ba87f52ca08f69}{00037}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{volatile}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{include_2stdatomic_8h_aef4aec84224d1f46d0ba87f52ca08f69}{atomic\_bool}};}
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00038}\mbox{\hyperlink{include_2stdatomic_8h_a579c826aec0f3d9971c22c3629abcbfe}{00038}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{volatile}\ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{include_2stdatomic_8h_a579c826aec0f3d9971c22c3629abcbfe}{atomic\_size\_t}};}
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00039}\mbox{\hyperlink{include_2stdatomic_8h_acc9ed8d56c5c645e7d5503aa72d1da49}{00039}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{volatile}\ uint\_fast64\_t\ \mbox{\hyperlink{include_2stdatomic_8h_acc9ed8d56c5c645e7d5503aa72d1da49}{atomic\_uint\_fast64\_t}};}
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00041}\mbox{\hyperlink{structatomic__flag}{00041}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00042}\mbox{\hyperlink{structatomic__flag_a1e78a66d91bdb267b55596d71d6dcd79}{00042}}\ \ \ \ \ \textcolor{keyword}{volatile}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{structatomic__flag_a1e78a66d91bdb267b55596d71d6dcd79}{\_value}};}
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00043}00043\ \}\ \mbox{\hyperlink{structatomic__flag}{atomic\_flag}};}
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00045}00045\ \textcolor{keyword}{extern}\ pthread\_mutex\_t\ \mbox{\hyperlink{include_2stdatomic_8h_a7082a0c612e692d1d2182aea6fcecb26}{\_\_ttak\_atomic\_global\_lock}};}
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00047}\mbox{\hyperlink{include_2stdatomic_8h_a3cf6ded3b463faf0cedce1718caaa695}{00047}}\ \textcolor{preprocessor}{\#define\ ATOMIC\_FLAG\_INIT\ \{0\}}}
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00049}\mbox{\hyperlink{include_2stdatomic_8h_a7b82615cb418a296137e2abcff7db14e}{00049}}\ \textcolor{preprocessor}{\#define\ \_\_TT\_ATOMIC\_LOCK()\ pthread\_mutex\_lock(\&\_\_ttak\_atomic\_global\_lock)}}
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00050}\mbox{\hyperlink{include_2stdatomic_8h_a078ff22b16930edd2268d1cb679445a5}{00050}}\ \textcolor{preprocessor}{\#define\ \_\_TT\_ATOMIC\_UNLOCK()\ pthread\_mutex\_unlock(\&\_\_ttak\_atomic\_global\_lock)}}
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00052}\mbox{\hyperlink{include_2stdatomic_8h_a817535e09bf9c427a1cbee66d06e7030}{00052}}\ \textcolor{preprocessor}{\#define\ atomic\_thread\_fence(order)\ do\ \{\ (void)(order);\ \_\_TT\_ATOMIC\_LOCK();\ \_\_TT\_ATOMIC\_UNLOCK();\ \}\ while\ (0)}}
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00054}\mbox{\hyperlink{include_2stdatomic_8h_af8a9cbe9495fcafaa892b24b383acf96}{00054}}\ \textcolor{preprocessor}{\#define\ atomic\_init(obj,\ value)\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00055}00055\ \textcolor{preprocessor}{\ \ \ \ do\ \{\ atomic\_store\_explicit((obj),\ (value),\ memory\_order\_seq\_cst);\ \}\ while\ (0)}}
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00057}\mbox{\hyperlink{include_2stdatomic_8h_a9f712e57179afb1b855da84b14ed670c}{00057}}\ \textcolor{preprocessor}{\#define\ atomic\_store\_explicit(obj,\ desired,\ order)\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00058}00058\ \textcolor{preprocessor}{\ \ \ \ do\ \{\ (void)(order);\ \_\_TT\_ATOMIC\_LOCK();\ *(obj)\ =\ (desired);\ \_\_TT\_ATOMIC\_UNLOCK();\ \}\ while\ (0)}}
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00059}00059\ }
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00060}\mbox{\hyperlink{include_2stdatomic_8h_a87fbed10bf5d77e3b80f356e5246f102}{00060}}\ \textcolor{preprocessor}{\#define\ atomic\_store(obj,\ desired)\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00061}00061\ \textcolor{preprocessor}{\ \ \ \ atomic\_store\_explicit((obj),\ (desired),\ memory\_order\_seq\_cst)}}
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00063}\mbox{\hyperlink{include_2stdatomic_8h_abcbf72e31b4b3100152d409e9637441a}{00063}}\ \textcolor{preprocessor}{\#define\ atomic\_load\_explicit(obj,\ order)\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00064}00064\ \textcolor{preprocessor}{\ \ \ \ (\{\ \_\_TT\_ATOMIC\_LOCK();\ \_\_typeof\_\_(*(obj))\ \_\_val\ =\ *(obj);\ (void)(order);\ \_\_TT\_ATOMIC\_UNLOCK();\ \_\_val;\ \})}}
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00065}00065\ }
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00066}\mbox{\hyperlink{include_2stdatomic_8h_afb8e12dba0aa6280b29e3d403e4ce384}{00066}}\ \textcolor{preprocessor}{\#define\ atomic\_load(obj)\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00067}00067\ \textcolor{preprocessor}{\ \ \ \ atomic\_load\_explicit((obj)\ ,\ memory\_order\_seq\_cst)}}
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00068}00068\ }
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00069}\mbox{\hyperlink{include_2stdatomic_8h_ace8ab452db03f62569b8d4dbedf8ff09}{00069}}\ \textcolor{preprocessor}{\#define\ atomic\_fetch\_add\_explicit(obj,\ operand,\ order)\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00070}00070\ \textcolor{preprocessor}{\ \ \ \ (\{\ \_\_TT\_ATOMIC\_LOCK();\ \_\_typeof\_\_(*(obj))\ \_\_old\ =\ *(obj);\ *(obj)\ =\ \_\_old\ +\ (operand);\ (void)(order);\ \_\_TT\_ATOMIC\_UNLOCK();\ \_\_old;\ \})}}
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00071}00071\ }
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00072}\mbox{\hyperlink{include_2stdatomic_8h_ac0a4bfbcb6b982cae35b44fc104a09b6}{00072}}\ \textcolor{preprocessor}{\#define\ atomic\_fetch\_add(obj,\ operand)\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00073}00073\ \textcolor{preprocessor}{\ \ \ \ atomic\_fetch\_add\_explicit((obj),\ (operand),\ memory\_order\_seq\_cst)}}
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00074}00074\ }
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00075}\mbox{\hyperlink{include_2stdatomic_8h_af4371ce6237310eedf5a1036178ada1f}{00075}}\ \textcolor{preprocessor}{\#define\ atomic\_fetch\_sub\_explicit(obj,\ operand,\ order)\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00076}00076\ \textcolor{preprocessor}{\ \ \ \ (\{\ \_\_TT\_ATOMIC\_LOCK();\ \_\_typeof\_\_(*(obj))\ \_\_old\ =\ *(obj);\ *(obj)\ =\ \_\_old\ -\/\ (operand);\ (void)(order);\ \_\_TT\_ATOMIC\_UNLOCK();\ \_\_old;\ \})}}
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00077}00077\ }
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00078}\mbox{\hyperlink{include_2stdatomic_8h_a5911a234da3c1fce86bbebea7650e562}{00078}}\ \textcolor{preprocessor}{\#define\ atomic\_fetch\_sub(obj,\ operand)\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00079}00079\ \textcolor{preprocessor}{\ \ \ \ atomic\_fetch\_sub\_explicit((obj),\ (operand),\ memory\_order\_seq\_cst)}}
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00080}00080\ }
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00081}\mbox{\hyperlink{include_2stdatomic_8h_a97a5f3e6f5f733e94b1ddeff904d3bc0}{00081}}\ \textcolor{preprocessor}{\#define\ atomic\_compare\_exchange\_weak\_explicit(obj,\ expected,\ desired,\ success,\ failure)\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00082}00082\ \textcolor{preprocessor}{\ \ \ \ (\{\ bool\ \_\_ok;\ (void)(success);\ (void)(failure);\ \_\_TT\_ATOMIC\_LOCK();\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00083}00083\ \textcolor{preprocessor}{\ \ \ \ \ \ \ if\ (*(obj)\ ==\ *(expected))\ \{\ *(obj)\ =\ (desired);\ \_\_ok\ =\ true;\ \}\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00084}00084\ \textcolor{preprocessor}{\ \ \ \ \ \ \ else\ \{\ *(expected)\ =\ *(obj);\ \_\_ok\ =\ false;\ \}\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00085}00085\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \_\_TT\_ATOMIC\_UNLOCK();\ \_\_ok;\ \})}}
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00086}00086\ }
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00087}\mbox{\hyperlink{include_2stdatomic_8h_a55257ac5977e775b87563bb8cc955863}{00087}}\ \textcolor{preprocessor}{\#define\ atomic\_compare\_exchange\_weak(obj,\ expected,\ desired)\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00088}00088\ \textcolor{preprocessor}{\ \ \ \ atomic\_compare\_exchange\_weak\_explicit((obj),\ (expected),\ (desired),\ memory\_order\_seq\_cst,\ memory\_order\_seq\_cst)}}
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00089}00089\ }
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00090}\mbox{\hyperlink{include_2stdatomic_8h_aeca7c45606fc2b5e0c8dca53a76f40ac}{00090}}\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{include_2stdatomic_8h_aeca7c45606fc2b5e0c8dca53a76f40ac}{atomic\_flag\_test\_and\_set\_explicit}}(\textcolor{keyword}{volatile}\ \mbox{\hyperlink{structatomic__flag}{atomic\_flag}}\ *obj,\ \mbox{\hyperlink{include_2stdatomic_8h_a17c2de5ae768960284c047a320f17d1b}{memory\_order}}\ order)\ \{}
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00091}00091\ \ \ \ \ (void)order;}
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00092}00092\ \ \ \ \ \mbox{\hyperlink{include_2stdatomic_8h_a7b82615cb418a296137e2abcff7db14e}{\_\_TT\_ATOMIC\_LOCK}}();}
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00093}00093\ \ \ \ \ \textcolor{keywordtype}{bool}\ prev\ =\ obj-\/>\mbox{\hyperlink{structatomic__flag_a1e78a66d91bdb267b55596d71d6dcd79}{\_value}}\ !=\ 0;}
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00094}00094\ \ \ \ \ obj-\/>\mbox{\hyperlink{structatomic__flag_a1e78a66d91bdb267b55596d71d6dcd79}{\_value}}\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00095}00095\ \ \ \ \ \mbox{\hyperlink{include_2stdatomic_8h_a078ff22b16930edd2268d1cb679445a5}{\_\_TT\_ATOMIC\_UNLOCK}}();}
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00096}00096\ \ \ \ \ \textcolor{keywordflow}{return}\ prev;}
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00097}00097\ \}}
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00098}00098\ }
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00099}\mbox{\hyperlink{include_2stdatomic_8h_a4154e94db39d792afa138536ccaa0d7e}{00099}}\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{include_2stdatomic_8h_a4154e94db39d792afa138536ccaa0d7e}{atomic\_flag\_clear\_explicit}}(\textcolor{keyword}{volatile}\ \mbox{\hyperlink{structatomic__flag}{atomic\_flag}}\ *obj,\ \mbox{\hyperlink{include_2stdatomic_8h_a17c2de5ae768960284c047a320f17d1b}{memory\_order}}\ order)\ \{}
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00100}00100\ \ \ \ \ (void)order;}
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00101}00101\ \ \ \ \ \mbox{\hyperlink{include_2stdatomic_8h_a7b82615cb418a296137e2abcff7db14e}{\_\_TT\_ATOMIC\_LOCK}}();}
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00102}00102\ \ \ \ \ obj-\/>\mbox{\hyperlink{structatomic__flag_a1e78a66d91bdb267b55596d71d6dcd79}{\_value}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00103}00103\ \ \ \ \ \mbox{\hyperlink{include_2stdatomic_8h_a078ff22b16930edd2268d1cb679445a5}{\_\_TT\_ATOMIC\_UNLOCK}}();}
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00104}00104\ \}}
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00105}00105\ }
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00106}\mbox{\hyperlink{include_2stdatomic_8h_ac207cf1efb51bc53fc9078301afa391f}{00106}}\ \textcolor{preprocessor}{\#define\ atomic\_flag\_test\_and\_set(obj)\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00107}00107\ \textcolor{preprocessor}{\ \ \ \ atomic\_flag\_test\_and\_set\_explicit((obj),\ memory\_order\_seq\_cst)}}
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00108}00108\ }
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00109}\mbox{\hyperlink{include_2stdatomic_8h_ae8e62cb9801fedb40ccaca61f60d8617}{00109}}\ \textcolor{preprocessor}{\#define\ atomic\_flag\_clear(obj)\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00110}00110\ \textcolor{preprocessor}{\ \ \ \ atomic\_flag\_clear\_explicit((obj),\ memory\_order\_seq\_cst)}}
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00111}00111\ }
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00112}00112\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_\_TTAK\_NEEDS\_PORTABLE\_STDATOMIC\_\_\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00113}00113\ }
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00114}00114\ \textcolor{preprocessor}{\#undef\ \_\_TTAK\_NEEDS\_PORTABLE\_STDATOMIC\_\_}}
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00115}00115\ }
+\DoxyCodeLine{\Hypertarget{include_2stdatomic_8h_source_l00116}00116\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ TTAK\_PORTABLE\_STDATOMIC\_H\ */}\textcolor{preprocessor}{}}
 
 \end{DoxyCode}

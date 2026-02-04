@@ -262,227 +262,259 @@ $(document).ready(function(){initNavTree('fixed_8h_source.html',''); initResizab
 <div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span> </div>
 <div class="foldopen" id="foldopen00129" data-start="{" data-end="}">
 <div class="line"><a id="l00129" name="l00129"></a><span class="lineno"><a class="line" href="fixed_8h.html#a799eeed1842f8fa060ae9babb1a1c8b5">  129</a></span><span class="keyword">static</span> <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="fixed_8h.html#a799eeed1842f8fa060ae9babb1a1c8b5">ttak_mul_64</a>(uint64_t a, uint64_t b, uint64_t *hi, uint64_t *lo) {</div>
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>    uint64_t a_lo = (uint32_t)a;</div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    uint64_t a_hi = a &gt;&gt; 32;</div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    uint64_t b_lo = (uint32_t)b;</div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    uint64_t b_hi = b &gt;&gt; 32;</div>
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span> </div>
-<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>    uint64_t p0 = a_lo * b_lo;</div>
-<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>    uint64_t p1 = a_lo * b_hi;</div>
-<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>    uint64_t p2 = a_hi * b_lo;</div>
-<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>    uint64_t p3 = a_hi * b_hi;</div>
-<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span> </div>
-<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>    uint64_t mid = (p0 &gt;&gt; 32) + (p1 &amp; 0xFFFFFFFFULL) + (p2 &amp; 0xFFFFFFFFULL);</div>
-<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>    uint64_t mid_hi = (mid &gt;&gt; 32) + (p1 &gt;&gt; 32) + (p2 &gt;&gt; 32);</div>
-<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span> </div>
-<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>    *lo = (mid &lt;&lt; 32) | (p0 &amp; 0xFFFFFFFFULL);</div>
-<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>    *hi = p3 + mid_hi;</div>
-<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>}</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>    <span class="comment">/* Inline ISA primitives keep TinyCC builds fast without optimizer help. */</span></div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span><span class="preprocessor">#if defined(__x86_64__)</span></div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    uint64_t lo_tmp, hi_tmp;</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    __asm__ __volatile__(<span class="stringliteral">&quot;mulq %[rhs]&quot;</span></div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>                         : <span class="stringliteral">&quot;=a&quot;</span>(lo_tmp), <span class="stringliteral">&quot;=d&quot;</span>(hi_tmp)</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>                         : <span class="stringliteral">&quot;0&quot;</span>(a), [rhs] <span class="stringliteral">&quot;r&quot;</span>(b)</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>                         : <span class="stringliteral">&quot;cc&quot;</span>);</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>    *lo = lo_tmp;</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>    *hi = hi_tmp;</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>    <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span><span class="preprocessor">#elif defined(__aarch64__)</span></div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>    uint64_t lo_tmp, hi_tmp;</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>    __asm__ __volatile__(</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>        <span class="stringliteral">&quot;mul %0, %2, %3\n&quot;</span></div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>        <span class="stringliteral">&quot;umulh %1, %2, %3&quot;</span></div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>        : <span class="stringliteral">&quot;=&amp;r&quot;</span>(lo_tmp), <span class="stringliteral">&quot;=&amp;r&quot;</span>(hi_tmp)</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>        : <span class="stringliteral">&quot;r&quot;</span>(a), <span class="stringliteral">&quot;r&quot;</span>(b));</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>    *lo = lo_tmp;</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>    *hi = hi_tmp;</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>    <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span><span class="preprocessor">#elif defined(__riscv_xlen) &amp;&amp; (__riscv_xlen == 64)</span></div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>    uint64_t lo_tmp, hi_tmp;</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>    __asm__ __volatile__(</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>        <span class="stringliteral">&quot;mul %0, %2, %3\n&quot;</span></div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>        <span class="stringliteral">&quot;mulhu %1, %2, %3&quot;</span></div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>        : <span class="stringliteral">&quot;=&amp;r&quot;</span>(lo_tmp), <span class="stringliteral">&quot;=&amp;r&quot;</span>(hi_tmp)</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>        : <span class="stringliteral">&quot;r&quot;</span>(a), <span class="stringliteral">&quot;r&quot;</span>(b));</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>    *lo = lo_tmp;</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>    *hi = hi_tmp;</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>    <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span> </div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>    uint64_t a_lo = (uint32_t)a;</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>    uint64_t a_hi = a &gt;&gt; 32;</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>    uint64_t b_lo = (uint32_t)b;</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>    uint64_t b_hi = b &gt;&gt; 32;</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span> </div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>    uint64_t p0 = a_lo * b_lo;</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>    uint64_t p1 = a_lo * b_hi;</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>    uint64_t p2 = a_hi * b_lo;</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>    uint64_t p3 = a_hi * b_hi;</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span> </div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>    uint64_t mid = (p0 &gt;&gt; 32) + (p1 &amp; 0xFFFFFFFFULL) + (p2 &amp; 0xFFFFFFFFULL);</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>    uint64_t mid_hi = (mid &gt;&gt; 32) + (p1 &gt;&gt; 32) + (p2 &gt;&gt; 32);</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span> </div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>    *lo = (mid &lt;&lt; 32) | (p0 &amp; 0xFFFFFFFFULL);</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>    *hi = p3 + mid_hi;</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>}</div>
 </div>
-<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span> </div>
-<div class="foldopen" id="foldopen00147" data-start="{" data-end="}">
-<div class="line"><a id="l00147" name="l00147"></a><span class="lineno"><a class="line" href="fixed_8h.html#ac0d78544bdf52b1e7be2adad8d318749">  147</a></span><span class="keyword">static</span> <span class="keyword">inline</span> <a class="code hl_struct" href="structttak__u128__t.html">ttak_u128_t</a> <a class="code hl_function" href="fixed_8h.html#ac0d78544bdf52b1e7be2adad8d318749">ttak_u128_mul_u64_scalar</a>(uint64_t a, uint64_t b) {</div>
-<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>    <a class="code hl_struct" href="structttak__u128__t.html">ttak_u128_t</a> out;</div>
-<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>    <a class="code hl_function" href="fixed_8h.html#a799eeed1842f8fa060ae9babb1a1c8b5">ttak_mul_64</a>(a, b, &amp;out.<a class="code hl_variable" href="structttak__u128__t.html#a8ca22384d51a3391a8cca9b6203aeed0">hi</a>, &amp;out.<a class="code hl_variable" href="structttak__u128__t.html#ab55f5b20d860d95c972017ea06137348">lo</a>);</div>
-<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>    <span class="keywordflow">return</span> out;</div>
-<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>}</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span> </div>
+<div class="foldopen" id="foldopen00179" data-start="{" data-end="}">
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno"><a class="line" href="fixed_8h.html#ac0d78544bdf52b1e7be2adad8d318749">  179</a></span><span class="keyword">static</span> <span class="keyword">inline</span> <a class="code hl_struct" href="structttak__u128__t.html">ttak_u128_t</a> <a class="code hl_function" href="fixed_8h.html#ac0d78544bdf52b1e7be2adad8d318749">ttak_u128_mul_u64_scalar</a>(uint64_t a, uint64_t b) {</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>    <a class="code hl_struct" href="structttak__u128__t.html">ttak_u128_t</a> out;</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>    <a class="code hl_function" href="fixed_8h.html#a799eeed1842f8fa060ae9babb1a1c8b5">ttak_mul_64</a>(a, b, &amp;out.<a class="code hl_variable" href="structttak__u128__t.html#a8ca22384d51a3391a8cca9b6203aeed0">hi</a>, &amp;out.<a class="code hl_variable" href="structttak__u128__t.html#ab55f5b20d860d95c972017ea06137348">lo</a>);</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>    <span class="keywordflow">return</span> out;</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>}</div>
 </div>
-<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span> </div>
-<div class="foldopen" id="foldopen00153" data-start="{" data-end="}">
-<div class="line"><a id="l00153" name="l00153"></a><span class="lineno"><a class="line" href="fixed_8h.html#a8efab2f600f17fcb131ed9c647277c81">  153</a></span><span class="keyword">static</span> <span class="keyword">inline</span> uint64_t <a class="code hl_function" href="fixed_8h.html#a8efab2f600f17fcb131ed9c647277c81">ttak_u64_mul_lo</a>(uint64_t a, uint64_t b) {</div>
-<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>    uint64_t hi, lo;</div>
-<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>    <a class="code hl_function" href="fixed_8h.html#a799eeed1842f8fa060ae9babb1a1c8b5">ttak_mul_64</a>(a, b, &amp;hi, &amp;lo);</div>
-<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>    (void)hi;</div>
-<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>    <span class="keywordflow">return</span> lo;</div>
-<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>}</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span> </div>
+<div class="foldopen" id="foldopen00185" data-start="{" data-end="}">
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno"><a class="line" href="fixed_8h.html#a8efab2f600f17fcb131ed9c647277c81">  185</a></span><span class="keyword">static</span> <span class="keyword">inline</span> uint64_t <a class="code hl_function" href="fixed_8h.html#a8efab2f600f17fcb131ed9c647277c81">ttak_u64_mul_lo</a>(uint64_t a, uint64_t b) {</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>    uint64_t hi, lo;</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>    <a class="code hl_function" href="fixed_8h.html#a799eeed1842f8fa060ae9babb1a1c8b5">ttak_mul_64</a>(a, b, &amp;hi, &amp;lo);</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>    (void)hi;</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>    <span class="keywordflow">return</span> lo;</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>}</div>
 </div>
-<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span> </div>
-<div class="foldopen" id="foldopen00160" data-start="{" data-end="}">
-<div class="line"><a id="l00160" name="l00160"></a><span class="lineno"><a class="line" href="fixed_8h.html#aeaacfff748e4338ade685b01de358b41">  160</a></span><span class="keyword">static</span> <span class="keyword">inline</span> <a class="code hl_struct" href="structttak__u128__t.html">ttak_u128_t</a> <a class="code hl_function" href="fixed_8h.html#aeaacfff748e4338ade685b01de358b41">ttak_u128_mul_u64_wide</a>(<a class="code hl_struct" href="structttak__u128__t.html">ttak_u128_t</a> value, uint64_t factor, <span class="keywordtype">bool</span> *overflow) {</div>
-<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>    <a class="code hl_struct" href="structttak__u128__t.html">ttak_u128_t</a> part_lo = <a class="code hl_function" href="fixed_8h.html#ac0d78544bdf52b1e7be2adad8d318749">ttak_u128_mul_u64_scalar</a>(value.<a class="code hl_variable" href="structttak__u128__t.html#ab55f5b20d860d95c972017ea06137348">lo</a>, factor);</div>
-<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>    <a class="code hl_struct" href="structttak__u128__t.html">ttak_u128_t</a> out = <a class="code hl_function" href="fixed_8h.html#a3c207c23ea3e928b9339e192280da009">ttak_u128_make</a>(0, part_lo.<a class="code hl_variable" href="structttak__u128__t.html#ab55f5b20d860d95c972017ea06137348">lo</a>);</div>
-<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>    uint64_t carry = part_lo.<a class="code hl_variable" href="structttak__u128__t.html#a8ca22384d51a3391a8cca9b6203aeed0">hi</a>;</div>
-<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span> </div>
-<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>    uint64_t hi_high, hi_low;</div>
-<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>    <a class="code hl_function" href="fixed_8h.html#a799eeed1842f8fa060ae9babb1a1c8b5">ttak_mul_64</a>(value.<a class="code hl_variable" href="structttak__u128__t.html#a8ca22384d51a3391a8cca9b6203aeed0">hi</a>, factor, &amp;hi_high, &amp;hi_low);</div>
-<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span> </div>
-<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>    out.<a class="code hl_variable" href="structttak__u128__t.html#a8ca22384d51a3391a8cca9b6203aeed0">hi</a> = hi_low + carry;</div>
-<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>    <span class="keywordtype">bool</span> of = (out.<a class="code hl_variable" href="structttak__u128__t.html#a8ca22384d51a3391a8cca9b6203aeed0">hi</a> &lt; carry) || hi_high != 0;</div>
-<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>    <span class="keywordflow">if</span> (overflow) *overflow = of;</div>
-<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>    <span class="keywordflow">return</span> out;</div>
-<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>}</div>
-</div>
-<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span> </div>
-<div class="foldopen" id="foldopen00174" data-start="{" data-end="}">
-<div class="line"><a id="l00174" name="l00174"></a><span class="lineno"><a class="line" href="fixed_8h.html#a9e0c22388e772c30ae3b1d9da87b94ed">  174</a></span><span class="keyword">static</span> <span class="keyword">inline</span> <a class="code hl_struct" href="structttak__u128__t.html">ttak_u128_t</a> <a class="code hl_function" href="fixed_8h.html#a9e0c22388e772c30ae3b1d9da87b94ed">ttak_u128_mul64</a>(uint64_t a, uint64_t b) {</div>
-<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="fixed_8h.html#ac0d78544bdf52b1e7be2adad8d318749">ttak_u128_mul_u64_scalar</a>(a, b);</div>
-<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>}</div>
-</div>
-<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span> </div>
-<div class="foldopen" id="foldopen00178" data-start="{" data-end="}">
-<div class="line"><a id="l00178" name="l00178"></a><span class="lineno"><a class="line" href="fixed_8h.html#a087115982f5b266423f6f19dcfe7ff2b">  178</a></span><span class="keyword">static</span> <span class="keyword">inline</span> uint64_t <a class="code hl_function" href="fixed_8h.html#a087115982f5b266423f6f19dcfe7ff2b">ttak_u128_mod_u64</a>(<a class="code hl_struct" href="structttak__u128__t.html">ttak_u128_t</a> value, uint64_t mod) {</div>
-<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>    <span class="keywordflow">if</span> (mod == 0) <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>    uint64_t rem = 0;</div>
-<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> bit = 127; bit &gt;= 0; --bit) {</div>
-<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>        rem = (rem &lt;&lt; 1) | <a class="code hl_function" href="fixed_8h.html#adb1d545b5cba1ae4a024c1908eb29d9d">ttak_u128_bit</a>(value, (<span class="keywordtype">unsigned</span>)bit);</div>
-<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>        <span class="keywordflow">if</span> (rem &gt;= mod) rem -= mod;</div>
-<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>    }</div>
-<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>    <span class="keywordflow">return</span> rem;</div>
-<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>}</div>
-</div>
-<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span> </div>
-<div class="foldopen" id="foldopen00188" data-start="{" data-end="}">
-<div class="line"><a id="l00188" name="l00188"></a><span class="lineno"><a class="line" href="fixed_8h.html#a1b966208235fd38f729c9aca5dff57db">  188</a></span><span class="keyword">static</span> <span class="keyword">inline</span> <a class="code hl_struct" href="structttak__u256__t.html">ttak_u256_t</a> <a class="code hl_function" href="fixed_8h.html#a1b966208235fd38f729c9aca5dff57db">ttak_u256_zero</a>(<span class="keywordtype">void</span>) {</div>
-<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>    <a class="code hl_struct" href="structttak__u256__t.html">ttak_u256_t</a> out = {{0, 0, 0, 0}};</div>
-<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>    <span class="keywordflow">return</span> out;</div>
-<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>}</div>
-</div>
-<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span> </div>
-<div class="foldopen" id="foldopen00193" data-start="{" data-end="}">
-<div class="line"><a id="l00193" name="l00193"></a><span class="lineno"><a class="line" href="fixed_8h.html#abba53a0920f9ad08f21dc8a9310bebf3">  193</a></span><span class="keyword">static</span> <span class="keyword">inline</span> <a class="code hl_struct" href="structttak__u256__t.html">ttak_u256_t</a> <a class="code hl_function" href="fixed_8h.html#abba53a0920f9ad08f21dc8a9310bebf3">ttak_u256_from_limbs</a>(uint64_t l3, uint64_t l2, uint64_t l1, uint64_t l0) {</div>
-<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>    <a class="code hl_struct" href="structttak__u256__t.html">ttak_u256_t</a> out = {{l0, l1, l2, l3}};</div>
-<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>    <span class="keywordflow">return</span> out;</div>
-<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>}</div>
-</div>
-<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span> </div>
-<div class="foldopen" id="foldopen00198" data-start="{" data-end="}">
-<div class="line"><a id="l00198" name="l00198"></a><span class="lineno"><a class="line" href="fixed_8h.html#ad6aa9932db56063fc3ef9885b3c19b3f">  198</a></span><span class="keyword">static</span> <span class="keyword">inline</span> <a class="code hl_struct" href="structttak__u256__t.html">ttak_u256_t</a> <a class="code hl_function" href="fixed_8h.html#ad6aa9932db56063fc3ef9885b3c19b3f">ttak_u256_from_u128</a>(<a class="code hl_struct" href="structttak__u128__t.html">ttak_u128_t</a> value) {</div>
-<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="fixed_8h.html#abba53a0920f9ad08f21dc8a9310bebf3">ttak_u256_from_limbs</a>(0, 0, value.<a class="code hl_variable" href="structttak__u128__t.html#a8ca22384d51a3391a8cca9b6203aeed0">hi</a>, value.<a class="code hl_variable" href="structttak__u128__t.html#ab55f5b20d860d95c972017ea06137348">lo</a>);</div>
-<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>}</div>
-</div>
-<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span> </div>
-<div class="foldopen" id="foldopen00202" data-start="{" data-end="}">
-<div class="line"><a id="l00202" name="l00202"></a><span class="lineno"><a class="line" href="fixed_8h.html#a012c546ae881dd002f23c278dc982359">  202</a></span><span class="keyword">static</span> <span class="keyword">inline</span> <a class="code hl_struct" href="structttak__u128__t.html">ttak_u128_t</a> <a class="code hl_function" href="fixed_8h.html#a012c546ae881dd002f23c278dc982359">ttak_u256_low128</a>(<a class="code hl_struct" href="structttak__u256__t.html">ttak_u256_t</a> value) {</div>
-<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="fixed_8h.html#a3c207c23ea3e928b9339e192280da009">ttak_u128_make</a>(value.<a class="code hl_variable" href="structttak__u256__t.html#ab016f95e7396ad42567f80383bcd2f26">limb</a>[1], value.<a class="code hl_variable" href="structttak__u256__t.html#ab016f95e7396ad42567f80383bcd2f26">limb</a>[0]);</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span> </div>
+<div class="foldopen" id="foldopen00192" data-start="{" data-end="}">
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno"><a class="line" href="fixed_8h.html#aeaacfff748e4338ade685b01de358b41">  192</a></span><span class="keyword">static</span> <span class="keyword">inline</span> <a class="code hl_struct" href="structttak__u128__t.html">ttak_u128_t</a> <a class="code hl_function" href="fixed_8h.html#aeaacfff748e4338ade685b01de358b41">ttak_u128_mul_u64_wide</a>(<a class="code hl_struct" href="structttak__u128__t.html">ttak_u128_t</a> value, uint64_t factor, <span class="keywordtype">bool</span> *overflow) {</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>    <a class="code hl_struct" href="structttak__u128__t.html">ttak_u128_t</a> part_lo = <a class="code hl_function" href="fixed_8h.html#ac0d78544bdf52b1e7be2adad8d318749">ttak_u128_mul_u64_scalar</a>(value.<a class="code hl_variable" href="structttak__u128__t.html#ab55f5b20d860d95c972017ea06137348">lo</a>, factor);</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>    <a class="code hl_struct" href="structttak__u128__t.html">ttak_u128_t</a> out = <a class="code hl_function" href="fixed_8h.html#a3c207c23ea3e928b9339e192280da009">ttak_u128_make</a>(0, part_lo.<a class="code hl_variable" href="structttak__u128__t.html#ab55f5b20d860d95c972017ea06137348">lo</a>);</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>    uint64_t carry = part_lo.<a class="code hl_variable" href="structttak__u128__t.html#a8ca22384d51a3391a8cca9b6203aeed0">hi</a>;</div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span> </div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>    uint64_t hi_high, hi_low;</div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>    <a class="code hl_function" href="fixed_8h.html#a799eeed1842f8fa060ae9babb1a1c8b5">ttak_mul_64</a>(value.<a class="code hl_variable" href="structttak__u128__t.html#a8ca22384d51a3391a8cca9b6203aeed0">hi</a>, factor, &amp;hi_high, &amp;hi_low);</div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span> </div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>    out.<a class="code hl_variable" href="structttak__u128__t.html#a8ca22384d51a3391a8cca9b6203aeed0">hi</a> = hi_low + carry;</div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>    <span class="keywordtype">bool</span> of = (out.<a class="code hl_variable" href="structttak__u128__t.html#a8ca22384d51a3391a8cca9b6203aeed0">hi</a> &lt; carry) || hi_high != 0;</div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>    <span class="keywordflow">if</span> (overflow) *overflow = of;</div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>    <span class="keywordflow">return</span> out;</div>
 <div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>}</div>
 </div>
 <div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span> </div>
 <div class="foldopen" id="foldopen00206" data-start="{" data-end="}">
-<div class="line"><a id="l00206" name="l00206"></a><span class="lineno"><a class="line" href="fixed_8h.html#a1321fb7294fdf487da9f2454061c8108">  206</a></span><span class="keyword">static</span> <span class="keyword">inline</span> <a class="code hl_struct" href="structttak__u128__t.html">ttak_u128_t</a> <a class="code hl_function" href="fixed_8h.html#a1321fb7294fdf487da9f2454061c8108">ttak_u256_high128</a>(<a class="code hl_struct" href="structttak__u256__t.html">ttak_u256_t</a> value) {</div>
-<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="fixed_8h.html#a3c207c23ea3e928b9339e192280da009">ttak_u128_make</a>(value.<a class="code hl_variable" href="structttak__u256__t.html#ab016f95e7396ad42567f80383bcd2f26">limb</a>[3], value.<a class="code hl_variable" href="structttak__u256__t.html#ab016f95e7396ad42567f80383bcd2f26">limb</a>[2]);</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno"><a class="line" href="fixed_8h.html#a9e0c22388e772c30ae3b1d9da87b94ed">  206</a></span><span class="keyword">static</span> <span class="keyword">inline</span> <a class="code hl_struct" href="structttak__u128__t.html">ttak_u128_t</a> <a class="code hl_function" href="fixed_8h.html#a9e0c22388e772c30ae3b1d9da87b94ed">ttak_u128_mul64</a>(uint64_t a, uint64_t b) {</div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="fixed_8h.html#ac0d78544bdf52b1e7be2adad8d318749">ttak_u128_mul_u64_scalar</a>(a, b);</div>
 <div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>}</div>
 </div>
 <div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span> </div>
 <div class="foldopen" id="foldopen00210" data-start="{" data-end="}">
-<div class="line"><a id="l00210" name="l00210"></a><span class="lineno"><a class="line" href="fixed_8h.html#a2ec62a2dabcd6f92c012917ba6bb40f5">  210</a></span><span class="keyword">static</span> <span class="keyword">inline</span> <a class="code hl_struct" href="structttak__u256__t.html">ttak_u256_t</a> <a class="code hl_function" href="fixed_8h.html#a2ec62a2dabcd6f92c012917ba6bb40f5">ttak_u256_add</a>(<a class="code hl_struct" href="structttak__u256__t.html">ttak_u256_t</a> a, <a class="code hl_struct" href="structttak__u256__t.html">ttak_u256_t</a> b) {</div>
-<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>    <a class="code hl_struct" href="structttak__u256__t.html">ttak_u256_t</a> out;</div>
-<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>    uint64_t carry = 0;</div>
-<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 4; ++i) {</div>
-<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>        uint64_t sum = a.<a class="code hl_variable" href="structttak__u256__t.html#ab016f95e7396ad42567f80383bcd2f26">limb</a>[i] + b.<a class="code hl_variable" href="structttak__u256__t.html#ab016f95e7396ad42567f80383bcd2f26">limb</a>[i];</div>
-<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>        uint64_t new_sum = sum + carry;</div>
-<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>        uint64_t new_carry = (sum &lt; a.<a class="code hl_variable" href="structttak__u256__t.html#ab016f95e7396ad42567f80383bcd2f26">limb</a>[i]) || (new_sum &lt; sum);</div>
-<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>        out.<a class="code hl_variable" href="structttak__u256__t.html#ab016f95e7396ad42567f80383bcd2f26">limb</a>[i] = new_sum;</div>
-<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>        carry = new_carry;</div>
-<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>    }</div>
-<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>    <span class="keywordflow">return</span> out;</div>
-<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>}</div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno"><a class="line" href="fixed_8h.html#a087115982f5b266423f6f19dcfe7ff2b">  210</a></span><span class="keyword">static</span> <span class="keyword">inline</span> uint64_t <a class="code hl_function" href="fixed_8h.html#a087115982f5b266423f6f19dcfe7ff2b">ttak_u128_mod_u64</a>(<a class="code hl_struct" href="structttak__u128__t.html">ttak_u128_t</a> value, uint64_t mod) {</div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>    <span class="keywordflow">if</span> (mod == 0) <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>    uint64_t rem = 0;</div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> bit = 127; bit &gt;= 0; --bit) {</div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>        rem = (rem &lt;&lt; 1) | <a class="code hl_function" href="fixed_8h.html#adb1d545b5cba1ae4a024c1908eb29d9d">ttak_u128_bit</a>(value, (<span class="keywordtype">unsigned</span>)bit);</div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>        <span class="keywordflow">if</span> (rem &gt;= mod) rem -= mod;</div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>    }</div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>    <span class="keywordflow">return</span> rem;</div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>}</div>
 </div>
-<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span> </div>
-<div class="foldopen" id="foldopen00223" data-start="{" data-end="}">
-<div class="line"><a id="l00223" name="l00223"></a><span class="lineno"><a class="line" href="fixed_8h.html#aabf015779a4c4fe39c71d3b0199c1d4f">  223</a></span><span class="keyword">static</span> <span class="keyword">inline</span> <a class="code hl_struct" href="structttak__u256__t.html">ttak_u256_t</a> <a class="code hl_function" href="fixed_8h.html#aabf015779a4c4fe39c71d3b0199c1d4f">ttak_u256_shr</a>(<a class="code hl_struct" href="structttak__u256__t.html">ttak_u256_t</a> v, <span class="keywordtype">unsigned</span> shift) {</div>
-<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>    <span class="keywordflow">if</span> (shift &gt;= 256) <span class="keywordflow">return</span> <a class="code hl_function" href="fixed_8h.html#a1b966208235fd38f729c9aca5dff57db">ttak_u256_zero</a>();</div>
-<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>    <span class="keywordflow">if</span> (shift == 0) <span class="keywordflow">return</span> v;</div>
-<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>    <a class="code hl_struct" href="structttak__u256__t.html">ttak_u256_t</a> out = <a class="code hl_function" href="fixed_8h.html#a1b966208235fd38f729c9aca5dff57db">ttak_u256_zero</a>();</div>
-<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>    <span class="keywordtype">unsigned</span> limb_shift = shift / 64;</div>
-<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>    <span class="keywordtype">unsigned</span> bit_shift = shift % 64;</div>
-<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 3; i &gt;= 0; --i) {</div>
-<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>        <span class="keywordflow">if</span> ((<span class="keywordtype">unsigned</span>)i &lt; limb_shift) <span class="keywordflow">continue</span>;</div>
-<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>        uint64_t chunk = v.<a class="code hl_variable" href="structttak__u256__t.html#ab016f95e7396ad42567f80383bcd2f26">limb</a>[i];</div>
-<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>        <span class="keywordtype">unsigned</span> target = i - limb_shift;</div>
-<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>        out.<a class="code hl_variable" href="structttak__u256__t.html#ab016f95e7396ad42567f80383bcd2f26">limb</a>[target] |= chunk &gt;&gt; bit_shift;</div>
-<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>        <span class="keywordflow">if</span> (bit_shift &amp;&amp; target &gt; 0) {</div>
-<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>            out.<a class="code hl_variable" href="structttak__u256__t.html#ab016f95e7396ad42567f80383bcd2f26">limb</a>[target - 1] |= chunk &lt;&lt; (64 - bit_shift);</div>
-<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>        }</div>
-<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>    }</div>
-<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>    <span class="keywordflow">return</span> out;</div>
-<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>}</div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span> </div>
+<div class="foldopen" id="foldopen00220" data-start="{" data-end="}">
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno"><a class="line" href="fixed_8h.html#a1b966208235fd38f729c9aca5dff57db">  220</a></span><span class="keyword">static</span> <span class="keyword">inline</span> <a class="code hl_struct" href="structttak__u256__t.html">ttak_u256_t</a> <a class="code hl_function" href="fixed_8h.html#a1b966208235fd38f729c9aca5dff57db">ttak_u256_zero</a>(<span class="keywordtype">void</span>) {</div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>    <a class="code hl_struct" href="structttak__u256__t.html">ttak_u256_t</a> out = {{0, 0, 0, 0}};</div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>    <span class="keywordflow">return</span> out;</div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>}</div>
 </div>
-<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span> </div>
-<div class="foldopen" id="foldopen00241" data-start="{" data-end="}">
-<div class="line"><a id="l00241" name="l00241"></a><span class="lineno"><a class="line" href="fixed_8h.html#a2fed85bfb8af0c518f0bb1673705fb67">  241</a></span><span class="keyword">static</span> <span class="keyword">inline</span> <a class="code hl_struct" href="structttak__u256__t.html">ttak_u256_t</a> <a class="code hl_function" href="fixed_8h.html#a2fed85bfb8af0c518f0bb1673705fb67">ttak_u256_shl</a>(<a class="code hl_struct" href="structttak__u256__t.html">ttak_u256_t</a> v, <span class="keywordtype">unsigned</span> shift) {</div>
-<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>    <span class="keywordflow">if</span> (shift &gt;= 256) <span class="keywordflow">return</span> <a class="code hl_function" href="fixed_8h.html#a1b966208235fd38f729c9aca5dff57db">ttak_u256_zero</a>();</div>
-<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>    <span class="keywordflow">if</span> (shift == 0) <span class="keywordflow">return</span> v;</div>
-<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>    <a class="code hl_struct" href="structttak__u256__t.html">ttak_u256_t</a> out = <a class="code hl_function" href="fixed_8h.html#a1b966208235fd38f729c9aca5dff57db">ttak_u256_zero</a>();</div>
-<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>    <span class="keywordtype">unsigned</span> limb_shift = shift / 64;</div>
-<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>    <span class="keywordtype">unsigned</span> bit_shift = shift % 64;</div>
-<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 4; ++i) {</div>
-<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>        <span class="keywordflow">if</span> (i + limb_shift &gt;= 4) <span class="keywordflow">break</span>;</div>
-<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>        uint64_t chunk = v.<a class="code hl_variable" href="structttak__u256__t.html#ab016f95e7396ad42567f80383bcd2f26">limb</a>[i];</div>
-<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>        <span class="keywordtype">unsigned</span> target = i + limb_shift;</div>
-<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>        out.<a class="code hl_variable" href="structttak__u256__t.html#ab016f95e7396ad42567f80383bcd2f26">limb</a>[target] |= chunk &lt;&lt; bit_shift;</div>
-<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>        <span class="keywordflow">if</span> (bit_shift &amp;&amp; target + 1 &lt; 4) {</div>
-<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>            out.<a class="code hl_variable" href="structttak__u256__t.html#ab016f95e7396ad42567f80383bcd2f26">limb</a>[target + 1] |= chunk &gt;&gt; (64 - bit_shift);</div>
-<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>        }</div>
-<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>    }</div>
-<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>    <span class="keywordflow">return</span> out;</div>
-<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>}</div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span> </div>
+<div class="foldopen" id="foldopen00225" data-start="{" data-end="}">
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno"><a class="line" href="fixed_8h.html#abba53a0920f9ad08f21dc8a9310bebf3">  225</a></span><span class="keyword">static</span> <span class="keyword">inline</span> <a class="code hl_struct" href="structttak__u256__t.html">ttak_u256_t</a> <a class="code hl_function" href="fixed_8h.html#abba53a0920f9ad08f21dc8a9310bebf3">ttak_u256_from_limbs</a>(uint64_t l3, uint64_t l2, uint64_t l1, uint64_t l0) {</div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>    <a class="code hl_struct" href="structttak__u256__t.html">ttak_u256_t</a> out = {{l0, l1, l2, l3}};</div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>    <span class="keywordflow">return</span> out;</div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>}</div>
 </div>
-<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span> </div>
-<div class="foldopen" id="foldopen00259" data-start="{" data-end="}">
-<div class="line"><a id="l00259" name="l00259"></a><span class="lineno"><a class="line" href="fixed_8h.html#aa2efd7138d14a4d05b823a479d42e1aa">  259</a></span><span class="keyword">static</span> <span class="keyword">inline</span> <a class="code hl_struct" href="structttak__u256__t.html">ttak_u256_t</a> <a class="code hl_function" href="fixed_8h.html#aa2efd7138d14a4d05b823a479d42e1aa">ttak_u128_mul_u128</a>(<a class="code hl_struct" href="structttak__u128__t.html">ttak_u128_t</a> a, <a class="code hl_struct" href="structttak__u128__t.html">ttak_u128_t</a> b) {</div>
-<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>    uint64_t lo_hi, lo_lo;</div>
-<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>    <a class="code hl_function" href="fixed_8h.html#a799eeed1842f8fa060ae9babb1a1c8b5">ttak_mul_64</a>(a.<a class="code hl_variable" href="structttak__u128__t.html#ab55f5b20d860d95c972017ea06137348">lo</a>, b.<a class="code hl_variable" href="structttak__u128__t.html#ab55f5b20d860d95c972017ea06137348">lo</a>, &amp;lo_hi, &amp;lo_lo);</div>
-<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span> </div>
-<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>    uint64_t cross1_hi, cross1_lo;</div>
-<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>    <a class="code hl_function" href="fixed_8h.html#a799eeed1842f8fa060ae9babb1a1c8b5">ttak_mul_64</a>(a.<a class="code hl_variable" href="structttak__u128__t.html#ab55f5b20d860d95c972017ea06137348">lo</a>, b.<a class="code hl_variable" href="structttak__u128__t.html#a8ca22384d51a3391a8cca9b6203aeed0">hi</a>, &amp;cross1_hi, &amp;cross1_lo);</div>
-<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span> </div>
-<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>    uint64_t cross2_hi, cross2_lo;</div>
-<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>    <a class="code hl_function" href="fixed_8h.html#a799eeed1842f8fa060ae9babb1a1c8b5">ttak_mul_64</a>(a.<a class="code hl_variable" href="structttak__u128__t.html#a8ca22384d51a3391a8cca9b6203aeed0">hi</a>, b.<a class="code hl_variable" href="structttak__u128__t.html#ab55f5b20d860d95c972017ea06137348">lo</a>, &amp;cross2_hi, &amp;cross2_lo);</div>
-<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span> </div>
-<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>    uint64_t hi_hi, hi_lo;</div>
-<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>    <a class="code hl_function" href="fixed_8h.html#a799eeed1842f8fa060ae9babb1a1c8b5">ttak_mul_64</a>(a.<a class="code hl_variable" href="structttak__u128__t.html#a8ca22384d51a3391a8cca9b6203aeed0">hi</a>, b.<a class="code hl_variable" href="structttak__u128__t.html#a8ca22384d51a3391a8cca9b6203aeed0">hi</a>, &amp;hi_hi, &amp;hi_lo);</div>
-<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span> </div>
-<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>    uint64_t limb0 = lo_lo;</div>
-<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span> </div>
-<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span>    uint64_t limb1 = lo_hi;</div>
-<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>    uint64_t carry = 0;</div>
-<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>    uint64_t sum = limb1 + cross1_lo;</div>
-<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span>    carry = (sum &lt; limb1) ? 1 : 0;</div>
-<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>    limb1 = sum;</div>
-<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>    sum = limb1 + cross2_lo;</div>
-<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span>    carry += (sum &lt; limb1) ? 1 : 0;</div>
-<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span>    limb1 = sum;</div>
-<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span> </div>
-<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span>    uint64_t limb2 = cross1_hi;</div>
-<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span>    uint64_t carry2 = 0;</div>
-<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span>    sum = limb2 + cross2_hi;</div>
-<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span>    carry2 = (sum &lt; limb2) ? 1 : 0;</div>
-<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>    limb2 = sum;</div>
-<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>    sum = limb2 + hi_lo;</div>
-<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span>    carry2 += (sum &lt; limb2) ? 1 : 0;</div>
-<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span>    limb2 = sum;</div>
-<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span>    limb2 += carry;</div>
-<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span>    <span class="keywordflow">if</span> (limb2 &lt; carry) carry2++;</div>
-<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span> </div>
-<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span>    uint64_t limb3 = hi_hi + carry2;</div>
-<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span> </div>
-<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="fixed_8h.html#abba53a0920f9ad08f21dc8a9310bebf3">ttak_u256_from_limbs</a>(limb3, limb2, limb1, limb0);</div>
-<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span>}</div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span> </div>
+<div class="foldopen" id="foldopen00230" data-start="{" data-end="}">
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno"><a class="line" href="fixed_8h.html#ad6aa9932db56063fc3ef9885b3c19b3f">  230</a></span><span class="keyword">static</span> <span class="keyword">inline</span> <a class="code hl_struct" href="structttak__u256__t.html">ttak_u256_t</a> <a class="code hl_function" href="fixed_8h.html#ad6aa9932db56063fc3ef9885b3c19b3f">ttak_u256_from_u128</a>(<a class="code hl_struct" href="structttak__u128__t.html">ttak_u128_t</a> value) {</div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="fixed_8h.html#abba53a0920f9ad08f21dc8a9310bebf3">ttak_u256_from_limbs</a>(0, 0, value.<a class="code hl_variable" href="structttak__u128__t.html#a8ca22384d51a3391a8cca9b6203aeed0">hi</a>, value.<a class="code hl_variable" href="structttak__u128__t.html#ab55f5b20d860d95c972017ea06137348">lo</a>);</div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>}</div>
 </div>
-<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span> </div>
-<div class="foldopen" id="foldopen00299" data-start="{" data-end="}">
-<div class="line"><a id="l00299" name="l00299"></a><span class="lineno"><a class="line" href="fixed_8h.html#a8fc96f8e7f1d99183873dcfa432f42af">  299</a></span><span class="keyword">static</span> <span class="keyword">inline</span> <a class="code hl_struct" href="structttak__u128__t.html">ttak_u128_t</a> <a class="code hl_function" href="fixed_8h.html#a8fc96f8e7f1d99183873dcfa432f42af">ttak_u256_extract_low</a>(<a class="code hl_struct" href="structttak__u256__t.html">ttak_u256_t</a> value) {</div>
-<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="fixed_8h.html#a012c546ae881dd002f23c278dc982359">ttak_u256_low128</a>(value);</div>
-<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span>}</div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span> </div>
+<div class="foldopen" id="foldopen00234" data-start="{" data-end="}">
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno"><a class="line" href="fixed_8h.html#a012c546ae881dd002f23c278dc982359">  234</a></span><span class="keyword">static</span> <span class="keyword">inline</span> <a class="code hl_struct" href="structttak__u128__t.html">ttak_u128_t</a> <a class="code hl_function" href="fixed_8h.html#a012c546ae881dd002f23c278dc982359">ttak_u256_low128</a>(<a class="code hl_struct" href="structttak__u256__t.html">ttak_u256_t</a> value) {</div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="fixed_8h.html#a3c207c23ea3e928b9339e192280da009">ttak_u128_make</a>(value.<a class="code hl_variable" href="structttak__u256__t.html#ab016f95e7396ad42567f80383bcd2f26">limb</a>[1], value.<a class="code hl_variable" href="structttak__u256__t.html#ab016f95e7396ad42567f80383bcd2f26">limb</a>[0]);</div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>}</div>
 </div>
-<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span> </div>
-<div class="foldopen" id="foldopen00303" data-start="{" data-end="}">
-<div class="line"><a id="l00303" name="l00303"></a><span class="lineno"><a class="line" href="fixed_8h.html#ad63615da32c5bbfd6bd52310a625cc3e">  303</a></span><span class="keyword">static</span> <span class="keyword">inline</span> <a class="code hl_struct" href="structttak__u128__t.html">ttak_u128_t</a> <a class="code hl_function" href="fixed_8h.html#ad63615da32c5bbfd6bd52310a625cc3e">ttak_u256_extract_high</a>(<a class="code hl_struct" href="structttak__u256__t.html">ttak_u256_t</a> value) {</div>
-<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="fixed_8h.html#a1321fb7294fdf487da9f2454061c8108">ttak_u256_high128</a>(value);</div>
-<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span>}</div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span> </div>
+<div class="foldopen" id="foldopen00238" data-start="{" data-end="}">
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno"><a class="line" href="fixed_8h.html#a1321fb7294fdf487da9f2454061c8108">  238</a></span><span class="keyword">static</span> <span class="keyword">inline</span> <a class="code hl_struct" href="structttak__u128__t.html">ttak_u128_t</a> <a class="code hl_function" href="fixed_8h.html#a1321fb7294fdf487da9f2454061c8108">ttak_u256_high128</a>(<a class="code hl_struct" href="structttak__u256__t.html">ttak_u256_t</a> value) {</div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="fixed_8h.html#a3c207c23ea3e928b9339e192280da009">ttak_u128_make</a>(value.<a class="code hl_variable" href="structttak__u256__t.html#ab016f95e7396ad42567f80383bcd2f26">limb</a>[3], value.<a class="code hl_variable" href="structttak__u256__t.html#ab016f95e7396ad42567f80383bcd2f26">limb</a>[2]);</div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>}</div>
 </div>
-<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span> </div>
-<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span><span class="preprocessor">#endif </span><span class="comment">/* TTAK_TYPES_FIXED_H */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="afixed_8h_html_a012c546ae881dd002f23c278dc982359"><div class="ttname"><a href="fixed_8h.html#a012c546ae881dd002f23c278dc982359">ttak_u256_low128</a></div><div class="ttdeci">static ttak_u128_t ttak_u256_low128(ttak_u256_t value)</div><div class="ttdef"><b>Definition</b> <a href="fixed_8h_source.html#l00202">fixed.h:202</a></div></div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span> </div>
+<div class="foldopen" id="foldopen00242" data-start="{" data-end="}">
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno"><a class="line" href="fixed_8h.html#a2ec62a2dabcd6f92c012917ba6bb40f5">  242</a></span><span class="keyword">static</span> <span class="keyword">inline</span> <a class="code hl_struct" href="structttak__u256__t.html">ttak_u256_t</a> <a class="code hl_function" href="fixed_8h.html#a2ec62a2dabcd6f92c012917ba6bb40f5">ttak_u256_add</a>(<a class="code hl_struct" href="structttak__u256__t.html">ttak_u256_t</a> a, <a class="code hl_struct" href="structttak__u256__t.html">ttak_u256_t</a> b) {</div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>    <a class="code hl_struct" href="structttak__u256__t.html">ttak_u256_t</a> out;</div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>    uint64_t carry = 0;</div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 4; ++i) {</div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>        uint64_t sum = a.<a class="code hl_variable" href="structttak__u256__t.html#ab016f95e7396ad42567f80383bcd2f26">limb</a>[i] + b.<a class="code hl_variable" href="structttak__u256__t.html#ab016f95e7396ad42567f80383bcd2f26">limb</a>[i];</div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>        uint64_t new_sum = sum + carry;</div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>        uint64_t new_carry = (sum &lt; a.<a class="code hl_variable" href="structttak__u256__t.html#ab016f95e7396ad42567f80383bcd2f26">limb</a>[i]) || (new_sum &lt; sum);</div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>        out.<a class="code hl_variable" href="structttak__u256__t.html#ab016f95e7396ad42567f80383bcd2f26">limb</a>[i] = new_sum;</div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>        carry = new_carry;</div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>    }</div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>    <span class="keywordflow">return</span> out;</div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>}</div>
+</div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span> </div>
+<div class="foldopen" id="foldopen00255" data-start="{" data-end="}">
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno"><a class="line" href="fixed_8h.html#aabf015779a4c4fe39c71d3b0199c1d4f">  255</a></span><span class="keyword">static</span> <span class="keyword">inline</span> <a class="code hl_struct" href="structttak__u256__t.html">ttak_u256_t</a> <a class="code hl_function" href="fixed_8h.html#aabf015779a4c4fe39c71d3b0199c1d4f">ttak_u256_shr</a>(<a class="code hl_struct" href="structttak__u256__t.html">ttak_u256_t</a> v, <span class="keywordtype">unsigned</span> shift) {</div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>    <span class="keywordflow">if</span> (shift &gt;= 256) <span class="keywordflow">return</span> <a class="code hl_function" href="fixed_8h.html#a1b966208235fd38f729c9aca5dff57db">ttak_u256_zero</a>();</div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>    <span class="keywordflow">if</span> (shift == 0) <span class="keywordflow">return</span> v;</div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>    <a class="code hl_struct" href="structttak__u256__t.html">ttak_u256_t</a> out = <a class="code hl_function" href="fixed_8h.html#a1b966208235fd38f729c9aca5dff57db">ttak_u256_zero</a>();</div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>    <span class="keywordtype">unsigned</span> limb_shift = shift / 64;</div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>    <span class="keywordtype">unsigned</span> bit_shift = shift % 64;</div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 3; i &gt;= 0; --i) {</div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>        <span class="keywordflow">if</span> ((<span class="keywordtype">unsigned</span>)i &lt; limb_shift) <span class="keywordflow">continue</span>;</div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>        uint64_t chunk = v.<a class="code hl_variable" href="structttak__u256__t.html#ab016f95e7396ad42567f80383bcd2f26">limb</a>[i];</div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>        <span class="keywordtype">unsigned</span> target = i - limb_shift;</div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>        out.<a class="code hl_variable" href="structttak__u256__t.html#ab016f95e7396ad42567f80383bcd2f26">limb</a>[target] |= chunk &gt;&gt; bit_shift;</div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>        <span class="keywordflow">if</span> (bit_shift &amp;&amp; target &gt; 0) {</div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>            out.<a class="code hl_variable" href="structttak__u256__t.html#ab016f95e7396ad42567f80383bcd2f26">limb</a>[target - 1] |= chunk &lt;&lt; (64 - bit_shift);</div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span>        }</div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>    }</div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>    <span class="keywordflow">return</span> out;</div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>}</div>
+</div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span> </div>
+<div class="foldopen" id="foldopen00273" data-start="{" data-end="}">
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno"><a class="line" href="fixed_8h.html#a2fed85bfb8af0c518f0bb1673705fb67">  273</a></span><span class="keyword">static</span> <span class="keyword">inline</span> <a class="code hl_struct" href="structttak__u256__t.html">ttak_u256_t</a> <a class="code hl_function" href="fixed_8h.html#a2fed85bfb8af0c518f0bb1673705fb67">ttak_u256_shl</a>(<a class="code hl_struct" href="structttak__u256__t.html">ttak_u256_t</a> v, <span class="keywordtype">unsigned</span> shift) {</div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span>    <span class="keywordflow">if</span> (shift &gt;= 256) <span class="keywordflow">return</span> <a class="code hl_function" href="fixed_8h.html#a1b966208235fd38f729c9aca5dff57db">ttak_u256_zero</a>();</div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>    <span class="keywordflow">if</span> (shift == 0) <span class="keywordflow">return</span> v;</div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>    <a class="code hl_struct" href="structttak__u256__t.html">ttak_u256_t</a> out = <a class="code hl_function" href="fixed_8h.html#a1b966208235fd38f729c9aca5dff57db">ttak_u256_zero</a>();</div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span>    <span class="keywordtype">unsigned</span> limb_shift = shift / 64;</div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>    <span class="keywordtype">unsigned</span> bit_shift = shift % 64;</div>
+<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 4; ++i) {</div>
+<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span>        <span class="keywordflow">if</span> (i + limb_shift &gt;= 4) <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span>        uint64_t chunk = v.<a class="code hl_variable" href="structttak__u256__t.html#ab016f95e7396ad42567f80383bcd2f26">limb</a>[i];</div>
+<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span>        <span class="keywordtype">unsigned</span> target = i + limb_shift;</div>
+<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span>        out.<a class="code hl_variable" href="structttak__u256__t.html#ab016f95e7396ad42567f80383bcd2f26">limb</a>[target] |= chunk &lt;&lt; bit_shift;</div>
+<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span>        <span class="keywordflow">if</span> (bit_shift &amp;&amp; target + 1 &lt; 4) {</div>
+<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span>            out.<a class="code hl_variable" href="structttak__u256__t.html#ab016f95e7396ad42567f80383bcd2f26">limb</a>[target + 1] |= chunk &gt;&gt; (64 - bit_shift);</div>
+<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span>        }</div>
+<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>    }</div>
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>    <span class="keywordflow">return</span> out;</div>
+<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span>}</div>
+</div>
+<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span> </div>
+<div class="foldopen" id="foldopen00291" data-start="{" data-end="}">
+<div class="line"><a id="l00291" name="l00291"></a><span class="lineno"><a class="line" href="fixed_8h.html#aa2efd7138d14a4d05b823a479d42e1aa">  291</a></span><span class="keyword">static</span> <span class="keyword">inline</span> <a class="code hl_struct" href="structttak__u256__t.html">ttak_u256_t</a> <a class="code hl_function" href="fixed_8h.html#aa2efd7138d14a4d05b823a479d42e1aa">ttak_u128_mul_u128</a>(<a class="code hl_struct" href="structttak__u128__t.html">ttak_u128_t</a> a, <a class="code hl_struct" href="structttak__u128__t.html">ttak_u128_t</a> b) {</div>
+<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span>    uint64_t lo_hi, lo_lo;</div>
+<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span>    <a class="code hl_function" href="fixed_8h.html#a799eeed1842f8fa060ae9babb1a1c8b5">ttak_mul_64</a>(a.<a class="code hl_variable" href="structttak__u128__t.html#ab55f5b20d860d95c972017ea06137348">lo</a>, b.<a class="code hl_variable" href="structttak__u128__t.html#ab55f5b20d860d95c972017ea06137348">lo</a>, &amp;lo_hi, &amp;lo_lo);</div>
+<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span> </div>
+<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span>    uint64_t cross1_hi, cross1_lo;</div>
+<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span>    <a class="code hl_function" href="fixed_8h.html#a799eeed1842f8fa060ae9babb1a1c8b5">ttak_mul_64</a>(a.<a class="code hl_variable" href="structttak__u128__t.html#ab55f5b20d860d95c972017ea06137348">lo</a>, b.<a class="code hl_variable" href="structttak__u128__t.html#a8ca22384d51a3391a8cca9b6203aeed0">hi</a>, &amp;cross1_hi, &amp;cross1_lo);</div>
+<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span> </div>
+<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span>    uint64_t cross2_hi, cross2_lo;</div>
+<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span>    <a class="code hl_function" href="fixed_8h.html#a799eeed1842f8fa060ae9babb1a1c8b5">ttak_mul_64</a>(a.<a class="code hl_variable" href="structttak__u128__t.html#a8ca22384d51a3391a8cca9b6203aeed0">hi</a>, b.<a class="code hl_variable" href="structttak__u128__t.html#ab55f5b20d860d95c972017ea06137348">lo</a>, &amp;cross2_hi, &amp;cross2_lo);</div>
+<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span> </div>
+<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span>    uint64_t hi_hi, hi_lo;</div>
+<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span>    <a class="code hl_function" href="fixed_8h.html#a799eeed1842f8fa060ae9babb1a1c8b5">ttak_mul_64</a>(a.<a class="code hl_variable" href="structttak__u128__t.html#a8ca22384d51a3391a8cca9b6203aeed0">hi</a>, b.<a class="code hl_variable" href="structttak__u128__t.html#a8ca22384d51a3391a8cca9b6203aeed0">hi</a>, &amp;hi_hi, &amp;hi_lo);</div>
+<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span> </div>
+<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span>    uint64_t limb0 = lo_lo;</div>
+<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span> </div>
+<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span>    uint64_t limb1 = lo_hi;</div>
+<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span>    uint64_t carry = 0;</div>
+<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span>    uint64_t sum = limb1 + cross1_lo;</div>
+<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span>    carry = (sum &lt; limb1) ? 1 : 0;</div>
+<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span>    limb1 = sum;</div>
+<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span>    sum = limb1 + cross2_lo;</div>
+<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span>    carry += (sum &lt; limb1) ? 1 : 0;</div>
+<div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span>    limb1 = sum;</div>
+<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span> </div>
+<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span>    uint64_t limb2 = cross1_hi;</div>
+<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span>    uint64_t carry2 = 0;</div>
+<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span>    sum = limb2 + cross2_hi;</div>
+<div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span>    carry2 = (sum &lt; limb2) ? 1 : 0;</div>
+<div class="line"><a id="l00319" name="l00319"></a><span class="lineno">  319</span>    limb2 = sum;</div>
+<div class="line"><a id="l00320" name="l00320"></a><span class="lineno">  320</span>    sum = limb2 + hi_lo;</div>
+<div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span>    carry2 += (sum &lt; limb2) ? 1 : 0;</div>
+<div class="line"><a id="l00322" name="l00322"></a><span class="lineno">  322</span>    limb2 = sum;</div>
+<div class="line"><a id="l00323" name="l00323"></a><span class="lineno">  323</span>    limb2 += carry;</div>
+<div class="line"><a id="l00324" name="l00324"></a><span class="lineno">  324</span>    <span class="keywordflow">if</span> (limb2 &lt; carry) carry2++;</div>
+<div class="line"><a id="l00325" name="l00325"></a><span class="lineno">  325</span> </div>
+<div class="line"><a id="l00326" name="l00326"></a><span class="lineno">  326</span>    uint64_t limb3 = hi_hi + carry2;</div>
+<div class="line"><a id="l00327" name="l00327"></a><span class="lineno">  327</span> </div>
+<div class="line"><a id="l00328" name="l00328"></a><span class="lineno">  328</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="fixed_8h.html#abba53a0920f9ad08f21dc8a9310bebf3">ttak_u256_from_limbs</a>(limb3, limb2, limb1, limb0);</div>
+<div class="line"><a id="l00329" name="l00329"></a><span class="lineno">  329</span>}</div>
+</div>
+<div class="line"><a id="l00330" name="l00330"></a><span class="lineno">  330</span> </div>
+<div class="foldopen" id="foldopen00331" data-start="{" data-end="}">
+<div class="line"><a id="l00331" name="l00331"></a><span class="lineno"><a class="line" href="fixed_8h.html#a8fc96f8e7f1d99183873dcfa432f42af">  331</a></span><span class="keyword">static</span> <span class="keyword">inline</span> <a class="code hl_struct" href="structttak__u128__t.html">ttak_u128_t</a> <a class="code hl_function" href="fixed_8h.html#a8fc96f8e7f1d99183873dcfa432f42af">ttak_u256_extract_low</a>(<a class="code hl_struct" href="structttak__u256__t.html">ttak_u256_t</a> value) {</div>
+<div class="line"><a id="l00332" name="l00332"></a><span class="lineno">  332</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="fixed_8h.html#a012c546ae881dd002f23c278dc982359">ttak_u256_low128</a>(value);</div>
+<div class="line"><a id="l00333" name="l00333"></a><span class="lineno">  333</span>}</div>
+</div>
+<div class="line"><a id="l00334" name="l00334"></a><span class="lineno">  334</span> </div>
+<div class="foldopen" id="foldopen00335" data-start="{" data-end="}">
+<div class="line"><a id="l00335" name="l00335"></a><span class="lineno"><a class="line" href="fixed_8h.html#ad63615da32c5bbfd6bd52310a625cc3e">  335</a></span><span class="keyword">static</span> <span class="keyword">inline</span> <a class="code hl_struct" href="structttak__u128__t.html">ttak_u128_t</a> <a class="code hl_function" href="fixed_8h.html#ad63615da32c5bbfd6bd52310a625cc3e">ttak_u256_extract_high</a>(<a class="code hl_struct" href="structttak__u256__t.html">ttak_u256_t</a> value) {</div>
+<div class="line"><a id="l00336" name="l00336"></a><span class="lineno">  336</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="fixed_8h.html#a1321fb7294fdf487da9f2454061c8108">ttak_u256_high128</a>(value);</div>
+<div class="line"><a id="l00337" name="l00337"></a><span class="lineno">  337</span>}</div>
+</div>
+<div class="line"><a id="l00338" name="l00338"></a><span class="lineno">  338</span> </div>
+<div class="line"><a id="l00339" name="l00339"></a><span class="lineno">  339</span><span class="preprocessor">#endif </span><span class="comment">/* TTAK_TYPES_FIXED_H */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="afixed_8h_html_a012c546ae881dd002f23c278dc982359"><div class="ttname"><a href="fixed_8h.html#a012c546ae881dd002f23c278dc982359">ttak_u256_low128</a></div><div class="ttdeci">static ttak_u128_t ttak_u256_low128(ttak_u256_t value)</div><div class="ttdef"><b>Definition</b> <a href="fixed_8h_source.html#l00234">fixed.h:234</a></div></div>
 <div class="ttc" id="afixed_8h_html_a0586f7a724639cf8ea03933df9b10064"><div class="ttname"><a href="fixed_8h.html#a0586f7a724639cf8ea03933df9b10064">ttak_u128_is_zero</a></div><div class="ttdeci">static bool ttak_u128_is_zero(ttak_u128_t v)</div><div class="ttdef"><b>Definition</b> <a href="fixed_8h_source.html#l00117">fixed.h:117</a></div></div>
 <div class="ttc" id="afixed_8h_html_a068e0c1af176740d1ca4c1347f6dd624"><div class="ttname"><a href="fixed_8h.html#a068e0c1af176740d1ca4c1347f6dd624">ttak_u128_cmp</a></div><div class="ttdeci">static int ttak_u128_cmp(ttak_u128_t a, ttak_u128_t b)</div><div class="ttdef"><b>Definition</b> <a href="fixed_8h_source.html#l00034">fixed.h:34</a></div></div>
 <div class="ttc" id="afixed_8h_html_a07e64bcc2b86d434e02b76852059f931"><div class="ttname"><a href="fixed_8h.html#a07e64bcc2b86d434e02b76852059f931">ttak_u128_get_lo</a></div><div class="ttdeci">static uint64_t ttak_u128_get_lo(ttak_u128_t v)</div><div class="ttdef"><b>Definition</b> <a href="fixed_8h_source.html#l00031">fixed.h:31</a></div></div>
-<div class="ttc" id="afixed_8h_html_a087115982f5b266423f6f19dcfe7ff2b"><div class="ttname"><a href="fixed_8h.html#a087115982f5b266423f6f19dcfe7ff2b">ttak_u128_mod_u64</a></div><div class="ttdeci">static uint64_t ttak_u128_mod_u64(ttak_u128_t value, uint64_t mod)</div><div class="ttdef"><b>Definition</b> <a href="fixed_8h_source.html#l00178">fixed.h:178</a></div></div>
-<div class="ttc" id="afixed_8h_html_a1321fb7294fdf487da9f2454061c8108"><div class="ttname"><a href="fixed_8h.html#a1321fb7294fdf487da9f2454061c8108">ttak_u256_high128</a></div><div class="ttdeci">static ttak_u128_t ttak_u256_high128(ttak_u256_t value)</div><div class="ttdef"><b>Definition</b> <a href="fixed_8h_source.html#l00206">fixed.h:206</a></div></div>
+<div class="ttc" id="afixed_8h_html_a087115982f5b266423f6f19dcfe7ff2b"><div class="ttname"><a href="fixed_8h.html#a087115982f5b266423f6f19dcfe7ff2b">ttak_u128_mod_u64</a></div><div class="ttdeci">static uint64_t ttak_u128_mod_u64(ttak_u128_t value, uint64_t mod)</div><div class="ttdef"><b>Definition</b> <a href="fixed_8h_source.html#l00210">fixed.h:210</a></div></div>
+<div class="ttc" id="afixed_8h_html_a1321fb7294fdf487da9f2454061c8108"><div class="ttname"><a href="fixed_8h.html#a1321fb7294fdf487da9f2454061c8108">ttak_u256_high128</a></div><div class="ttdeci">static ttak_u128_t ttak_u256_high128(ttak_u256_t value)</div><div class="ttdef"><b>Definition</b> <a href="fixed_8h_source.html#l00238">fixed.h:238</a></div></div>
 <div class="ttc" id="afixed_8h_html_a14b65fddfc8fd2bc6ea50a3025e5b846"><div class="ttname"><a href="fixed_8h.html#a14b65fddfc8fd2bc6ea50a3025e5b846">ttak_u128_add</a></div><div class="ttdeci">static ttak_u128_t ttak_u128_add(ttak_u128_t a, ttak_u128_t b)</div><div class="ttdef"><b>Definition</b> <a href="fixed_8h_source.html#l00042">fixed.h:42</a></div></div>
-<div class="ttc" id="afixed_8h_html_a1b966208235fd38f729c9aca5dff57db"><div class="ttname"><a href="fixed_8h.html#a1b966208235fd38f729c9aca5dff57db">ttak_u256_zero</a></div><div class="ttdeci">static ttak_u256_t ttak_u256_zero(void)</div><div class="ttdef"><b>Definition</b> <a href="fixed_8h_source.html#l00188">fixed.h:188</a></div></div>
-<div class="ttc" id="afixed_8h_html_a2ec62a2dabcd6f92c012917ba6bb40f5"><div class="ttname"><a href="fixed_8h.html#a2ec62a2dabcd6f92c012917ba6bb40f5">ttak_u256_add</a></div><div class="ttdeci">static ttak_u256_t ttak_u256_add(ttak_u256_t a, ttak_u256_t b)</div><div class="ttdef"><b>Definition</b> <a href="fixed_8h_source.html#l00210">fixed.h:210</a></div></div>
-<div class="ttc" id="afixed_8h_html_a2fed85bfb8af0c518f0bb1673705fb67"><div class="ttname"><a href="fixed_8h.html#a2fed85bfb8af0c518f0bb1673705fb67">ttak_u256_shl</a></div><div class="ttdeci">static ttak_u256_t ttak_u256_shl(ttak_u256_t v, unsigned shift)</div><div class="ttdef"><b>Definition</b> <a href="fixed_8h_source.html#l00241">fixed.h:241</a></div></div>
+<div class="ttc" id="afixed_8h_html_a1b966208235fd38f729c9aca5dff57db"><div class="ttname"><a href="fixed_8h.html#a1b966208235fd38f729c9aca5dff57db">ttak_u256_zero</a></div><div class="ttdeci">static ttak_u256_t ttak_u256_zero(void)</div><div class="ttdef"><b>Definition</b> <a href="fixed_8h_source.html#l00220">fixed.h:220</a></div></div>
+<div class="ttc" id="afixed_8h_html_a2ec62a2dabcd6f92c012917ba6bb40f5"><div class="ttname"><a href="fixed_8h.html#a2ec62a2dabcd6f92c012917ba6bb40f5">ttak_u256_add</a></div><div class="ttdeci">static ttak_u256_t ttak_u256_add(ttak_u256_t a, ttak_u256_t b)</div><div class="ttdef"><b>Definition</b> <a href="fixed_8h_source.html#l00242">fixed.h:242</a></div></div>
+<div class="ttc" id="afixed_8h_html_a2fed85bfb8af0c518f0bb1673705fb67"><div class="ttname"><a href="fixed_8h.html#a2fed85bfb8af0c518f0bb1673705fb67">ttak_u256_shl</a></div><div class="ttdeci">static ttak_u256_t ttak_u256_shl(ttak_u256_t v, unsigned shift)</div><div class="ttdef"><b>Definition</b> <a href="fixed_8h_source.html#l00273">fixed.h:273</a></div></div>
 <div class="ttc" id="afixed_8h_html_a30f2d206464903bbce4026d47feab406"><div class="ttname"><a href="fixed_8h.html#a30f2d206464903bbce4026d47feab406">ttak_u128_get_hi</a></div><div class="ttdeci">static uint64_t ttak_u128_get_hi(ttak_u128_t v)</div><div class="ttdef"><b>Definition</b> <a href="fixed_8h_source.html#l00032">fixed.h:32</a></div></div>
 <div class="ttc" id="afixed_8h_html_a3c207c23ea3e928b9339e192280da009"><div class="ttname"><a href="fixed_8h.html#a3c207c23ea3e928b9339e192280da009">ttak_u128_make</a></div><div class="ttdeci">static ttak_u128_t ttak_u128_make(uint64_t hi, uint64_t lo)</div><div class="ttdef"><b>Definition</b> <a href="fixed_8h_source.html#l00016">fixed.h:16</a></div></div>
 <div class="ttc" id="afixed_8h_html_a4f73e4ed30878983e5d26592727dd6d4"><div class="ttname"><a href="fixed_8h.html#a4f73e4ed30878983e5d26592727dd6d4">ttak_u128_and</a></div><div class="ttdeci">static ttak_u128_t ttak_u128_and(ttak_u128_t a, ttak_u128_t b)</div><div class="ttdef"><b>Definition</b> <a href="fixed_8h_source.html#l00086">fixed.h:86</a></div></div>
@@ -493,19 +525,19 @@ $(document).ready(function(){initNavTree('fixed_8h_source.html',''); initResizab
 <div class="ttc" id="afixed_8h_html_a787ae96b9534f66a53f31f9f263b4b4d"><div class="ttname"><a href="fixed_8h.html#a787ae96b9534f66a53f31f9f263b4b4d">ttak_u128_add_overflow</a></div><div class="ttdeci">static bool ttak_u128_add_overflow(ttak_u128_t a, ttak_u128_t b, ttak_u128_t *out)</div><div class="ttdef"><b>Definition</b> <a href="fixed_8h_source.html#l00050">fixed.h:50</a></div></div>
 <div class="ttc" id="afixed_8h_html_a799eeed1842f8fa060ae9babb1a1c8b5"><div class="ttname"><a href="fixed_8h.html#a799eeed1842f8fa060ae9babb1a1c8b5">ttak_mul_64</a></div><div class="ttdeci">static void ttak_mul_64(uint64_t a, uint64_t b, uint64_t *hi, uint64_t *lo)</div><div class="ttdef"><b>Definition</b> <a href="fixed_8h_source.html#l00129">fixed.h:129</a></div></div>
 <div class="ttc" id="afixed_8h_html_a82e9782e486bf10449fe10cd60e79dea"><div class="ttname"><a href="fixed_8h.html#a82e9782e486bf10449fe10cd60e79dea">ttak_u128_shr</a></div><div class="ttdeci">static ttak_u128_t ttak_u128_shr(ttak_u128_t v, unsigned shift)</div><div class="ttdef"><b>Definition</b> <a href="fixed_8h_source.html#l00105">fixed.h:105</a></div></div>
-<div class="ttc" id="afixed_8h_html_a8efab2f600f17fcb131ed9c647277c81"><div class="ttname"><a href="fixed_8h.html#a8efab2f600f17fcb131ed9c647277c81">ttak_u64_mul_lo</a></div><div class="ttdeci">static uint64_t ttak_u64_mul_lo(uint64_t a, uint64_t b)</div><div class="ttdef"><b>Definition</b> <a href="fixed_8h_source.html#l00153">fixed.h:153</a></div></div>
-<div class="ttc" id="afixed_8h_html_a8fc96f8e7f1d99183873dcfa432f42af"><div class="ttname"><a href="fixed_8h.html#a8fc96f8e7f1d99183873dcfa432f42af">ttak_u256_extract_low</a></div><div class="ttdeci">static ttak_u128_t ttak_u256_extract_low(ttak_u256_t value)</div><div class="ttdef"><b>Definition</b> <a href="fixed_8h_source.html#l00299">fixed.h:299</a></div></div>
-<div class="ttc" id="afixed_8h_html_a9e0c22388e772c30ae3b1d9da87b94ed"><div class="ttname"><a href="fixed_8h.html#a9e0c22388e772c30ae3b1d9da87b94ed">ttak_u128_mul64</a></div><div class="ttdeci">static ttak_u128_t ttak_u128_mul64(uint64_t a, uint64_t b)</div><div class="ttdef"><b>Definition</b> <a href="fixed_8h_source.html#l00174">fixed.h:174</a></div></div>
-<div class="ttc" id="afixed_8h_html_aa2efd7138d14a4d05b823a479d42e1aa"><div class="ttname"><a href="fixed_8h.html#aa2efd7138d14a4d05b823a479d42e1aa">ttak_u128_mul_u128</a></div><div class="ttdeci">static ttak_u256_t ttak_u128_mul_u128(ttak_u128_t a, ttak_u128_t b)</div><div class="ttdef"><b>Definition</b> <a href="fixed_8h_source.html#l00259">fixed.h:259</a></div></div>
-<div class="ttc" id="afixed_8h_html_aabf015779a4c4fe39c71d3b0199c1d4f"><div class="ttname"><a href="fixed_8h.html#aabf015779a4c4fe39c71d3b0199c1d4f">ttak_u256_shr</a></div><div class="ttdeci">static ttak_u256_t ttak_u256_shr(ttak_u256_t v, unsigned shift)</div><div class="ttdef"><b>Definition</b> <a href="fixed_8h_source.html#l00223">fixed.h:223</a></div></div>
-<div class="ttc" id="afixed_8h_html_abba53a0920f9ad08f21dc8a9310bebf3"><div class="ttname"><a href="fixed_8h.html#abba53a0920f9ad08f21dc8a9310bebf3">ttak_u256_from_limbs</a></div><div class="ttdeci">static ttak_u256_t ttak_u256_from_limbs(uint64_t l3, uint64_t l2, uint64_t l1, uint64_t l0)</div><div class="ttdef"><b>Definition</b> <a href="fixed_8h_source.html#l00193">fixed.h:193</a></div></div>
-<div class="ttc" id="afixed_8h_html_ac0d78544bdf52b1e7be2adad8d318749"><div class="ttname"><a href="fixed_8h.html#ac0d78544bdf52b1e7be2adad8d318749">ttak_u128_mul_u64_scalar</a></div><div class="ttdeci">static ttak_u128_t ttak_u128_mul_u64_scalar(uint64_t a, uint64_t b)</div><div class="ttdef"><b>Definition</b> <a href="fixed_8h_source.html#l00147">fixed.h:147</a></div></div>
+<div class="ttc" id="afixed_8h_html_a8efab2f600f17fcb131ed9c647277c81"><div class="ttname"><a href="fixed_8h.html#a8efab2f600f17fcb131ed9c647277c81">ttak_u64_mul_lo</a></div><div class="ttdeci">static uint64_t ttak_u64_mul_lo(uint64_t a, uint64_t b)</div><div class="ttdef"><b>Definition</b> <a href="fixed_8h_source.html#l00185">fixed.h:185</a></div></div>
+<div class="ttc" id="afixed_8h_html_a8fc96f8e7f1d99183873dcfa432f42af"><div class="ttname"><a href="fixed_8h.html#a8fc96f8e7f1d99183873dcfa432f42af">ttak_u256_extract_low</a></div><div class="ttdeci">static ttak_u128_t ttak_u256_extract_low(ttak_u256_t value)</div><div class="ttdef"><b>Definition</b> <a href="fixed_8h_source.html#l00331">fixed.h:331</a></div></div>
+<div class="ttc" id="afixed_8h_html_a9e0c22388e772c30ae3b1d9da87b94ed"><div class="ttname"><a href="fixed_8h.html#a9e0c22388e772c30ae3b1d9da87b94ed">ttak_u128_mul64</a></div><div class="ttdeci">static ttak_u128_t ttak_u128_mul64(uint64_t a, uint64_t b)</div><div class="ttdef"><b>Definition</b> <a href="fixed_8h_source.html#l00206">fixed.h:206</a></div></div>
+<div class="ttc" id="afixed_8h_html_aa2efd7138d14a4d05b823a479d42e1aa"><div class="ttname"><a href="fixed_8h.html#aa2efd7138d14a4d05b823a479d42e1aa">ttak_u128_mul_u128</a></div><div class="ttdeci">static ttak_u256_t ttak_u128_mul_u128(ttak_u128_t a, ttak_u128_t b)</div><div class="ttdef"><b>Definition</b> <a href="fixed_8h_source.html#l00291">fixed.h:291</a></div></div>
+<div class="ttc" id="afixed_8h_html_aabf015779a4c4fe39c71d3b0199c1d4f"><div class="ttname"><a href="fixed_8h.html#aabf015779a4c4fe39c71d3b0199c1d4f">ttak_u256_shr</a></div><div class="ttdeci">static ttak_u256_t ttak_u256_shr(ttak_u256_t v, unsigned shift)</div><div class="ttdef"><b>Definition</b> <a href="fixed_8h_source.html#l00255">fixed.h:255</a></div></div>
+<div class="ttc" id="afixed_8h_html_abba53a0920f9ad08f21dc8a9310bebf3"><div class="ttname"><a href="fixed_8h.html#abba53a0920f9ad08f21dc8a9310bebf3">ttak_u256_from_limbs</a></div><div class="ttdeci">static ttak_u256_t ttak_u256_from_limbs(uint64_t l3, uint64_t l2, uint64_t l1, uint64_t l0)</div><div class="ttdef"><b>Definition</b> <a href="fixed_8h_source.html#l00225">fixed.h:225</a></div></div>
+<div class="ttc" id="afixed_8h_html_ac0d78544bdf52b1e7be2adad8d318749"><div class="ttname"><a href="fixed_8h.html#ac0d78544bdf52b1e7be2adad8d318749">ttak_u128_mul_u64_scalar</a></div><div class="ttdeci">static ttak_u128_t ttak_u128_mul_u64_scalar(uint64_t a, uint64_t b)</div><div class="ttdef"><b>Definition</b> <a href="fixed_8h_source.html#l00179">fixed.h:179</a></div></div>
 <div class="ttc" id="afixed_8h_html_ac8e313ac73404364a1195f501ccc3185"><div class="ttname"><a href="fixed_8h.html#ac8e313ac73404364a1195f501ccc3185">ttak_u128_from_u64</a></div><div class="ttdeci">static ttak_u128_t ttak_u128_from_u64(uint64_t value)</div><div class="ttdef"><b>Definition</b> <a href="fixed_8h_source.html#l00023">fixed.h:23</a></div></div>
-<div class="ttc" id="afixed_8h_html_ad63615da32c5bbfd6bd52310a625cc3e"><div class="ttname"><a href="fixed_8h.html#ad63615da32c5bbfd6bd52310a625cc3e">ttak_u256_extract_high</a></div><div class="ttdeci">static ttak_u128_t ttak_u256_extract_high(ttak_u256_t value)</div><div class="ttdef"><b>Definition</b> <a href="fixed_8h_source.html#l00303">fixed.h:303</a></div></div>
-<div class="ttc" id="afixed_8h_html_ad6aa9932db56063fc3ef9885b3c19b3f"><div class="ttname"><a href="fixed_8h.html#ad6aa9932db56063fc3ef9885b3c19b3f">ttak_u256_from_u128</a></div><div class="ttdeci">static ttak_u256_t ttak_u256_from_u128(ttak_u128_t value)</div><div class="ttdef"><b>Definition</b> <a href="fixed_8h_source.html#l00198">fixed.h:198</a></div></div>
+<div class="ttc" id="afixed_8h_html_ad63615da32c5bbfd6bd52310a625cc3e"><div class="ttname"><a href="fixed_8h.html#ad63615da32c5bbfd6bd52310a625cc3e">ttak_u256_extract_high</a></div><div class="ttdeci">static ttak_u128_t ttak_u256_extract_high(ttak_u256_t value)</div><div class="ttdef"><b>Definition</b> <a href="fixed_8h_source.html#l00335">fixed.h:335</a></div></div>
+<div class="ttc" id="afixed_8h_html_ad6aa9932db56063fc3ef9885b3c19b3f"><div class="ttname"><a href="fixed_8h.html#ad6aa9932db56063fc3ef9885b3c19b3f">ttak_u256_from_u128</a></div><div class="ttdeci">static ttak_u256_t ttak_u256_from_u128(ttak_u128_t value)</div><div class="ttdef"><b>Definition</b> <a href="fixed_8h_source.html#l00230">fixed.h:230</a></div></div>
 <div class="ttc" id="afixed_8h_html_adb1d545b5cba1ae4a024c1908eb29d9d"><div class="ttname"><a href="fixed_8h.html#adb1d545b5cba1ae4a024c1908eb29d9d">ttak_u128_bit</a></div><div class="ttdeci">static uint64_t ttak_u128_bit(ttak_u128_t v, unsigned bit)</div><div class="ttdef"><b>Definition</b> <a href="fixed_8h_source.html#l00121">fixed.h:121</a></div></div>
 <div class="ttc" id="afixed_8h_html_ae37314ceda6f651347211e518fd52db5"><div class="ttname"><a href="fixed_8h.html#ae37314ceda6f651347211e518fd52db5">ttak_u128_sub</a></div><div class="ttdeci">static ttak_u128_t ttak_u128_sub(ttak_u128_t a, ttak_u128_t b)</div><div class="ttdef"><b>Definition</b> <a href="fixed_8h_source.html#l00064">fixed.h:64</a></div></div>
-<div class="ttc" id="afixed_8h_html_aeaacfff748e4338ade685b01de358b41"><div class="ttname"><a href="fixed_8h.html#aeaacfff748e4338ade685b01de358b41">ttak_u128_mul_u64_wide</a></div><div class="ttdeci">static ttak_u128_t ttak_u128_mul_u64_wide(ttak_u128_t value, uint64_t factor, bool *overflow)</div><div class="ttdef"><b>Definition</b> <a href="fixed_8h_source.html#l00160">fixed.h:160</a></div></div>
+<div class="ttc" id="afixed_8h_html_aeaacfff748e4338ade685b01de358b41"><div class="ttname"><a href="fixed_8h.html#aeaacfff748e4338ade685b01de358b41">ttak_u128_mul_u64_wide</a></div><div class="ttdeci">static ttak_u128_t ttak_u128_mul_u64_wide(ttak_u128_t value, uint64_t factor, bool *overflow)</div><div class="ttdef"><b>Definition</b> <a href="fixed_8h_source.html#l00192">fixed.h:192</a></div></div>
 <div class="ttc" id="afixed_8h_html_aef708ed2f0eac735910ce6103eceef17"><div class="ttname"><a href="fixed_8h.html#aef708ed2f0eac735910ce6103eceef17">ttak_u128_shl</a></div><div class="ttdeci">static ttak_u128_t ttak_u128_shl(ttak_u128_t v, unsigned shift)</div><div class="ttdef"><b>Definition</b> <a href="fixed_8h_source.html#l00093">fixed.h:93</a></div></div>
 <div class="ttc" id="astructttak__u128__t_html"><div class="ttname"><a href="structttak__u128__t.html">ttak_u128_t</a></div><div class="ttdef"><b>Definition</b> <a href="fixed_8h_source.html#l00007">fixed.h:7</a></div></div>
 <div class="ttc" id="astructttak__u128__t_html_a8ca22384d51a3391a8cca9b6203aeed0"><div class="ttname"><a href="structttak__u128__t.html#a8ca22384d51a3391a8cca9b6203aeed0">ttak_u128_t::hi</a></div><div class="ttdeci">uint64_t hi</div><div class="ttdef"><b>Definition</b> <a href="fixed_8h_source.html#l00009">fixed.h:9</a></div></div>

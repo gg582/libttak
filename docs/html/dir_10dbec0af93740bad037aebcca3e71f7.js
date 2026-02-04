@@ -8,5 +8,6 @@ var dir_10dbec0af93740bad037aebcca3e71f7 =
     [ "05_priority_scheduling.puml", "05__priority__scheduling_8puml.html", null ],
     [ "06_utilities.puml", "06__utilities_8puml.html", null ],
     [ "07_safety_and_ownership.puml", "07__safety__and__ownership_8puml.html", null ],
-    [ "08_tree_structures.puml", "08__tree__structures_8puml.html", null ]
+    [ "08_tree_structures.puml", "08__tree__structures_8puml.html", null ],
+    [ "all.puml", "all_8puml.html", null ]
 ];

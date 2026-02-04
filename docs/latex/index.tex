@@ -2,26 +2,26 @@
 \hypertarget{index}{}\label{index}\index{TTL Cache Benchmark (libttak)@{TTL Cache Benchmark (libttak)}}
 \label{index_md_bench_2ttl-cache-multithread-bench_2README}%
 \Hypertarget{index_md_bench_2ttl-cache-multithread-bench_2README}%
- A high-\/performance benchmark for {\ttfamily libttak} simulating a TTL-\/based cache with generational memory management.\hypertarget{index_autotoc_md1}{}\doxysection{\texorpdfstring{Overview}{Overview}}\label{index_autotoc_md1}
+ A high-\/performance benchmark for {\ttfamily libttak} simulating a TTL-\/based cache with generational memory management.\hypertarget{index_autotoc_md2}{}\doxysection{\texorpdfstring{Overview}{Overview}}\label{index_autotoc_md2}
 This benchmark simulates a concurrent cache workload with\+:
 \begin{DoxyItemize}
 \item {\bfseries{Generational Memory\+:}} Values are allocated in time-\/based epochs.
 \item {\bfseries{Bulk Cleanup\+:}} When an epoch expires, all its memory is freed at once using {\ttfamily mem\+\_\+tree}.
 \item {\bfseries{Sharded Locking\+:}} Hash map is partitioned into shards for concurrency.
 \item {\bfseries{Async Maintenance\+:}} Background task rotates epochs and cleans up old data.
-\end{DoxyItemize}\hypertarget{index_autotoc_md2}{}\doxysection{\texorpdfstring{Build}{Build}}\label{index_autotoc_md2}
+\end{DoxyItemize}\hypertarget{index_autotoc_md3}{}\doxysection{\texorpdfstring{Build}{Build}}\label{index_autotoc_md3}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{make}
 
 \end{DoxyCode}
-\hypertarget{index_autotoc_md3}{}\doxysection{\texorpdfstring{Run}{Run}}\label{index_autotoc_md3}
+\hypertarget{index_autotoc_md4}{}\doxysection{\texorpdfstring{Run}{Run}}\label{index_autotoc_md4}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{./ttl\_cache\_bench\ [options]}
 
 \end{DoxyCode}
-\hypertarget{index_autotoc_md4}{}\doxysubsection{\texorpdfstring{Options}{Options}}\label{index_autotoc_md4}
+\hypertarget{index_autotoc_md5}{}\doxysubsection{\texorpdfstring{Options}{Options}}\label{index_autotoc_md5}
 
 \begin{DoxyItemize}
 \item {\ttfamily -\/-\/threads, -\/t}\+: Number of worker threads (default\+: 4)
@@ -31,13 +31,13 @@ This benchmark simulates a concurrent cache workload with\+:
 \item {\ttfamily -\/-\/ttl-\/ms, -\/l}\+: TTL of items in milliseconds (default\+: 500)
 \item {\ttfamily -\/-\/epoch-\/ms, -\/e}\+: Duration of one epoch in milliseconds (default\+: 250)
 \item {\ttfamily -\/-\/shards, -\/s}\+: Number of map shards (default\+: 16)
-\end{DoxyItemize}\hypertarget{index_autotoc_md5}{}\doxysubsection{\texorpdfstring{Example}{Example}}\label{index_autotoc_md5}
+\end{DoxyItemize}\hypertarget{index_autotoc_md6}{}\doxysubsection{\texorpdfstring{Example}{Example}}\label{index_autotoc_md6}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{./ttl\_cache\_bench\ -\/-\/threads\ 8\ -\/-\/duration\ 20\ -\/-\/value-\/size\ 1024\ -\/-\/shards\ 32}
 
 \end{DoxyCode}
-\hypertarget{index_autotoc_md6}{}\doxysection{\texorpdfstring{Metrics}{Metrics}}\label{index_autotoc_md6}
+\hypertarget{index_autotoc_md7}{}\doxysection{\texorpdfstring{Metrics}{Metrics}}\label{index_autotoc_md7}
 
 \begin{DoxyItemize}
 \item {\bfseries{Ops/s}}\+: Total throughput (Get + Set + Del)

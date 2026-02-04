@@ -27,19 +27,19 @@ pthread\+\_\+mutex\+\_\+t \mbox{\hyperlink{structttak__mem__tree_abc03363062bc93
 \item 
 pthread\+\_\+cond\+\_\+t \mbox{\hyperlink{structttak__mem__tree_a66aff4cfeb51826d80c498f97ac7754f}{cond}}
 \item 
-\+\_\+\+Atomic uint64\+\_\+t \mbox{\hyperlink{structttak__mem__tree_aff2a55fdc5d37df9e5c0f1e60addb61e}{max\+\_\+cleanup\+\_\+interval\+\_\+ns}}
+\mbox{\hyperlink{include_2stdatomic_8h_a94674db2fe3c7496dfdcaa9b81486e79}{\+\_\+\+Atomic}} uint64\+\_\+t \mbox{\hyperlink{structttak__mem__tree_aff2a55fdc5d37df9e5c0f1e60addb61e}{max\+\_\+cleanup\+\_\+interval\+\_\+ns}}
 \item 
-\+\_\+\+Atomic uint64\+\_\+t \mbox{\hyperlink{structttak__mem__tree_abe8cab7317692c62f28a634e0b17b20d}{min\+\_\+cleanup\+\_\+interval\+\_\+ns}}
+\mbox{\hyperlink{include_2stdatomic_8h_a94674db2fe3c7496dfdcaa9b81486e79}{\+\_\+\+Atomic}} uint64\+\_\+t \mbox{\hyperlink{structttak__mem__tree_abe8cab7317692c62f28a634e0b17b20d}{min\+\_\+cleanup\+\_\+interval\+\_\+ns}}
 \item 
-\+\_\+\+Atomic size\+\_\+t \mbox{\hyperlink{structttak__mem__tree_a96aa133fccd921e1063aaa7e0461b32f}{garbage\+\_\+pressure}}
+\mbox{\hyperlink{include_2stdatomic_8h_a94674db2fe3c7496dfdcaa9b81486e79}{\+\_\+\+Atomic}} size\+\_\+t \mbox{\hyperlink{structttak__mem__tree_a96aa133fccd921e1063aaa7e0461b32f}{garbage\+\_\+pressure}}
 \item 
-\+\_\+\+Atomic size\+\_\+t \mbox{\hyperlink{structttak__mem__tree_acc33637b86a2992c5d7f46679624d2c9}{pressure\+\_\+threshold}}
+\mbox{\hyperlink{include_2stdatomic_8h_a94674db2fe3c7496dfdcaa9b81486e79}{\+\_\+\+Atomic}} size\+\_\+t \mbox{\hyperlink{structttak__mem__tree_acc33637b86a2992c5d7f46679624d2c9}{pressure\+\_\+threshold}}
 \item 
-\+\_\+\+Atomic \+\_\+\+Bool \mbox{\hyperlink{structttak__mem__tree_a7bf5a075716a16c6db6f174a8ee85278}{use\+\_\+manual\+\_\+cleanup}}
+\mbox{\hyperlink{include_2stdatomic_8h_a94674db2fe3c7496dfdcaa9b81486e79}{\+\_\+\+Atomic}} \+\_\+\+Bool \mbox{\hyperlink{structttak__mem__tree_a7bf5a075716a16c6db6f174a8ee85278}{use\+\_\+manual\+\_\+cleanup}}
 \item 
 pthread\+\_\+t \mbox{\hyperlink{structttak__mem__tree_a05f533891d26dee4a3ee9e1997b7b6cc}{cleanup\+\_\+thread}}
 \item 
-\+\_\+\+Atomic \+\_\+\+Bool \mbox{\hyperlink{structttak__mem__tree_ae6e6bee1dd3f2922877d8c96d86275b6}{shutdown\+\_\+requested}}
+\mbox{\hyperlink{include_2stdatomic_8h_a94674db2fe3c7496dfdcaa9b81486e79}{\+\_\+\+Atomic}} \+\_\+\+Bool \mbox{\hyperlink{structttak__mem__tree_ae6e6bee1dd3f2922877d8c96d86275b6}{shutdown\+\_\+requested}}
 \end{DoxyCompactItemize}
 
 
@@ -77,7 +77,7 @@ Definition at line \mbox{\hyperlink{mem__tree_8h_source_l00042}{42}} of file \mb
 \index{ttak\_mem\_tree@{ttak\_mem\_tree}!garbage\_pressure@{garbage\_pressure}}
 \index{garbage\_pressure@{garbage\_pressure}!ttak\_mem\_tree@{ttak\_mem\_tree}}
 \doxysubsubsection{\texorpdfstring{garbage\_pressure}{garbage\_pressure}}
-{\footnotesize\ttfamily \+\_\+\+Atomic size\+\_\+t ttak\+\_\+mem\+\_\+tree\+::garbage\+\_\+pressure}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2stdatomic_8h_a94674db2fe3c7496dfdcaa9b81486e79}{\+\_\+\+Atomic}} size\+\_\+t ttak\+\_\+mem\+\_\+tree\+::garbage\+\_\+pressure}
 
 Score representing the amount of potential garbage/missing memory. 
 
@@ -107,7 +107,7 @@ Definition at line \mbox{\hyperlink{mem__tree_8h_source_l00041}{41}} of file \mb
 \index{ttak\_mem\_tree@{ttak\_mem\_tree}!max\_cleanup\_interval\_ns@{max\_cleanup\_interval\_ns}}
 \index{max\_cleanup\_interval\_ns@{max\_cleanup\_interval\_ns}!ttak\_mem\_tree@{ttak\_mem\_tree}}
 \doxysubsubsection{\texorpdfstring{max\_cleanup\_interval\_ns}{max\_cleanup\_interval\_ns}}
-{\footnotesize\ttfamily \+\_\+\+Atomic uint64\+\_\+t ttak\+\_\+mem\+\_\+tree\+::max\+\_\+cleanup\+\_\+interval\+\_\+ns}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2stdatomic_8h_a94674db2fe3c7496dfdcaa9b81486e79}{\+\_\+\+Atomic}} uint64\+\_\+t ttak\+\_\+mem\+\_\+tree\+::max\+\_\+cleanup\+\_\+interval\+\_\+ns}
 
 Maximum interval in nanoseconds for automatic cleanup (default 120s). 
 
@@ -117,7 +117,7 @@ Definition at line \mbox{\hyperlink{mem__tree_8h_source_l00043}{43}} of file \mb
 \index{ttak\_mem\_tree@{ttak\_mem\_tree}!min\_cleanup\_interval\_ns@{min\_cleanup\_interval\_ns}}
 \index{min\_cleanup\_interval\_ns@{min\_cleanup\_interval\_ns}!ttak\_mem\_tree@{ttak\_mem\_tree}}
 \doxysubsubsection{\texorpdfstring{min\_cleanup\_interval\_ns}{min\_cleanup\_interval\_ns}}
-{\footnotesize\ttfamily \+\_\+\+Atomic uint64\+\_\+t ttak\+\_\+mem\+\_\+tree\+::min\+\_\+cleanup\+\_\+interval\+\_\+ns}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2stdatomic_8h_a94674db2fe3c7496dfdcaa9b81486e79}{\+\_\+\+Atomic}} uint64\+\_\+t ttak\+\_\+mem\+\_\+tree\+::min\+\_\+cleanup\+\_\+interval\+\_\+ns}
 
 Minimum interval in nanoseconds for automatic cleanup (default 10s). 
 
@@ -127,7 +127,7 @@ Definition at line \mbox{\hyperlink{mem__tree_8h_source_l00044}{44}} of file \mb
 \index{ttak\_mem\_tree@{ttak\_mem\_tree}!pressure\_threshold@{pressure\_threshold}}
 \index{pressure\_threshold@{pressure\_threshold}!ttak\_mem\_tree@{ttak\_mem\_tree}}
 \doxysubsubsection{\texorpdfstring{pressure\_threshold}{pressure\_threshold}}
-{\footnotesize\ttfamily \+\_\+\+Atomic size\+\_\+t ttak\+\_\+mem\+\_\+tree\+::pressure\+\_\+threshold}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2stdatomic_8h_a94674db2fe3c7496dfdcaa9b81486e79}{\+\_\+\+Atomic}} size\+\_\+t ttak\+\_\+mem\+\_\+tree\+::pressure\+\_\+threshold}
 
 Threshold to trigger immediate cleanup (default 1MB). 
 
@@ -137,7 +137,7 @@ Definition at line \mbox{\hyperlink{mem__tree_8h_source_l00046}{46}} of file \mb
 \index{ttak\_mem\_tree@{ttak\_mem\_tree}!shutdown\_requested@{shutdown\_requested}}
 \index{shutdown\_requested@{shutdown\_requested}!ttak\_mem\_tree@{ttak\_mem\_tree}}
 \doxysubsubsection{\texorpdfstring{shutdown\_requested}{shutdown\_requested}}
-{\footnotesize\ttfamily \+\_\+\+Atomic \+\_\+\+Bool ttak\+\_\+mem\+\_\+tree\+::shutdown\+\_\+requested}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2stdatomic_8h_a94674db2fe3c7496dfdcaa9b81486e79}{\+\_\+\+Atomic}} \+\_\+\+Bool ttak\+\_\+mem\+\_\+tree\+::shutdown\+\_\+requested}
 
 Flag to signal the cleanup thread to terminate. 
 
@@ -147,7 +147,7 @@ Definition at line \mbox{\hyperlink{mem__tree_8h_source_l00049}{49}} of file \mb
 \index{ttak\_mem\_tree@{ttak\_mem\_tree}!use\_manual\_cleanup@{use\_manual\_cleanup}}
 \index{use\_manual\_cleanup@{use\_manual\_cleanup}!ttak\_mem\_tree@{ttak\_mem\_tree}}
 \doxysubsubsection{\texorpdfstring{use\_manual\_cleanup}{use\_manual\_cleanup}}
-{\footnotesize\ttfamily \+\_\+\+Atomic \+\_\+\+Bool ttak\+\_\+mem\+\_\+tree\+::use\+\_\+manual\+\_\+cleanup}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2stdatomic_8h_a94674db2fe3c7496dfdcaa9b81486e79}{\+\_\+\+Atomic}} \+\_\+\+Bool ttak\+\_\+mem\+\_\+tree\+::use\+\_\+manual\+\_\+cleanup}
 
 Flag to disable automatic cleanup (1 for manual, 0 for auto). 
 

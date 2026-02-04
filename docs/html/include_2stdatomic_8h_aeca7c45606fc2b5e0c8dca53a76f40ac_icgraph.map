@@ -1,0 +1,5 @@
+<map id="atomic_flag_test_and_set_explicit" name="atomic_flag_test_and_set_explicit">
+<area shape="rect" id="Node000001" title=" " alt="" coords="188,5,349,45"/>
+<area shape="rect" id="Node000002" href="$spinlock_8h.html#a1d8bc2a3d70c40ddea51a71127bbbd91" title="Tries to acquire the spinlock without waiting." alt="" coords="5,13,140,38"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="174,28,140,28,140,23,174,23"/>
+</map>

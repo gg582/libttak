@@ -2,18 +2,21 @@
 \hypertarget{sched_8h}{}\label{sched_8h}\index{include/ttak/async/sched.h@{include/ttak/async/sched.h}}
 {\ttfamily \#include $<$ttak/async/task.\+h$>$}\newline
 {\ttfamily \#include $<$stdint.\+h$>$}\newline
-Include dependency graph for sched.\+h\+:\nopagebreak
+{\ttfamily \#include $<$sched.\+h$>$}\newline
+Include dependency graph for sched.\+h\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=222pt]{sched_8h__incl}
+\includegraphics[width=241pt]{sched_8h__incl}
 \end{center}
 \end{figure}
-This graph shows which files directly or indirectly include this file\+:\nopagebreak
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=228pt]{sched_8h__dep__incl}
+\includegraphics[width=229pt]{sched_8h__dep__incl}
 \end{center}
 \end{figure}
 \doxysubsubsection*{Functions}
@@ -25,7 +28,7 @@ void \mbox{\hyperlink{sched_8h_a112263ef2013767bdf9edbc34c6672cc}{ttak\+\_\+asyn
 \item 
 void \mbox{\hyperlink{sched_8h_ae9db49a4788b2930a8d34216adbe2125}{ttak\+\_\+async\+\_\+schedule}} (\mbox{\hyperlink{task_8h_a6a4c7b4b8f087d53e7b2a92f84db216e}{ttak\+\_\+task\+\_\+t}} \texorpdfstring{$\ast$}{*}task, uint64\+\_\+t now, int priority)
 \item 
-void \mbox{\hyperlink{sched_8h_a6c3b4f4dee2a56f70fdce79d4b50660f}{ttak\+\_\+async\+\_\+yield}} (void)
+static void \mbox{\hyperlink{sched_8h_af9ea1811867a03dbfda35683aeb7d997}{ttak\+\_\+async\+\_\+yield}} (void)
 \end{DoxyCompactItemize}
 
 
@@ -48,9 +51,13 @@ void \mbox{\hyperlink{sched_8h_a6c3b4f4dee2a56f70fdce79d4b50660f}{ttak\+\_\+asyn
 \doxysubsubsection{\texorpdfstring{ttak\_async\_shutdown()}{ttak\_async\_shutdown()}}
 {\footnotesize\ttfamily void ttak\+\_\+async\+\_\+shutdown (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
 
-\Hypertarget{sched_8h_a6c3b4f4dee2a56f70fdce79d4b50660f}\label{sched_8h_a6c3b4f4dee2a56f70fdce79d4b50660f} 
+\Hypertarget{sched_8h_af9ea1811867a03dbfda35683aeb7d997}\label{sched_8h_af9ea1811867a03dbfda35683aeb7d997} 
 \index{sched.h@{sched.h}!ttak\_async\_yield@{ttak\_async\_yield}}
 \index{ttak\_async\_yield@{ttak\_async\_yield}!sched.h@{sched.h}}
 \doxysubsubsection{\texorpdfstring{ttak\_async\_yield()}{ttak\_async\_yield()}}
-{\footnotesize\ttfamily void ttak\+\_\+async\+\_\+yield (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily static void ttak\+\_\+async\+\_\+yield (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{sched_8h_source_l00011}{11}} of file \mbox{\hyperlink{sched_8h_source}{sched.\+h}}.
 

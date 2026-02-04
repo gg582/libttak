@@ -39,17 +39,17 @@ typedef \mbox{\hyperlink{spinlock_8h_a705f9b9b5f7cf440ded7db544f974487}{ttak\+\_
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{spinlock_8h_a7f17b0b237b8397e7849b9d249d1a196}{ttak\+\_\+backoff\+\_\+init}} (\mbox{\hyperlink{spinlock_8h_aa4566519da10f0f4553890335118d08d}{ttak\+\_\+backoff\+\_\+t}} \texorpdfstring{$\ast$}{*}b)
+static void \mbox{\hyperlink{spinlock_8h_ab021579cac7390c4dfa95707f234032c}{ttak\+\_\+backoff\+\_\+init}} (\mbox{\hyperlink{spinlock_8h_aa4566519da10f0f4553890335118d08d}{ttak\+\_\+backoff\+\_\+t}} \texorpdfstring{$\ast$}{*}b)
 \begin{DoxyCompactList}\small\item\em Initializes the backoff structure. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{spinlock_8h_a842ccd455a040d093eee00fefd115c27}{ttak\+\_\+backoff\+\_\+pause}} (\mbox{\hyperlink{spinlock_8h_aa4566519da10f0f4553890335118d08d}{ttak\+\_\+backoff\+\_\+t}} \texorpdfstring{$\ast$}{*}b)
 \begin{DoxyCompactList}\small\item\em Executes a backoff pause. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{spinlock_8h_a9e6477fecd9356e514fad7c56458e735}{ttak\+\_\+spin\+\_\+init}} (\mbox{\hyperlink{spinlock_8h_a705f9b9b5f7cf440ded7db544f974487}{ttak\+\_\+spin\+\_\+t}} \texorpdfstring{$\ast$}{*}lock)
+static void \mbox{\hyperlink{spinlock_8h_af6e17473fcadd9aa892276ba06a0586d}{ttak\+\_\+spin\+\_\+init}} (\mbox{\hyperlink{spinlock_8h_a705f9b9b5f7cf440ded7db544f974487}{ttak\+\_\+spin\+\_\+t}} \texorpdfstring{$\ast$}{*}lock)
 \begin{DoxyCompactList}\small\item\em Initializes the spinlock. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{spinlock_8h_a9a8b3cf3a320c524c342d1cb49beb404}{ttak\+\_\+spin\+\_\+lock}} (\mbox{\hyperlink{spinlock_8h_a705f9b9b5f7cf440ded7db544f974487}{ttak\+\_\+spin\+\_\+t}} \texorpdfstring{$\ast$}{*}lock)
 \begin{DoxyCompactList}\small\item\em Acquires the spinlock. \end{DoxyCompactList}\item 
-bool \mbox{\hyperlink{spinlock_8h_a8481cf7fcbf7ea098cdf2aabbfbfba95}{ttak\+\_\+spin\+\_\+trylock}} (\mbox{\hyperlink{spinlock_8h_a705f9b9b5f7cf440ded7db544f974487}{ttak\+\_\+spin\+\_\+t}} \texorpdfstring{$\ast$}{*}lock)
+static bool \mbox{\hyperlink{spinlock_8h_a1d8bc2a3d70c40ddea51a71127bbbd91}{ttak\+\_\+spin\+\_\+trylock}} (\mbox{\hyperlink{spinlock_8h_a705f9b9b5f7cf440ded7db544f974487}{ttak\+\_\+spin\+\_\+t}} \texorpdfstring{$\ast$}{*}lock)
 \begin{DoxyCompactList}\small\item\em Tries to acquire the spinlock without waiting. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{spinlock_8h_a2c1d64100064cee4864d9c5a78a633d0}{ttak\+\_\+spin\+\_\+unlock}} (\mbox{\hyperlink{spinlock_8h_a705f9b9b5f7cf440ded7db544f974487}{ttak\+\_\+spin\+\_\+t}} \texorpdfstring{$\ast$}{*}lock)
+static void \mbox{\hyperlink{spinlock_8h_a18d11351bc312b1de79977c33e5ecb28}{ttak\+\_\+spin\+\_\+unlock}} (\mbox{\hyperlink{spinlock_8h_a705f9b9b5f7cf440ded7db544f974487}{ttak\+\_\+spin\+\_\+t}} \texorpdfstring{$\ast$}{*}lock)
 \begin{DoxyCompactList}\small\item\em Releases the spinlock. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -72,7 +72,7 @@ Definition at line \mbox{\hyperlink{spinlock_8h_source_l00019}{19}} of file \mbo
 
 
 
-Definition at line \mbox{\hyperlink{spinlock_8h_source_l00047}{47}} of file \mbox{\hyperlink{spinlock_8h_source}{spinlock.\+h}}.
+Definition at line \mbox{\hyperlink{spinlock_8h_source_l00050}{50}} of file \mbox{\hyperlink{spinlock_8h_source}{spinlock.\+h}}.
 
 \Hypertarget{spinlock_8h_aa4566519da10f0f4553890335118d08d}\label{spinlock_8h_aa4566519da10f0f4553890335118d08d} 
 \index{spinlock.h@{spinlock.h}!ttak\_backoff\_t@{ttak\_backoff\_t}}
@@ -97,11 +97,11 @@ Spinlock structure.
 Uses an atomic flag for mutual exclusion. Prefer this over mutexes for very short critical sections. 
 
 \doxysubsection{Function Documentation}
-\Hypertarget{spinlock_8h_a7f17b0b237b8397e7849b9d249d1a196}\label{spinlock_8h_a7f17b0b237b8397e7849b9d249d1a196} 
+\Hypertarget{spinlock_8h_ab021579cac7390c4dfa95707f234032c}\label{spinlock_8h_ab021579cac7390c4dfa95707f234032c} 
 \index{spinlock.h@{spinlock.h}!ttak\_backoff\_init@{ttak\_backoff\_init}}
 \index{ttak\_backoff\_init@{ttak\_backoff\_init}!spinlock.h@{spinlock.h}}
 \doxysubsubsection{\texorpdfstring{ttak\_backoff\_init()}{ttak\_backoff\_init()}}
-{\footnotesize\ttfamily void ttak\+\_\+backoff\+\_\+init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{spinlock_8h_aa4566519da10f0f4553890335118d08d}{ttak\+\_\+backoff\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{b }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily static void ttak\+\_\+backoff\+\_\+init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{spinlock_8h_aa4566519da10f0f4553890335118d08d}{ttak\+\_\+backoff\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
 
 
 
@@ -112,6 +112,10 @@ Initializes the backoff structure.
 {\em b} & Pointer to the backoff structure. \\
 \hline
 \end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{spinlock_8h_source_l00026}{26}} of file \mbox{\hyperlink{spinlock_8h_source}{spinlock.\+h}}.
+
 \Hypertarget{spinlock_8h_a842ccd455a040d093eee00fefd115c27}\label{spinlock_8h_a842ccd455a040d093eee00fefd115c27} 
 \index{spinlock.h@{spinlock.h}!ttak\_backoff\_pause@{ttak\_backoff\_pause}}
 \index{ttak\_backoff\_pause@{ttak\_backoff\_pause}!spinlock.h@{spinlock.h}}
@@ -129,11 +133,11 @@ Uses CPU pause instruction for short waits and thread yield/sleep for longer wai
 {\em b} & Pointer to the backoff structure. \\
 \hline
 \end{DoxyParams}
-\Hypertarget{spinlock_8h_a9e6477fecd9356e514fad7c56458e735}\label{spinlock_8h_a9e6477fecd9356e514fad7c56458e735} 
+\Hypertarget{spinlock_8h_af6e17473fcadd9aa892276ba06a0586d}\label{spinlock_8h_af6e17473fcadd9aa892276ba06a0586d} 
 \index{spinlock.h@{spinlock.h}!ttak\_spin\_init@{ttak\_spin\_init}}
 \index{ttak\_spin\_init@{ttak\_spin\_init}!spinlock.h@{spinlock.h}}
 \doxysubsubsection{\texorpdfstring{ttak\_spin\_init()}{ttak\_spin\_init()}}
-{\footnotesize\ttfamily void ttak\+\_\+spin\+\_\+init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{spinlock_8h_a705f9b9b5f7cf440ded7db544f974487}{ttak\+\_\+spin\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{lock }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily static void ttak\+\_\+spin\+\_\+init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{spinlock_8h_a705f9b9b5f7cf440ded7db544f974487}{ttak\+\_\+spin\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{lock }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
 
 
 
@@ -144,6 +148,10 @@ Initializes the spinlock.
 {\em lock} & Pointer to the lock. \\
 \hline
 \end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{spinlock_8h_source_l00057}{57}} of file \mbox{\hyperlink{spinlock_8h_source}{spinlock.\+h}}.
+
 \Hypertarget{spinlock_8h_a9a8b3cf3a320c524c342d1cb49beb404}\label{spinlock_8h_a9a8b3cf3a320c524c342d1cb49beb404} 
 \index{spinlock.h@{spinlock.h}!ttak\_spin\_lock@{ttak\_spin\_lock}}
 \index{ttak\_spin\_lock@{ttak\_spin\_lock}!spinlock.h@{spinlock.h}}
@@ -161,11 +169,11 @@ Busy-\/waits until the lock is available.
 {\em lock} & Pointer to the lock. \\
 \hline
 \end{DoxyParams}
-\Hypertarget{spinlock_8h_a8481cf7fcbf7ea098cdf2aabbfbfba95}\label{spinlock_8h_a8481cf7fcbf7ea098cdf2aabbfbfba95} 
+\Hypertarget{spinlock_8h_a1d8bc2a3d70c40ddea51a71127bbbd91}\label{spinlock_8h_a1d8bc2a3d70c40ddea51a71127bbbd91} 
 \index{spinlock.h@{spinlock.h}!ttak\_spin\_trylock@{ttak\_spin\_trylock}}
 \index{ttak\_spin\_trylock@{ttak\_spin\_trylock}!spinlock.h@{spinlock.h}}
 \doxysubsubsection{\texorpdfstring{ttak\_spin\_trylock()}{ttak\_spin\_trylock()}}
-{\footnotesize\ttfamily bool ttak\+\_\+spin\+\_\+trylock (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{spinlock_8h_a705f9b9b5f7cf440ded7db544f974487}{ttak\+\_\+spin\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{lock }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily static bool ttak\+\_\+spin\+\_\+trylock (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{spinlock_8h_a705f9b9b5f7cf440ded7db544f974487}{ttak\+\_\+spin\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{lock }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
 
 
 
@@ -179,11 +187,23 @@ Tries to acquire the spinlock without waiting.
 \begin{DoxyReturn}{Returns}
 true if acquired, false otherwise. 
 \end{DoxyReturn}
-\Hypertarget{spinlock_8h_a2c1d64100064cee4864d9c5a78a633d0}\label{spinlock_8h_a2c1d64100064cee4864d9c5a78a633d0} 
+
+
+Definition at line \mbox{\hyperlink{spinlock_8h_source_l00076}{76}} of file \mbox{\hyperlink{spinlock_8h_source}{spinlock.\+h}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=338pt]{spinlock_8h_a1d8bc2a3d70c40ddea51a71127bbbd91_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{spinlock_8h_a18d11351bc312b1de79977c33e5ecb28}\label{spinlock_8h_a18d11351bc312b1de79977c33e5ecb28} 
 \index{spinlock.h@{spinlock.h}!ttak\_spin\_unlock@{ttak\_spin\_unlock}}
 \index{ttak\_spin\_unlock@{ttak\_spin\_unlock}!spinlock.h@{spinlock.h}}
 \doxysubsubsection{\texorpdfstring{ttak\_spin\_unlock()}{ttak\_spin\_unlock()}}
-{\footnotesize\ttfamily void ttak\+\_\+spin\+\_\+unlock (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{spinlock_8h_a705f9b9b5f7cf440ded7db544f974487}{ttak\+\_\+spin\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{lock }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily static void ttak\+\_\+spin\+\_\+unlock (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{spinlock_8h_a705f9b9b5f7cf440ded7db544f974487}{ttak\+\_\+spin\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{lock }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
 
 
 
@@ -194,3 +214,15 @@ Releases the spinlock.
 {\em lock} & Pointer to the lock. \\
 \hline
 \end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{spinlock_8h_source_l00087}{87}} of file \mbox{\hyperlink{spinlock_8h_source}{spinlock.\+h}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{spinlock_8h_a18d11351bc312b1de79977c33e5ecb28_cgraph}
+\end{center}
+\end{figure}

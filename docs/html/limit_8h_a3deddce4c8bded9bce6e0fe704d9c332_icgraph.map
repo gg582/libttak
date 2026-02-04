@@ -1,0 +1,5 @@
+<map id="ttak_token_bucket_consume" name="ttak_token_bucket_consume">
+<area shape="rect" id="Node000001" title="Attempts to consume tokens from the bucket." alt="" coords="207,5,413,31"/>
+<area shape="rect" id="Node000002" href="$limit_8h.html#a2718e32b916e1223b36e096a6ba26fc7" title="Checks if an action is allowed by the rate limiter." alt="" coords="5,5,159,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="193,21,159,21,159,15,193,15"/>
+</map>

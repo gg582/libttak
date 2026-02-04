@@ -161,12 +161,12 @@ Functions</h2></td></tr>
 <tr class="memitem:a3deddce4c8bded9bce6e0fe704d9c332" id="r_a3deddce4c8bded9bce6e0fe704d9c332"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="limit_8h.html#a3deddce4c8bded9bce6e0fe704d9c332">ttak_token_bucket_consume</a> (<a class="el" href="limit_8h.html#aa93e8c31cd330170d3b7640faba120cc">ttak_token_bucket_t</a> *tb, double tokens)</td></tr>
 <tr class="memdesc:a3deddce4c8bded9bce6e0fe704d9c332"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attempts to consume tokens from the bucket.  <br /></td></tr>
 <tr class="separator:a3deddce4c8bded9bce6e0fe704d9c332"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afa1836ac0cc88aff9138135b731e61fa" id="r_afa1836ac0cc88aff9138135b731e61fa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="limit_8h.html#afa1836ac0cc88aff9138135b731e61fa">ttak_ratelimit_init</a> (<a class="el" href="limit_8h.html#a8af4cfe974109d7dd4137f6cdeea1818">ttak_ratelimit_t</a> *rl, double rate, double burst)</td></tr>
-<tr class="memdesc:afa1836ac0cc88aff9138135b731e61fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes a rate limiter.  <br /></td></tr>
-<tr class="separator:afa1836ac0cc88aff9138135b731e61fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a684abae6debf25661db4c6a36d10cd9e" id="r_a684abae6debf25661db4c6a36d10cd9e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="limit_8h.html#a684abae6debf25661db4c6a36d10cd9e">ttak_ratelimit_allow</a> (<a class="el" href="limit_8h.html#a8af4cfe974109d7dd4137f6cdeea1818">ttak_ratelimit_t</a> *rl)</td></tr>
-<tr class="memdesc:a684abae6debf25661db4c6a36d10cd9e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if an action is allowed by the rate limiter.  <br /></td></tr>
-<tr class="separator:a684abae6debf25661db4c6a36d10cd9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9997109b249960027af0beb3da425654" id="r_a9997109b249960027af0beb3da425654"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="limit_8h.html#a9997109b249960027af0beb3da425654">ttak_ratelimit_init</a> (<a class="el" href="limit_8h.html#a8af4cfe974109d7dd4137f6cdeea1818">ttak_ratelimit_t</a> *rl, double rate, double burst)</td></tr>
+<tr class="memdesc:a9997109b249960027af0beb3da425654"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes a rate limiter.  <br /></td></tr>
+<tr class="separator:a9997109b249960027af0beb3da425654"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2718e32b916e1223b36e096a6ba26fc7" id="r_a2718e32b916e1223b36e096a6ba26fc7"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="limit_8h.html#a2718e32b916e1223b36e096a6ba26fc7">ttak_ratelimit_allow</a> (<a class="el" href="limit_8h.html#a8af4cfe974109d7dd4137f6cdeea1818">ttak_ratelimit_t</a> *rl)</td></tr>
+<tr class="memdesc:a2718e32b916e1223b36e096a6ba26fc7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if an action is allowed by the rate limiter.  <br /></td></tr>
+<tr class="separator:a2718e32b916e1223b36e096a6ba26fc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Typedef Documentation</h2>
 <a id="a125660251414d05c0017797217ecd141" name="a125660251414d05c0017797217ecd141"></a>
@@ -236,20 +236,28 @@ Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a684abae6debf25661db4c6a36d10cd9e" name="a684abae6debf25661db4c6a36d10cd9e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a684abae6debf25661db4c6a36d10cd9e">&#9670;&#160;</a></span>ttak_ratelimit_allow()</h2>
+<a id="a2718e32b916e1223b36e096a6ba26fc7" name="a2718e32b916e1223b36e096a6ba26fc7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2718e32b916e1223b36e096a6ba26fc7">&#9670;&#160;</a></span>ttak_ratelimit_allow()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool ttak_ratelimit_allow </td>
+          <td class="memname">static bool ttak_ratelimit_allow </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="limit_8h.html#a8af4cfe974109d7dd4137f6cdeea1818">ttak_ratelimit_t</a> *&#160;</td>
           <td class="paramname"><em>rl</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Checks if an action is allowed by the rate limiter. </p>
@@ -262,16 +270,33 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true if allowed, false otherwise. </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="limit_8h_source.html#l00074">74</a> of file <a class="el" href="limit_8h_source.html">limit.h</a>.</p>
+<div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="limit_8h_a2718e32b916e1223b36e096a6ba26fc7_cgraph.png" border="0" usemap="#alimit_8h_a2718e32b916e1223b36e096a6ba26fc7_cgraph" alt=""/></div>
+<map name="alimit_8h_a2718e32b916e1223b36e096a6ba26fc7_cgraph" id="alimit_8h_a2718e32b916e1223b36e096a6ba26fc7_cgraph">
+<area shape="rect" title="Checks if an action is allowed by the rate limiter." alt="" coords="5,5,159,31"/>
+<area shape="rect" href="limit_8h.html#a3deddce4c8bded9bce6e0fe704d9c332" title="Attempts to consume tokens from the bucket." alt="" coords="207,5,413,31"/>
+<area shape="poly" title=" " alt="" coords="159,15,193,15,193,21,159,21"/>
+</map>
+</div>
+
 </div>
 </div>
-<a id="afa1836ac0cc88aff9138135b731e61fa" name="afa1836ac0cc88aff9138135b731e61fa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afa1836ac0cc88aff9138135b731e61fa">&#9670;&#160;</a></span>ttak_ratelimit_init()</h2>
+<a id="a9997109b249960027af0beb3da425654" name="a9997109b249960027af0beb3da425654"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9997109b249960027af0beb3da425654">&#9670;&#160;</a></span>ttak_ratelimit_init()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void ttak_ratelimit_init </td>
+          <td class="memname">static void ttak_ratelimit_init </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="limit_8h.html#a8af4cfe974109d7dd4137f6cdeea1818">ttak_ratelimit_t</a> *&#160;</td>
           <td class="paramname"><em>rl</em>, </td>
@@ -294,6 +319,11 @@ Functions</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Initializes a rate limiter. </p>
@@ -305,6 +335,20 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+<p class="definition">Definition at line <a class="el" href="limit_8h_source.html#l00062">62</a> of file <a class="el" href="limit_8h_source.html">limit.h</a>.</p>
+<div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-2-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="limit_8h_a9997109b249960027af0beb3da425654_cgraph.png" border="0" usemap="#alimit_8h_a9997109b249960027af0beb3da425654_cgraph" alt=""/></div>
+<map name="alimit_8h_a9997109b249960027af0beb3da425654_cgraph" id="alimit_8h_a9997109b249960027af0beb3da425654_cgraph">
+<area shape="rect" title="Initializes a rate limiter." alt="" coords="5,5,144,31"/>
+<area shape="rect" href="limit_8h.html#ab7b4f398fc841de28b2863657169952e" title="Initializes a token bucket." alt="" coords="192,5,361,31"/>
+<area shape="poly" title=" " alt="" coords="144,15,178,15,178,21,144,21"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -345,6 +389,18 @@ Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>true if tokens were available and consumed. </dd>
 <dd>
 false if there were insufficient tokens. </dd></dl>
+<div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-3-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="limit_8h_a3deddce4c8bded9bce6e0fe704d9c332_icgraph.png" border="0" usemap="#alimit_8h_a3deddce4c8bded9bce6e0fe704d9c332_icgraph" alt=""/></div>
+<map name="alimit_8h_a3deddce4c8bded9bce6e0fe704d9c332_icgraph" id="alimit_8h_a3deddce4c8bded9bce6e0fe704d9c332_icgraph">
+<area shape="rect" title="Attempts to consume tokens from the bucket." alt="" coords="207,5,413,31"/>
+<area shape="rect" href="limit_8h.html#a2718e32b916e1223b36e096a6ba26fc7" title="Checks if an action is allowed by the rate limiter." alt="" coords="5,5,159,31"/>
+<area shape="poly" title=" " alt="" coords="193,21,159,21,159,15,193,15"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -389,6 +445,18 @@ false if there were insufficient tokens. </dd></dl>
   </table>
   </dd>
 </dl>
+<div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-4-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="limit_8h_ab7b4f398fc841de28b2863657169952e_icgraph.png" border="0" usemap="#alimit_8h_ab7b4f398fc841de28b2863657169952e_icgraph" alt=""/></div>
+<map name="alimit_8h_ab7b4f398fc841de28b2863657169952e_icgraph" id="alimit_8h_ab7b4f398fc841de28b2863657169952e_icgraph">
+<area shape="rect" title="Initializes a token bucket." alt="" coords="192,5,361,31"/>
+<area shape="rect" href="limit_8h.html#a9997109b249960027af0beb3da425654" title="Initializes a rate limiter." alt="" coords="5,5,144,31"/>
+<area shape="poly" title=" " alt="" coords="179,21,145,21,145,15,179,15"/>
+</map>
+</div>
 
 </div>
 </div>

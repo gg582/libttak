@@ -92,6 +92,7 @@ $(document).ready(function(){initNavTree('sync_8h.html',''); initResizable(); })
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
+<a href="#define-members">Macros</a> &#124;
 <a href="#typedef-members">Typedefs</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">sync.h File Reference</div></div>
@@ -148,6 +149,11 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shared resource structure.  <a href="structtt__type__shared.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a78c99ffd76a7bb3c8c74db76207e9ab4" id="r_a78c99ffd76a7bb3c8c74db76207e9ab4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sync_8h.html#a78c99ffd76a7bb3c8c74db76207e9ab4">_XOPEN_SOURCE</a>&#160;&#160;&#160;700</td></tr>
+<tr class="separator:a78c99ffd76a7bb3c8c74db76207e9ab4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
 <tr class="memitem:a099d39f1f8999756bc828ad4b337d5b6" id="r_a099d39f1f8999756bc828ad4b337d5b6"><td class="memItemLeft" align="right" valign="top">typedef pthread_mutex_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sync_8h.html#a099d39f1f8999756bc828ad4b337d5b6">ttak_mutex_t</a></td></tr>
@@ -175,39 +181,56 @@ Typedefs</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a7d304f966c52c975456a7f618a17dc7f" id="r_a7d304f966c52c975456a7f618a17dc7f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sync_8h.html#a7d304f966c52c975456a7f618a17dc7f">ttak_mutex_init</a> (<a class="el" href="sync_8h.html#a099d39f1f8999756bc828ad4b337d5b6">ttak_mutex_t</a> *mutex)</td></tr>
-<tr class="separator:a7d304f966c52c975456a7f618a17dc7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a65d82f049c34962c2dde6cdd45a09563" id="r_a65d82f049c34962c2dde6cdd45a09563"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sync_8h.html#a65d82f049c34962c2dde6cdd45a09563">ttak_mutex_lock</a> (<a class="el" href="sync_8h.html#a099d39f1f8999756bc828ad4b337d5b6">ttak_mutex_t</a> *mutex)</td></tr>
-<tr class="separator:a65d82f049c34962c2dde6cdd45a09563"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1dfa60f4c2eb49ec4f5d9b5eaf6448f0" id="r_a1dfa60f4c2eb49ec4f5d9b5eaf6448f0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sync_8h.html#a1dfa60f4c2eb49ec4f5d9b5eaf6448f0">ttak_mutex_unlock</a> (<a class="el" href="sync_8h.html#a099d39f1f8999756bc828ad4b337d5b6">ttak_mutex_t</a> *mutex)</td></tr>
-<tr class="separator:a1dfa60f4c2eb49ec4f5d9b5eaf6448f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a578b3284d758bc51aa4ecf76f2e0dbc2" id="r_a578b3284d758bc51aa4ecf76f2e0dbc2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sync_8h.html#a578b3284d758bc51aa4ecf76f2e0dbc2">ttak_mutex_destroy</a> (<a class="el" href="sync_8h.html#a099d39f1f8999756bc828ad4b337d5b6">ttak_mutex_t</a> *mutex)</td></tr>
-<tr class="separator:a578b3284d758bc51aa4ecf76f2e0dbc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0d5576b5df1b2e31b33bea4dd0066105" id="r_a0d5576b5df1b2e31b33bea4dd0066105"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sync_8h.html#a0d5576b5df1b2e31b33bea4dd0066105">ttak_rwlock_init</a> (<a class="el" href="sync_8h.html#ad3f9b08e4c066e7bb7b1ed98d2a90386">ttak_rwlock_t</a> *rwlock)</td></tr>
-<tr class="separator:a0d5576b5df1b2e31b33bea4dd0066105"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0e51c1ef0a128df271c0d86a1085dce3" id="r_a0e51c1ef0a128df271c0d86a1085dce3"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sync_8h.html#a0e51c1ef0a128df271c0d86a1085dce3">ttak_rwlock_rdlock</a> (<a class="el" href="sync_8h.html#ad3f9b08e4c066e7bb7b1ed98d2a90386">ttak_rwlock_t</a> *rwlock)</td></tr>
-<tr class="separator:a0e51c1ef0a128df271c0d86a1085dce3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a91f4ec058c517f0741cd0d156c2c9dd4" id="r_a91f4ec058c517f0741cd0d156c2c9dd4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sync_8h.html#a91f4ec058c517f0741cd0d156c2c9dd4">ttak_rwlock_wrlock</a> (<a class="el" href="sync_8h.html#ad3f9b08e4c066e7bb7b1ed98d2a90386">ttak_rwlock_t</a> *rwlock)</td></tr>
-<tr class="separator:a91f4ec058c517f0741cd0d156c2c9dd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7d5dfa0872ff98f5a43013a2d5666500" id="r_a7d5dfa0872ff98f5a43013a2d5666500"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sync_8h.html#a7d5dfa0872ff98f5a43013a2d5666500">ttak_rwlock_unlock</a> (<a class="el" href="sync_8h.html#ad3f9b08e4c066e7bb7b1ed98d2a90386">ttak_rwlock_t</a> *rwlock)</td></tr>
-<tr class="separator:a7d5dfa0872ff98f5a43013a2d5666500"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1d8c7ddb2549a0dd08c117c5f2e93f21" id="r_a1d8c7ddb2549a0dd08c117c5f2e93f21"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sync_8h.html#a1d8c7ddb2549a0dd08c117c5f2e93f21">ttak_rwlock_destroy</a> (<a class="el" href="sync_8h.html#ad3f9b08e4c066e7bb7b1ed98d2a90386">ttak_rwlock_t</a> *rwlock)</td></tr>
-<tr class="separator:a1d8c7ddb2549a0dd08c117c5f2e93f21"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a418b5e2a4fd818ceb7e5d0be5ae92352" id="r_a418b5e2a4fd818ceb7e5d0be5ae92352"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sync_8h.html#a418b5e2a4fd818ceb7e5d0be5ae92352">ttak_shard_init</a> (<a class="el" href="sync_8h.html#a2af401fa7e43489271afefbdfa2b5399">ttak_shard_t</a> *shard, void *data)</td></tr>
-<tr class="separator:a418b5e2a4fd818ceb7e5d0be5ae92352"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a812fa46f2809040c0cb9cc3adeaa9ae4" id="r_a812fa46f2809040c0cb9cc3adeaa9ae4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sync_8h.html#a812fa46f2809040c0cb9cc3adeaa9ae4">ttak_shard_destroy</a> (<a class="el" href="sync_8h.html#a2af401fa7e43489271afefbdfa2b5399">ttak_shard_t</a> *shard)</td></tr>
-<tr class="separator:a812fa46f2809040c0cb9cc3adeaa9ae4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad001a691fece502b0a7d9d056e4c6952" id="r_ad001a691fece502b0a7d9d056e4c6952"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sync_8h.html#ad001a691fece502b0a7d9d056e4c6952">ttak_cond_init</a> (<a class="el" href="sync_8h.html#aecf69ab36c01d7bce72c0f206d73031d">ttak_cond_t</a> *cond)</td></tr>
-<tr class="separator:ad001a691fece502b0a7d9d056e4c6952"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a134420d688a31a76bdfc34082a400247" id="r_a134420d688a31a76bdfc34082a400247"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sync_8h.html#a134420d688a31a76bdfc34082a400247">ttak_cond_wait</a> (<a class="el" href="sync_8h.html#aecf69ab36c01d7bce72c0f206d73031d">ttak_cond_t</a> *cond, <a class="el" href="sync_8h.html#a099d39f1f8999756bc828ad4b337d5b6">ttak_mutex_t</a> *mutex)</td></tr>
-<tr class="separator:a134420d688a31a76bdfc34082a400247"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a276f3229135d70e3e3814755219766c4" id="r_a276f3229135d70e3e3814755219766c4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sync_8h.html#a276f3229135d70e3e3814755219766c4">ttak_cond_signal</a> (<a class="el" href="sync_8h.html#aecf69ab36c01d7bce72c0f206d73031d">ttak_cond_t</a> *cond)</td></tr>
-<tr class="separator:a276f3229135d70e3e3814755219766c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afae6538fc09fc9a3250a30adb1ba9637" id="r_afae6538fc09fc9a3250a30adb1ba9637"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sync_8h.html#afae6538fc09fc9a3250a30adb1ba9637">ttak_cond_broadcast</a> (<a class="el" href="sync_8h.html#aecf69ab36c01d7bce72c0f206d73031d">ttak_cond_t</a> *cond)</td></tr>
-<tr class="separator:afae6538fc09fc9a3250a30adb1ba9637"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0ff8df06a516ac77b19fd1f81a2e04a6" id="r_a0ff8df06a516ac77b19fd1f81a2e04a6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sync_8h.html#a0ff8df06a516ac77b19fd1f81a2e04a6">ttak_cond_destroy</a> (<a class="el" href="sync_8h.html#aecf69ab36c01d7bce72c0f206d73031d">ttak_cond_t</a> *cond)</td></tr>
-<tr class="separator:a0ff8df06a516ac77b19fd1f81a2e04a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac18cded8911f131cc856a866ed1c1b81" id="r_ac18cded8911f131cc856a866ed1c1b81"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sync_8h.html#ac18cded8911f131cc856a866ed1c1b81">ttak_mutex_init</a> (<a class="el" href="sync_8h.html#a099d39f1f8999756bc828ad4b337d5b6">ttak_mutex_t</a> *mutex)</td></tr>
+<tr class="separator:ac18cded8911f131cc856a866ed1c1b81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab1e548970189a924bad3b7ad26da4cce" id="r_ab1e548970189a924bad3b7ad26da4cce"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sync_8h.html#ab1e548970189a924bad3b7ad26da4cce">ttak_mutex_lock</a> (<a class="el" href="sync_8h.html#a099d39f1f8999756bc828ad4b337d5b6">ttak_mutex_t</a> *mutex)</td></tr>
+<tr class="separator:ab1e548970189a924bad3b7ad26da4cce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab6f8176e9975ea88054f6f539764f9bc" id="r_ab6f8176e9975ea88054f6f539764f9bc"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sync_8h.html#ab6f8176e9975ea88054f6f539764f9bc">ttak_mutex_unlock</a> (<a class="el" href="sync_8h.html#a099d39f1f8999756bc828ad4b337d5b6">ttak_mutex_t</a> *mutex)</td></tr>
+<tr class="separator:ab6f8176e9975ea88054f6f539764f9bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a45ca7863525174c34a1827f2eb5376d9" id="r_a45ca7863525174c34a1827f2eb5376d9"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sync_8h.html#a45ca7863525174c34a1827f2eb5376d9">ttak_mutex_destroy</a> (<a class="el" href="sync_8h.html#a099d39f1f8999756bc828ad4b337d5b6">ttak_mutex_t</a> *mutex)</td></tr>
+<tr class="separator:a45ca7863525174c34a1827f2eb5376d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e2ad1456e1e587991494865526c078c" id="r_a4e2ad1456e1e587991494865526c078c"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sync_8h.html#a4e2ad1456e1e587991494865526c078c">ttak_rwlock_init</a> (<a class="el" href="sync_8h.html#ad3f9b08e4c066e7bb7b1ed98d2a90386">ttak_rwlock_t</a> *rwlock)</td></tr>
+<tr class="separator:a4e2ad1456e1e587991494865526c078c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1eee1e0280f4c0ff79f2b873782a4f63" id="r_a1eee1e0280f4c0ff79f2b873782a4f63"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sync_8h.html#a1eee1e0280f4c0ff79f2b873782a4f63">ttak_rwlock_rdlock</a> (<a class="el" href="sync_8h.html#ad3f9b08e4c066e7bb7b1ed98d2a90386">ttak_rwlock_t</a> *rwlock)</td></tr>
+<tr class="separator:a1eee1e0280f4c0ff79f2b873782a4f63"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20571518e2e5a832d9e0f5be839357d0" id="r_a20571518e2e5a832d9e0f5be839357d0"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sync_8h.html#a20571518e2e5a832d9e0f5be839357d0">ttak_rwlock_wrlock</a> (<a class="el" href="sync_8h.html#ad3f9b08e4c066e7bb7b1ed98d2a90386">ttak_rwlock_t</a> *rwlock)</td></tr>
+<tr class="separator:a20571518e2e5a832d9e0f5be839357d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4151481481c9d939ba0dad2d6cf1b867" id="r_a4151481481c9d939ba0dad2d6cf1b867"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sync_8h.html#a4151481481c9d939ba0dad2d6cf1b867">ttak_rwlock_unlock</a> (<a class="el" href="sync_8h.html#ad3f9b08e4c066e7bb7b1ed98d2a90386">ttak_rwlock_t</a> *rwlock)</td></tr>
+<tr class="separator:a4151481481c9d939ba0dad2d6cf1b867"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3288e7ff7a6ecd8392f0296a9da8d59d" id="r_a3288e7ff7a6ecd8392f0296a9da8d59d"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sync_8h.html#a3288e7ff7a6ecd8392f0296a9da8d59d">ttak_rwlock_destroy</a> (<a class="el" href="sync_8h.html#ad3f9b08e4c066e7bb7b1ed98d2a90386">ttak_rwlock_t</a> *rwlock)</td></tr>
+<tr class="separator:a3288e7ff7a6ecd8392f0296a9da8d59d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3cf1fe6aa9a8e470b81b6c11ed5d5b9" id="r_ab3cf1fe6aa9a8e470b81b6c11ed5d5b9"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sync_8h.html#ab3cf1fe6aa9a8e470b81b6c11ed5d5b9">ttak_shard_init</a> (<a class="el" href="sync_8h.html#a2af401fa7e43489271afefbdfa2b5399">ttak_shard_t</a> *shard, void *data)</td></tr>
+<tr class="separator:ab3cf1fe6aa9a8e470b81b6c11ed5d5b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81a287463238de01ad9f9b2233909e6c" id="r_a81a287463238de01ad9f9b2233909e6c"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sync_8h.html#a81a287463238de01ad9f9b2233909e6c">ttak_shard_destroy</a> (<a class="el" href="sync_8h.html#a2af401fa7e43489271afefbdfa2b5399">ttak_shard_t</a> *shard)</td></tr>
+<tr class="separator:a81a287463238de01ad9f9b2233909e6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac493ae550273c5565ceda76e757439d6" id="r_ac493ae550273c5565ceda76e757439d6"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sync_8h.html#ac493ae550273c5565ceda76e757439d6">ttak_cond_init</a> (<a class="el" href="sync_8h.html#aecf69ab36c01d7bce72c0f206d73031d">ttak_cond_t</a> *cond)</td></tr>
+<tr class="separator:ac493ae550273c5565ceda76e757439d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51b988bc191d7b2f6c0fa9ddfaf89cf2" id="r_a51b988bc191d7b2f6c0fa9ddfaf89cf2"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sync_8h.html#a51b988bc191d7b2f6c0fa9ddfaf89cf2">ttak_cond_wait</a> (<a class="el" href="sync_8h.html#aecf69ab36c01d7bce72c0f206d73031d">ttak_cond_t</a> *cond, <a class="el" href="sync_8h.html#a099d39f1f8999756bc828ad4b337d5b6">ttak_mutex_t</a> *mutex)</td></tr>
+<tr class="separator:a51b988bc191d7b2f6c0fa9ddfaf89cf2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3de5843cb669e98bf77ee48bcca06594" id="r_a3de5843cb669e98bf77ee48bcca06594"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sync_8h.html#a3de5843cb669e98bf77ee48bcca06594">ttak_cond_signal</a> (<a class="el" href="sync_8h.html#aecf69ab36c01d7bce72c0f206d73031d">ttak_cond_t</a> *cond)</td></tr>
+<tr class="separator:a3de5843cb669e98bf77ee48bcca06594"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a47128cab139dd564c0779d11ab0ccd41" id="r_a47128cab139dd564c0779d11ab0ccd41"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sync_8h.html#a47128cab139dd564c0779d11ab0ccd41">ttak_cond_broadcast</a> (<a class="el" href="sync_8h.html#aecf69ab36c01d7bce72c0f206d73031d">ttak_cond_t</a> *cond)</td></tr>
+<tr class="separator:a47128cab139dd564c0779d11ab0ccd41"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab58fd71244cf83046cd114fe51a5911c" id="r_ab58fd71244cf83046cd114fe51a5911c"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sync_8h.html#ab58fd71244cf83046cd114fe51a5911c">ttak_cond_destroy</a> (<a class="el" href="sync_8h.html#aecf69ab36c01d7bce72c0f206d73031d">ttak_cond_t</a> *cond)</td></tr>
+<tr class="separator:ab58fd71244cf83046cd114fe51a5911c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="a78c99ffd76a7bb3c8c74db76207e9ab4" name="a78c99ffd76a7bb3c8c74db76207e9ab4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a78c99ffd76a7bb3c8c74db76207e9ab4">&#9670;&#160;</a></span>_XOPEN_SOURCE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define _XOPEN_SOURCE&#160;&#160;&#160;700</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="sync_8h_source.html#l00005">5</a> of file <a class="el" href="sync_8h_source.html">sync.h</a>.</p>
+
+</div>
+</div>
 <h2 class="groupheader">Typedef Documentation</h2>
 <a id="a3284a9090fdc13bcdfe050f57a1520fa" name="a3284a9090fdc13bcdfe050f57a1520fa"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3284a9090fdc13bcdfe050f57a1520fa">&#9670;&#160;</a></span>tt_cond_t</h2>
@@ -221,7 +244,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sync_8h_source.html#l00011">11</a> of file <a class="el" href="sync_8h_source.html">sync.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sync_8h_source.html#l00015">15</a> of file <a class="el" href="sync_8h_source.html">sync.h</a>.</p>
 
 </div>
 </div>
@@ -237,7 +260,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sync_8h_source.html#l00008">8</a> of file <a class="el" href="sync_8h_source.html">sync.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sync_8h_source.html#l00012">12</a> of file <a class="el" href="sync_8h_source.html">sync.h</a>.</p>
 
 </div>
 </div>
@@ -253,7 +276,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sync_8h_source.html#l00014">14</a> of file <a class="el" href="sync_8h_source.html">sync.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sync_8h_source.html#l00018">18</a> of file <a class="el" href="sync_8h_source.html">sync.h</a>.</p>
 
 </div>
 </div>
@@ -269,7 +292,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sync_8h_source.html#l00024">24</a> of file <a class="el" href="sync_8h_source.html">sync.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sync_8h_source.html#l00028">28</a> of file <a class="el" href="sync_8h_source.html">sync.h</a>.</p>
 
 </div>
 </div>
@@ -301,7 +324,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sync_8h_source.html#l00010">10</a> of file <a class="el" href="sync_8h_source.html">sync.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sync_8h_source.html#l00014">14</a> of file <a class="el" href="sync_8h_source.html">sync.h</a>.</p>
 
 </div>
 </div>
@@ -317,7 +340,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sync_8h_source.html#l00007">7</a> of file <a class="el" href="sync_8h_source.html">sync.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sync_8h_source.html#l00011">11</a> of file <a class="el" href="sync_8h_source.html">sync.h</a>.</p>
 
 </div>
 </div>
@@ -333,7 +356,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sync_8h_source.html#l00013">13</a> of file <a class="el" href="sync_8h_source.html">sync.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sync_8h_source.html#l00017">17</a> of file <a class="el" href="sync_8h_source.html">sync.h</a>.</p>
 
 </div>
 </div>
@@ -365,91 +388,134 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sync_8h_source.html#l00036">36</a> of file <a class="el" href="sync_8h_source.html">sync.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sync_8h_source.html#l00040">40</a> of file <a class="el" href="sync_8h_source.html">sync.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="afae6538fc09fc9a3250a30adb1ba9637" name="afae6538fc09fc9a3250a30adb1ba9637"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afae6538fc09fc9a3250a30adb1ba9637">&#9670;&#160;</a></span>ttak_cond_broadcast()</h2>
+<a id="a47128cab139dd564c0779d11ab0ccd41" name="a47128cab139dd564c0779d11ab0ccd41"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a47128cab139dd564c0779d11ab0ccd41">&#9670;&#160;</a></span>ttak_cond_broadcast()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int ttak_cond_broadcast </td>
+          <td class="memname">static int ttak_cond_broadcast </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="sync_8h.html#aecf69ab36c01d7bce72c0f206d73031d">ttak_cond_t</a> *&#160;</td>
           <td class="paramname"><em>cond</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="sync_8h_source.html#l00103">103</a> of file <a class="el" href="sync_8h_source.html">sync.h</a>.</p>
 
 </div>
 </div>
-<a id="a0ff8df06a516ac77b19fd1f81a2e04a6" name="a0ff8df06a516ac77b19fd1f81a2e04a6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0ff8df06a516ac77b19fd1f81a2e04a6">&#9670;&#160;</a></span>ttak_cond_destroy()</h2>
+<a id="ab58fd71244cf83046cd114fe51a5911c" name="ab58fd71244cf83046cd114fe51a5911c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab58fd71244cf83046cd114fe51a5911c">&#9670;&#160;</a></span>ttak_cond_destroy()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int ttak_cond_destroy </td>
+          <td class="memname">static int ttak_cond_destroy </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="sync_8h.html#aecf69ab36c01d7bce72c0f206d73031d">ttak_cond_t</a> *&#160;</td>
           <td class="paramname"><em>cond</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="sync_8h_source.html#l00107">107</a> of file <a class="el" href="sync_8h_source.html">sync.h</a>.</p>
 
 </div>
 </div>
-<a id="ad001a691fece502b0a7d9d056e4c6952" name="ad001a691fece502b0a7d9d056e4c6952"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad001a691fece502b0a7d9d056e4c6952">&#9670;&#160;</a></span>ttak_cond_init()</h2>
+<a id="ac493ae550273c5565ceda76e757439d6" name="ac493ae550273c5565ceda76e757439d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac493ae550273c5565ceda76e757439d6">&#9670;&#160;</a></span>ttak_cond_init()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int ttak_cond_init </td>
+          <td class="memname">static int ttak_cond_init </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="sync_8h.html#aecf69ab36c01d7bce72c0f206d73031d">ttak_cond_t</a> *&#160;</td>
           <td class="paramname"><em>cond</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="sync_8h_source.html#l00091">91</a> of file <a class="el" href="sync_8h_source.html">sync.h</a>.</p>
 
 </div>
 </div>
-<a id="a276f3229135d70e3e3814755219766c4" name="a276f3229135d70e3e3814755219766c4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a276f3229135d70e3e3814755219766c4">&#9670;&#160;</a></span>ttak_cond_signal()</h2>
+<a id="a3de5843cb669e98bf77ee48bcca06594" name="a3de5843cb669e98bf77ee48bcca06594"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3de5843cb669e98bf77ee48bcca06594">&#9670;&#160;</a></span>ttak_cond_signal()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int ttak_cond_signal </td>
+          <td class="memname">static int ttak_cond_signal </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="sync_8h.html#aecf69ab36c01d7bce72c0f206d73031d">ttak_cond_t</a> *&#160;</td>
           <td class="paramname"><em>cond</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="sync_8h_source.html#l00099">99</a> of file <a class="el" href="sync_8h_source.html">sync.h</a>.</p>
 
 </div>
 </div>
-<a id="a134420d688a31a76bdfc34082a400247" name="a134420d688a31a76bdfc34082a400247"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a134420d688a31a76bdfc34082a400247">&#9670;&#160;</a></span>ttak_cond_wait()</h2>
+<a id="a51b988bc191d7b2f6c0fa9ddfaf89cf2" name="a51b988bc191d7b2f6c0fa9ddfaf89cf2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a51b988bc191d7b2f6c0fa9ddfaf89cf2">&#9670;&#160;</a></span>ttak_cond_wait()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int ttak_cond_wait </td>
+          <td class="memname">static int ttak_cond_wait </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="sync_8h.html#aecf69ab36c01d7bce72c0f206d73031d">ttak_cond_t</a> *&#160;</td>
           <td class="paramname"><em>cond</em>, </td>
@@ -466,198 +532,344 @@ Functions</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="sync_8h_source.html#l00095">95</a> of file <a class="el" href="sync_8h_source.html">sync.h</a>.</p>
 
 </div>
 </div>
-<a id="a578b3284d758bc51aa4ecf76f2e0dbc2" name="a578b3284d758bc51aa4ecf76f2e0dbc2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a578b3284d758bc51aa4ecf76f2e0dbc2">&#9670;&#160;</a></span>ttak_mutex_destroy()</h2>
+<a id="a45ca7863525174c34a1827f2eb5376d9" name="a45ca7863525174c34a1827f2eb5376d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a45ca7863525174c34a1827f2eb5376d9">&#9670;&#160;</a></span>ttak_mutex_destroy()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int ttak_mutex_destroy </td>
+          <td class="memname">static int ttak_mutex_destroy </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="sync_8h.html#a099d39f1f8999756bc828ad4b337d5b6">ttak_mutex_t</a> *&#160;</td>
           <td class="paramname"><em>mutex</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="sync_8h_source.html#l00055">55</a> of file <a class="el" href="sync_8h_source.html">sync.h</a>.</p>
 
 </div>
 </div>
-<a id="a7d304f966c52c975456a7f618a17dc7f" name="a7d304f966c52c975456a7f618a17dc7f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7d304f966c52c975456a7f618a17dc7f">&#9670;&#160;</a></span>ttak_mutex_init()</h2>
+<a id="ac18cded8911f131cc856a866ed1c1b81" name="ac18cded8911f131cc856a866ed1c1b81"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac18cded8911f131cc856a866ed1c1b81">&#9670;&#160;</a></span>ttak_mutex_init()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int ttak_mutex_init </td>
+          <td class="memname">static int ttak_mutex_init </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="sync_8h.html#a099d39f1f8999756bc828ad4b337d5b6">ttak_mutex_t</a> *&#160;</td>
           <td class="paramname"><em>mutex</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="sync_8h_source.html#l00043">43</a> of file <a class="el" href="sync_8h_source.html">sync.h</a>.</p>
 
 </div>
 </div>
-<a id="a65d82f049c34962c2dde6cdd45a09563" name="a65d82f049c34962c2dde6cdd45a09563"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a65d82f049c34962c2dde6cdd45a09563">&#9670;&#160;</a></span>ttak_mutex_lock()</h2>
+<a id="ab1e548970189a924bad3b7ad26da4cce" name="ab1e548970189a924bad3b7ad26da4cce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab1e548970189a924bad3b7ad26da4cce">&#9670;&#160;</a></span>ttak_mutex_lock()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int ttak_mutex_lock </td>
+          <td class="memname">static int ttak_mutex_lock </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="sync_8h.html#a099d39f1f8999756bc828ad4b337d5b6">ttak_mutex_t</a> *&#160;</td>
           <td class="paramname"><em>mutex</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="sync_8h_source.html#l00047">47</a> of file <a class="el" href="sync_8h_source.html">sync.h</a>.</p>
 
 </div>
 </div>
-<a id="a1dfa60f4c2eb49ec4f5d9b5eaf6448f0" name="a1dfa60f4c2eb49ec4f5d9b5eaf6448f0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1dfa60f4c2eb49ec4f5d9b5eaf6448f0">&#9670;&#160;</a></span>ttak_mutex_unlock()</h2>
+<a id="ab6f8176e9975ea88054f6f539764f9bc" name="ab6f8176e9975ea88054f6f539764f9bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab6f8176e9975ea88054f6f539764f9bc">&#9670;&#160;</a></span>ttak_mutex_unlock()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int ttak_mutex_unlock </td>
+          <td class="memname">static int ttak_mutex_unlock </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="sync_8h.html#a099d39f1f8999756bc828ad4b337d5b6">ttak_mutex_t</a> *&#160;</td>
           <td class="paramname"><em>mutex</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="sync_8h_source.html#l00051">51</a> of file <a class="el" href="sync_8h_source.html">sync.h</a>.</p>
 
 </div>
 </div>
-<a id="a1d8c7ddb2549a0dd08c117c5f2e93f21" name="a1d8c7ddb2549a0dd08c117c5f2e93f21"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1d8c7ddb2549a0dd08c117c5f2e93f21">&#9670;&#160;</a></span>ttak_rwlock_destroy()</h2>
+<a id="a3288e7ff7a6ecd8392f0296a9da8d59d" name="a3288e7ff7a6ecd8392f0296a9da8d59d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3288e7ff7a6ecd8392f0296a9da8d59d">&#9670;&#160;</a></span>ttak_rwlock_destroy()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int ttak_rwlock_destroy </td>
+          <td class="memname">static int ttak_rwlock_destroy </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="sync_8h.html#ad3f9b08e4c066e7bb7b1ed98d2a90386">ttak_rwlock_t</a> *&#160;</td>
           <td class="paramname"><em>rwlock</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="sync_8h_source.html#l00076">76</a> of file <a class="el" href="sync_8h_source.html">sync.h</a>.</p>
+<div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-2-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="sync_8h_a3288e7ff7a6ecd8392f0296a9da8d59d_icgraph.png" border="0" usemap="#async_8h_a3288e7ff7a6ecd8392f0296a9da8d59d_icgraph" alt=""/></div>
+<map name="async_8h_a3288e7ff7a6ecd8392f0296a9da8d59d_icgraph" id="async_8h_a3288e7ff7a6ecd8392f0296a9da8d59d_icgraph">
+<area shape="rect" title=" " alt="" coords="200,5,355,31"/>
+<area shape="rect" href="sync_8h.html#a81a287463238de01ad9f9b2233909e6c" title=" " alt="" coords="5,5,152,31"/>
+<area shape="poly" title=" " alt="" coords="186,21,153,21,153,15,186,15"/>
+</map>
+</div>
 
 </div>
 </div>
-<a id="a0d5576b5df1b2e31b33bea4dd0066105" name="a0d5576b5df1b2e31b33bea4dd0066105"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0d5576b5df1b2e31b33bea4dd0066105">&#9670;&#160;</a></span>ttak_rwlock_init()</h2>
+<a id="a4e2ad1456e1e587991494865526c078c" name="a4e2ad1456e1e587991494865526c078c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e2ad1456e1e587991494865526c078c">&#9670;&#160;</a></span>ttak_rwlock_init()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int ttak_rwlock_init </td>
+          <td class="memname">static int ttak_rwlock_init </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="sync_8h.html#ad3f9b08e4c066e7bb7b1ed98d2a90386">ttak_rwlock_t</a> *&#160;</td>
           <td class="paramname"><em>rwlock</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="sync_8h_source.html#l00060">60</a> of file <a class="el" href="sync_8h_source.html">sync.h</a>.</p>
+<div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-3-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="sync_8h_a4e2ad1456e1e587991494865526c078c_icgraph.png" border="0" usemap="#async_8h_a4e2ad1456e1e587991494865526c078c_icgraph" alt=""/></div>
+<map name="async_8h_a4e2ad1456e1e587991494865526c078c_icgraph" id="async_8h_a4e2ad1456e1e587991494865526c078c_icgraph">
+<area shape="rect" title=" " alt="" coords="172,5,299,31"/>
+<area shape="rect" href="sync_8h.html#ab3cf1fe6aa9a8e470b81b6c11ed5d5b9" title=" " alt="" coords="5,5,124,31"/>
+<area shape="poly" title=" " alt="" coords="158,21,124,21,124,15,158,15"/>
+</map>
+</div>
 
 </div>
 </div>
-<a id="a0e51c1ef0a128df271c0d86a1085dce3" name="a0e51c1ef0a128df271c0d86a1085dce3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0e51c1ef0a128df271c0d86a1085dce3">&#9670;&#160;</a></span>ttak_rwlock_rdlock()</h2>
+<a id="a1eee1e0280f4c0ff79f2b873782a4f63" name="a1eee1e0280f4c0ff79f2b873782a4f63"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1eee1e0280f4c0ff79f2b873782a4f63">&#9670;&#160;</a></span>ttak_rwlock_rdlock()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int ttak_rwlock_rdlock </td>
+          <td class="memname">static int ttak_rwlock_rdlock </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="sync_8h.html#ad3f9b08e4c066e7bb7b1ed98d2a90386">ttak_rwlock_t</a> *&#160;</td>
           <td class="paramname"><em>rwlock</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="sync_8h_source.html#l00064">64</a> of file <a class="el" href="sync_8h_source.html">sync.h</a>.</p>
 
 </div>
 </div>
-<a id="a7d5dfa0872ff98f5a43013a2d5666500" name="a7d5dfa0872ff98f5a43013a2d5666500"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7d5dfa0872ff98f5a43013a2d5666500">&#9670;&#160;</a></span>ttak_rwlock_unlock()</h2>
+<a id="a4151481481c9d939ba0dad2d6cf1b867" name="a4151481481c9d939ba0dad2d6cf1b867"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4151481481c9d939ba0dad2d6cf1b867">&#9670;&#160;</a></span>ttak_rwlock_unlock()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int ttak_rwlock_unlock </td>
+          <td class="memname">static int ttak_rwlock_unlock </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="sync_8h.html#ad3f9b08e4c066e7bb7b1ed98d2a90386">ttak_rwlock_t</a> *&#160;</td>
           <td class="paramname"><em>rwlock</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="sync_8h_source.html#l00072">72</a> of file <a class="el" href="sync_8h_source.html">sync.h</a>.</p>
 
 </div>
 </div>
-<a id="a91f4ec058c517f0741cd0d156c2c9dd4" name="a91f4ec058c517f0741cd0d156c2c9dd4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a91f4ec058c517f0741cd0d156c2c9dd4">&#9670;&#160;</a></span>ttak_rwlock_wrlock()</h2>
+<a id="a20571518e2e5a832d9e0f5be839357d0" name="a20571518e2e5a832d9e0f5be839357d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a20571518e2e5a832d9e0f5be839357d0">&#9670;&#160;</a></span>ttak_rwlock_wrlock()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int ttak_rwlock_wrlock </td>
+          <td class="memname">static int ttak_rwlock_wrlock </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="sync_8h.html#ad3f9b08e4c066e7bb7b1ed98d2a90386">ttak_rwlock_t</a> *&#160;</td>
           <td class="paramname"><em>rwlock</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="sync_8h_source.html#l00068">68</a> of file <a class="el" href="sync_8h_source.html">sync.h</a>.</p>
 
 </div>
 </div>
-<a id="a812fa46f2809040c0cb9cc3adeaa9ae4" name="a812fa46f2809040c0cb9cc3adeaa9ae4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a812fa46f2809040c0cb9cc3adeaa9ae4">&#9670;&#160;</a></span>ttak_shard_destroy()</h2>
+<a id="a81a287463238de01ad9f9b2233909e6c" name="a81a287463238de01ad9f9b2233909e6c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a81a287463238de01ad9f9b2233909e6c">&#9670;&#160;</a></span>ttak_shard_destroy()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int ttak_shard_destroy </td>
+          <td class="memname">static int ttak_shard_destroy </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="sync_8h.html#a2af401fa7e43489271afefbdfa2b5399">ttak_shard_t</a> *&#160;</td>
           <td class="paramname"><em>shard</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="sync_8h_source.html#l00086">86</a> of file <a class="el" href="sync_8h_source.html">sync.h</a>.</p>
+<div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-4-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="sync_8h_a81a287463238de01ad9f9b2233909e6c_cgraph.png" border="0" usemap="#async_8h_a81a287463238de01ad9f9b2233909e6c_cgraph" alt=""/></div>
+<map name="async_8h_a81a287463238de01ad9f9b2233909e6c_cgraph" id="async_8h_a81a287463238de01ad9f9b2233909e6c_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,152,31"/>
+<area shape="rect" href="sync_8h.html#a3288e7ff7a6ecd8392f0296a9da8d59d" title=" " alt="" coords="200,5,355,31"/>
+<area shape="poly" title=" " alt="" coords="152,15,186,15,186,21,152,21"/>
+</map>
+</div>
 
 </div>
 </div>
-<a id="a418b5e2a4fd818ceb7e5d0be5ae92352" name="a418b5e2a4fd818ceb7e5d0be5ae92352"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a418b5e2a4fd818ceb7e5d0be5ae92352">&#9670;&#160;</a></span>ttak_shard_init()</h2>
+<a id="ab3cf1fe6aa9a8e470b81b6c11ed5d5b9" name="ab3cf1fe6aa9a8e470b81b6c11ed5d5b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab3cf1fe6aa9a8e470b81b6c11ed5d5b9">&#9670;&#160;</a></span>ttak_shard_init()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int ttak_shard_init </td>
+          <td class="memname">static int ttak_shard_init </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="sync_8h.html#a2af401fa7e43489271afefbdfa2b5399">ttak_shard_t</a> *&#160;</td>
           <td class="paramname"><em>shard</em>, </td>
@@ -674,7 +886,26 @@ Functions</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="sync_8h_source.html#l00081">81</a> of file <a class="el" href="sync_8h_source.html">sync.h</a>.</p>
+<div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-5-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-5-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="sync_8h_ab3cf1fe6aa9a8e470b81b6c11ed5d5b9_cgraph.png" border="0" usemap="#async_8h_ab3cf1fe6aa9a8e470b81b6c11ed5d5b9_cgraph" alt=""/></div>
+<map name="async_8h_ab3cf1fe6aa9a8e470b81b6c11ed5d5b9_cgraph" id="async_8h_ab3cf1fe6aa9a8e470b81b6c11ed5d5b9_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,124,31"/>
+<area shape="rect" href="sync_8h.html#a4e2ad1456e1e587991494865526c078c" title=" " alt="" coords="172,5,299,31"/>
+<area shape="poly" title=" " alt="" coords="124,15,158,15,158,21,124,21"/>
+</map>
+</div>
 
 </div>
 </div>

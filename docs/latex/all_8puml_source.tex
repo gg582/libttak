@@ -1,0 +1,174 @@
+\doxysection{all.\+puml}
+\hypertarget{all_8puml_source}{}\label{all_8puml_source}\index{blueprints/all.puml@{blueprints/all.puml}}
+\mbox{\hyperlink{all_8puml}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00001}00001\ @startuml}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00002}00002\ '\ This\ blueprint\ treats\ AliquotTracker\ as\ an\ external\ example\ app.}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00003}00003\ '\ Green\ dashed\ arrows\ show\ an\ example\ end-\/to-\/end\ call\ flow\ (numbered).}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00004}00004\ '\ Black\ arrows\ show\ static\ dependencies\ /\ data-\/flow\ relationships.}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00006}00006\ !theme\ plain}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00007}00007\ hide\ empty\ members}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00008}00008\ skinparam\ packageStyle\ rectangle}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00010}00010\ '\ Reduce\ curvy\ routing\ and\ make\ edges\ readable.}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00011}00011\ left\ to\ right\ direction}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00012}00012\ skinparam\ linetype\ ortho}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00013}00013\ skinparam\ dpi\ 160}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00015}00015\ skinparam\ class<<dangerous>>\ \{}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00016}00016\ \ \ \ \ BackgroundColor\ \#ffe6e6}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00017}00017\ \ \ \ \ BorderColor\ red}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00018}00018\ \ \ \ \ FontColor\ \#a00}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00019}00019\ \}}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00021}00021\ skinparam\ class<<app>>\ \{}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00022}00022\ \ \ \ \ BackgroundColor\ \#e9ffe9}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00023}00023\ \ \ \ \ BorderColor\ \#0a0}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00024}00024\ \ \ \ \ FontColor\ \#050}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00025}00025\ \}}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00027}00027\ title\ LibTTAK\ –\ Integrated\ Architecture\ (with\ AliquotTracker\ call-\/flow)}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00029}00029\ package\ "{}Core\ Data"{}\ \{}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00030}00030\ \ \ \ \ class\ HashTable}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00031}00031\ \ \ \ \ class\ RingBuffer}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00032}00032\ \ \ \ \ class\ PoolAllocator}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00033}00033\ \ \ \ \ class\ SetContainer}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00034}00034\ \ \ \ \ class\ Logger}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00035}00035\ \}}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00037}00037\ package\ "{}Concurrency"{}\ \{}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00038}00038\ \ \ \ \ class\ Mutexes}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00039}00039\ \ \ \ \ class\ Spinlocks}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00040}00040\ \ \ \ \ class\ PortableAtomics}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00041}00041\ \}}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00043}00043\ package\ "{}Async\ Runtime"{}\ \{}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00044}00044\ \ \ \ \ class\ ThreadPool}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00045}00045\ \ \ \ \ class\ Workers}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00046}00046\ \ \ \ \ class\ AsyncScheduler}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00047}00047\ \ \ \ \ class\ PriorityQueue}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00048}00048\ \ \ \ \ class\ FuturesPromises}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00049}00049\ \}}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00051}00051\ package\ "{}Runtime\ Services"{}\ \{}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00052}00052\ \ \ \ \ class\ Timing}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00053}00053\ \ \ \ \ class\ RateLimiter}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00054}00054\ \ \ \ \ class\ Stats}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00055}00055\ \}}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00057}00057\ package\ "{}Memory\ Systems"{}\ \{}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00058}00058\ \ \ \ \ class\ OwnerSubsystem}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00059}00059\ \ \ \ \ class\ EpochGC}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00060}00060\ \ \ \ \ class\ MemTree}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00061}00061\ \ \ \ \ class\ Allocators}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00062}00062\ \}}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00064}00064\ package\ "{}Math\ \&\ Security"{}\ \{}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00065}00065\ \ \ \ \ class\ BigInt}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00066}00066\ \ \ \ \ class\ BigMulReal}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00067}00067\ \ \ \ \ class\ DivisorsFactor}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00068}00068\ \ \ \ \ class\ NTT}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00069}00069\ \ \ \ \ class\ SHA256}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00070}00070\ \}}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00071}00071\ }
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00072}00072\ package\ "{}Unsafe\ Layer"{}\ \{}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00073}00073\ \ \ \ \ class\ ContextBridge\ <<dangerous>>}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00074}00074\ \ \ \ \ class\ UnsafeRegionMacros\ <<dangerous>>}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00075}00075\ \}}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00077}00077\ package\ "{}Example\ App\ (not\ part\ of\ lib)"{}\ \{}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00078}00078\ \ \ \ \ class\ AliquotTracker\ <<app>>}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00079}00079\ \}}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00080}00080\ }
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00081}00081\ '\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00082}00082\ '\ Static\ dependencies\ (black)}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00083}00083\ '\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00084}00084\ HashTable\ -\/-\/>\ OwnerSubsystem\ :\ tracked\ by}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00085}00085\ RingBuffer\ -\/-\/>\ ThreadPool\ :\ queues}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00086}00086\ PoolAllocator\ -\/-\/>\ Allocators}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00087}00087\ SetContainer\ -\/-\/>\ HashTable}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00088}00088\ Logger\ -\/-\/>\ AliquotTracker\ :\ app\ logging}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00089}00089\ }
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00090}00090\ Mutexes\ -\/-\/>\ ThreadPool}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00091}00091\ Spinlocks\ -\/-\/>\ Workers}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00092}00092\ PortableAtomics\ -\/-\/>\ AsyncScheduler}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00093}00093\ }
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00094}00094\ ThreadPool\ -\/-\/>\ AsyncScheduler}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00095}00095\ AsyncScheduler\ -\/-\/>\ FuturesPromises}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00096}00096\ PriorityQueue\ -\/-\/>\ AsyncScheduler}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00097}00097\ }
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00098}00098\ Timing\ -\/-\/>\ RateLimiter}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00099}00099\ Timing\ -\/-\/>\ AsyncScheduler}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00100}00100\ RateLimiter\ -\/-\/>\ AliquotTracker\ :\ limit\ external\ effects}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00101}00101\ }
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00102}00102\ OwnerSubsystem\ -\/-\/>\ EpochGC}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00103}00103\ EpochGC\ -\/-\/>\ MemTree}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00104}00104\ MemTree\ -\/-\/>\ Allocators}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00105}00105\ }
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00106}00106\ NTT\ -\/-\/>\ BigMulReal}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00107}00107\ }
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00108}00108\ ContextBridge\ -\/-\/>\ OwnerSubsystem}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00109}00109\ UnsafeRegionMacros\ -\/-\/>\ ContextBridge}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00110}00110\ }
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00111}00111\ note\ right\ of\ ContextBridge}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00112}00112\ \ \ \ \ NOT\ RECOMMENDED\ –\ shared}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00113}00113\ \ \ \ \ memory\ bridge\ for\ experts\ only.}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00114}00114\ end\ note}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00115}00115\ }
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00116}00116\ note\ right\ of\ UnsafeRegionMacros}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00117}00117\ \ \ \ \ NOT\ RECOMMENDED\ –\ raw\ macros}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00118}00118\ \ \ \ \ bypass\ standard\ ownership\ checks.}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00119}00119\ end\ note}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00120}00120\ }
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00121}00121\ note\ bottom}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00122}00122\ \ \ \ \ Red\ border\ classes\ are\ NOT\ RECOMMENDED}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00123}00123\ \ \ \ \ for\ general\ production\ use.\ They\ are}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00124}00124\ \ \ \ \ provided\ for\ specialized\ scenarios\ and}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00125}00125\ \ \ \ \ should\ stay\ isolated.}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00126}00126\ end\ note}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00127}00127\ }
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00128}00128\ '\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00129}00129\ '\ Example\ numbered\ execution\ flow\ (green\ dashed,\ orthogonal)}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00130}00130\ '\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00131}00131\ '\ Use\ this\ as\ a\ "{}follow\ the\ arrows"{}\ trace\ for\ how\ the\ app}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00132}00132\ '\ typically\ drives\ the\ library\ at\ runtime.}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00133}00133\ }
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00134}00134\ '\ 1)\ App\ boot\ /\ prepare\ runtime\ primitives}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00135}00135\ AliquotTracker\ -\/[\#00aa00,dashed]-\/>\ AsyncScheduler\ :\ 1.\ init\ scheduler}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00136}00136\ AsyncScheduler\ -\/[\#00aa00,dashed]-\/>\ ThreadPool\ :\ 2.\ attach\ pool}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00137}00137\ ThreadPool\ -\/[\#00aa00,dashed]-\/>\ Workers\ :\ 3.\ spawn\ workers}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00138}00138\ AsyncScheduler\ -\/[\#00aa00,dashed]-\/>\ PriorityQueue\ :\ 4.\ task\ ordering}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00139}00139\ AsyncScheduler\ -\/[\#00aa00,dashed]-\/>\ FuturesPromises\ :\ 5.\ async\ results}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00140}00140\ }
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00141}00141\ '\ 2)\ Memory\ authority\ chain\ used\ by\ app-\/owned\ objects}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00142}00142\ AliquotTracker\ -\/[\#00aa00,dashed]-\/>\ OwnerSubsystem\ :\ 6.\ acquire\ ownership\ realm}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00143}00143\ OwnerSubsystem\ -\/[\#00aa00,dashed]-\/>\ EpochGC\ :\ 7.\ epoch\ protection}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00144}00144\ EpochGC\ -\/[\#00aa00,dashed]-\/>\ MemTree\ :\ 8.\ tracked\ allocations}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00145}00145\ MemTree\ -\/[\#00aa00,dashed]-\/>\ Allocators\ :\ 9.\ allocate/free\ via\ rules}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00146}00146\ }
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00147}00147\ '\ 3)\ Main\ math\ pipeline\ (aliquot\ work)}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00148}00148\ AliquotTracker\ -\/[\#00aa00,dashed]-\/>\ DivisorsFactor\ :\ 10.\ factor\ /\ sumdiv\ plan}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00149}00149\ DivisorsFactor\ -\/[\#00aa00,dashed]-\/>\ BigInt\ :\ 11.\ big\ arithmetic}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00150}00150\ BigMulReal\ -\/[\#00aa00,dashed]-\/>\ BigInt\ :\ 12.\ widened\ multiply\ (if\ used)}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00151}00151\ DivisorsFactor\ -\/[\#00aa00,dashed]-\/>\ BigMulReal\ :\ 13.\ fast\ mul\ path\ (optional)}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00152}00152\ }
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00153}00153\ '\ 4)\ Runtime\ services\ around\ execution}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00154}00154\ AliquotTracker\ -\/[\#00aa00,dashed]-\/>\ Timing\ :\ 14.\ timestamps\ /\ profiling\ hooks}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00155}00155\ Timing\ -\/[\#00aa00,dashed]-\/>\ RateLimiter\ :\ 15.\ throttle\ policy\ (optional)}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00156}00156\ AliquotTracker\ -\/[\#00aa00,dashed]-\/>\ Logger\ :\ 16.\ structured\ logs}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00157}00157\ }
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00158}00158\ '\ 5)\ Optional\ unsafe\ bridge\ (explicitly\ marked\ as\ dangerous)}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00159}00159\ AliquotTracker\ -\/[\#00aa00,dashed]-\/>\ ContextBridge\ :\ 17.\ optional\ bridge\ (expert)}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00160}00160\ ContextBridge\ -\/[\#00aa00,dashed]-\/>\ UnsafeRegionMacros\ :\ 18.\ raw\ escape\ hatch}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00161}00161\ }
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00162}00162\ legend\ right}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00163}00163\ |\ Color/Style\ |\ Meaning\ |}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00164}00164\ |\ <color:\#000000>solid</color>\ |\ Static\ dependency\ /\ data\ relationship\ |}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00165}00165\ |\ <color:\#00aa00>dashed</color>\ |\ Example\ runtime\ call\ flow\ (numbered)\ |}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00166}00166\ endlegend}
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00167}00167\ }
+\DoxyCodeLine{\Hypertarget{all_8puml_source_l00168}00168\ @enduml}
+
+\end{DoxyCode}

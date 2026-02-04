@@ -1,0 +1,5 @@
+<map id="ttak_ratelimit_allow" name="ttak_ratelimit_allow">
+<area shape="rect" id="Node000001" title="Checks if an action is allowed by the rate limiter." alt="" coords="5,5,159,31"/>
+<area shape="rect" id="Node000002" href="$limit_8h.html#a3deddce4c8bded9bce6e0fe704d9c332" title="Attempts to consume tokens from the bucket." alt="" coords="207,5,413,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="159,15,193,15,193,21,159,21"/>
+</map>

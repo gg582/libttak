@@ -1,5 +1,6 @@
 <map id="include/ttak/async/sched.h" name="include/ttak/async/sched.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="34,5,174,50"/>
-<area shape="rect" id="Node000002" href="$thread__compat_8h.html" title=" " alt="" coords="5,98,203,143"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="107,66,107,98,101,98,101,66"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="34,5,175,45"/>
+<area shape="poly" id="edge2_Node000001_Node000001" title=" " alt="" coords="190,11,199,16,202,26,194,38,176,44,175,39,191,34,197,25,194,20,187,15"/>
+<area shape="rect" id="Node000002" href="$thread__compat_8h.html" title=" " alt="" coords="5,93,204,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="107,59,107,93,102,93,102,59"/>
 </map>

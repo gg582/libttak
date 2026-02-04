@@ -1,6 +1,8 @@
 var searchData=
 [
-  ['val_5ffree_0',['val_free',['../structttak__table.html#a691d524a5327dbfa40dae6bd48e02a48',1,'ttak_table::val_free'],['../structttak__bplus__tree.html#a93969fe63ba91fc114484ca959eb4794',1,'ttak_bplus_tree::val_free'],['../structttak__btree.html#ad7f826aaa95bf8101aed70df8bf74a79',1,'ttak_btree::val_free']]],
-  ['value_1',['value',['../struct__node.html#aac33312d6f7d63df74ad38d3d6fb0166',1,'_node::value'],['../structttak__table__entry.html#aacec9e2291d8b74728f9bcc5396c1ac2',1,'ttak_table_entry::value'],['../structttak__ast__node.html#a508bf8a1f90cfdd4cc22d36885d35989',1,'ttak_ast_node::value']]],
-  ['values_2',['values',['../structttak__bplus__node.html#a8853c261a05733d578900c58ab4cd8f2',1,'ttak_bplus_node::values'],['../structttak__btree__node.html#ada54833dc8736c1c631592965de0042f',1,'ttak_btree_node::values']]]
+  ['unclenches_0',['C++ (smart pointers + custom deleters) never unclenches',['..//home/yjlee/libttak/README.md#autotoc_md24',1,'']]],
+  ['unsafe_1',['Stage 9 – DANGEROUS (Unsafe)',['../md_tutorials_2CLONE__PATH.html#autotoc_md118',1,'']]],
+  ['use_5fmanual_5fcleanup_2',['use_manual_cleanup',['../structttak__mem__tree.html#a7bf5a075716a16c6db6f174a8ee85278',1,'ttak_mem_tree']]],
+  ['used_3',['used',['..//home/yjlee/libttak/README.md#autotoc_md26',1,'How is it used?'],['../structttak__bigint.html#a6e54dfdf29b65f2439c8fbb9c95fd758',1,'ttak_bigint::used']]],
+  ['used_5fcount_4',['used_count',['../structttak__object__pool.html#a53077709490b4f7933fd2a6609d14e84',1,'ttak_object_pool']]]
 ];

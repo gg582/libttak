@@ -1,4 +1,38 @@
 var include_2stdatomic_8h =
 [
-    [ "__TTAK_NEEDS_PORTABLE_STDATOMIC__", "include_2stdatomic_8h.html#a58014a490f8aa8f5dd78cd9203229cdf", null ]
+    [ "atomic_flag", "structatomic__flag.html", "structatomic__flag" ],
+    [ "__TT_ATOMIC_LOCK", "include_2stdatomic_8h.html#a7b82615cb418a296137e2abcff7db14e", null ],
+    [ "__TT_ATOMIC_UNLOCK", "include_2stdatomic_8h.html#a078ff22b16930edd2268d1cb679445a5", null ],
+    [ "__TTAK_NEEDS_PORTABLE_STDATOMIC__", "include_2stdatomic_8h.html#a58014a490f8aa8f5dd78cd9203229cdf", null ],
+    [ "_Atomic", "include_2stdatomic_8h.html#a94674db2fe3c7496dfdcaa9b81486e79", null ],
+    [ "atomic_compare_exchange_weak", "include_2stdatomic_8h.html#a55257ac5977e775b87563bb8cc955863", null ],
+    [ "atomic_compare_exchange_weak_explicit", "include_2stdatomic_8h.html#a97a5f3e6f5f733e94b1ddeff904d3bc0", null ],
+    [ "atomic_fetch_add", "include_2stdatomic_8h.html#ac0a4bfbcb6b982cae35b44fc104a09b6", null ],
+    [ "atomic_fetch_add_explicit", "include_2stdatomic_8h.html#ace8ab452db03f62569b8d4dbedf8ff09", null ],
+    [ "atomic_fetch_sub", "include_2stdatomic_8h.html#a5911a234da3c1fce86bbebea7650e562", null ],
+    [ "atomic_fetch_sub_explicit", "include_2stdatomic_8h.html#af4371ce6237310eedf5a1036178ada1f", null ],
+    [ "atomic_flag_clear", "include_2stdatomic_8h.html#ae8e62cb9801fedb40ccaca61f60d8617", null ],
+    [ "ATOMIC_FLAG_INIT", "include_2stdatomic_8h.html#a3cf6ded3b463faf0cedce1718caaa695", null ],
+    [ "atomic_flag_test_and_set", "include_2stdatomic_8h.html#ac207cf1efb51bc53fc9078301afa391f", null ],
+    [ "atomic_init", "include_2stdatomic_8h.html#af8a9cbe9495fcafaa892b24b383acf96", null ],
+    [ "atomic_load", "include_2stdatomic_8h.html#afb8e12dba0aa6280b29e3d403e4ce384", null ],
+    [ "atomic_load_explicit", "include_2stdatomic_8h.html#abcbf72e31b4b3100152d409e9637441a", null ],
+    [ "atomic_store", "include_2stdatomic_8h.html#a87fbed10bf5d77e3b80f356e5246f102", null ],
+    [ "atomic_store_explicit", "include_2stdatomic_8h.html#a9f712e57179afb1b855da84b14ed670c", null ],
+    [ "atomic_thread_fence", "include_2stdatomic_8h.html#a817535e09bf9c427a1cbee66d06e7030", null ],
+    [ "TTAK_PORTABLE_STDATOMIC_H", "include_2stdatomic_8h.html#a7f4e925ad8ccb259c41cda0e797dd7a6", null ],
+    [ "atomic_bool", "include_2stdatomic_8h.html#aef4aec84224d1f46d0ba87f52ca08f69", null ],
+    [ "atomic_size_t", "include_2stdatomic_8h.html#a579c826aec0f3d9971c22c3629abcbfe", null ],
+    [ "atomic_uint_fast64_t", "include_2stdatomic_8h.html#acc9ed8d56c5c645e7d5503aa72d1da49", null ],
+    [ "memory_order", "include_2stdatomic_8h.html#a17c2de5ae768960284c047a320f17d1b", [
+      [ "memory_order_relaxed", "include_2stdatomic_8h.html#a17c2de5ae768960284c047a320f17d1bac6489d0374e297a776f6a3db7ea5654a", null ],
+      [ "memory_order_consume", "include_2stdatomic_8h.html#a17c2de5ae768960284c047a320f17d1ba0745f54882bc00251a719e42969db110", null ],
+      [ "memory_order_acquire", "include_2stdatomic_8h.html#a17c2de5ae768960284c047a320f17d1bafb313754331704b978e9a80a933b3da7", null ],
+      [ "memory_order_release", "include_2stdatomic_8h.html#a17c2de5ae768960284c047a320f17d1ba685a90c8fc516895354973c3918a5f7b", null ],
+      [ "memory_order_acq_rel", "include_2stdatomic_8h.html#a17c2de5ae768960284c047a320f17d1bae17e60cbfd766a7f165872c36e2f7bc5", null ],
+      [ "memory_order_seq_cst", "include_2stdatomic_8h.html#a17c2de5ae768960284c047a320f17d1ba2d21914d1edd227a890107e7878a3752", null ]
+    ] ],
+    [ "atomic_flag_clear_explicit", "include_2stdatomic_8h.html#a4154e94db39d792afa138536ccaa0d7e", null ],
+    [ "atomic_flag_test_and_set_explicit", "include_2stdatomic_8h.html#aeca7c45606fc2b5e0c8dca53a76f40ac", null ],
+    [ "__ttak_atomic_global_lock", "include_2stdatomic_8h.html#a7082a0c612e692d1d2182aea6fcecb26", null ]
 ];

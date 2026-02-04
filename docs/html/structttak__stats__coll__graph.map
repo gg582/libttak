@@ -1,5 +1,7 @@
 <map id="ttak_stats" name="ttak_stats">
-<area shape="rect" id="Node000001" title="Thread&#45;safe Statistics structure." alt="" coords="5,93,92,119"/>
-<area shape="rect" id="Node000002" href="$structttak__spin.html" title="Spinlock structure." alt="" coords="7,5,90,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="51,45,51,93,46,93,46,45"/>
+<area shape="rect" id="Node000001" title="Thread&#45;safe Statistics structure." alt="" coords="11,181,98,207"/>
+<area shape="rect" id="Node000002" href="$structttak__spin.html" title="Spinlock structure." alt="" coords="13,93,96,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="57,133,57,181,52,181,52,133"/>
+<area shape="rect" id="Node000003" href="$structatomic__flag.html" title=" " alt="" coords="5,5,104,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="57,45,57,93,52,93,52,45"/>
 </map>

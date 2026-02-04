@@ -1,0 +1,5 @@
+<map id="ttak_ratelimit_init" name="ttak_ratelimit_init">
+<area shape="rect" id="Node000001" title="Initializes a rate limiter." alt="" coords="5,5,144,31"/>
+<area shape="rect" id="Node000002" href="$limit_8h.html#ab7b4f398fc841de28b2863657169952e" title="Initializes a token bucket." alt="" coords="192,5,361,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="144,15,178,15,178,21,144,21"/>
+</map>

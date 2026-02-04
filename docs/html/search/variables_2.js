@@ -1,19 +1,9 @@
 var searchData=
 [
-  ['canary_5fend_0',['canary_end',['../structttak__mem__header__t.html#a9bc5cff0708537fe474f41e356e69284',1,'ttak_mem_header_t']]],
-  ['canary_5fstart_1',['canary_start',['../structttak__mem__header__t.html#aeb69c52bed0292761ce4ff581eae37df',1,'ttak_mem_header_t']]],
-  ['cap_2',['cap',['../structttak__map__t.html#a78c16627c9ef1b90cbaa6ca777a85531',1,'ttak_map_t::cap'],['../struct____internal__ttak__proc__priority__queue__t.html#a7f14aaf86cf1424d01be46536bb77252',1,'__internal_ttak_proc_priority_queue_t::cap']]],
-  ['cap_5fchildren_3',['cap_children',['../structttak__ast__node.html#a05ab59ed348b907f6e1bea112f1f64e1',1,'ttak_ast_node']]],
-  ['capacity_4',['capacity',['../structttak__object__pool.html#ad6c6f8215988b972296cc49fee97d89d',1,'ttak_object_pool::capacity'],['../structttak__ringbuf.html#aac5c851ef70fd84a8886a6adaed8517e',1,'ttak_ringbuf::capacity'],['../structttak__table.html#a2b70a3388897ec19b7b13534c0aac9d0',1,'ttak_table::capacity'],['../structttak__bigint.html#a5f013e071399db36a34cf97b00a32c07',1,'ttak_bigint::capacity'],['../structttak__heap__tree.html#ada340f8d3200684ac87f085bb6a7218f',1,'ttak_heap_tree::capacity'],['../structttak__unsafe__region.html#ad0a5575ed68a46576df597aa080746cc',1,'ttak_unsafe_region::capacity']]],
-  ['checksum_5',['checksum',['../structttak__mem__header__t.html#a49f32c7dc3f8c633c289870c99841153',1,'ttak_mem_header_t']]],
-  ['children_6',['children',['../structttak__btree__node.html#a0686782a39e47e71ef85a16c3818e0c2',1,'ttak_btree_node::children'],['../structttak__bplus__node.html#af1224550086173ae1d94743cfce80f1b',1,'ttak_bplus_node::children'],['../structttak__ast__node.html#a6077e5f3f5257268f8d72dad396b8093',1,'ttak_ast_node::children']]],
-  ['cleanup_5fthread_7',['cleanup_thread',['../structttak__mem__tree.html#a05f533891d26dee4a3ee9e1997b7b6cc',1,'ttak_mem_tree']]],
-  ['cmp_8',['cmp',['../structttak__heap__tree.html#af2ca80a7e0420f1a674963f9f12c41eb',1,'ttak_heap_tree::cmp'],['../structttak__bplus__tree.html#a224e4a27e60f30836cecb7c4e9d51e2d',1,'ttak_bplus_tree::cmp'],['../structttak__btree.html#ac4ca3eb61f7f677a2abb28736d97db87',1,'ttak_btree::cmp']]],
-  ['cond_9',['cond',['../structttak__future.html#a51864bb1d03b06e09cb18262b2bd3675',1,'ttak_future::cond'],['../structttak__mem__tree.html#a66aff4cfeb51826d80c498f97ac7754f',1,'ttak_mem_tree::cond']]],
-  ['count_10',['count',['../structttak__stats.html#a049a63b14d250966d575675ae4c0dcd9',1,'ttak_stats::count'],['../structttak__backoff.html#aeb72f752747271ecc00decd5d871516b',1,'ttak_backoff::count']]],
-  ['created_5ftick_11',['created_tick',['../structttak__mem__header__t.html#aefba5a41d63f62a6de53c3a9a6f0f51b',1,'ttak_mem_header_t']]],
-  ['creation_5fts_12',['creation_ts',['../structttak__owner.html#a06604c5fe6dd960f99fd33e66f0156e1',1,'ttak_owner::creation_ts'],['../structttak__thread__pool.html#a3e5f0e7aff5c7d8d3c98f6614cafa405',1,'ttak_thread_pool::creation_ts']]],
-  ['ctrl_13',['ctrl',['../struct__node.html#ae3f8bb98545485738428f81dfcf6a14b',1,'_node']]],
-  ['ctx_5fid_14',['ctx_id',['../structttak__unsafe__region.html#ab321fe3ca41f8350d779a48c95c95a7b',1,'ttak_unsafe_region']]],
-  ['current_5fepoch_15',['current_epoch',['../structttak__epoch__gc.html#ab3a7c8a89fbdc06128a6b176ed2132eb',1,'ttak_epoch_gc']]]
+  ['bitlen_0',['bitlen',['../structSHA256__CTX.html#a22b9f345eb0273f497b397a09409cc4e',1,'SHA256_CTX']]],
+  ['bitmap_1',['bitmap',['../structttak__object__pool.html#a5d2309b73288099265b56b0555c8d17e',1,'ttak_object_pool']]],
+  ['bridge_5flock_2',['bridge_lock',['../structttak__context.html#a63feef9e95620e4495e637a691cef6f7',1,'ttak_context']]],
+  ['bucket_3',['bucket',['../structttak__ratelimit.html#a19b939a6b2e0c9941b3ed567d90c20b5',1,'ttak_ratelimit']]],
+  ['buckets_4',['buckets',['../structttak__table.html#af2bec832cd9fd19a6b687ba1edadba1d',1,'ttak_table']]],
+  ['buffer_5',['buffer',['../structttak__lf__queue__t.html#a9098da444001008adb5ea7219aada7b4',1,'ttak_lf_queue_t::buffer'],['../structttak__object__pool.html#a73ea2079b6694a8aad3b037175b4567c',1,'ttak_object_pool::buffer'],['../structttak__ringbuf.html#a756ba68ca45210f8377ee7a868289e61',1,'ttak_ringbuf::buffer']]]
 ];

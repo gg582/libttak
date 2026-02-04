@@ -24,63 +24,76 @@
 \DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00020}00020\ \textcolor{comment}{}}
 \DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00021}00021\ \textcolor{comment}{/**}}
 \DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00022}00022\ \textcolor{comment}{\ *\ @brief\ Initializes\ the\ backoff\ structure.}}
-\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00023}00023\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00023}00023\ \textcolor{comment}{\ *}}
 \DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00024}00024\ \textcolor{comment}{\ *\ @param\ b\ Pointer\ to\ the\ backoff\ structure.}}
 \DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00025}00025\ \textcolor{comment}{\ */}}
-\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00026}\mbox{\hyperlink{spinlock_8h_a7f17b0b237b8397e7849b9d249d1a196}{00026}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{spinlock_8h_a7f17b0b237b8397e7849b9d249d1a196}{ttak\_backoff\_init}}(\mbox{\hyperlink{structttak__backoff}{ttak\_backoff\_t}}\ *b);}
-\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00027}00027\ \textcolor{comment}{}}
-\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00028}00028\ \textcolor{comment}{/**}}
-\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00029}00029\ \textcolor{comment}{\ *\ @brief\ Executes\ a\ backoff\ pause.}}
-\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00030}00030\ \textcolor{comment}{\ *\ }}
-\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00031}00031\ \textcolor{comment}{\ *\ Uses\ CPU\ pause\ instruction\ for\ short\ waits\ and\ thread\ yield/sleep\ for\ longer\ waits.}}
-\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00032}00032\ \textcolor{comment}{\ *\ }}
-\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00033}00033\ \textcolor{comment}{\ *\ @param\ b\ Pointer\ to\ the\ backoff\ structure.}}
-\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00034}00034\ \textcolor{comment}{\ */}}
-\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00035}\mbox{\hyperlink{spinlock_8h_a842ccd455a040d093eee00fefd115c27}{00035}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{spinlock_8h_a842ccd455a040d093eee00fefd115c27}{ttak\_backoff\_pause}}(\mbox{\hyperlink{structttak__backoff}{ttak\_backoff\_t}}\ *b);}
-\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00036}00036\ \textcolor{comment}{}}
-\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00037}00037\ \textcolor{comment}{/**}}
-\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00038}00038\ \textcolor{comment}{\ *\ @brief\ Spinlock\ structure.}}
-\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00039}00039\ \textcolor{comment}{\ *\ }}
-\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00040}00040\ \textcolor{comment}{\ *\ Uses\ an\ atomic\ flag\ for\ mutual\ exclusion.}}
-\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00041}00041\ \textcolor{comment}{\ *\ Prefer\ this\ over\ mutexes\ for\ very\ short\ critical\ sections.}}
-\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00042}00042\ \textcolor{comment}{\ */}}
-\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00043}\mbox{\hyperlink{structttak__spin}{00043}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structttak__spin}{ttak\_spin}}\ \{}
-\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00044}\mbox{\hyperlink{structttak__spin_a33d3c246a2db2f9c8bee949d6cdf07b7}{00044}}\ \ \ \ \ \textcolor{keyword}{volatile}\ atomic\_flag\ \mbox{\hyperlink{structttak__spin_a33d3c246a2db2f9c8bee949d6cdf07b7}{flag}};\ \textcolor{comment}{/**<\ Atomic\ flag\ (TAS).\ */}}
-\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00045}\mbox{\hyperlink{spinlock_8h_a705f9b9b5f7cf440ded7db544f974487}{00045}}\ \}\ \mbox{\hyperlink{spinlock_8h_a705f9b9b5f7cf440ded7db544f974487}{ttak\_spin\_t}};}
-\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00046}00046\ }
-\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00047}\mbox{\hyperlink{spinlock_8h_a3716a9be74a34a8ac376265d294dd166}{00047}}\ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{structttak__spin}{ttak\_spin\_t}}\ \mbox{\hyperlink{spinlock_8h_a3716a9be74a34a8ac376265d294dd166}{tt\_spin\_t}};}
-\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00048}00048\ \textcolor{comment}{}}
-\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00049}00049\ \textcolor{comment}{/**}}
-\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00050}00050\ \textcolor{comment}{\ *\ @brief\ Initializes\ the\ spinlock.}}
-\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00051}00051\ \textcolor{comment}{\ *\ }}
-\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00052}00052\ \textcolor{comment}{\ *\ @param\ lock\ Pointer\ to\ the\ lock.}}
-\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00053}00053\ \textcolor{comment}{\ */}}
-\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00054}\mbox{\hyperlink{spinlock_8h_a9e6477fecd9356e514fad7c56458e735}{00054}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{spinlock_8h_a9e6477fecd9356e514fad7c56458e735}{ttak\_spin\_init}}(\mbox{\hyperlink{structttak__spin}{ttak\_spin\_t}}\ *lock);}
-\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00055}00055\ \textcolor{comment}{}}
-\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00056}00056\ \textcolor{comment}{/**}}
-\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00057}00057\ \textcolor{comment}{\ *\ @brief\ Acquires\ the\ spinlock.}}
-\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00058}00058\ \textcolor{comment}{\ *\ }}
-\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00059}00059\ \textcolor{comment}{\ *\ Busy-\/waits\ until\ the\ lock\ is\ available.}}
-\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00060}00060\ \textcolor{comment}{\ *\ }}
-\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00061}00061\ \textcolor{comment}{\ *\ @param\ lock\ Pointer\ to\ the\ lock.}}
-\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00062}00062\ \textcolor{comment}{\ */}}
-\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00063}\mbox{\hyperlink{spinlock_8h_a9a8b3cf3a320c524c342d1cb49beb404}{00063}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{spinlock_8h_a9a8b3cf3a320c524c342d1cb49beb404}{ttak\_spin\_lock}}(\mbox{\hyperlink{structttak__spin}{ttak\_spin\_t}}\ *lock);}
-\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00064}00064\ \textcolor{comment}{}}
-\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00065}00065\ \textcolor{comment}{/**}}
-\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00066}00066\ \textcolor{comment}{\ *\ @brief\ Tries\ to\ acquire\ the\ spinlock\ without\ waiting.}}
-\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00067}00067\ \textcolor{comment}{\ *\ }}
-\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00068}00068\ \textcolor{comment}{\ *\ @param\ lock\ Pointer\ to\ the\ lock.}}
-\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00069}00069\ \textcolor{comment}{\ *\ @return\ true\ if\ acquired,\ false\ otherwise.}}
-\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00070}00070\ \textcolor{comment}{\ */}}
-\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00071}\mbox{\hyperlink{spinlock_8h_a8481cf7fcbf7ea098cdf2aabbfbfba95}{00071}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{spinlock_8h_a8481cf7fcbf7ea098cdf2aabbfbfba95}{ttak\_spin\_trylock}}(\mbox{\hyperlink{structttak__spin}{ttak\_spin\_t}}\ *lock);}
-\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00072}00072\ \textcolor{comment}{}}
-\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00073}00073\ \textcolor{comment}{/**}}
-\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00074}00074\ \textcolor{comment}{\ *\ @brief\ Releases\ the\ spinlock.}}
-\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00075}00075\ \textcolor{comment}{\ *\ }}
-\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00076}00076\ \textcolor{comment}{\ *\ @param\ lock\ Pointer\ to\ the\ lock.}}
-\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00077}00077\ \textcolor{comment}{\ */}}
-\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00078}\mbox{\hyperlink{spinlock_8h_a2c1d64100064cee4864d9c5a78a633d0}{00078}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{spinlock_8h_a2c1d64100064cee4864d9c5a78a633d0}{ttak\_spin\_unlock}}(\mbox{\hyperlink{structttak__spin}{ttak\_spin\_t}}\ *lock);}
-\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00079}00079\ }
-\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00080}00080\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ TTAK\_SYNC\_SPINLOCK\_H}}
+\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00026}\mbox{\hyperlink{spinlock_8h_ab021579cac7390c4dfa95707f234032c}{00026}}\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{spinlock_8h_ab021579cac7390c4dfa95707f234032c}{ttak\_backoff\_init}}(\mbox{\hyperlink{structttak__backoff}{ttak\_backoff\_t}}\ *b)\ \{}
+\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00027}00027\ \ \ \ \ b-\/>\mbox{\hyperlink{structttak__backoff_aeb72f752747271ecc00decd5d871516b}{count}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00028}00028\ \ \ \ \ b-\/>\mbox{\hyperlink{structttak__backoff_a1954b53b8683bc65272c57ba465d76c1}{limit}}\ =\ 10;}
+\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00029}00029\ \}}
+\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00030}00030\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00031}00031\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00032}00032\ \textcolor{comment}{\ *\ @brief\ Executes\ a\ backoff\ pause.}}
+\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00033}00033\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00034}00034\ \textcolor{comment}{\ *\ Uses\ CPU\ pause\ instruction\ for\ short\ waits\ and\ thread\ yield/sleep\ for\ longer\ waits.}}
+\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00035}00035\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00036}00036\ \textcolor{comment}{\ *\ @param\ b\ Pointer\ to\ the\ backoff\ structure.}}
+\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00037}00037\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00038}\mbox{\hyperlink{spinlock_8h_a842ccd455a040d093eee00fefd115c27}{00038}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{spinlock_8h_a842ccd455a040d093eee00fefd115c27}{ttak\_backoff\_pause}}(\mbox{\hyperlink{structttak__backoff}{ttak\_backoff\_t}}\ *b);}
+\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00039}00039\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00040}00040\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00041}00041\ \textcolor{comment}{\ *\ @brief\ Spinlock\ structure.}}
+\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00042}00042\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00043}00043\ \textcolor{comment}{\ *\ Uses\ an\ atomic\ flag\ for\ mutual\ exclusion.}}
+\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00044}00044\ \textcolor{comment}{\ *\ Prefer\ this\ over\ mutexes\ for\ very\ short\ critical\ sections.}}
+\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00045}00045\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00046}\mbox{\hyperlink{structttak__spin}{00046}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structttak__spin}{ttak\_spin}}\ \{}
+\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00047}\mbox{\hyperlink{structttak__spin_a33d3c246a2db2f9c8bee949d6cdf07b7}{00047}}\ \ \ \ \ \textcolor{keyword}{volatile}\ \mbox{\hyperlink{structatomic__flag}{atomic\_flag}}\ \mbox{\hyperlink{structttak__spin_a33d3c246a2db2f9c8bee949d6cdf07b7}{flag}};\ \textcolor{comment}{/**<\ Atomic\ flag\ (TAS).\ */}}
+\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00048}\mbox{\hyperlink{spinlock_8h_a705f9b9b5f7cf440ded7db544f974487}{00048}}\ \}\ \mbox{\hyperlink{spinlock_8h_a705f9b9b5f7cf440ded7db544f974487}{ttak\_spin\_t}};}
+\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00050}\mbox{\hyperlink{spinlock_8h_a3716a9be74a34a8ac376265d294dd166}{00050}}\ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{structttak__spin}{ttak\_spin\_t}}\ \mbox{\hyperlink{spinlock_8h_a3716a9be74a34a8ac376265d294dd166}{tt\_spin\_t}};}
+\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00051}00051\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00052}00052\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00053}00053\ \textcolor{comment}{\ *\ @brief\ Initializes\ the\ spinlock.}}
+\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00054}00054\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00055}00055\ \textcolor{comment}{\ *\ @param\ lock\ Pointer\ to\ the\ lock.}}
+\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00056}00056\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00057}\mbox{\hyperlink{spinlock_8h_af6e17473fcadd9aa892276ba06a0586d}{00057}}\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{spinlock_8h_af6e17473fcadd9aa892276ba06a0586d}{ttak\_spin\_init}}(\mbox{\hyperlink{structttak__spin}{ttak\_spin\_t}}\ *lock)\ \{}
+\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00058}00058\ \ \ \ \ \mbox{\hyperlink{include_2stdatomic_8h_ae8e62cb9801fedb40ccaca61f60d8617}{atomic\_flag\_clear}}(\&lock-\/>\mbox{\hyperlink{structttak__spin_a33d3c246a2db2f9c8bee949d6cdf07b7}{flag}});}
+\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00059}00059\ \}}
+\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00060}00060\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00061}00061\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00062}00062\ \textcolor{comment}{\ *\ @brief\ Acquires\ the\ spinlock.}}
+\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00063}00063\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00064}00064\ \textcolor{comment}{\ *\ Busy-\/waits\ until\ the\ lock\ is\ available.}}
+\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00065}00065\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00066}00066\ \textcolor{comment}{\ *\ @param\ lock\ Pointer\ to\ the\ lock.}}
+\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00067}00067\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00068}\mbox{\hyperlink{spinlock_8h_a9a8b3cf3a320c524c342d1cb49beb404}{00068}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{spinlock_8h_a9a8b3cf3a320c524c342d1cb49beb404}{ttak\_spin\_lock}}(\mbox{\hyperlink{structttak__spin}{ttak\_spin\_t}}\ *lock);}
+\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00069}00069\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00070}00070\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00071}00071\ \textcolor{comment}{\ *\ @brief\ Tries\ to\ acquire\ the\ spinlock\ without\ waiting.}}
+\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00072}00072\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00073}00073\ \textcolor{comment}{\ *\ @param\ lock\ Pointer\ to\ the\ lock.}}
+\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00074}00074\ \textcolor{comment}{\ *\ @return\ true\ if\ acquired,\ false\ otherwise.}}
+\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00075}00075\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00076}\mbox{\hyperlink{spinlock_8h_a1d8bc2a3d70c40ddea51a71127bbbd91}{00076}}\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{spinlock_8h_a1d8bc2a3d70c40ddea51a71127bbbd91}{ttak\_spin\_trylock}}(\mbox{\hyperlink{structttak__spin}{ttak\_spin\_t}}\ *lock)\ \{}
+\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00077}00077\ \ \ \ \ \textcolor{keyword}{register}\ \textcolor{keywordtype}{int}\ try\_lane\ =\ !\mbox{\hyperlink{include_2stdatomic_8h_aeca7c45606fc2b5e0c8dca53a76f40ac}{atomic\_flag\_test\_and\_set\_explicit}}(}
+\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00078}00078\ \ \ \ \ \ \ \ \ (\mbox{\hyperlink{structatomic__flag}{atomic\_flag}}\ *)\&lock-\/>\mbox{\hyperlink{structttak__spin_a33d3c246a2db2f9c8bee949d6cdf07b7}{flag}},\ \mbox{\hyperlink{include_2stdatomic_8h_a17c2de5ae768960284c047a320f17d1bafb313754331704b978e9a80a933b3da7}{memory\_order\_acquire}});}
+\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00079}00079\ \ \ \ \ \textcolor{keywordflow}{return}\ try\_lane\ !=\ 0;}
+\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00080}00080\ \}}
+\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00081}00081\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00082}00082\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00083}00083\ \textcolor{comment}{\ *\ @brief\ Releases\ the\ spinlock.}}
+\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00084}00084\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00085}00085\ \textcolor{comment}{\ *\ @param\ lock\ Pointer\ to\ the\ lock.}}
+\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00086}00086\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00087}\mbox{\hyperlink{spinlock_8h_a18d11351bc312b1de79977c33e5ecb28}{00087}}\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{spinlock_8h_a18d11351bc312b1de79977c33e5ecb28}{ttak\_spin\_unlock}}(\mbox{\hyperlink{structttak__spin}{ttak\_spin\_t}}\ *lock)\ \{}
+\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00088}00088\ \ \ \ \ \textcolor{keyword}{register}\ \textcolor{keywordtype}{int}\ release\_lane\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00089}00089\ \ \ \ \ (void)release\_lane;}
+\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00090}00090\ \ \ \ \ \mbox{\hyperlink{include_2stdatomic_8h_a4154e94db39d792afa138536ccaa0d7e}{atomic\_flag\_clear\_explicit}}((\mbox{\hyperlink{structatomic__flag}{atomic\_flag}}\ *)\&lock-\/>\mbox{\hyperlink{structttak__spin_a33d3c246a2db2f9c8bee949d6cdf07b7}{flag}},\ \mbox{\hyperlink{include_2stdatomic_8h_a17c2de5ae768960284c047a320f17d1ba685a90c8fc516895354973c3918a5f7b}{memory\_order\_release}});}
+\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00091}00091\ \}}
+\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00092}00092\ }
+\DoxyCodeLine{\Hypertarget{spinlock_8h_source_l00093}00093\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ TTAK\_SYNC\_SPINLOCK\_H}}
 
 \end{DoxyCode}

@@ -122,81 +122,108 @@ $(document).ready(function(){initNavTree('spinlock_8h_source.html',''); initResi
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment"></span> </div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment">/**</span></div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment"> * @brief Initializes the backoff structure.</span></div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment"> * </span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment"> *</span></div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment"> * @param b Pointer to the backoff structure.</span></div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="spinlock_8h.html#a7f17b0b237b8397e7849b9d249d1a196">   26</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="spinlock_8h.html#a7f17b0b237b8397e7849b9d249d1a196">ttak_backoff_init</a>(<a class="code hl_struct" href="structttak__backoff.html">ttak_backoff_t</a> *b);</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="comment"></span> </div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment"> * @brief Executes a backoff pause.</span></div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment"> * </span></div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment"> * Uses CPU pause instruction for short waits and thread yield/sleep for longer waits.</span></div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment"> * </span></div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="comment"> * @param b Pointer to the backoff structure.</span></div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="spinlock_8h.html#a842ccd455a040d093eee00fefd115c27">   35</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="spinlock_8h.html#a842ccd455a040d093eee00fefd115c27">ttak_backoff_pause</a>(<a class="code hl_struct" href="structttak__backoff.html">ttak_backoff_t</a> *b);</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="comment"></span> </div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="comment"> * @brief Spinlock structure.</span></div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="comment"> * </span></div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="comment"> * Uses an atomic flag for mutual exclusion.</span></div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="comment"> * Prefer this over mutexes for very short critical sections.</span></div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="comment"> */</span></div>
-<div class="foldopen" id="foldopen00043" data-start="{" data-end="};">
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="structttak__spin.html">   43</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="structttak__spin.html">ttak_spin</a> {</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="structttak__spin.html#a33d3c246a2db2f9c8bee949d6cdf07b7">   44</a></span>    <span class="keyword">volatile</span> atomic_flag <a class="code hl_variable" href="structttak__spin.html#a33d3c246a2db2f9c8bee949d6cdf07b7">flag</a>; <span class="comment">/**&lt; Atomic flag (TAS). */</span></div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="spinlock_8h.html#a705f9b9b5f7cf440ded7db544f974487">   45</a></span>} <a class="code hl_typedef" href="spinlock_8h.html#a705f9b9b5f7cf440ded7db544f974487">ttak_spin_t</a>;</div>
+<div class="foldopen" id="foldopen00026" data-start="{" data-end="}">
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="spinlock_8h.html#ab021579cac7390c4dfa95707f234032c">   26</a></span><span class="keyword">static</span> <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="spinlock_8h.html#ab021579cac7390c4dfa95707f234032c">ttak_backoff_init</a>(<a class="code hl_struct" href="structttak__backoff.html">ttak_backoff_t</a> *b) {</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    b-&gt;<a class="code hl_variable" href="structttak__backoff.html#aeb72f752747271ecc00decd5d871516b">count</a> = 0;</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    b-&gt;<a class="code hl_variable" href="structttak__backoff.html#a1954b53b8683bc65272c57ba465d76c1">limit</a> = 10;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>}</div>
 </div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="spinlock_8h.html#a3716a9be74a34a8ac376265d294dd166">   47</a></span><span class="keyword">typedef</span> <a class="code hl_struct" href="structttak__spin.html">ttak_spin_t</a> <a class="code hl_typedef" href="spinlock_8h.html#a3716a9be74a34a8ac376265d294dd166">tt_spin_t</a>;</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="comment"></span> </div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="comment"> * @brief Initializes the spinlock.</span></div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="comment"> * </span></div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="comment"> * @param lock Pointer to the lock.</span></div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="spinlock_8h.html#a9e6477fecd9356e514fad7c56458e735">   54</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="spinlock_8h.html#a9e6477fecd9356e514fad7c56458e735">ttak_spin_init</a>(<a class="code hl_struct" href="structttak__spin.html">ttak_spin_t</a> *lock);</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="comment"></span> </div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="comment"> * @brief Acquires the spinlock.</span></div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="comment"> * </span></div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="comment"> * Busy-waits until the lock is available.</span></div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="comment"> * </span></div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="comment"> * @param lock Pointer to the lock.</span></div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="spinlock_8h.html#a9a8b3cf3a320c524c342d1cb49beb404">   63</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="spinlock_8h.html#a9a8b3cf3a320c524c342d1cb49beb404">ttak_spin_lock</a>(<a class="code hl_struct" href="structttak__spin.html">ttak_spin_t</a> *lock);</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="comment"></span> </div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="comment"> * @brief Tries to acquire the spinlock without waiting.</span></div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="comment"> * </span></div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="comment"> * @param lock Pointer to the lock.</span></div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="comment"> * @return true if acquired, false otherwise.</span></div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="spinlock_8h.html#a8481cf7fcbf7ea098cdf2aabbfbfba95">   71</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="spinlock_8h.html#a8481cf7fcbf7ea098cdf2aabbfbfba95">ttak_spin_trylock</a>(<a class="code hl_struct" href="structttak__spin.html">ttak_spin_t</a> *lock);</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="comment"></span> </div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="comment"> * @brief Releases the spinlock.</span></div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="comment"> * </span></div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="comment"> * @param lock Pointer to the lock.</span></div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno"><a class="line" href="spinlock_8h.html#a2c1d64100064cee4864d9c5a78a633d0">   78</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="spinlock_8h.html#a2c1d64100064cee4864d9c5a78a633d0">ttak_spin_unlock</a>(<a class="code hl_struct" href="structttak__spin.html">ttak_spin_t</a> *lock);</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="preprocessor">#endif </span><span class="comment">// TTAK_SYNC_SPINLOCK_H</span></div>
-<div class="ttc" id="aspinlock_8h_html_a2c1d64100064cee4864d9c5a78a633d0"><div class="ttname"><a href="spinlock_8h.html#a2c1d64100064cee4864d9c5a78a633d0">ttak_spin_unlock</a></div><div class="ttdeci">void ttak_spin_unlock(ttak_spin_t *lock)</div><div class="ttdoc">Releases the spinlock.</div></div>
-<div class="ttc" id="aspinlock_8h_html_a3716a9be74a34a8ac376265d294dd166"><div class="ttname"><a href="spinlock_8h.html#a3716a9be74a34a8ac376265d294dd166">tt_spin_t</a></div><div class="ttdeci">ttak_spin_t tt_spin_t</div><div class="ttdef"><b>Definition</b> <a href="spinlock_8h_source.html#l00047">spinlock.h:47</a></div></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment"></span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment"> * @brief Executes a backoff pause.</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="comment"> * </span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="comment"> * Uses CPU pause instruction for short waits and thread yield/sleep for longer waits.</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="comment"> * </span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="comment"> * @param b Pointer to the backoff structure.</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="spinlock_8h.html#a842ccd455a040d093eee00fefd115c27">   38</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="spinlock_8h.html#a842ccd455a040d093eee00fefd115c27">ttak_backoff_pause</a>(<a class="code hl_struct" href="structttak__backoff.html">ttak_backoff_t</a> *b);</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="comment"></span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="comment"> * @brief Spinlock structure.</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="comment"> * </span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="comment"> * Uses an atomic flag for mutual exclusion.</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="comment"> * Prefer this over mutexes for very short critical sections.</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00046" data-start="{" data-end="};">
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="structttak__spin.html">   46</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="structttak__spin.html">ttak_spin</a> {</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="structttak__spin.html#a33d3c246a2db2f9c8bee949d6cdf07b7">   47</a></span>    <span class="keyword">volatile</span> <a class="code hl_struct" href="structatomic__flag.html">atomic_flag</a> <a class="code hl_variable" href="structttak__spin.html#a33d3c246a2db2f9c8bee949d6cdf07b7">flag</a>; <span class="comment">/**&lt; Atomic flag (TAS). */</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="spinlock_8h.html#a705f9b9b5f7cf440ded7db544f974487">   48</a></span>} <a class="code hl_typedef" href="spinlock_8h.html#a705f9b9b5f7cf440ded7db544f974487">ttak_spin_t</a>;</div>
+</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="spinlock_8h.html#a3716a9be74a34a8ac376265d294dd166">   50</a></span><span class="keyword">typedef</span> <a class="code hl_struct" href="structttak__spin.html">ttak_spin_t</a> <a class="code hl_typedef" href="spinlock_8h.html#a3716a9be74a34a8ac376265d294dd166">tt_spin_t</a>;</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="comment"></span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="comment"> * @brief Initializes the spinlock.</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="comment"> * @param lock Pointer to the lock.</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00057" data-start="{" data-end="}">
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="spinlock_8h.html#af6e17473fcadd9aa892276ba06a0586d">   57</a></span><span class="keyword">static</span> <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="spinlock_8h.html#af6e17473fcadd9aa892276ba06a0586d">ttak_spin_init</a>(<a class="code hl_struct" href="structttak__spin.html">ttak_spin_t</a> *lock) {</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <a class="code hl_define" href="include_2stdatomic_8h.html#ae8e62cb9801fedb40ccaca61f60d8617">atomic_flag_clear</a>(&amp;lock-&gt;<a class="code hl_variable" href="structttak__spin.html#a33d3c246a2db2f9c8bee949d6cdf07b7">flag</a>);</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>}</div>
+</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="comment"></span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="comment"> * @brief Acquires the spinlock.</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="comment"> * </span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="comment"> * Busy-waits until the lock is available.</span></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="comment"> * </span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="comment"> * @param lock Pointer to the lock.</span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="spinlock_8h.html#a9a8b3cf3a320c524c342d1cb49beb404">   68</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="spinlock_8h.html#a9a8b3cf3a320c524c342d1cb49beb404">ttak_spin_lock</a>(<a class="code hl_struct" href="structttak__spin.html">ttak_spin_t</a> *lock);</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="comment"></span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="comment"> * @brief Tries to acquire the spinlock without waiting.</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="comment"> * @param lock Pointer to the lock.</span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="comment"> * @return true if acquired, false otherwise.</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00076" data-start="{" data-end="}">
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="spinlock_8h.html#a1d8bc2a3d70c40ddea51a71127bbbd91">   76</a></span><span class="keyword">static</span> <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="spinlock_8h.html#a1d8bc2a3d70c40ddea51a71127bbbd91">ttak_spin_trylock</a>(<a class="code hl_struct" href="structttak__spin.html">ttak_spin_t</a> *lock) {</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    <span class="keyword">register</span> <span class="keywordtype">int</span> try_lane = !<a class="code hl_function" href="include_2stdatomic_8h.html#aeca7c45606fc2b5e0c8dca53a76f40ac">atomic_flag_test_and_set_explicit</a>(</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>        (<a class="code hl_struct" href="structatomic__flag.html">atomic_flag</a> *)&amp;lock-&gt;<a class="code hl_variable" href="structttak__spin.html#a33d3c246a2db2f9c8bee949d6cdf07b7">flag</a>, <a class="code hl_enumvalue" href="include_2stdatomic_8h.html#a17c2de5ae768960284c047a320f17d1bafb313754331704b978e9a80a933b3da7">memory_order_acquire</a>);</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <span class="keywordflow">return</span> try_lane != 0;</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>}</div>
+</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="comment"></span> </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="comment"> * @brief Releases the spinlock.</span></div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="comment"> * @param lock Pointer to the lock.</span></div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00087" data-start="{" data-end="}">
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno"><a class="line" href="spinlock_8h.html#a18d11351bc312b1de79977c33e5ecb28">   87</a></span><span class="keyword">static</span> <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="spinlock_8h.html#a18d11351bc312b1de79977c33e5ecb28">ttak_spin_unlock</a>(<a class="code hl_struct" href="structttak__spin.html">ttak_spin_t</a> *lock) {</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    <span class="keyword">register</span> <span class="keywordtype">int</span> release_lane = 1;</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    (void)release_lane;</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <a class="code hl_function" href="include_2stdatomic_8h.html#a4154e94db39d792afa138536ccaa0d7e">atomic_flag_clear_explicit</a>((<a class="code hl_struct" href="structatomic__flag.html">atomic_flag</a> *)&amp;lock-&gt;<a class="code hl_variable" href="structttak__spin.html#a33d3c246a2db2f9c8bee949d6cdf07b7">flag</a>, <a class="code hl_enumvalue" href="include_2stdatomic_8h.html#a17c2de5ae768960284c047a320f17d1ba685a90c8fc516895354973c3918a5f7b">memory_order_release</a>);</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>}</div>
+</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="preprocessor">#endif </span><span class="comment">// TTAK_SYNC_SPINLOCK_H</span></div>
+<div class="ttc" id="ainclude_2stdatomic_8h_html_a17c2de5ae768960284c047a320f17d1ba685a90c8fc516895354973c3918a5f7b"><div class="ttname"><a href="include_2stdatomic_8h.html#a17c2de5ae768960284c047a320f17d1ba685a90c8fc516895354973c3918a5f7b">memory_order_release</a></div><div class="ttdeci">@ memory_order_release</div><div class="ttdef"><b>Definition</b> <a href="include_2stdatomic_8h_source.html#l00032">stdatomic.h:32</a></div></div>
+<div class="ttc" id="ainclude_2stdatomic_8h_html_a17c2de5ae768960284c047a320f17d1bafb313754331704b978e9a80a933b3da7"><div class="ttname"><a href="include_2stdatomic_8h.html#a17c2de5ae768960284c047a320f17d1bafb313754331704b978e9a80a933b3da7">memory_order_acquire</a></div><div class="ttdeci">@ memory_order_acquire</div><div class="ttdef"><b>Definition</b> <a href="include_2stdatomic_8h_source.html#l00031">stdatomic.h:31</a></div></div>
+<div class="ttc" id="ainclude_2stdatomic_8h_html_a4154e94db39d792afa138536ccaa0d7e"><div class="ttname"><a href="include_2stdatomic_8h.html#a4154e94db39d792afa138536ccaa0d7e">atomic_flag_clear_explicit</a></div><div class="ttdeci">static void atomic_flag_clear_explicit(volatile atomic_flag *obj, memory_order order)</div><div class="ttdef"><b>Definition</b> <a href="include_2stdatomic_8h_source.html#l00099">stdatomic.h:99</a></div></div>
+<div class="ttc" id="ainclude_2stdatomic_8h_html_ae8e62cb9801fedb40ccaca61f60d8617"><div class="ttname"><a href="include_2stdatomic_8h.html#ae8e62cb9801fedb40ccaca61f60d8617">atomic_flag_clear</a></div><div class="ttdeci">#define atomic_flag_clear(obj)</div><div class="ttdef"><b>Definition</b> <a href="include_2stdatomic_8h_source.html#l00109">stdatomic.h:109</a></div></div>
+<div class="ttc" id="ainclude_2stdatomic_8h_html_aeca7c45606fc2b5e0c8dca53a76f40ac"><div class="ttname"><a href="include_2stdatomic_8h.html#aeca7c45606fc2b5e0c8dca53a76f40ac">atomic_flag_test_and_set_explicit</a></div><div class="ttdeci">static bool atomic_flag_test_and_set_explicit(volatile atomic_flag *obj, memory_order order)</div><div class="ttdef"><b>Definition</b> <a href="include_2stdatomic_8h_source.html#l00090">stdatomic.h:90</a></div></div>
+<div class="ttc" id="aspinlock_8h_html_a18d11351bc312b1de79977c33e5ecb28"><div class="ttname"><a href="spinlock_8h.html#a18d11351bc312b1de79977c33e5ecb28">ttak_spin_unlock</a></div><div class="ttdeci">static void ttak_spin_unlock(ttak_spin_t *lock)</div><div class="ttdoc">Releases the spinlock.</div><div class="ttdef"><b>Definition</b> <a href="spinlock_8h_source.html#l00087">spinlock.h:87</a></div></div>
+<div class="ttc" id="aspinlock_8h_html_a1d8bc2a3d70c40ddea51a71127bbbd91"><div class="ttname"><a href="spinlock_8h.html#a1d8bc2a3d70c40ddea51a71127bbbd91">ttak_spin_trylock</a></div><div class="ttdeci">static bool ttak_spin_trylock(ttak_spin_t *lock)</div><div class="ttdoc">Tries to acquire the spinlock without waiting.</div><div class="ttdef"><b>Definition</b> <a href="spinlock_8h_source.html#l00076">spinlock.h:76</a></div></div>
+<div class="ttc" id="aspinlock_8h_html_a3716a9be74a34a8ac376265d294dd166"><div class="ttname"><a href="spinlock_8h.html#a3716a9be74a34a8ac376265d294dd166">tt_spin_t</a></div><div class="ttdeci">ttak_spin_t tt_spin_t</div><div class="ttdef"><b>Definition</b> <a href="spinlock_8h_source.html#l00050">spinlock.h:50</a></div></div>
 <div class="ttc" id="aspinlock_8h_html_a705f9b9b5f7cf440ded7db544f974487"><div class="ttname"><a href="spinlock_8h.html#a705f9b9b5f7cf440ded7db544f974487">ttak_spin_t</a></div><div class="ttdeci">struct ttak_spin ttak_spin_t</div><div class="ttdoc">Spinlock structure.</div></div>
 <div class="ttc" id="aspinlock_8h_html_a797cbaf0c99650d6b8fab1447cf232da"><div class="ttname"><a href="spinlock_8h.html#a797cbaf0c99650d6b8fab1447cf232da">tt_backoff_t</a></div><div class="ttdeci">ttak_backoff_t tt_backoff_t</div><div class="ttdef"><b>Definition</b> <a href="spinlock_8h_source.html#l00019">spinlock.h:19</a></div></div>
-<div class="ttc" id="aspinlock_8h_html_a7f17b0b237b8397e7849b9d249d1a196"><div class="ttname"><a href="spinlock_8h.html#a7f17b0b237b8397e7849b9d249d1a196">ttak_backoff_init</a></div><div class="ttdeci">void ttak_backoff_init(ttak_backoff_t *b)</div><div class="ttdoc">Initializes the backoff structure.</div></div>
 <div class="ttc" id="aspinlock_8h_html_a842ccd455a040d093eee00fefd115c27"><div class="ttname"><a href="spinlock_8h.html#a842ccd455a040d093eee00fefd115c27">ttak_backoff_pause</a></div><div class="ttdeci">void ttak_backoff_pause(ttak_backoff_t *b)</div><div class="ttdoc">Executes a backoff pause.</div></div>
-<div class="ttc" id="aspinlock_8h_html_a8481cf7fcbf7ea098cdf2aabbfbfba95"><div class="ttname"><a href="spinlock_8h.html#a8481cf7fcbf7ea098cdf2aabbfbfba95">ttak_spin_trylock</a></div><div class="ttdeci">bool ttak_spin_trylock(ttak_spin_t *lock)</div><div class="ttdoc">Tries to acquire the spinlock without waiting.</div></div>
 <div class="ttc" id="aspinlock_8h_html_a9a8b3cf3a320c524c342d1cb49beb404"><div class="ttname"><a href="spinlock_8h.html#a9a8b3cf3a320c524c342d1cb49beb404">ttak_spin_lock</a></div><div class="ttdeci">void ttak_spin_lock(ttak_spin_t *lock)</div><div class="ttdoc">Acquires the spinlock.</div></div>
-<div class="ttc" id="aspinlock_8h_html_a9e6477fecd9356e514fad7c56458e735"><div class="ttname"><a href="spinlock_8h.html#a9e6477fecd9356e514fad7c56458e735">ttak_spin_init</a></div><div class="ttdeci">void ttak_spin_init(ttak_spin_t *lock)</div><div class="ttdoc">Initializes the spinlock.</div></div>
 <div class="ttc" id="aspinlock_8h_html_aa4566519da10f0f4553890335118d08d"><div class="ttname"><a href="spinlock_8h.html#aa4566519da10f0f4553890335118d08d">ttak_backoff_t</a></div><div class="ttdeci">struct ttak_backoff ttak_backoff_t</div><div class="ttdoc">Backoff strategy structure for spinlocks.</div></div>
+<div class="ttc" id="aspinlock_8h_html_ab021579cac7390c4dfa95707f234032c"><div class="ttname"><a href="spinlock_8h.html#ab021579cac7390c4dfa95707f234032c">ttak_backoff_init</a></div><div class="ttdeci">static void ttak_backoff_init(ttak_backoff_t *b)</div><div class="ttdoc">Initializes the backoff structure.</div><div class="ttdef"><b>Definition</b> <a href="spinlock_8h_source.html#l00026">spinlock.h:26</a></div></div>
+<div class="ttc" id="aspinlock_8h_html_af6e17473fcadd9aa892276ba06a0586d"><div class="ttname"><a href="spinlock_8h.html#af6e17473fcadd9aa892276ba06a0586d">ttak_spin_init</a></div><div class="ttdeci">static void ttak_spin_init(ttak_spin_t *lock)</div><div class="ttdoc">Initializes the spinlock.</div><div class="ttdef"><b>Definition</b> <a href="spinlock_8h_source.html#l00057">spinlock.h:57</a></div></div>
+<div class="ttc" id="astructatomic__flag_html"><div class="ttname"><a href="structatomic__flag.html">atomic_flag</a></div><div class="ttdef"><b>Definition</b> <a href="include_2stdatomic_8h_source.html#l00041">stdatomic.h:41</a></div></div>
 <div class="ttc" id="astructttak__backoff_html"><div class="ttname"><a href="structttak__backoff.html">ttak_backoff</a></div><div class="ttdoc">Backoff strategy structure for spinlocks.</div><div class="ttdef"><b>Definition</b> <a href="spinlock_8h_source.html#l00014">spinlock.h:14</a></div></div>
 <div class="ttc" id="astructttak__backoff_html_a1954b53b8683bc65272c57ba465d76c1"><div class="ttname"><a href="structttak__backoff.html#a1954b53b8683bc65272c57ba465d76c1">ttak_backoff::limit</a></div><div class="ttdeci">volatile int limit</div><div class="ttdef"><b>Definition</b> <a href="spinlock_8h_source.html#l00016">spinlock.h:16</a></div></div>
 <div class="ttc" id="astructttak__backoff_html_aeb72f752747271ecc00decd5d871516b"><div class="ttname"><a href="structttak__backoff.html#aeb72f752747271ecc00decd5d871516b">ttak_backoff::count</a></div><div class="ttdeci">volatile int count</div><div class="ttdef"><b>Definition</b> <a href="spinlock_8h_source.html#l00015">spinlock.h:15</a></div></div>
-<div class="ttc" id="astructttak__spin_html"><div class="ttname"><a href="structttak__spin.html">ttak_spin</a></div><div class="ttdoc">Spinlock structure.</div><div class="ttdef"><b>Definition</b> <a href="spinlock_8h_source.html#l00043">spinlock.h:43</a></div></div>
-<div class="ttc" id="astructttak__spin_html_a33d3c246a2db2f9c8bee949d6cdf07b7"><div class="ttname"><a href="structttak__spin.html#a33d3c246a2db2f9c8bee949d6cdf07b7">ttak_spin::flag</a></div><div class="ttdeci">volatile atomic_flag flag</div><div class="ttdef"><b>Definition</b> <a href="spinlock_8h_source.html#l00044">spinlock.h:44</a></div></div>
+<div class="ttc" id="astructttak__spin_html"><div class="ttname"><a href="structttak__spin.html">ttak_spin</a></div><div class="ttdoc">Spinlock structure.</div><div class="ttdef"><b>Definition</b> <a href="spinlock_8h_source.html#l00046">spinlock.h:46</a></div></div>
+<div class="ttc" id="astructttak__spin_html_a33d3c246a2db2f9c8bee949d6cdf07b7"><div class="ttname"><a href="structttak__spin.html#a33d3c246a2db2f9c8bee949d6cdf07b7">ttak_spin::flag</a></div><div class="ttdeci">volatile atomic_flag flag</div><div class="ttdef"><b>Definition</b> <a href="spinlock_8h_source.html#l00047">spinlock.h:47</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
