@@ -86,7 +86,8 @@ typedef struct {
     _Bool    strict_check; _Bool    is_root;  /**< Enable strict memory boundary checks */
     uint64_t canary_start;  /**< Magic number for start of user data */
     uint64_t canary_end;    /**< Magic number for end of user data */
-    char     reserved[11];  /**< Explicit padding for 128-byte header on x64 */
+    char     *tracking_log;  /**< Memory operation tracking log (dynamic) */
+    char     reserved[11];  /**< Explicit padding for header alignment */
 } ttak_mem_header_t;
 
 /**
