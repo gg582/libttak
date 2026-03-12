@@ -1,0 +1,36 @@
+<map id="include/ttak/math/calculus.h" name="include/ttak/math/calculus.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="455,5,661,33"/>
+<area shape="rect" id="Node000002" href="$bigreal_8h.html" title=" " alt="" coords="430,81,576,109"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="550,35,524,70,520,67,546,32"/>
+<area shape="rect" id="Node000012" href="$scheduler_8h.html" title="Priority&#45;aware task scheduler that maps nice values to run queues." alt="" coords="726,157,902,184"/>
+<area shape="poly" id="edge14_Node000001_Node000012" title=" " alt="" coords="582,31,780,146,777,151,579,36"/>
+<area shape="rect" id="Node000003" href="$bigint_8h.html" title=" " alt="" coords="236,157,374,184"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="469,112,355,153,354,148,467,107"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="502,308,572,336"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="299,186,283,222,281,241,288,258,300,269,319,278,371,294,431,305,486,313,486,318,430,311,370,299,317,283,297,273,284,262,276,242,278,220,294,184"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="712,308,785,336"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="307,185,312,222,319,242,332,258,350,266,385,275,484,291,697,314,697,319,484,296,383,280,348,271,328,262,314,244,306,223,302,185"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="5,308,87,336"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="235,175,194,180,151,191,109,208,73,234,63,247,57,262,50,293,44,292,51,260,59,244,69,230,107,203,149,185,193,175,235,170"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="534,232,619,260"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="354,182,520,227,518,232,353,187"/>
+<area shape="rect" id="Node000008" href="$ttak__align_8h.html" title="Alignment utilities and compatibility helpers." alt="" coords="342,232,510,260"/>
+<area shape="poly" id="edge7_Node000003_Node000008" title=" " alt="" coords="328,183,393,222,390,226,325,187"/>
+<area shape="rect" id="Node000009" href="$fixed_8h.html" title=" " alt="" coords="83,232,217,260"/>
+<area shape="poly" id="edge9_Node000003_Node000009" title=" " alt="" coords="278,187,192,228,190,223,276,182"/>
+<area shape="poly" id="edge8_Node000008_Node000005" title=" " alt="" coords="485,258,698,306,696,311,483,263"/>
+<area shape="poly" id="edge10_Node000009_Node000004" title=" " alt="" coords="218,258,486,308,485,314,217,263"/>
+<area shape="poly" id="edge11_Node000009_Node000006" title=" " alt="" coords="133,263,78,301,75,297,130,258"/>
+<area shape="rect" id="Node000010" href="$ttak__compiler_8h.html" title="Compiler&#45;specific macros and compatibility layer." alt="" coords="111,308,304,336"/>
+<area shape="poly" id="edge12_Node000009_Node000010" title=" " alt="" coords="162,259,190,294,186,297,158,262"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="158,384,256,411"/>
+<area shape="poly" id="edge13_Node000010_Node000011" title=" " alt="" coords="210,336,210,368,205,368,205,336"/>
+<area shape="poly" id="edge16_Node000012_Node000004" title=" " alt="" coords="817,185,812,223,804,244,790,262,755,281,702,297,588,317,587,312,701,292,753,276,787,258,799,241,806,221,811,184"/>
+<area shape="poly" id="edge15_Node000012_Node000005" title=" " alt="" coords="824,184,838,219,840,240,835,261,817,285,794,302,791,298,813,281,830,259,835,240,833,220,819,185"/>
+<area shape="rect" id="Node000013" href="$nice_8h.html" title=" " alt="" coords="902,232,1043,260"/>
+<area shape="poly" id="edge17_Node000012_Node000013" title=" " alt="" coords="843,182,932,223,930,228,841,187"/>
+<area shape="rect" id="Node000014" href="$task_8h.html" title=" " alt="" coords="643,232,777,260"/>
+<area shape="poly" id="edge19_Node000012_Node000014" title=" " alt="" coords="797,187,742,226,739,221,794,183"/>
+<area shape="poly" id="edge18_Node000013_Node000005" title=" " alt="" coords="933,263,801,306,799,301,932,258"/>
+<area shape="poly" id="edge20_Node000014_Node000004" title=" " alt="" coords="680,263,582,304,580,299,678,258"/>
+</map>

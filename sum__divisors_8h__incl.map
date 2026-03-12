@@ -1,0 +1,31 @@
+<map id="include/ttak/math/sum_divisors.h" name="include/ttak/math/sum_divisors.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="414,5,582,50"/>
+<area shape="rect" id="Node000002" href="$logger_8h.html" title=" " alt="" coords="5,98,133,126"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="414,48,148,98,147,93,413,42"/>
+<area shape="rect" id="Node000004" href="$bigint_8h.html" title=" " alt="" coords="429,98,568,126"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="501,50,501,82,496,82,496,50"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="160,249,231,277"/>
+<area shape="poly" id="edge15_Node000001_Node000005" title=" " alt="" coords="417,53,367,72,313,98,262,133,219,175,205,204,199,234,194,233,200,202,215,172,259,128,310,94,364,67,416,48"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="744,249,818,277"/>
+<area shape="poly" id="edge17_Node000001_Node000006" title=" " alt="" coords="583,42,650,63,684,78,716,96,756,128,769,147,781,173,787,204,787,234,782,234,782,204,776,174,765,149,752,131,713,100,682,82,649,68,582,47"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="498,249,579,277"/>
+<area shape="poly" id="edge16_Node000001_Node000007" title=" " alt="" coords="581,48,628,67,678,94,723,128,742,149,758,172,765,195,759,215,742,230,718,241,657,256,594,263,594,257,656,251,716,236,739,225,754,212,760,195,753,175,738,152,719,132,675,98,626,72,579,53"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="32,174,106,201"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="72,126,72,158,66,158,66,126"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="429,118,385,123,338,134,291,151,248,176,223,204,207,236,202,233,219,201,245,172,288,146,336,129,384,118,429,113"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="568,119,677,139,726,154,757,172,768,185,776,201,783,233,777,234,771,203,764,188,754,176,723,159,676,144,567,124"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="504,125,534,234,528,235,499,127"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="416,174,501,201"/>
+<area shape="poly" id="edge7_Node000004_Node000008" title=" " alt="" coords="494,127,475,161,470,159,489,125"/>
+<area shape="rect" id="Node000009" href="$ttak__align_8h.html" title="Alignment utilities and compatibility helpers." alt="" coords="576,174,744,201"/>
+<area shape="poly" id="edge8_Node000004_Node000009" title=" " alt="" coords="528,124,619,165,616,170,526,129"/>
+<area shape="rect" id="Node000010" href="$fixed_8h.html" title=" " alt="" coords="258,174,392,201"/>
+<area shape="poly" id="edge10_Node000004_Node000010" title=" " alt="" coords="468,129,371,170,368,165,466,124"/>
+<area shape="poly" id="edge9_Node000009_Node000006" title=" " alt="" coords="683,200,748,239,745,243,680,204"/>
+<area shape="poly" id="edge11_Node000010_Node000005" title=" " alt="" coords="303,204,233,244,230,239,301,200"/>
+<area shape="poly" id="edge12_Node000010_Node000007" title=" " alt="" coords="364,199,487,241,485,246,362,204"/>
+<area shape="rect" id="Node000011" href="$ttak__compiler_8h.html" title="Compiler&#45;specific macros and compatibility layer." alt="" coords="256,249,448,277"/>
+<area shape="poly" id="edge13_Node000010_Node000011" title=" " alt="" coords="332,201,344,234,339,236,327,203"/>
+<area shape="rect" id="Node000012" title=" " alt="" coords="302,325,401,353"/>
+<area shape="poly" id="edge14_Node000011_Node000012" title=" " alt="" coords="354,278,354,309,349,309,349,278"/>
+</map>

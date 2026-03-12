@@ -1,0 +1,17 @@
+<map id="ttak_thread_pool" name="ttak_thread_pool">
+<area shape="rect" id="Node000001" title=" " alt="" coords="188,196,320,221"/>
+<area shape="rect" id="Node000002" href="$structttak__worker.html" title=" " alt="" coords="141,284,239,309"/>
+<area shape="poly" id="edge2_Node000002_Node000001" title=" " alt="" coords="205,230,188,247,184,265,188,283,183,284,179,265,184,244,201,226"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="210,272,223,258,246,220,250,223,227,262,214,276"/>
+<area shape="rect" id="Node000003" href="$structttak__worker__wrapper.html" title=" " alt="" coords="5,196,164,221"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="99,231,121,258,160,282,158,286,118,262,95,235"/>
+<area shape="rect" id="Node000004" href="$structttak__promise.html" title="Promise handle that pairs with exactly one ttak_future_t." alt="" coords="31,101,139,126"/>
+<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="87,140,87,196,82,196,82,140"/>
+<area shape="rect" id="Node000005" href="$structttak__future.html" title="Blocking future that carries a single void* result." alt="" coords="37,5,132,31"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="87,44,87,101,82,101,82,44"/>
+<area shape="rect" id="Node000006" href="$struct____internal__ttak__proc__priority__queue__t.html" title=" " alt="" coords="177,93,331,133"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="257,147,257,196,251,196,251,147"/>
+<area shape="rect" id="Node000007" href="$struct____internal__ttak__qnode__t.html" title=" " alt="" coords="165,5,343,31"/>
+<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="257,44,257,93,251,93,251,44"/>
+<area shape="poly" id="edge8_Node000007_Node000007" title=" " alt="" coords="359,10,370,18,362,25,344,28,343,23,360,20,365,18,356,15"/>
+</map>

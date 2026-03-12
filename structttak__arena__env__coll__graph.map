@@ -1,0 +1,14 @@
+<map id="ttak_arena_env" name="ttak_arena_env">
+<area shape="rect" id="Node000001" title="Helper state coordinating arena generations and epoch rotation." alt="" coords="5,277,128,303"/>
+<area shape="rect" id="Node000002" href="$structttak__arena__env__config.html" title="Configuration for arena helpers." alt="" coords="123,187,293,213"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="179,222,87,280,84,275,177,218"/>
+<area shape="rect" id="Node000003" href="$structttak__epoch__gc.html" title="Epoch&#45;based garbage collection context." alt="" coords="9,95,125,121"/>
+<area shape="poly" id="edge7_Node000001_Node000003" title=" " alt="" coords="65,135,61,172,60,215,67,277,62,277,55,215,55,172,60,134"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="98,126,191,185,189,190,95,131"/>
+<area shape="rect" id="Node000004" href="$structttak__mem__tree.html" title="Manages the collection of dynamically allocated memory blocks as a mem tree." alt="" coords="91,5,213,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="128,41,111,57,77,97,73,93,107,53,124,37"/>
+<area shape="rect" id="Node000005" href="$structttak__mem__node.html" title="Represents a node in the generic heap tree, tracking a dynamically allocated memory block." alt="" coords="149,95,277,121"/>
+<area shape="poly" id="edge6_Node000005_Node000004" title=" " alt="" coords="147,44,147,57,150,68,163,82,180,93,177,98,160,87,146,71,142,57,142,44"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="199,84,182,56,162,33,166,29,186,53,204,82"/>
+<area shape="poly" id="edge5_Node000005_Node000005" title=" " alt="" coords="293,99,304,108,296,116,278,119,277,114,293,111,299,108,290,104"/>
+</map>

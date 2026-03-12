@@ -1,0 +1,17 @@
+<map id="ttak_worker" name="ttak_worker">
+<area shape="rect" id="Node000001" title=" " alt="" coords="292,277,391,302"/>
+<area shape="rect" id="Node000002" href="$structttak__thread__pool.html" title=" " alt="" coords="189,372,321,397"/>
+<area shape="poly" id="edge2_Node000002_Node000001" title=" " alt="" coords="282,310,265,321,253,335,249,353,253,371,247,372,244,353,248,332,262,317,279,306"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="290,363,310,346,325,324,335,301,340,303,330,326,314,350,293,367"/>
+<area shape="rect" id="Node000003" href="$struct____internal__ttak__proc__priority__queue__t.html" title=" " alt="" coords="57,269,212,309"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="146,321,162,346,181,360,203,369,201,374,178,364,158,350,141,324"/>
+<area shape="rect" id="Node000004" href="$struct____internal__ttak__qnode__t.html" title=" " alt="" coords="5,181,184,207"/>
+<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="107,218,129,268,124,270,102,220"/>
+<area shape="poly" id="edge5_Node000004_Node000004" title=" " alt="" coords="199,186,211,194,202,201,185,204,184,199,200,196,205,194,197,191"/>
+<area shape="rect" id="Node000005" href="$structttak__worker__wrapper.html" title=" " alt="" coords="266,181,425,207"/>
+<area shape="poly" id="edge6_Node000001_Node000005" title=" " alt="" coords="347,220,344,277,339,276,342,220"/>
+<area shape="rect" id="Node000006" href="$structttak__promise.html" title="Promise handle that pairs with exactly one ttak_future_t." alt="" coords="291,93,399,119"/>
+<area shape="poly" id="edge7_Node000005_Node000006" title=" " alt="" coords="348,133,348,181,343,181,343,133"/>
+<area shape="rect" id="Node000007" href="$structttak__future.html" title="Blocking future that carries a single void* result." alt="" coords="298,5,393,31"/>
+<area shape="poly" id="edge8_Node000006_Node000007" title=" " alt="" coords="348,45,348,93,343,93,343,45"/>
+</map>

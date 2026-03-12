@@ -1,0 +1,18 @@
+<map id="include/ttak/mem/mem.h" name="include/ttak/mem/mem.h">
+<area shape="rect" id="Node000001" title="TTAK Unified Memory Subsystem with Lifecycle Management and Hardware Optimization." alt="" coords="300,5,486,33"/>
+<area shape="rect" id="Node000002" href="$arena__helper_8h.html" title=" " alt="" coords="5,81,183,126"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="331,40,174,83,173,78,329,35"/>
+<area shape="rect" id="Node000003" href="$lattice_8h.html" title="Choi Seok&#45;jeong&#39;s Lattice (Sanpan) for Lock&#45;Free Parallel Ingress." alt="" coords="206,90,387,117"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="368,45,313,91,310,87,364,41"/>
+<area shape="rect" id="Node000007" href="$app__types_8h.html" title=" " alt="" coords="412,90,566,117"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="421,41,475,87,472,91,418,45"/>
+<area shape="rect" id="Node000008" href="$mem__internal_8h.html" title="Internal memory subsystem definitions and tiered allocator interfaces." alt="" coords="459,174,668,201"/>
+<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="502,30,545,48,564,62,580,80,589,104,588,130,582,154,573,174,568,172,577,153,583,129,584,105,576,82,561,66,542,53,500,35"/>
+<area shape="rect" id="Node000004" href="$endpoint_8h.html" title=" " alt="" coords="198,174,395,201"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="299,133,299,173,294,173,294,133"/>
+<area shape="rect" id="Node000005" href="$session_8h.html" title=" " alt="" coords="101,249,290,277"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="268,213,215,251,212,247,265,209"/>
+<area shape="rect" id="Node000006" href="$view_8h.html" title=" " alt="" coords="313,249,483,277"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="329,209,382,247,378,251,326,213"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="513,127,554,172,550,175,509,131"/>
+</map>

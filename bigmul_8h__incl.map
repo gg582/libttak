@@ -1,0 +1,24 @@
+<map id="include/ttak/math/bigmul.h" name="include/ttak/math/bigmul.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="203,5,400,33"/>
+<area shape="rect" id="Node000002" href="$bigint_8h.html" title=" " alt="" coords="232,81,371,109"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="304,34,304,65,299,65,299,34"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="226,232,297,260"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="301,110,271,218,266,217,296,108"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="92,232,165,260"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="288,111,156,224,153,220,285,107"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="538,232,620,260"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="371,102,478,122,524,137,555,155,566,168,573,184,581,216,575,217,568,186,562,171,552,159,522,142,476,128,370,108"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="299,157,384,184"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="311,108,329,142,325,144,306,110"/>
+<area shape="rect" id="Node000007" href="$ttak__align_8h.html" title="Alignment utilities and compatibility helpers." alt="" coords="5,157,174,184"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="264,112,143,154,141,149,263,107"/>
+<area shape="rect" id="Node000008" href="$fixed_8h.html" title=" " alt="" coords="408,157,542,184"/>
+<area shape="poly" id="edge8_Node000002_Node000008" title=" " alt="" coords="334,107,431,148,429,153,331,112"/>
+<area shape="poly" id="edge7_Node000007_Node000004" title=" " alt="" coords="99,184,117,217,112,220,94,186"/>
+<area shape="poly" id="edge9_Node000008_Node000003" title=" " alt="" coords="438,187,312,230,311,225,436,182"/>
+<area shape="poly" id="edge10_Node000008_Node000005" title=" " alt="" coords="495,183,550,221,547,226,492,187"/>
+<area shape="rect" id="Node000009" href="$ttak__compiler_8h.html" title="Compiler&#45;specific macros and compatibility layer." alt="" coords="321,232,514,260"/>
+<area shape="poly" id="edge11_Node000008_Node000009" title=" " alt="" coords="467,187,439,222,435,218,462,183"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="368,308,467,336"/>
+<area shape="poly" id="edge12_Node000009_Node000010" title=" " alt="" coords="420,261,420,292,415,292,415,261"/>
+</map>

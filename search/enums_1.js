@@ -1,0 +1,26 @@
+var searchData=
+[
+  ['ttak_5faccel_5ftarget_0',['ttak_accel_target',['../ttak__accelerator_8h.html#ac7cac2c972f22538284d97bf3220ea04',1,'ttak_accelerator.h']]],
+  ['ttak_5fallocation_5ftier_5ft_1',['ttak_allocation_tier_t',['../mem_8h.html#a05a24acbd6ba6bb3693aecdc12d0ee09',1,'mem.h']]],
+  ['ttak_5fbigscript_5ferror_5fcode_5ft_2',['ttak_bigscript_error_code_t',['../bigscript_8h.html#a51c5be730058409e5356a8bcef3f9828',1,'bigscript.h']]],
+  ['ttak_5fbigscript_5fval_5ftype_5ft_3',['ttak_bigscript_val_type_t',['../bigscript_8h.html#a31a9453da779cb527438fabc056efeae',1,'bigscript.h']]],
+  ['ttak_5fdetach_5fstate_5fflags_4',['ttak_detach_state_flags',['../detachable_8h.html#a1be650514f253f5129ff7e791c2e9a47',1,'detachable.h']]],
+  ['ttak_5fdetachable_5fcontext_5fflags_5',['ttak_detachable_context_flags',['../detachable_8h.html#ab5e06a7df563c816fabc268cd4eecc12',1,'detachable.h']]],
+  ['ttak_5fio_5fbuffer_5fmode_6',['ttak_io_buffer_mode',['../io_8h.html#a4b16199a2071984f634a8da16869da1a',1,'io.h']]],
+  ['ttak_5fio_5fstatus_7',['ttak_io_status',['../io_8h.html#a4c5731f8c7bf69338c8fba54e58f3109',1,'io.h']]],
+  ['ttak_5flog_5flevel_5ft_8',['ttak_log_level_t',['../logger_8h.html#a13b7cbf4245d32959202870c26bbd3e4',1,'logger.h']]],
+  ['ttak_5fmem_5fflags_5ft_9',['ttak_mem_flags_t',['../mem_8h.html#a05020ce7df6068f7d7f515ee4ea9cdad',1,'mem.h']]],
+  ['ttak_5fnet_5fendpoint_5frole_10',['ttak_net_endpoint_role',['../endpoint_8h.html#a5e04a88fbb25550b7b9ef37621e7d701',1,'endpoint.h']]],
+  ['ttak_5fnet_5fendpoint_5ftype_11',['ttak_net_endpoint_type',['../endpoint_8h.html#a90d039f18d1593c634513881f837b80c',1,'endpoint.h']]],
+  ['ttak_5fnet_5fos_12',['ttak_net_os',['../port_8h.html#a9c772162be718df750f452ed87452d80',1,'port.h']]],
+  ['ttak_5fnet_5fsession_5fpolicy_13',['ttak_net_session_policy',['../session_8h.html#a1ee2864eca3738a402609ca3979d76a9',1,'session.h']]],
+  ['ttak_5fnet_5fsession_5fstate_14',['ttak_net_session_state',['../session_8h.html#a3ad0ec759aace8fad3ac4f92be02c9de',1,'session.h']]],
+  ['ttak_5fowner_5fpolicy_5ft_15',['ttak_owner_policy_t',['../owner_8h.html#a6c47e6a1c635efb2ad989e927612e94a',1,'owner.h']]],
+  ['ttak_5fphys_5fstatus_16',['ttak_phys_status',['../transport_8h.html#a4dfed25085de3e1ef832f223f45e8fa4',1,'transport.h']]],
+  ['ttak_5fpriority_17',['ttak_priority',['../buddy_8h.html#a3273cde05aae384fc401209911116e37',1,'buddy.h']]],
+  ['ttak_5fresult_18',['ttak_result',['../ttak__accelerator_8h.html#a4c4c114f1628da0d3fc56a9f9b5cb5c9',1,'ttak_accelerator.h']]],
+  ['ttak_5fsecurity_5fdriver_5fkind_19',['ttak_security_driver_kind',['../security__engine_8h.html#ab9de941d814c6649fe343e2b77ec2b4e',1,'security_engine.h']]],
+  ['ttak_5fsecurity_5fop_20',['ttak_security_op',['../security__engine_8h.html#add1d2c567a8ac6909074cf553fef29b4',1,'security_engine.h']]],
+  ['ttak_5fshared_5flevel_5ft_21',['ttak_shared_level_t',['../shared_8h.html#ae6eb27b055588903d427f15cc0cec6f5',1,'shared.h']]],
+  ['ttak_5fsumdiv_5fbig_5ferror_5ft_22',['ttak_sumdiv_big_error_t',['../sum__divisors_8h.html#ad263c33f5701435721532071341d20d9',1,'sum_divisors.h']]]
+];

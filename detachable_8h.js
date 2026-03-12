@@ -1,0 +1,47 @@
+var detachable_8h =
+[
+    [ "ttak_detach_status", "structttak__detach__status.html", "structttak__detach__status" ],
+    [ "ttak_detachable_cache", "structttak__detachable__cache.html", "structttak__detachable__cache" ],
+    [ "ttak_detachable_generation_row", "structttak__detachable__generation__row.html", "structttak__detachable__generation__row" ],
+    [ "ttak_detachable_context", "structttak__detachable__context.html", "structttak__detachable__context" ],
+    [ "ttak_detachable_allocation", "structttak__detachable__allocation.html", "structttak__detachable__allocation" ],
+    [ "TTAK_DETACHABLE_CACHE_MAX_BYTES", "detachable_8h.html#af9888feb3e0a319858cfbc2ada4ca9f0", null ],
+    [ "TTAK_DETACHABLE_CACHE_SLOTS", "detachable_8h.html#a198599d50d443995834ee9169ac2fdb6", null ],
+    [ "TTAK_DETACHABLE_GENERATIONS", "detachable_8h.html#a5d3b70f805eaace99a16d7e08518b77f", null ],
+    [ "TTAK_DETACHABLE_MATRIX_ROWS", "detachable_8h.html#a9d147c30c600e763cd4b9f52d8b3df82", null ],
+    [ "ttak_detach_state_flags_t", "detachable_8h.html#afbe41ddd19dc2e52cc3399a79cdda0e8", null ],
+    [ "ttak_detach_status_t", "detachable_8h.html#ac1e56a46d336e364577b670520d14be8", null ],
+    [ "ttak_detachable_allocation_t", "detachable_8h.html#a849243c766d591f9c26aab69b9933f1b", null ],
+    [ "ttak_detachable_cache_t", "detachable_8h.html#a52b42f81544c7607c85d586b924c9c17", null ],
+    [ "ttak_detachable_context_flags_t", "detachable_8h.html#af305388e9b1aace5f96138912a0e1cbf", null ],
+    [ "ttak_detachable_context_t", "detachable_8h.html#ac2e1577a34551ffaedf5a16d11bdff0b", null ],
+    [ "ttak_detachable_generation_row_t", "detachable_8h.html#ac0b7486d4e195a62b81d84b90ef1fb9e", null ],
+    [ "ttak_detach_state_flags", "detachable_8h.html#a1be650514f253f5129ff7e791c2e9a47", [
+      [ "TTAK_DETACHABLE_UNKNOWN", "detachable_8h.html#a1be650514f253f5129ff7e791c2e9a47aaba48c9c71dc70acbf1bfaf46a442458", null ],
+      [ "TTAK_DETACHABLE_ATTACH", "detachable_8h.html#a1be650514f253f5129ff7e791c2e9a47a181d2c0832150c00d5f61c9c80c94bab", null ],
+      [ "TTAK_DETACHABLE_DETACH_NOCHECK", "detachable_8h.html#a1be650514f253f5129ff7e791c2e9a47a629f8c3fcbb9ffa6cb52a3fe7ba5164f", null ],
+      [ "TTAK_DETACHABLE_PARTIAL_CACHE", "detachable_8h.html#a1be650514f253f5129ff7e791c2e9a47a4b5f0574b64337442ebfe3dc6ffa41b2", null ],
+      [ "TTAK_DETACHABLE_STATUS_KNOWN", "detachable_8h.html#a1be650514f253f5129ff7e791c2e9a47ac9ac8dd59403334fcdfa9cd5df09a9e1", null ]
+    ] ],
+    [ "ttak_detachable_context_flags", "detachable_8h.html#ab5e06a7df563c816fabc268cd4eecc12", [
+      [ "TTAK_ARENA_HAS_OWNER", "detachable_8h.html#ab5e06a7df563c816fabc268cd4eecc12aa73d4ccfff5807ef21f37d6426131c81", null ],
+      [ "TTAK_ARENA_HAS_EPOCH_RECLAMATION", "detachable_8h.html#ab5e06a7df563c816fabc268cd4eecc12a6c3e61feed2fee7dbd14082c960b0533", null ],
+      [ "TTAK_ARENA_HAS_DEFAULT_EPOCH_GC", "detachable_8h.html#ab5e06a7df563c816fabc268cd4eecc12af9989087e40b7fcd1c23f45445599fae", null ],
+      [ "TTAK_ARENA_IS_URGENT_TASK", "detachable_8h.html#ab5e06a7df563c816fabc268cd4eecc12a1442cba89396d4b38fead12e3ea083cd", null ],
+      [ "TTAK_ARENA_USE_LOCKED_ACCESS", "detachable_8h.html#ab5e06a7df563c816fabc268cd4eecc12aaa4015a7270ae35f435dfb3c7f90078a", null ],
+      [ "TTAK_ARENA_IS_SINGLE_THREAD", "detachable_8h.html#ab5e06a7df563c816fabc268cd4eecc12a68cebec47a397906f5d3f8f6042f902e", null ],
+      [ "TTAK_ARENA_USE_ASYNC_OPT", "detachable_8h.html#ab5e06a7df563c816fabc268cd4eecc12afd265a0ac613adedadd723d46841ed16", null ]
+    ] ],
+    [ "ttak_detach_status_converge", "detachable_8h.html#a889c139fb7d20873ca7fbe1cfdeda7ce", null ],
+    [ "ttak_detach_status_mark_known", "detachable_8h.html#ad83ea9dcd517e52eac5c67912c2c17d7", null ],
+    [ "ttak_detach_status_reset", "detachable_8h.html#aef365c93b7f2fccd1c2b93875ed1732e", null ],
+    [ "ttak_detachable_cache_destroy", "detachable_8h.html#a67a7a626b3669ea6aaf278066d586e6c", null ],
+    [ "ttak_detachable_cache_init", "detachable_8h.html#a14d41433944d90fba8f5534cb7d33df9", null ],
+    [ "ttak_detachable_context_default", "detachable_8h.html#a717f497fd4d9c1be7bd16e67c7ec349f", null ],
+    [ "ttak_detachable_context_destroy", "detachable_8h.html#abb1325e4df9bb26b2ec336f7659f1647", null ],
+    [ "ttak_detachable_context_init", "detachable_8h.html#a63f13e49808b766ad47572c4ced69d3f", null ],
+    [ "ttak_detachable_mem_alloc", "detachable_8h.html#af35aea4b40c5e4dcaff9c3c97091a5f5", null ],
+    [ "ttak_detachable_mem_free", "detachable_8h.html#ae0cb6732fd104bdf0a36c8f10ec7e7df", null ],
+    [ "ttak_hard_kill_exit", "detachable_8h.html#ad88699e65105da2cbc3b4afa26c27d57", null ],
+    [ "ttak_hard_kill_graceful_exit", "detachable_8h.html#a1ecfc3ddf70928f8f6d61b0e7c97bc11", null ]
+];

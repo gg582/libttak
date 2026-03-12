@@ -1,0 +1,36 @@
+<map id="include/ttak/mem/epoch.h" name="include/ttak/mem/epoch.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="1110,5,1301,33"/>
+<area shape="rect" id="Node000002" href="$detachable_8h.html" title=" " alt="" coords="733,90,957,117"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1133,40,903,92,902,86,1132,34"/>
+<area shape="rect" id="Node000010" href="$session_8h.html" title=" " alt="" coords="1220,350,1409,378"/>
+<area shape="poly" id="edge14_Node000001_Node000010" title=" " alt="" coords="1251,38,1310,69,1374,115,1405,143,1432,175,1454,210,1469,249,1475,272,1474,283,1469,295,1452,316,1430,331,1383,352,1381,347,1428,327,1448,312,1464,293,1469,282,1470,273,1464,250,1449,212,1428,178,1401,147,1371,119,1307,73,1249,42"/>
+<area shape="rect" id="Node000014" href="$shared_8h.html" title=" " alt="" coords="1132,81,1278,126"/>
+<area shape="poly" id="edge15_Node000001_Node000014" title=" " alt="" coords="1208,49,1208,80,1202,80,1202,49"/>
+<area shape="rect" id="Node000003" href="$io_8h.html" title="Core I/O types: status codes, buffers, TTL guards, and poll helpers." alt="" coords="666,174,808,201"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="817,129,756,175,753,171,814,125"/>
+<area shape="rect" id="Node000004" href="$async_8h.html" title="Non&#45;blocking I/O read/write operations with completion callbacks." alt="" coords="273,258,441,286"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="661,208,454,252,418,260,417,255,453,247,660,202"/>
+<area shape="rect" id="Node000005" href="$bits_8h.html" title="Lightweight FNV&#45;32 checksum utilities for buffer integrity checks." alt="" coords="465,258,620,286"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="693,210,575,260,573,255,691,205"/>
+<area shape="rect" id="Node000006" href="$io_2sync_8h.html" title="Blocking (synchronous) I/O read/write wrappers." alt="" coords="854,258,1015,286"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="784,205,904,255,902,260,782,210"/>
+<area shape="rect" id="Node000007" href="$zerocopy_8h.html" title=" " alt="" coords="644,258,831,286"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="740,217,740,258,734,258,734,217"/>
+<area shape="rect" id="Node000009" href="$endpoint_8h.html" title=" " alt="" coords="1039,258,1235,286"/>
+<area shape="poly" id="edge8_Node000003_Node000009" title=" " alt="" coords="817,202,1074,255,1073,260,816,208"/>
+<area shape="rect" id="Node000011" href="$security__engine_8h.html" title="Unified cryptographic dispatch engine for LibTTAK." alt="" coords="95,249,249,294"/>
+<area shape="poly" id="edge11_Node000003_Node000011" title=" " alt="" coords="651,200,471,220,262,252,250,254,249,249,261,247,470,215,650,194"/>
+<area shape="rect" id="Node000008" href="$view_8h.html" title=" " alt="" coords="751,350,920,378"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="764,294,824,348,820,352,761,298"/>
+<area shape="poly" id="edge10_Node000009_Node000008" title=" " alt="" coords="1080,293,880,352,879,347,1078,288"/>
+<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="1178,291,1290,348,1287,352,1175,295"/>
+<area shape="rect" id="Node000012" href="$lea_8h.html" title="LEA (Lightweight Encryption Algorithm) block cipher interface." alt="" coords="184,342,338,387"/>
+<area shape="poly" id="edge12_Node000011_Node000012" title=" " alt="" coords="206,303,242,340,238,344,202,307"/>
+<area shape="rect" id="Node000013" href="$seed_8h.html" title="SEED block cipher interface (KS X 1213, ISO/IEC 18033&#45;3)." alt="" coords="5,342,160,387"/>
+<area shape="poly" id="edge13_Node000011_Node000013" title=" " alt="" coords="142,307,105,344,102,340,138,303"/>
+<area shape="poly" id="edge18_Node000014_Node000009" title=" " alt="" coords="1193,141,1145,258,1140,256,1188,139"/>
+<area shape="rect" id="Node000015" href="$vector_8h.html" title=" " alt="" coords="1218,174,1411,201"/>
+<area shape="poly" id="edge16_Node000014_Node000015" title=" " alt="" coords="1248,133,1298,171,1295,175,1245,137"/>
+<area shape="rect" id="Node000016" href="$matrix_8h.html" title=" " alt="" coords="1260,258,1455,286"/>
+<area shape="poly" id="edge17_Node000015_Node000016" title=" " alt="" coords="1331,214,1353,256,1348,259,1326,217"/>
+</map>

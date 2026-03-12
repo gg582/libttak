@@ -1,0 +1,22 @@
+<map id="include/ttak/math/bigint.h" name="include/ttak/math/bigint.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="207,5,396,33"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="226,157,297,184"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="301,34,271,142,266,141,296,32"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="92,157,165,184"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="288,35,156,148,153,144,285,31"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="538,157,620,184"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="397,31,490,50,529,63,555,79,566,93,573,109,581,141,575,142,568,110,562,96,552,83,527,68,489,55,396,36"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="299,81,384,109"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="311,32,329,66,325,69,306,35"/>
+<area shape="rect" id="Node000006" href="$ttak__align_8h.html" title="Alignment utilities and compatibility helpers." alt="" coords="5,81,174,109"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="264,36,143,78,141,73,263,31"/>
+<area shape="rect" id="Node000007" href="$fixed_8h.html" title=" " alt="" coords="408,81,542,109"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="334,31,431,72,429,77,331,36"/>
+<area shape="poly" id="edge6_Node000006_Node000003" title=" " alt="" coords="99,108,117,142,112,144,94,110"/>
+<area shape="poly" id="edge8_Node000007_Node000002" title=" " alt="" coords="438,112,312,155,311,149,436,107"/>
+<area shape="poly" id="edge9_Node000007_Node000004" title=" " alt="" coords="495,107,550,146,547,150,492,111"/>
+<area shape="rect" id="Node000008" href="$ttak__compiler_8h.html" title="Compiler&#45;specific macros and compatibility layer." alt="" coords="321,157,514,184"/>
+<area shape="poly" id="edge10_Node000007_Node000008" title=" " alt="" coords="467,111,439,146,435,143,462,108"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="368,232,467,260"/>
+<area shape="poly" id="edge11_Node000008_Node000009" title=" " alt="" coords="420,185,420,217,415,217,415,185"/>
+</map>

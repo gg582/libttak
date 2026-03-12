@@ -1,0 +1,12 @@
+<map id="ttak_stats_ext" name="ttak_stats_ext">
+<area shape="rect" id="Node000001" title="Extended statistics structure with automatic promotion and high precision." alt="" coords="104,343,219,368"/>
+<area shape="rect" id="Node000002" href="$structttak__stats.html" title="Thread&#45;safe Statistics structure." alt="" coords="118,181,205,207"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="164,220,164,342,159,342,159,220"/>
+<area shape="rect" id="Node000003" href="$structttak__spin.html" title="Spinlock structure." alt="" coords="13,93,96,119"/>
+<area shape="poly" id="edge5_Node000001_Node000003" title=" " alt="" coords="49,132,44,168,44,187,48,206,69,248,96,287,149,341,146,344,92,290,64,251,43,208,39,188,38,168,44,131"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="81,125,149,179,145,183,78,129"/>
+<area shape="rect" id="Node000004" href="$structatomic__flag.html" title=" " alt="" coords="5,5,104,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="57,45,57,93,52,93,52,45"/>
+<area shape="rect" id="Node000005" href="$structttak__bigint.html" title="Arbitrary&#45;precision integer engine with Small Stack Optimization (SSO)." alt="" coords="229,181,321,207"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="266,220,241,268,205,320,179,344,176,340,201,317,236,265,261,218"/>
+</map>

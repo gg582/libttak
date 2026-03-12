@@ -1,0 +1,21 @@
+<map id="include/ttak/limit/limit.h" name="include/ttak/limit/limit.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="221,5,353,50"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="113,174,184,201"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="272,52,208,127,173,164,169,161,204,124,268,49"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="417,174,498,201"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="355,45,397,65,417,79,434,96,451,127,458,158,453,159,446,128,430,100,414,83,394,70,352,50"/>
+<area shape="rect" id="Node000004" href="$sync_2sync_8h.html" title=" " alt="" coords="66,98,193,126"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="246,53,170,93,167,88,244,48"/>
+<area shape="rect" id="Node000007" href="$spinlock_8h.html" title=" " alt="" coords="269,98,420,126"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="304,49,329,83,324,87,300,52"/>
+<area shape="poly" id="edge5_Node000004_Node000002" title=" " alt="" coords="136,126,144,158,139,159,130,127"/>
+<area shape="rect" id="Node000005" href="$pthread_8h.html" title="POSIX thread compatibility shim." alt="" coords="5,174,89,201"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="117,128,75,165,71,161,113,124"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="207,174,306,201"/>
+<area shape="poly" id="edge6_Node000004_Node000006" title=" " alt="" coords="154,124,222,164,220,168,151,129"/>
+<area shape="poly" id="edge10_Node000007_Node000002" title=" " alt="" coords="310,129,198,170,196,165,308,124"/>
+<area shape="poly" id="edge9_Node000007_Node000003" title=" " alt="" coords="366,124,426,163,424,167,363,128"/>
+<area shape="poly" id="edge8_Node000007_Node000006" title=" " alt="" coords="330,128,285,166,282,162,327,124"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="330,174,393,201"/>
+<area shape="poly" id="edge11_Node000007_Node000008" title=" " alt="" coords="350,126,358,158,352,159,345,127"/>
+</map>

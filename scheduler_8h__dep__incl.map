@@ -1,0 +1,7 @@
+<map id="include/ttak/priority/scheduler.h" name="include/ttak/priority/scheduler.h">
+<area shape="rect" id="Node000001" title="Priority&#45;aware task scheduler that maps nice values to run queues." alt="" coords="129,5,279,50"/>
+<area shape="rect" id="Node000002" href="$calculus_8h.html" title=" " alt="" coords="5,106,211,134"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="172,63,124,108,120,104,168,59"/>
+<area shape="rect" id="Node000003" href="$stats__ext_8h.html" title=" " alt="" coords="234,98,368,143"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="240,59,280,96,276,99,236,63"/>
+</map>

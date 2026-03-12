@@ -1,0 +1,9 @@
+<map id="include/ttak/priority/nice.h" name="include/ttak/priority/nice.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="129,5,279,50"/>
+<area shape="rect" id="Node000002" href="$scheduler_8h.html" title="Priority&#45;aware task scheduler that maps nice values to run queues." alt="" coords="129,98,279,143"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="207,66,207,98,201,98,201,66"/>
+<area shape="rect" id="Node000003" href="$calculus_8h.html" title=" " alt="" coords="5,199,211,227"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="172,155,124,201,120,197,168,151"/>
+<area shape="rect" id="Node000004" href="$stats__ext_8h.html" title=" " alt="" coords="234,191,368,235"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="240,151,280,188,276,192,236,155"/>
+</map>

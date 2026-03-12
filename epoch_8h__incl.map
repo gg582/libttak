@@ -1,0 +1,12 @@
+<map id="include/ttak/mem/epoch.h" name="include/ttak/mem/epoch.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="86,5,278,33"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,81,87,109"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="159,36,85,76,82,71,156,31"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="111,81,181,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="178,35,162,68,157,66,173,32"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="236,157,334,184"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="193,32,269,142,265,145,189,35"/>
+<area shape="rect" id="Node000005" href="$ttak__compiler_8h.html" title="Compiler&#45;specific macros and compatibility layer." alt="" coords="255,81,448,109"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="213,31,309,72,306,77,211,36"/>
+<area shape="poly" id="edge5_Node000005_Node000004" title=" " alt="" coords="341,111,309,147,305,143,337,107"/>
+</map>

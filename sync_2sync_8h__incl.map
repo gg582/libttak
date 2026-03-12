@@ -1,0 +1,9 @@
+<map id="include/ttak/sync/sync.h" name="include/ttak/sync/sync.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="59,5,238,33"/>
+<area shape="rect" id="Node000002" href="$pthread_8h.html" title="POSIX thread compatibility shim." alt="" coords="5,81,89,109"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="132,36,79,74,76,70,129,31"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="113,81,184,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="151,34,151,65,146,65,146,34"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="207,81,306,109"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="169,31,226,70,223,74,166,36"/>
+</map>

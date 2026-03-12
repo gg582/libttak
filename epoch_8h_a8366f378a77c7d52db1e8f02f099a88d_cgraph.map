@@ -1,0 +1,5 @@
+<map id="ttak_epoch_enter" name="ttak_epoch_enter">
+<area shape="rect" id="Node000001" title="Enters a critical section protected by EBR." alt="" coords="5,14,140,42"/>
+<area shape="rect" id="Node000002" href="$epoch_8h.html#ae1b722f4861fbbb0cfa8de22e3fa76b0" title="Registers the current thread with the epoch manager." alt="" coords="188,5,338,50"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="140,25,172,25,172,30,140,30"/>
+</map>

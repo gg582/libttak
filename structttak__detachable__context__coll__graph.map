@@ -1,0 +1,9 @@
+<map id="ttak_detachable_context" name="ttak_detachable_context">
+<area shape="rect" id="Node000001" title="State holder for detachable memory contexts." alt="" coords="171,93,354,119"/>
+<area shape="rect" id="Node000002" href="$structttak__detach__status.html" title="Tracks the detach lifecycle of a detachable block." alt="" coords="5,5,152,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="112,35,176,67,233,91,231,96,174,72,110,40"/>
+<area shape="rect" id="Node000003" href="$structttak__detachable__cache.html" title="Per&#45;context cache for tiny detachable chunks (&lt;= 16 bytes)." alt="" coords="177,5,349,31"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="265,45,265,93,260,93,260,45"/>
+<area shape="rect" id="Node000004" href="$structttak__detachable__generation__row.html" title="Fixed&#45;width arena row descriptor." alt="" coords="373,5,608,31"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="448,38,294,96,292,91,446,33"/>
+</map>

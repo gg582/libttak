@@ -1,0 +1,28 @@
+<map id="include/ttak/mem/owner.h" name="include/ttak/mem/owner.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="341,5,532,33"/>
+<area shape="rect" id="Node000002" href="$map_8h.html" title="Public API for the SoA open&#45;addressing integer&#45;keyed hash map." alt="" coords="214,81,323,109"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="407,36,313,77,311,72,405,31"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="376,232,446,260"/>
+<area shape="poly" id="edge15_Node000001_Node000004" title=" " alt="" coords="431,35,421,56,413,82,409,118,407,154,410,217,405,217,402,154,403,117,408,80,416,54,427,32"/>
+<area shape="rect" id="Node000008" href="$sync_2sync_8h.html" title=" " alt="" coords="423,81,551,109"/>
+<area shape="poly" id="edge10_Node000001_Node000008" title=" " alt="" coords="447,32,471,66,467,70,443,35"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="574,81,656,109"/>
+<area shape="poly" id="edge14_Node000001_Node000011" title=" " alt="" coords="469,31,570,72,568,77,467,36"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="109,308,182,336"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="214,110,163,126,107,151,54,186,32,208,13,234,8,246,10,258,17,268,27,278,59,294,95,306,93,311,57,299,24,282,12,272,5,260,3,246,9,231,28,205,51,182,104,146,161,121,213,105"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="282,107,390,219,386,223,278,111"/>
+<area shape="rect" id="Node000005" href="$hash_8h.html" title="Low&#45;level open&#45;addressing hash map (SoA layout) with SipHash/wyhash." alt="" coords="186,157,297,184"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="266,110,254,143,249,141,261,108"/>
+<area shape="poly" id="edge6_Node000005_Node000003" title=" " alt="" coords="222,187,196,207,173,234,159,263,152,293,147,292,154,262,169,231,193,203,219,183"/>
+<area shape="poly" id="edge5_Node000005_Node000004" title=" " alt="" coords="273,182,368,223,366,228,271,187"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="23,232,108,260"/>
+<area shape="poly" id="edge7_Node000005_Node000006" title=" " alt="" coords="211,187,112,229,110,224,209,182"/>
+<area shape="rect" id="Node000007" href="$ttak__align_8h.html" title="Alignment utilities and compatibility helpers." alt="" coords="183,232,351,260"/>
+<area shape="poly" id="edge8_Node000005_Node000007" title=" " alt="" coords="249,184,260,217,255,218,244,186"/>
+<area shape="poly" id="edge9_Node000007_Node000003" title=" " alt="" coords="247,263,181,302,179,298,244,258"/>
+<area shape="poly" id="edge12_Node000008_Node000004" title=" " alt="" coords="483,110,427,219,422,217,478,108"/>
+<area shape="rect" id="Node000009" href="$pthread_8h.html" title="POSIX thread compatibility shim." alt="" coords="473,157,557,184"/>
+<area shape="poly" id="edge11_Node000008_Node000009" title=" " alt="" coords="494,108,507,141,502,143,489,110"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="580,157,679,184"/>
+<area shape="poly" id="edge13_Node000008_Node000010" title=" " alt="" coords="514,107,592,147,590,152,511,112"/>
+</map>

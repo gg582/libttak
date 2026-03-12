@@ -1,0 +1,33 @@
+<map id="include/ttak/thread/pool.h" name="include/ttak/thread/pool.h">
+<area shape="rect" id="Node000001" title="Managed thread pool built on top of the async task scheduler." alt="" coords="438,5,582,50"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="358,266,432,294"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="471,53,444,73,423,99,407,138,398,179,395,251,390,251,393,178,401,136,418,97,441,69,468,48"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="485,342,556,370"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="560,48,594,69,625,96,659,137,679,174,693,214,706,266,709,281,705,295,677,322,643,340,606,351,571,356,571,350,605,345,641,335,674,318,701,293,704,281,700,267,688,215,675,176,654,140,621,100,591,73,557,53"/>
+<area shape="rect" id="Node000004" href="$task_8h.html" title=" " alt="" coords="558,266,691,294"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="552,48,579,69,601,97,618,136,627,178,629,251,624,251,621,179,613,138,597,99,575,73,548,53"/>
+<area shape="rect" id="Node000005" href="$worker_8h.html" title="Resilient worker&#45;thread wrapper with fault isolation via setjmp." alt="" coords="168,98,321,126"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="440,53,302,96,300,91,439,48"/>
+<area shape="rect" id="Node000011" href="$queue_8h.html" title="Public short&#45;hand aliases for the internal priority&#45;queue types." alt="" coords="433,98,587,126"/>
+<area shape="poly" id="edge14_Node000001_Node000011" title=" " alt="" coords="512,50,512,82,507,82,507,50"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="607,297,552,335,549,331,604,292"/>
+<area shape="poly" id="edge8_Node000005_Node000003" title=" " alt="" coords="259,125,297,172,313,207,319,237,328,264,349,292,377,312,408,328,471,345,469,351,406,333,374,317,345,296,323,267,314,238,308,209,293,175,255,128"/>
+<area shape="rect" id="Node000006" href="$pthread_8h.html" title="POSIX thread compatibility shim." alt="" coords="113,342,197,370"/>
+<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="169,125,75,145,36,159,13,175,9,197,9,235,14,271,20,293,32,303,51,314,100,334,98,339,49,318,29,307,15,295,9,273,4,235,3,197,9,172,34,154,73,140,167,120"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="205,182,284,210"/>
+<area shape="poly" id="edge7_Node000005_Node000007" title=" " alt="" coords="247,126,247,167,242,167,242,126"/>
+<area shape="rect" id="Node000008" href="$promise_8h.html" title="One&#45;shot promise for fulfilling a ttak_future_t from a worker thread." alt="" coords="23,182,181,210"/>
+<area shape="poly" id="edge9_Node000005_Node000008" title=" " alt="" coords="223,129,139,176,136,172,220,124"/>
+<area shape="poly" id="edge10_Node000008_Node000003" title=" " alt="" coords="126,208,204,248,303,292,391,320,471,341,469,346,389,325,301,296,201,253,124,213"/>
+<area shape="rect" id="Node000009" href="$future_8h.html" title="Simple blocking future for async task result retrieval." alt="" coords="30,266,174,294"/>
+<area shape="poly" id="edge11_Node000008_Node000009" title=" " alt="" coords="104,210,104,251,99,251,99,210"/>
+<area shape="poly" id="edge12_Node000009_Node000006" title=" " alt="" coords="113,293,139,328,135,331,109,296"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="8,342,89,370"/>
+<area shape="poly" id="edge13_Node000009_Node000010" title=" " alt="" coords="94,296,69,331,65,328,90,293"/>
+<area shape="rect" id="Node000012" href="$internal_2queue_8h.html" title="Internal priority&#45;queue node and vtable types." alt="" coords="434,174,586,218"/>
+<area shape="poly" id="edge15_Node000011_Node000012" title=" " alt="" coords="512,126,512,158,507,158,507,126"/>
+<area shape="poly" id="edge17_Node000012_Node000002" title=" " alt="" coords="481,221,427,259,424,255,478,217"/>
+<area shape="poly" id="edge18_Node000012_Node000003" title=" " alt="" coords="514,218,521,326,516,327,509,219"/>
+<area shape="poly" id="edge16_Node000012_Node000004" title=" " alt="" coords="541,217,595,255,592,259,538,221"/>
+<area shape="poly" id="edge19_Node000012_Node000006" title=" " alt="" coords="503,220,482,259,465,279,446,296,388,326,326,344,265,354,213,358,212,352,265,348,325,339,386,321,443,292,462,276,477,256,499,217"/>
+</map>

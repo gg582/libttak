@@ -1,0 +1,11 @@
+<map id="include/ttak/net/core/port.h" name="include/ttak/net/core/port.h">
+<area shape="rect" id="Node000001" title="Platform&#45;agnostic network driver operations and OS detection." alt="" coords="30,5,186,50"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="17,174,90,201"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="61,53,33,73,12,99,8,115,11,131,31,161,26,164,6,133,3,115,7,97,29,69,58,48"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="128,174,198,201"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="158,48,187,69,209,97,213,115,210,133,190,164,185,161,205,131,208,115,204,99,183,73,155,53"/>
+<area shape="rect" id="Node000004" href="$buddy_8h.html" title="Power&#45;of&#45;two buddy allocator for embedded and bare&#45;metal targets." alt="" coords="21,98,195,126"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="111,50,111,82,105,82,105,50"/>
+<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="100,128,74,163,70,159,96,125"/>
+<area shape="poly" id="edge5_Node000004_Node000003" title=" " alt="" coords="120,125,146,159,142,163,116,128"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="ttak_hash_u64" name="ttak_hash_u64">
+<area shape="rect" id="Node000001" title="Fast hashing of a 64&#45;bit integer using wyhash principles." alt="" coords="5,5,122,33"/>
+<area shape="rect" id="Node000002" href="$wyhash_8h.html#ae3a49e99eee6935b3a1d82d777b55565" title="wyhash 64&#45;bit implementation (v4)." alt="" coords="170,5,284,33"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="122,16,154,16,154,22,122,22"/>
+</map>

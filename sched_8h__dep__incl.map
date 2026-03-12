@@ -1,0 +1,8 @@
+<map id="include/ttak/async/sched.h" name="include/ttak/async/sched.h">
+<area shape="rect" id="Node000001" title="Async task scheduler — init, shutdown, schedule, and yield." alt="" coords="34,5,174,50"/>
+<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="191,13,198,19,201,28,193,41,175,47,174,42,190,37,196,27,194,22,187,17"/>
+<area shape="rect" id="Node000002" href="$include_2ttak_2thread_2thread__compat_8h.html" title="Minimal cross&#45;platform thread wrappers exposed by libttak." alt="" coords="32,98,176,143"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="107,66,107,98,101,98,101,66"/>
+<area shape="rect" id="Node000003" href="$examples_2mersenne-prime_2thread__compat_8h.html" title=" " alt="" coords="5,191,203,235"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="107,158,107,190,101,190,101,158"/>
+</map>

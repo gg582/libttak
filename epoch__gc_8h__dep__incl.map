@@ -1,0 +1,21 @@
+<map id="include/ttak/mem/epoch_gc.h" name="include/ttak/mem/epoch_gc.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="89,5,302,33"/>
+<area shape="rect" id="Node000002" href="$arena__helper_8h.html" title=" " alt="" coords="5,157,183,201"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="181,47,110,158,106,155,177,44"/>
+<area shape="rect" id="Node000003" href="$mem_8h.html" title="TTAK Unified Memory Subsystem with Lifecycle Management and Hardware Optimization." alt="" coords="204,81,390,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="227,40,280,78,277,83,224,45"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="251,117,149,158,147,154,249,112"/>
+<area shape="rect" id="Node000004" href="$lattice_8h.html" title="Choi Seok&#45;jeong&#39;s Lattice (Sanpan) for Lock&#45;Free Parallel Ingress." alt="" coords="206,165,387,193"/>
+<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="299,125,299,165,294,165,294,125"/>
+<area shape="rect" id="Node000008" href="$app__types_8h.html" title=" " alt="" coords="412,165,566,193"/>
+<area shape="poly" id="edge8_Node000003_Node000008" title=" " alt="" coords="342,113,459,162,457,167,340,118"/>
+<area shape="rect" id="Node000009" href="$mem__internal_8h.html" title="Internal memory subsystem definitions and tiered allocator interfaces." alt="" coords="459,249,668,277"/>
+<area shape="poly" id="edge10_Node000003_Node000009" title=" " alt="" coords="406,103,510,122,553,136,580,155,590,179,589,205,582,230,573,250,568,248,577,228,584,204,585,180,576,158,550,141,509,127,405,108"/>
+<area shape="rect" id="Node000005" href="$endpoint_8h.html" title=" " alt="" coords="198,249,395,277"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="299,209,299,249,294,249,294,209"/>
+<area shape="rect" id="Node000006" href="$session_8h.html" title=" " alt="" coords="101,325,290,353"/>
+<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="268,289,215,327,212,322,265,284"/>
+<area shape="rect" id="Node000007" href="$view_8h.html" title=" " alt="" coords="313,325,483,353"/>
+<area shape="poly" id="edge7_Node000005_Node000007" title=" " alt="" coords="329,284,382,322,378,327,326,289"/>
+<area shape="poly" id="edge9_Node000008_Node000009" title=" " alt="" coords="513,203,554,247,550,251,509,206"/>
+</map>

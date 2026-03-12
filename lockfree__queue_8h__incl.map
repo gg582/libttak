@@ -1,0 +1,9 @@
+<map id="examples/mersenne&#45;prime/lockfree_queue.h" name="examples/mersenne&#45;prime/lockfree_queue.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="69,5,266,50"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,98,104,126"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="140,53,87,91,83,86,136,48"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="127,98,208,126"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="170,50,170,82,165,82,165,50"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="232,98,306,126"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="196,48,243,86,239,90,193,52"/>
+</map>

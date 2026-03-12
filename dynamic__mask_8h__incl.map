@@ -1,0 +1,16 @@
+<map id="include/ttak/mask/dynamic_mask.h" name="include/ttak/mask/dynamic_mask.h">
+<area shape="rect" id="Node000001" title="Dynamic bitmap utility with thread&#45;safe access." alt="" coords="206,5,405,50"/>
+<area shape="rect" id="Node000002" href="$sync_2sync_8h.html" title=" " alt="" coords="101,98,228,126"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="269,53,201,92,198,88,267,48"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="234,174,305,201"/>
+<area shape="poly" id="edge5_Node000001_Node000004" title=" " alt="" coords="303,51,279,159,273,158,298,50"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="305,98,386,126"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="319,49,335,83,330,85,314,52"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="410,98,484,126"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="345,48,413,88,410,92,342,53"/>
+<area shape="rect" id="Node000003" href="$pthread_8h.html" title="POSIX thread compatibility shim." alt="" coords="5,174,89,201"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="145,128,82,168,79,163,142,124"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="185,124,240,163,237,167,182,128"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="112,174,211,201"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="167,126,165,158,160,158,161,126"/>
+</map>

@@ -1,0 +1,6 @@
+<map id="ttak_simple_queue_t" name="ttak_simple_queue_t">
+<area shape="rect" id="Node000001" title="Generic FIFO queue implemented with linked nodes." alt="" coords="5,108,164,133"/>
+<area shape="rect" id="Node000002" href="$structttak__simple__node.html" title="Generic singly linked list node used by simple stacks and queues." alt="" coords="15,5,154,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="87,45,87,108,82,108,82,45"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="169,9,181,18,173,26,155,30,154,24,170,22,175,18,166,13"/>
+</map>

@@ -1,0 +1,19 @@
+<map id="include/ttak/math/bigreal.h" name="include/ttak/math/bigreal.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="424,5,621,33"/>
+<area shape="rect" id="Node000002" href="$bigcomplex_8h.html" title=" " alt="" coords="5,90,234,117"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="443,39,185,91,184,86,442,34"/>
+<area shape="rect" id="Node000003" href="$bigscript_8h.html" title=" " alt="" coords="126,174,265,218"/>
+<area shape="poly" id="edge6_Node000001_Node000003" title=" " alt="" coords="413,39,354,57,298,83,258,123,214,175,210,172,254,119,295,79,352,52,411,34"/>
+<area shape="rect" id="Node000004" href="$calculus_8h.html" title=" " alt="" coords="309,90,514,117"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="494,45,431,91,428,87,491,40"/>
+<area shape="rect" id="Node000005" href="$vector_8h.html" title=" " alt="" coords="538,90,730,117"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="554,40,618,87,615,91,551,45"/>
+<area shape="rect" id="Node000007" href="$stats_8h.html" title=" " alt="" coords="755,81,889,126"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="586,35,755,81,754,86,584,40"/>
+<area shape="rect" id="Node000008" href="$stats__ext_8h.html" title=" " alt="" coords="807,174,941,218"/>
+<area shape="poly" id="edge9_Node000001_Node000008" title=" " alt="" coords="637,20,715,26,794,36,860,54,885,65,903,79,913,102,912,128,903,153,891,174,887,172,898,151,906,127,908,103,899,83,882,70,858,59,793,42,714,31,636,26"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="142,127,179,171,175,175,138,131"/>
+<area shape="rect" id="Node000006" href="$matrix_8h.html" title=" " alt="" coords="536,182,732,210"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="637,132,637,182,632,182,632,132"/>
+<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="844,138,864,172,860,175,840,140"/>
+</map>

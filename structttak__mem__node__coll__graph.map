@@ -1,0 +1,7 @@
+<map id="ttak_mem_node" name="ttak_mem_node">
+<area shape="rect" id="Node000001" title="Represents a node in the generic heap tree, tracking a dynamically allocated memory block." alt="" coords="5,7,133,33"/>
+<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="149,11,160,20,152,28,134,31,133,26,149,23,155,20,146,16"/>
+<area shape="rect" id="Node000002" href="$structttak__mem__tree.html" title="Manages the collection of dynamically allocated memory blocks as a mem tree." alt="" coords="8,97,131,123"/>
+<area shape="poly" id="edge3_Node000002_Node000001" title=" " alt="" coords="45,44,35,60,33,69,37,78,53,95,49,99,32,81,28,70,29,58,41,41"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="71,83,72,73,69,33,74,33,77,73,76,84"/>
+</map>

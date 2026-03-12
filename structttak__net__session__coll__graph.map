@@ -1,0 +1,8 @@
+<map id="ttak_net_session" name="ttak_net_session">
+<area shape="rect" id="Node000001" title="Logical connection wrapper that ties an endpoint to parent/child relationships." alt="" coords="5,227,137,253"/>
+<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="124,223,151,226,160,232,164,240,159,250,146,255,110,255,110,250,145,250,155,246,159,240,156,235,149,232,123,229"/>
+<area shape="rect" id="Node000002" href="$structttak__owner.html" title="The Owner structure." alt="" coords="24,108,119,133"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="74,147,74,227,69,227,69,147"/>
+<area shape="rect" id="Node000003" href="$structttak__map__t.html" title="Map structure using Structure of Arrays (SoA) for cache efficiency." alt="" coords="23,5,119,31"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="74,45,74,108,69,108,69,45"/>
+</map>

@@ -1,0 +1,23 @@
+<map id="include/ttak/mem_tree/mem_tree.h" name="include/ttak/mem_tree/mem_tree.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="111,5,280,50"/>
+<area shape="rect" id="Node000002" href="$epoch__gc_8h.html" title=" " alt="" coords="89,98,302,126"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="198,66,198,97,193,97,193,66"/>
+<area shape="rect" id="Node000003" href="$arena__helper_8h.html" title=" " alt="" coords="5,249,183,294"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="181,140,110,250,106,247,177,137"/>
+<area shape="rect" id="Node000004" href="$mem_8h.html" title="TTAK Unified Memory Subsystem with Lifecycle Management and Hardware Optimization." alt="" coords="204,174,390,201"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="227,133,280,171,277,175,224,137"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="251,210,149,251,147,246,249,205"/>
+<area shape="rect" id="Node000005" href="$lattice_8h.html" title="Choi Seok&#45;jeong&#39;s Lattice (Sanpan) for Lock&#45;Free Parallel Ingress." alt="" coords="206,258,387,286"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="299,217,299,258,294,258,294,217"/>
+<area shape="rect" id="Node000009" href="$app__types_8h.html" title=" " alt="" coords="412,258,566,286"/>
+<area shape="poly" id="edge9_Node000004_Node000009" title=" " alt="" coords="342,205,459,255,457,260,340,210"/>
+<area shape="rect" id="Node000010" href="$mem__internal_8h.html" title="Internal memory subsystem definitions and tiered allocator interfaces." alt="" coords="459,342,668,370"/>
+<area shape="poly" id="edge11_Node000004_Node000010" title=" " alt="" coords="406,196,510,214,553,229,580,248,590,272,589,298,582,323,573,343,568,340,577,321,584,297,585,272,576,251,550,234,509,219,405,201"/>
+<area shape="rect" id="Node000006" href="$endpoint_8h.html" title=" " alt="" coords="198,342,395,370"/>
+<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="299,301,299,342,294,342,294,301"/>
+<area shape="rect" id="Node000007" href="$session_8h.html" title=" " alt="" coords="101,418,290,445"/>
+<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="268,381,215,419,212,415,265,377"/>
+<area shape="rect" id="Node000008" href="$view_8h.html" title=" " alt="" coords="313,418,483,445"/>
+<area shape="poly" id="edge8_Node000006_Node000008" title=" " alt="" coords="329,377,382,415,378,419,326,381"/>
+<area shape="poly" id="edge10_Node000009_Node000010" title=" " alt="" coords="513,296,554,340,550,344,509,299"/>
+</map>

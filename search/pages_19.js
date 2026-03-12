@@ -1,0 +1,25 @@
+var searchData=
+[
+  ['path_0',['Clone Coding Path',['../md_tutorials_2CLONE__PATH.html',1,'']]],
+  ['peek_1',['Example Code Sneak Peek',['..//home/yjlee/libttak/tutorials/37-shared-memory-ownership/README.md#autotoc_md140',1,'']]],
+  ['per_20lesson_20folders_2',['Per-lesson folders',['..//home/yjlee/libttak/tutorials/README.md#autotoc_md215',1,'']]],
+  ['performance_20expectations_3',['11. Performance Expectations',['../md_SPECS.html#autotoc_md56',1,'']]],
+  ['performance_20lock_20free_20baseline_4',['High-Performance Lock-Free Baseline',['../index.html#autotoc_md36',1,'']]],
+  ['performance_20philosophy_5',['Performance Philosophy',['..//home/yjlee/libttak/bench/ttl-cache-multithread-bench/README.md#autotoc_md7',1,'']]],
+  ['performance_20targets_6',['Key Performance Targets',['..//home/yjlee/libttak/bench/ttl-cache-multithread-bench/README.md#autotoc_md8',1,'']]],
+  ['philosophy_7',['Philosophy',['../md_SPECS.html#autotoc_md43',1,'2. Design Philosophy'],['..//home/yjlee/libttak/bench/README.md#autotoc_md4',1,'Architectural Philosophy'],['..//home/yjlee/libttak/bench/ttl-cache-multithread-bench/README.md#autotoc_md7',1,'Performance Philosophy']]],
+  ['pool_20allocator_8',['Tutorial 05 – Pool Allocator',['..//home/yjlee/libttak/tutorials/05-pool-allocator/README.md#autotoc_md68',1,'']]],
+  ['pool_20async_9',['Stage 3 – Thread Pool &amp;amp; Async',['../md_tutorials_2CLONE__PATH.html#autotoc_md198',1,'']]],
+  ['pool_20core_10',['Tutorial 12 – Thread Pool Core',['..//home/yjlee/libttak/tutorials/12-thread-pool-core/README.md#autotoc_md82',1,'']]],
+  ['portable_20atomics_11',['Tutorial 11 – Portable Atomics',['..//home/yjlee/libttak/tutorials/11-portable-atomics/README.md#autotoc_md80',1,'']]],
+  ['practical_20utility_20for_20ai_20assisted_20development_12',['Practical Utility for AI-Assisted Development',['../index.html#autotoc_md27',1,'']]],
+  ['predictable_20resource_20discipline_13',['Predictable Resource Discipline',['../index.html#autotoc_md29',1,'']]],
+  ['primer_14',['Tutorial 34 – Dangerous Primer',['..//home/yjlee/libttak/tutorials/34-dangerous-primer/README.md#autotoc_md127',1,'']]],
+  ['primitives_15',['Primitives',['../md_tutorials_2CLONE__PATH.html#autotoc_md197',1,'Stage 2 – Concurrency Primitives'],['..//home/yjlee/libttak/tutorials/09-mutex-primitives/README.md#autotoc_md76',1,'Tutorial 09 – Mutex Primitives'],['..//home/yjlee/libttak/tutorials/15-async-primitives/README.md#autotoc_md88',1,'Tutorial 15 – Async Primitives']]],
+  ['principle_16',['Mathematical Foundation: The OLS Principle',['../index.html#autotoc_md22',1,'']]],
+  ['priority_20queues_17',['Tutorial 14 – Priority Queues',['..//home/yjlee/libttak/tutorials/14-priority-queues/README.md#autotoc_md86',1,'']]],
+  ['program_18',['The BigScript Program',['..//home/yjlee/libttak/tutorials/43-bigscript/01-getting-started/README.md#autotoc_md171',1,'']]],
+  ['protected_20false_19',['&lt;span class=&quot;tt&quot;&gt;access_ebr(..., protected=false)&lt;/span&gt;',['..//home/yjlee/libttak/tutorials/38-ebr-shared/README.md#autotoc_md147',1,'']]],
+  ['protected_20true_20',['&lt;span class=&quot;tt&quot;&gt;access_ebr(..., protected=true)&lt;/span&gt;',['..//home/yjlee/libttak/tutorials/38-ebr-shared/README.md#autotoc_md146',1,'']]],
+  ['purpose_21',['1. Purpose',['../md_SPECS.html#autotoc_md42',1,'']]]
+];

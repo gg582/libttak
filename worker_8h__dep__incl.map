@@ -1,0 +1,5 @@
+<map id="include/ttak/thread/worker.h" name="include/ttak/thread/worker.h">
+<area shape="rect" id="Node000001" title="Resilient worker&#45;thread wrapper with fault isolation via setjmp." alt="" coords="5,5,150,50"/>
+<area shape="rect" id="Node000002" href="$thread_2pool_8h.html" title="Managed thread pool built on top of the async task scheduler." alt="" coords="5,98,150,143"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="80,66,80,98,75,98,75,66"/>
+</map>

@@ -1,0 +1,9 @@
+<map id="tt_shared_vector" name="tt_shared_vector">
+<area shape="rect" id="Node000001" title=" " alt="" coords="113,181,243,207"/>
+<area shape="rect" id="Node000002" href="$structttak__shared__s.html" title=" " alt="" coords="121,93,235,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="181,133,181,181,175,181,175,133"/>
+<area shape="rect" id="Node000003" href="$structttak__dynamic__mask__t.html" title="Thread&#45;safe dynamic bitmap. Optimized for lock&#45;free reads via EBR." alt="" coords="5,5,172,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="112,38,167,91,164,95,109,42"/>
+<area shape="rect" id="Node000004" href="$structttak__shard__table__t.html" title="Lock&#45;free Segmented Shard Array (Page Table). Maps thread logical IDs to unique timestamp slots witho..." alt="" coords="196,5,339,31"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="259,44,240,71,205,95,202,91,236,67,255,41"/>
+</map>

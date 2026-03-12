@@ -1,0 +1,9 @@
+<map id="ttak_epoch_gc" name="ttak_epoch_gc">
+<area shape="rect" id="Node000001" title="Epoch&#45;based garbage collection context." alt="" coords="5,95,121,121"/>
+<area shape="rect" id="Node000002" href="$structttak__mem__tree.html" title="Manages the collection of dynamically allocated memory blocks as a mem tree." alt="" coords="87,5,210,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="125,41,108,57,74,97,70,93,104,53,121,37"/>
+<area shape="rect" id="Node000003" href="$structttak__mem__node.html" title="Represents a node in the generic heap tree, tracking a dynamically allocated memory block." alt="" coords="146,95,274,121"/>
+<area shape="poly" id="edge4_Node000003_Node000002" title=" " alt="" coords="144,44,143,57,147,68,160,82,177,93,174,98,156,87,142,71,138,57,138,44"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="196,84,179,56,159,33,163,29,183,53,200,82"/>
+<area shape="poly" id="edge3_Node000003_Node000003" title=" " alt="" coords="289,99,301,108,292,116,274,119,274,114,290,111,295,108,286,104"/>
+</map>

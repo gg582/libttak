@@ -1,0 +1,17 @@
+<map id="include/ttak/thread/worker.h" name="include/ttak/thread/worker.h">
+<area shape="rect" id="Node000001" title="Resilient worker&#45;thread wrapper with fault isolation via setjmp." alt="" coords="29,5,173,50"/>
+<area shape="rect" id="Node000002" href="$pthread_8h.html" title="POSIX thread compatibility shim." alt="" coords="35,249,118,277"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="61,53,35,73,15,99,9,117,8,135,17,173,36,207,57,236,52,239,31,210,12,174,3,136,4,116,10,97,31,69,57,48"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="24,98,103,126"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="93,52,78,85,73,82,89,49"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="96,174,167,201"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="108,50,129,158,123,159,102,51"/>
+<area shape="rect" id="Node000005" href="$promise_8h.html" title="One&#45;shot promise for fulfilling a ttak_future_t from a worker thread." alt="" coords="176,98,335,126"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="143,48,219,88,216,93,141,53"/>
+<area shape="poly" id="edge5_Node000005_Node000004" title=" " alt="" coords="235,129,168,168,165,163,232,124"/>
+<area shape="rect" id="Node000006" href="$future_8h.html" title="Simple blocking future for async task result retrieval." alt="" coords="191,174,336,201"/>
+<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="260,126,263,158,258,158,254,127"/>
+<area shape="poly" id="edge7_Node000006_Node000002" title=" " alt="" coords="231,204,125,246,123,241,229,199"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="223,249,304,277"/>
+<area shape="poly" id="edge8_Node000006_Node000007" title=" " alt="" coords="266,202,266,234,261,234,261,202"/>
+</map>

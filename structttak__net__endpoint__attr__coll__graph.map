@@ -1,0 +1,17 @@
+<map id="ttak_net_endpoint_attr" name="ttak_net_endpoint_attr">
+<area shape="rect" id="Node000001" title="Role configuration passed to ttak_net_endpoint_set_role()." alt="" coords="46,376,217,401"/>
+<area shape="rect" id="Node000002" href="$structttak__net__endpoint.html" title="Shared socket wrapper guarded by ttak_io_guard_t and owner policies." alt="" coords="61,288,201,313"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="134,327,134,375,129,375,129,327"/>
+<area shape="poly" id="edge5_Node000002_Node000002" title=" " alt="" coords="216,292,228,301,220,308,202,311,201,306,218,303,223,301,214,297"/>
+<area shape="rect" id="Node000003" href="$structttak__io__guard.html" title="TTL&#45;bounded guard wrapping a file descriptor." alt="" coords="5,198,116,223"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="81,232,124,286,120,289,76,236"/>
+<area shape="rect" id="Node000004" href="$structttak__owner.html" title="The Owner structure." alt="" coords="8,108,103,133"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="60,147,63,197,57,198,54,147"/>
+<area shape="rect" id="Node000005" href="$structttak__map__t.html" title="Map structure using Structure of Arrays (SoA) for cache efficiency." alt="" coords="7,5,103,31"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="58,45,58,108,53,108,53,45"/>
+<area shape="rect" id="Node000006" href="$structttak__net__lattice.html" title="The Lattice (Sanpan) structure." alt="" coords="141,198,265,223"/>
+<area shape="poly" id="edge6_Node000002_Node000006" title=" " alt="" coords="187,236,143,289,139,286,183,232"/>
+<area shape="poly" id="edge8_Node000006_Node000006" title=" " alt="" coords="281,202,292,211,284,219,266,222,265,216,282,214,287,211,278,206"/>
+<area shape="rect" id="Node000007" href="$structttak__net__lattice__slot.html" title="A single data slot in the lattice." alt="" coords="127,108,282,133"/>
+<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="207,147,206,198,201,198,202,147"/>
+</map>

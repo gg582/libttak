@@ -1,0 +1,11 @@
+<map id="include/stdatomic.h" name="include/stdatomic.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="121,5,270,33"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,81,87,109"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="170,36,87,76,85,71,167,31"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="111,81,184,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="189,35,166,69,162,67,185,32"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="208,81,278,109"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="206,32,229,67,224,69,202,35"/>
+<area shape="rect" id="Node000005" href="$pthread_8h.html" title="POSIX thread compatibility shim." alt="" coords="303,81,386,109"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="223,31,306,71,303,76,221,36"/>
+</map>

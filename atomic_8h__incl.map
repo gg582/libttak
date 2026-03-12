@@ -1,0 +1,23 @@
+<map id="include/ttak/atomic/atomic.h" name="include/ttak/atomic/atomic.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="280,5,428,50"/>
+<area shape="rect" id="Node000002" href="$hash_8h.html" title="Low&#45;level open&#45;addressing hash map (SoA layout) with SipHash/wyhash." alt="" coords="122,98,234,126"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="308,53,221,94,219,89,306,48"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,174,76,201"/>
+<area shape="poly" id="edge9_Node000001_Node000003" title=" " alt="" coords="281,40,196,61,152,78,111,100,80,129,57,162,53,159,76,126,108,96,150,73,194,56,279,35"/>
+<area shape="rect" id="Node000007" href="$ttak__compiler_8h.html" title="Compiler&#45;specific macros and compatibility layer." alt="" coords="258,98,450,126"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="356,50,356,82,351,82,351,50"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="474,98,556,126"/>
+<area shape="poly" id="edge10_Node000001_Node000009" title=" " alt="" coords="398,48,477,88,475,93,395,53"/>
+<area shape="rect" id="Node000010" href="$pthread_8h.html" title="POSIX thread compatibility shim." alt="" coords="580,98,664,126"/>
+<area shape="poly" id="edge11_Node000001_Node000010" title=" " alt="" coords="426,48,566,91,565,96,424,53"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="155,129,79,169,77,164,152,124"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="190,249,264,277"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="167,128,142,162,137,181,140,200,158,223,182,240,179,244,155,226,135,202,131,181,137,159,162,124"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="150,174,235,201"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="183,126,190,158,184,159,178,127"/>
+<area shape="rect" id="Node000006" href="$ttak__align_8h.html" title="Alignment utilities and compatibility helpers." alt="" coords="259,174,427,201"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="208,124,301,165,299,170,206,129"/>
+<area shape="poly" id="edge6_Node000006_Node000004" title=" " alt="" coords="324,204,262,243,259,239,321,200"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="451,174,550,201"/>
+<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="381,124,462,164,460,169,379,129"/>
+</map>
